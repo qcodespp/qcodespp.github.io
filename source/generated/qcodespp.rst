@@ -1,6 +1,0 @@
-﻿qcodespp
-========
-
-.. automodule:: qcodespp
-
-   
