@@ -1,18 +1,14 @@
-.. qcodespp documentation master file, created by
-   sphinx-quickstart on Mon Jun  9 17:53:28 2025.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-qcodes++ Documentation
+qcodes++ documentation
 ======================
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
-
+Welcome to the qcodes++ documentation. If you are completely new, jump in `right from the start <getting_started.html>`__. If you have already used QCoDeS, you may want quickly check out the `differences introduced in qcodes++ <differences_from_qcodes.html>`__.
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 3
    :caption: Contents:
 
-   getting_started
+   background
+   installation
+   dummy_measurements
+   offline_plotting
+   differences_from_qcodes
