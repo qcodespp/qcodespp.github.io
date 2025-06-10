@@ -6,9 +6,9 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'qcodespp'
-copyright = '2025, qcodespp'
-author = 'qcodespp'
+project = 'qcodes++'
+copyright = '2025, qcodes++'
+author = 'qcodes++'
 release = '0.1'
 
 # -- General configuration ---------------------------------------------------
@@ -23,7 +23,7 @@ extensions = [
 ]
 
 autoapi_dirs=['C:/git/qcodespp/qcodespp']
-
+autoapi_options=[ 'members', 'undoc-members','show-inheritance', 'show-module-summary', 'special-members', 'imported-members']
 templates_path = ['_templates']
 exclude_patterns = ['_build', '_templates']
 
