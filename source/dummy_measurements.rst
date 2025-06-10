@@ -47,13 +47,13 @@ The dummy instrument has two outputs for providing voltages, and two inputs for 
 
 .. code-block:: python
 
-    instrument.output1(1.0)
+    instrument.output1(1.2)
 
 or
 
 .. code-block:: python
 
-    instrument.output2(1.56)
+    instrument.output2(5.9)
 
 and read the value it is set to by leaving the brackets empty, e.g.
 
@@ -79,6 +79,93 @@ or
 
     instrument.input2()
 
+
 Running a measurement
 ----------------------
-So far no data has been collected; we've just communicated with the instrument. To collect data, we need to create a `Loop` object, which defines the independent parameter(s) that we want to vary. In this case, we will vary the output1 parameter from 0 to 10 volts in steps of 1 volt, and measure the input1 parameter at each step. We can do this by running:
+So far no data has been collected; we've just communicated with the instrument. To collect data, we need to create a `Loop`, which defines the independent parameter(s) that we want to vary. In this case, we will vary the output1 parameter from 0 to 10 volts in steps of 1 volt, and measure both the input1 and input2 parameters at each step. For a simple 1D measurement like this, we can use:
+
+.. code-block:: python
+
+    loop = qc.loop1d(sweep_parameter=instrument.output1,
+                      start=0,stop=10,num=101,delay=0.1,
+                      device_info='test',
+                      params_to_measure=[instrument.input1, instrument.input2])
+
+Here, we have created the object ``loop``. Inside of it, is a DataSetPP object, which will hold the measurements. The details of the DataSetPP are printed. You will see it will be saved in the 'data' folder we specified earlier, and the name of the file includes a counter with a unique number as well as the date and time of the measurement. Also included is the important information about the independent parameter settings. The ``device_info`` parameter is optional, but it is a good idea to include it, as it allows you to easily identify the device used in the measurement later on.
+
+To run the measurement, we can invoke the ``run()`` method of the loop object, and tell it which parameters to plot:
+
+.. code-block:: python
+
+    loop.run([instrument.input1, instrument.input2])
+
+A live plot window will be opened, showing measurements of the two parameters.
+
+**That really is how easy it is to collect data with qcodes++!**
+
+Higher dimensions
+-----------------
+If you want to measure two independent parameters, you can use the ``loop2D`` function. For example, if we want to vary both output1 and output2, we can do:
+
+.. code-block:: python
+
+    loop=qc.loop2d(sweep_parameter=instrument.output1,
+                      start=0,stop=10,num=11,delay=0.1,
+                      step_parameter=instrument.output2,
+                      step_start=0,step_stop=10,step_num=11,step_delay=0.1
+                      device_info='test',
+                    params_to_measure=[instrument.input1, instrument.input2])
+
+This function 'steps' instrument.output2, and at every step, it sweeps instrument.output1, and at each point on that sweep, the parameters in params_to_measure are measured.
+
+Again, we are given information about the DataSetPP, which shows the array shapes are now indeed two dimensional.
+
+Running the measurement is again just
+
+.. code-block:: python
+
+    loop.run([instrument.input1, instrument.input2])
+
+
+Note that in a loop2d, the sweep_parameter jumps from the stop value back to the start value every time the step_parameter is incremented. This may **not** be desired behaviour if your sweep_parameter is a sensitive object, e.g. a gate on a nanoelectronic device. In this case, you have two options. Firstly, you can use the ``loop2dUD`` function, where for each increment of the step_parameter, the sweep_parameter sweeps from start to stop, then from stop to start again. The code is almost identical.
+
+.. code-block:: python
+
+    loop=qc.loop2dUD(sweep_parameter=instrument.output1,
+                      start=0,stop=10,num=11,delay=0.1,
+                      step_parameter=instrument.output2,
+                      step_start=0,step_stop=10,step_num=11,step_delay=0.1
+                      device_info='test',
+                    params_to_measure=[instrument.input1, instrument.input2])
+
+However, you will now see that the dataset contains two lots of data for each parameter, representing the two directions of the sweep parameter's journey.
+
+The other option you have is to turn on the 'snake' behaviour of the loop2d. This alters the direction of the sweep_parameter every alternate step of the step_parameter. This is done by setting the ``snake`` parameter to True:
+
+.. code-block:: python
+
+    loop=qc.loop2d(sweep_parameter=instrument.output1,
+                      start=0,stop=10,num=11,delay=0.1,
+                      step_parameter=instrument.output2,
+                      step_start=0,step_stop=10,step_num=11,step_delay=0.1
+                      device_info='test',
+                      snake=True,
+                    params_to_measure=[instrument.input1, instrument.input2])
+
+Here is a visualisation of the difference between the three types of 2D loops:
+
+.. image:: loop2d.png
+    :alt: Types of 2D loops
+    :align: center
+
+More features
+-------------
+Instead of constantly supplying the params_to_measure to the loops, especially if you have many parameters, which you want to keep identical over many measurements, you can use the station to store default measurement parameters. This is done by running:
+
+.. code-block:: python
+
+    station.set_measurement(instrument.input1, instrument.input2)
+
+Now you do not need to specify the params_to_measure in the loop1d, loop2d, loop2dUD.
+
+There is one more option in loop1d and loop2d we didn't mention, which is the 'instrument_info'. Like the 'device_info', this is a string that will be included in the name of the DataSetPP, and can be used to list information that may not make it into the metadata. This may be e.g. settings on analog pre-amplifiers, or the presence of neutral density filters.

@@ -10,5 +10,10 @@ Welcome to the qcodes++ documentation. If you are completely new, jump in `right
    background
    installation
    dummy_measurements
+   parameters
+   visa
+   data_analysis
    offline_plotting
+   measure
+   advanced
    differences_from_qcodes
