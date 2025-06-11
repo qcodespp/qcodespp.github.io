@@ -1,7 +1,7 @@
 qcodes++ documentation
 ======================
 
-Welcome to the qcodes++ documentation. qcodes++ is a python package to run scientific experiments. qcodes++ is built on top of  `QCoDeS <https://qcodes.github.io/Qcodes/>`__, both preserving old features and extending capabilities.
+qcodes++ (aka qcodespp, qcpp, qc++) is a python package to run scientific experiments. qcodes++ is built on top of `QCoDeS <https://qcodes.github.io/Qcodes/>`__, both preserving old features and extending capabilities.
 
 QCoDeS is a Python-based data acquisition framework developed by the
 Copenhagen / Delft / Sydney / Microsoft quantum computing consortium.
@@ -9,9 +9,9 @@ It contains a huge range of drivers for communicating with instruments,
 and a flexible - but complex - database-based method for collecting data
 and running measurement loops.
 
-This package, qcodes++ (aka qcodespp, qcpp, qc++), provides user-friendly
+The qcodes++ package provides a user-friendly
 frontend to the solid backend of qcodes. If you have always wanted to run 
-your measurements using python but found qcodes too daunting, qcodes++ is 
+your measurements using python but found QCoDeS too daunting, qcodes++ is 
 the package for you. Qcodes++ features
 
 * Text-based data (i.e. readable by e.g. notepad, excel, origin pro, etc)
@@ -21,10 +21,10 @@ the package for you. Qcodes++ features
 * Improved drivers for certain instruments
 * and other user-friendliness improvements outlined in the following.
 
-The source code is available `here <https://github.com/qcodespp/qcodespp>`__.
+The source code is available `here <https://github.com/qcodespp/qcodespp>`__, and the following documentation will guide you on how to quickly and easily start running measurements.
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    :caption: Contents:
 
    background

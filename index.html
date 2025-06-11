@@ -83,15 +83,15 @@
              
   <section id="qcodes-documentation">
 <h1>qcodes++ documentation<a class="headerlink" href="#qcodes-documentation" title="Permalink to this heading"></a></h1>
-<p>Welcome to the qcodes++ documentation. qcodes++ is a python package to run scientific experiments. qcodes++ is built on top of  <a class="reference external" href="https://qcodes.github.io/Qcodes/">QCoDeS</a>, both preserving old features and extending capabilities.</p>
+<p>qcodes++ (aka qcodespp, qcpp, qc++) is a python package to run scientific experiments. qcodes++ is built on top of <a class="reference external" href="https://qcodes.github.io/Qcodes/">QCoDeS</a>, both preserving old features and extending capabilities.</p>
 <p>QCoDeS is a Python-based data acquisition framework developed by the
 Copenhagen / Delft / Sydney / Microsoft quantum computing consortium.
 It contains a huge range of drivers for communicating with instruments,
 and a flexible - but complex - database-based method for collecting data
 and running measurement loops.</p>
-<p>This package, qcodes++ (aka qcodespp, qcpp, qc++), provides user-friendly
+<p>The qcodes++ package provides a user-friendly
 frontend to the solid backend of qcodes. If you have always wanted to run
-your measurements using python but found qcodes too daunting, qcodes++ is
+your measurements using python but found QCoDeS too daunting, qcodes++ is
 the package for you. Qcodes++ features</p>
 <ul class="simple">
 <li><p>Text-based data (i.e. readable by e.g. notepad, excel, origin pro, etc)</p></li>
@@ -101,7 +101,7 @@ the package for you. Qcodes++ features</p>
 <li><p>Improved drivers for certain instruments</p></li>
 <li><p>and other user-friendliness improvements outlined in the following.</p></li>
 </ul>
-<p>The source code is available <a class="reference external" href="https://github.com/qcodespp/qcodespp">here</a>.</p>
+<p>The source code is available <a class="reference external" href="https://github.com/qcodespp/qcodespp">here</a>, and the following documentation will guide you on how to quickly and easily start running measurements.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
@@ -122,11 +122,7 @@ the package for you. Qcodes++ features</p>
 <li class="toctree-l1"><a class="reference internal" href="more_features.html">Commonly used features</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="more_features.html#station-set-measurement">station.set_measurement()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="more_features.html#instrument-info">instrument_info</a></li>
-<li class="toctree-l2"><a class="reference internal" href="more_features.html#other-kinds-of-actions">Other kinds of actions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="more_features.html#tasks">Tasks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="more_features.html#breakif">BreakIf</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="more_features.html#other-kinds-of-actions">Other kinds of actions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="more_features.html#live-plotting">Live plotting</a></li>
 </ul>
 </li>
@@ -148,27 +144,11 @@ the package for you. Qcodes++ features</p>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="offline_plotting.html#basic-plotting">Basic plotting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="offline_plotting.html#plot-types">Plot types</a></li>
-<li class="toctree-l3"><a class="reference internal" href="offline_plotting.html#fitting">Fitting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="offline_plotting.html#filters">Filters</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="offline_plotting.html#linecuts">Linecuts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="offline_plotting.html#fitting-linecuts">Fitting linecuts</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="offline_plotting.html#basic-plotting">Basic plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline_plotting.html#linecuts">Linecuts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="offline_plotting.html#working-with-multiple-files">Working with multiple files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="offline_plotting.html#working-with-an-entire-folder">Working with an entire folder</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="offline_plotting.html#combining-datasets-plots">Combining datasets/plots</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="offline_plotting.html#saving-and-loading">Saving and loading</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="offline_plotting.html#exporting-data-and-filters">Exporting data and filters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="offline_plotting.html#saving-and-loading-appearance-presets">Saving and loading appearance presets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="offline_plotting.html#loading-non-qcodes-data">Loading non-qcodes++ data.</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="offline_plotting.html#working-with-an-entire-folder">Working with an entire folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline_plotting.html#saving-and-loading">Saving and loading</a></li>
 <li class="toctree-l2"><a class="reference internal" href="offline_plotting.html#background">Background</a></li>
 <li class="toctree-l2"><a class="reference internal" href="offline_plotting.html#a-note-about-fitting">A note about fitting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="offline_plotting.html#to-do">TO DO:</a></li>
@@ -189,14 +169,7 @@ the package for you. Qcodes++ features</p>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="autoapi/qcodespp/index.html">qcodespp</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="autoapi/qcodespp/index.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="autoapi/qcodespp/index.html#attributes">Attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="autoapi/qcodespp/index.html#classes">Classes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="autoapi/qcodespp/index.html#functions">Functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="autoapi/qcodespp/index.html#package-contents">Package Contents</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/qcodespp/index.html">qcodespp</a></li>
 </ul>
 </li>
 </ul>
