@@ -1,7 +1,7 @@
 Background
 ==========
 
-The main conceptual components of qcodes are:
+The conceptual components of qcodes are:
 
 1)	Drivers for setting and reading parameters from instruments
 2)	A framework for the storage and organization of data
