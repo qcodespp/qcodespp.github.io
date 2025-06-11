@@ -35,7 +35,7 @@ The process is the same no matter the instrument, or connection type, as long as
 Where are the drivers?
 ----------------------
 
-There are three possible sources for pre-existing instrument drivers; qcodes++, `QCoDeS <https://microsoft.github.io/Qcodes/drivers_api/index.html>`__ and `qcodes_contrib_drivers <https://qcodes.github.io/Qcodes_contrib_drivers/index.html>`__. Look through the instruments available at those links to find the one you're looking for. If you don't have the qcodes_contrib_drivers package installed, you can install it with::
+There are three possible sources for pre-existing instrument drivers; `qcodes++ <https://qcodespp.github.io/autoapi/qcodespp/instrument_drivers/index.html>`__, `QCoDeS <https://microsoft.github.io/Qcodes/drivers_api/index.html>`__ and `qcodes_contrib_drivers <https://qcodes.github.io/Qcodes_contrib_drivers/index.html>`__. Look through the instruments available at those links to find the one you're looking for. If you don't have the qcodes_contrib_drivers package installed, you can install it with::
 
     pip install qcodes_contrib_drivers
 
