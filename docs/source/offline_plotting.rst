@@ -2,6 +2,10 @@
 Offline plotting, a.k.a. InSpectra Gadget
 =========================================
 
+.. image:: IGmain.png
+    :alt: InSpectra Gadget main window
+    :align: center
+
 Offline plotting is opened by running
 ``qcodespp.offline_plotting()`` 
 
@@ -181,6 +185,10 @@ Even though it's totally possible to plot any old irregular and non-monotonic x/
 Linecuts
 --------
 
+.. image:: IGlinecuts.png
+    :alt: InSpectra Gadget linecut window
+    :align: center
+
 - To make a horizontal(vertical) linecut, left-click(middle-click) at the desired location on the plot.
 - You can change the index at which the cut is made, the offset on the y-axis, and the colour of the line.
 - You can add further cuts by clicking again, or manually adding them in the linecut window.
@@ -220,6 +228,12 @@ There are three ways to combine datasets:
 - One 2D dataset and one 1D dataset: Makes it possible to plot lines/points ontop of the 2D dataset. No restriction on dimensions, but only supports one dataset of each type. If you need to add more than one dataset of a particular type, first combine those using one of the previous two options.
 
 The combined datasets are by default not saved to disk! Remember to either save your work or export the data. Similarly to duplicated data, linecuts, fits and (for 1D datasets) the properties of the 1D traces are not carried into the combined data.
+
+To produce the below, the peaks in the previous image were fitted to seven Lorentzians at each temperature. The parameter dependency was generated, and after combining this with the original 2D dataset, the peak centers were plotted ontop of the 2D data.
+
+.. image:: IGcombined.png
+    :alt: InSpectra Gadget combined dataset
+    :align: center
 
 Saving and loading
 ------------------
