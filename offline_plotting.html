@@ -1,0 +1,489 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Offline plotting, a.k.a. InSpectra Gadget &#8212; qcodes++ 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The Measure class" href="measure.html" />
+    <link rel="prev" title="Data loading and analysis" href="data_analysis.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="offline-plotting-a-k-a-inspectra-gadget">
+<h1>Offline plotting, a.k.a. InSpectra Gadget<a class="headerlink" href="#offline-plotting-a-k-a-inspectra-gadget" title="Permalink to this headline">¶</a></h1>
+<p>Offline plotting is opened by running
+<code class="docutils literal notranslate"><span class="pre">qcodespp.offline_plotting()</span></code></p>
+<p>If you have declared <code class="docutils literal notranslate"><span class="pre">qcodespp.set_data_folder('foldername')</span></code>, data from that folder will automatically be opened. Alternatively, you can write <code class="docutils literal notranslate"><span class="pre">qcodespp.offline_plotting(folder=path_to_folder)</span></code> to open a different folder. Otherwise, the initial state is blank.</p>
+<div class="section" id="basic-plotting">
+<h2>Basic plotting<a class="headerlink" href="#basic-plotting" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Load data by clicking the ‘Open File’ button in the top left corner, or by opening/linking a folder (see below).</p></li>
+<li><p>If the data is 1D, a line trace will be plotted, and if it is 2D, it will plot a color plot.</p></li>
+<li><p>Below the ‘Opened files’ box is a table of ‘Settings for Selected File’. For colourplots, the plotted parameters are changed by right-clicking on the relevant value. You can change other appearance settings, with preset values accessible by right-clicking.</p></li>
+<li><p>Immediately above the plot windows are the usual matplotlib tools for panning and zooming. Reset the view with the ‘home’ button.</p></li>
+<li><p>You can also zoom using the mousewheel. Zooming while holding ctrl(shift) zooms only on the x(y) axis.</p></li>
+<li><p>Underneath the plot are settings related to the axes, including the colourbar. You can choose the colourmap type, the range, etc.</p></li>
+<li><p>The colorbar is accompanied by a histogram. To adjust the range of the colorbar, change the limits of the blue shaded region by clicking and dragging.</p></li>
+<li><p>For 1D data, extra options will appear when the file name is clicked. You can add multiple lines from the same dataset to the same plot; change the parameters by right-clicking on the parameter name(s).</p></li>
+<li><p>Linestyle and colour can also be changed by rightclicking.</p></li>
+<li><p>Basic uncertainty plotting is supported for 1D data. For fixed values, enter the value, and for a percentage error enter e.g. ‘10%’. The uncertainties can also be loaded from another column in the dataset by right-clicking on the relevant cell in the table. (see below for how filters (do not) affect uncertainties).</p></li>
+<li><p>You can also perform fits to 1D data (see below)</p></li>
+<li><p>When you are done, you can click ‘Save’ or ‘Copy’ in the top right corner to save or copy the plot as an image. The saved pdfs work very well in Adobe Illustrator.</p></li>
+</ul>
+<div class="section" id="plot-types">
+<h3>Plot types<a class="headerlink" href="#plot-types" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.histogram.html">Histograms</a> and <a class="reference external" href="ahref=https://numpy.org/doc/stable/reference/generated/numpy.fft.rfft.htm">Fast Fourier Transforms (FFTs)</a> of the data can be plotted by selecting the appropriate ‘Plot type’ at the top of the window.</p>
+<ul class="simple">
+<li><p>For histograms, you can choose the number of bins either next to the ‘plot type’ menu (for 2D data) or line-by-line in the Traces table (for 1D data).</p></li>
+<li><p>FFTs are plotted against the <a class="reference external" href="ahref=https://numpy.org/doc/stable/reference/generated/numpy.fft.fftfreq.html">calculated frequencies</a>. For this to be meaningful, the original data must be on an evenly-sampled grid. At current, you will have to interpolate your data to resample it onto an evenly-spaced grid. This may become automatic in future.</p></li>
+</ul>
+</div>
+<div class="section" id="fitting">
+<h3>Fitting<a class="headerlink" href="#fitting" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The fitting is basically a GUI for <a class="reference external" href="ahref=https://lmfit.github.io/lmfit-py/">lmfit</a>, with almost all built-in models implemented. See <a class="reference external" href="ahref=https://lmfit.github.io/lmfit-py/builtin_models.html">here for a description of each model/function</a>.</p></li>
+<li><p>To limit the fitting range, fill out the Xmin and Xmax fields, OR, click twice on the plot area. Lower limit first, upper limit second.</p></li>
+<li><p>You almost always need to provide some ‘Input info’; might be the polynomial order, or the number of peaks to fit. The info is given in the box at the bottom of the window.</p></li>
+<li><p>Optionally, you can provide an initial guess for the fit parameters; see the info box for how to format your inputs correctly. See note about initial guesses and fitting below*</p></li>
+<li><p>If there is not a model suited to your needs, use ‘User input’/’Expression’. <a class="reference external" href="ahref=https://lmfit.github.io/lmfit-py/builtin_models.html#lmfit.models.ExpressionModel">You can input anything you want and fit it!</a></p></li>
+<li><p>The ‘custom’ models include some fits relevant for electron transport, using the basic lmfit Model. If you have a working lmfit Model for a function not included here, send me the code and I’ll implement it.</p></li>
+<li><p>‘Save fit result’ saves the fit result using <code class="docutils literal notranslate"><span class="pre">lmfit.model.save_modelresult</span></code> <a class="reference external" href="https://lmfit.github.io/lmfit-py/model.html#lmfit.model.save_modelresult">(docs)</a>. You can use lmfit.model.load_modelresult(‘file_location’) <a class="reference external" href="https://lmfit.github.io/lmfit-py/model.html#lmfit.model.load_modelresult">(docs)</a> to load the fit result into a notebook for further analysis.</p></li>
+<li><p>You can fit all of the checked lines using the same fitting options using the ‘Fit checked’ button. You can save all the results as lmfit model results (I suggest making a new folder before saving!!).</p></li>
+<li><p>Finally, you can also calculate statistics under ‘fitting’. This isn’t really fitting of course, it just calculates the listed values using the relevant numpy function (i.e. no lmfit involved). The statistics are saved as a .json file.</p></li>
+</ul>
+</div>
+<div class="section" id="filters">
+<h3>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h3>
+<p>‘Filters’ in InSpectra Gadget are simply mathematical operations that can be performed on the data. The filters thus handle everything from applying offsets to any of the axes, to doing numerical differentiation.</p>
+<ul class="simple">
+<li><p>You can add multiple instances of the same filter type, change the order they are applied in and turn them off and on.</p></li>
+<li><p>You can export the data if you need to work with the results in another program/notebook (see below for more).</p></li>
+<li><p>You can also export the filters/settings, and load them later on other datasets.</p></li>
+<li><p>Finally, and importantly, you can ‘send’ the filtered data to the current dataset, to plot it on another axis, or simply use it later.</p></li>
+</ul>
+<p>Each available filter has up to two options (which, since they aren’t listed in the app itself, here they are):</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Filter type</p></th>
+<th class="head"><p>Option 1</p></th>
+<th class="head"><p>Option 2</p></th>
+<th class="head"><p>Info</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.gradient.html">Derivative</a></p></td>
+<td><p>Order in x</p></td>
+<td><p>Order in y</p></td>
+<td><p>n-th derivative in x and/or y</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/2.2/reference/generated/numpy.cumsum.html">Integrate</a></p></td>
+<td><p>Order in x</p></td>
+<td><p>Order in y</p></td>
+<td><p>Numerically integrate (i.e. perform the cumulative sum) n times in x and/or y</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.gaussian_filter.html">Smoothen</a></p></td>
+<td><p>smoothing window in x</p></td>
+<td><p>smoothing window in y</p></td>
+<td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.gaussian_filter.html">Gaussian</a> or <a class="reference external" href="https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter">Link median</a> filtering</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.savgol_filter.html">Link Savitzy-Golay</a></p></td>
+<td><p>smoothing window</p></td>
+<td><p>polynomial order</p></td>
+<td><p>Savitzy-Golay smoothing/filtering applied along one axis</p></td>
+</tr>
+<tr class="row-even"><td><p>Add/Subtract</p></td>
+<td><p>value</p></td>
+<td><p>n/a</p></td>
+<td><p>Add/subtract a fixed value to any axis. Also available by right-clicking on plot area as ‘Offset &lt;axis&gt; by X’. To add/subtract another parameter from the same dataset, right click on the offset value. To subtract, place a ‘-‘ in front of the parameter name.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Multiply</p></td>
+<td><p>multiplication factor</p></td>
+<td><p>n/a</p></td>
+<td><p>X*factor; useful to convert e.g. V to mV. To multiply by another parameter from the same dataset, right click on the value to choose.</p></td>
+</tr>
+<tr class="row-even"><td><p>Divide</p></td>
+<td><p>division factor</p></td>
+<td><p>n/a</p></td>
+<td><p>X/factor. To divide by another parameter from the same dataset, right click on the value to choose.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Add slope</p></td>
+<td><p>value of slope in x</p></td>
+<td><p>value of slope in y</p></td>
+<td><p>Slope is multiplied to x and/or y. Useful to e.g. subtract series resistance</p></td>
+</tr>
+<tr class="row-even"><td><p>Invert</p></td>
+<td><p>n/a</p></td>
+<td><p>n/a</p></td>
+<td><p>perform 1/x, 1/y or 1/z</p></td>
+</tr>
+<tr class="row-odd"><td><p>Normalize</p></td>
+<td><p>x-coordinate of point</p></td>
+<td><p>y-coordinate of point</p></td>
+<td><p>Normalise z-data (or y-data if 1D) to min, max, or specified point</p></td>
+</tr>
+<tr class="row-even"><td><p>Subtract average</p></td>
+<td><p>n/a</p></td>
+<td><p>n/a</p></td>
+<td><p>Subtract average of data from data</p></td>
+</tr>
+<tr class="row-odd"><td><p>Offset line by line</p></td>
+<td><p>index</p></td>
+<td><p>n/a</p></td>
+<td><p>For each line in a 2D dataset, subtract the value at the given index, within that line. Used if you know that the n-th index of each line should be zero.</p></td>
+</tr>
+<tr class="row-even"><td><p>Subtract average line by line</p></td>
+<td><p>n/a</p></td>
+<td><p>n/a</p></td>
+<td><p>For each line in a 2D dataset, subtract the average of values in that line.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Subtract trace</p></td>
+<td><p>index</p></td>
+<td><p>n/a</p></td>
+<td><p>2D data only. Subtract the linetrace at the given index from all other lines in the data.</p></td>
+</tr>
+<tr class="row-even"><td><p>Logarithm</p></td>
+<td><p>base</p></td>
+<td><p>n/a</p></td>
+<td><p>logarithm to base 10, 2 or e (default 10). The Mask, Offset and Abs options deals with negative values. ‘Mask’ ignores them, ‘Offset’ offsets all data by the minimum value in the data, and ‘Abs’ takes the absolute value of the data. Only for z data; for x,y use axis scaling below plot window</p></td>
+</tr>
+<tr class="row-odd"><td><p>Power</p></td>
+<td><p>exponent</p></td>
+<td><p>n/a</p></td>
+<td><p>performs x^exponent</p></td>
+</tr>
+<tr class="row-even"><td><p>Root</p></td>
+<td><p>exponent of the root</p></td>
+<td><p>n/a</p></td>
+<td><p>performs abs(x)^(1/exponent) if exponent&gt;0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Absolute</p></td>
+<td><p>n/a</p></td>
+<td><p>n/a</p></td>
+<td><p>Absolute value of data</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/2.2/reference/generated/numpy.flip.html">Flip</a></p></td>
+<td><p>n/a</p></td>
+<td><p>n/a</p></td>
+<td><p>Flips the data along the x-axis (1D) or y-axis (2D)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/interpolate.html">Interpolate</a></p></td>
+<td><p>number of data points in x</p></td>
+<td><p>number of data points in y</p></td>
+<td><p>Interpolates the data to the given number of points in x and/or y</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/2.2/reference/generated/numpy.roll.html">Roll X</a></p></td>
+<td><p>position</p></td>
+<td><p>amount</p></td>
+<td><p>Rolls the data in x by the given amount, starting at the given position</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/2.2/reference/generated/numpy.roll.html">Roll Y</a></p></td>
+<td><p>position</p></td>
+<td><p>amount</p></td>
+<td><p>Rolls the data in y by the given amount, starting at the given position</p></td>
+</tr>
+<tr class="row-even"><td><p>Crop X</p></td>
+<td><p>Minimum X</p></td>
+<td><p>Maximum X</p></td>
+<td><p>Not just zooming; relevant if e.g. you want to apply a filter only to a section of the data. Available also by right-clicking on the plot window</p></td>
+</tr>
+<tr class="row-odd"><td><p>Crop Y</p></td>
+<td><p>Minimum Y</p></td>
+<td><p>Maximum Y</p></td>
+<td><p>(2D data only) As above</p></td>
+</tr>
+<tr class="row-even"><td><p>Cut X</p></td>
+<td><p>left</p></td>
+<td><p>width</p></td>
+<td><p>Cuts the data in x, starting at the given position and with the given width</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cut Y</p></td>
+<td><p>bottom</p></td>
+<td><p>width</p></td>
+<td><p>Cuts the data in y, starting at the given position and with the given width</p></td>
+</tr>
+<tr class="row-even"><td><p>Swap X/Y</p></td>
+<td><p>n/a</p></td>
+<td><p>n/a</p></td>
+<td><p>Swaps the x and y axes of the data, i.e. plots y as a function of x and vice versa</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Filters and uncertainties</strong></p>
+<p>Since it is extremely non-obvious how various filters may affect uncertainties in different situations, only scalar multiplication and division filters are applied to uncertainties (basically to facilitate unit scaling, e.g. from volt to millivolt). In general, if you are performing any of the above operations, you should re-calculate your uncertainties manually.</p>
+<p><strong>Filters and irregular or non-monotonic x/y</strong></p>
+<p>Even though it’s totally possible to plot any old irregular and non-monotonic x/y/z data (as long as the arrays are of the correct shape), the way that filters are applied often assume at least monotonic x and y. For example, Crop X and Crop Y are based on the <em>array indices</em> not the absolute value on the x or y axis. Similarly, the derivative is only calculated correctly if X (or Y) are regular. If you apply a filter to irregular data, it is worth to peek into the code to see what the filter is actually doing. As time goes on we will try to make the filters more friendly to irregular data.</p>
+</div>
+</div>
+<div class="section" id="linecuts">
+<h2>Linecuts<a class="headerlink" href="#linecuts" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>To make a horizontal(vertical) linecut, left-click(middle-click) at the desired location on the plot.</p></li>
+<li><p>You can change the index at which the cut is made, the offset on the y-axis, and the colour of the line.</p></li>
+<li><p>You can add further cuts by clicking again, or manually adding them in the linecut window.</p></li>
+<li><p>To generate a series of linecuts, specify (the indices) start, end, step and y-axis offset. Use -1 as end index to call the last index. It’s probably not a smart idea to plot every line if you have hundreds of lines; it will use a lot of memory.</p></li>
+<li><p>Once you have your linecuts, you can also apply a colourmap to their linecolors by selecting which colormap to use, how to apply it, and clicking ‘Apply’</p></li>
+<li><p>You can also access the linecuts by right-clicking on the plot area. Here you also have the option to plot ‘diagonal’ linecuts, i.e. cuts along an arbitrary direction in the x-y plane, and circular linecuts.</p></li>
+</ul>
+<div class="section" id="fitting-linecuts">
+<h3>Fitting linecuts<a class="headerlink" href="#fitting-linecuts" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The fitting is almost the same as in the 1D plotting case.</p></li>
+<li><p>An important difference is that you can now Generate a parameter dependency. This file has the value of the parent axis as one column, and all parameters from the lmfit result(s) as the other columns. The file is automatically added to the file list in the main window. You can then plot each fit parameter as a function of the parent parameter.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="working-with-multiple-files">
+<h2>Working with multiple files<a class="headerlink" href="#working-with-multiple-files" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>To open another data file, just click ‘Open File’ again. Data from the new file will be plotted.</p></li>
+<li><p>To see data from both files side-by-side, activate the checkbox next to the original file. You now have two plots!</p></li>
+<li><p>To change the spacing between the plots and the whitespace above and below, use the middle mouse scrolling when hovering over the relevant region.</p></li>
+<li><p>IMPORTANT: To set values such as labels, tick parameters, axis ranges, first either click on the filename corresponding to the plot you want to edit (not the checkbox) or somewhere on the plot area, to bring the correct file/plot/data into focus.</p></li>
+<li><p>To change the order of the plots, you change the order of the files in the list using ‘move up’ and ‘move down’.</p></li>
+<li><p>To add a new plot with different sets of parameters from the <em>same</em> dataset, use the X,Y,(Z) boxes above the plot window and click ‘Add new plot’. This duplicates the file in the file list. You can do this manually by right-clicking on the file and choosing ‘Duplicate’, or with Ctrl+D.</p></li>
+<li><p>Duplicating a file will <em>not</em> carry over any linecuts or fits. It is quite hard to implement. If it <em>really</em> becomes relevant I can look into it.</p></li>
+</ul>
+</div>
+<div class="section" id="working-with-an-entire-folder">
+<h2>Working with an entire folder<a class="headerlink" href="#working-with-an-entire-folder" title="Permalink to this headline">¶</a></h2>
+<p>You can open data from an entire folder in two ways.</p>
+<ul class="simple">
+<li><p>You can select ‘Open Folder’ and choose the relevant folder. This will load the list of all the datasets found in that folder <em>and all sub-folders</em>. The data itself will not be loaded until you click the checkbox to plot it. This is because the data gets loaded into memory, which <em>might</em> start to affect your computer’s performance. However, unchecking a file does <em>not</em> free up memory. ‘Remove file’ and ‘Clear list’ <em>should</em> do it, but this is hard to troubleshoot. Certainly refreshing the kernel works.</p></li>
+<li><p>You can also ‘link’ to a folder with ongoing measurements by clicking ‘Link Folder’. Initially this will perform the same action as ‘Open Folder’, but now when you click ‘Refresh’, any new data will be added automatically to the list of Opened Files. (If you enable ‘Track data’ for the linked folder, on-going measurements will be tracked, with an update period of 30s. However, it’s really not recommended because the data has to be read from disk, which can be disruptive, and will inevitably eat up all your memory. It is much better to rely on <code class="docutils literal notranslate"><span class="pre">qcodespp.live_plot()</span></code> for live plotting, which goes to great pains to avoid these pitfalls.)</p></li>
+</ul>
+<div class="section" id="combining-datasets-plots">
+<h3>Combining datasets/plots<a class="headerlink" href="#combining-datasets-plots" title="Permalink to this headline">¶</a></h3>
+<p>There are three ways to combine datasets:</p>
+<ul class="simple">
+<li><p>1D data: an arbitrary number of datasets can be combined; all parameters from all datasets are available for plotting. It will not be possible to plot parameters from different datasets against each other unless the arrays have the same length.</p></li>
+<li><p>2D data: an arbitrary number of datasets can be stacked along the x-axis. The number of parameters and their names must be the same, and the y-axis dimension must be the same for all datasets. Any other situation would require interpolating along the y-axis; you should do this manually and then load the file (see below for how to prepare non-qcodes++ data)</p></li>
+<li><p>One 2D dataset and one 1D dataset: Makes it possible to plot lines/points ontop of the 2D dataset. No restriction on dimensions, but only supports one dataset of each type. If you need to add more than one dataset of a particular type, first combine those using one of the previous two options.</p></li>
+</ul>
+<p>The combined datasets are by default not saved to disk! Remember to either save your work or export the data. Similarly to duplicated data, linecuts, fits and (for 1D datasets) the properties of the 1D traces are not carried into the combined data.</p>
+</div>
+</div>
+<div class="section" id="saving-and-loading">
+<h2>Saving and loading<a class="headerlink" href="#saving-and-loading" title="Permalink to this headline">¶</a></h2>
+<p>The entire state of the program can be saved in .igs format. Including linecuts, fits, etc etc.</p>
+<div class="section" id="exporting-data-and-filters">
+<h3>Exporting data and filters<a class="headerlink" href="#exporting-data-and-filters" title="Permalink to this headline">¶</a></h3>
+<p>If you need to do further analysis in another program/notebook, you can export the data in the ‘Export processed data’ menu. You can save in .dat, .csv or .json format. Note that for 1D data the .dat format is quite limiting, since numpy dat files do not support arrays of different lengths. Therefore fit lines are not exported, and in general combined 1D data files will not work. However, both features are supported by .csv and .json. For python, I recommend a json, because it can be easily loaded as a python dictionary:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">json</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;filename.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="saving-and-loading-appearance-presets">
+<h3>Saving and loading appearance presets<a class="headerlink" href="#saving-and-loading-appearance-presets" title="Permalink to this headline">¶</a></h3>
+<p>You can save the current state of the appearance settings from the ‘Presets’ menu.</p>
+</div>
+<div class="section" id="loading-non-qcodes-data">
+<h3>Loading non-qcodes++ data.<a class="headerlink" href="#loading-non-qcodes-data" title="Permalink to this headline">¶</a></h3>
+<p>To load data that wasn’t taken by qcodes++, you will need to make sure it has the right shape, and is saved in numpy .dat format. For 1D data, this is a series of columns of equal length. The first column should contain the independent variable. Numpy genfromtxt is a bit funny; sometimes it will interpret the data to be transposed to your intention. If this is the case, and e.g. you get 300 columns and 4 rows when you should have 4 columns and 300 rows, set ‘transpose’ to True under ‘Settings for Selected File’. The program will re-import the data and swap the meaning of rows and columns.</p>
+<p>For 2D data, again the data should be numpy .dat, with the number of columns being the number of parameters. The independent parameters should be in the first and second columns. A basic example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>   <span class="mf">0.1</span>     <span class="mf">1.2</span>
+<span class="mi">0</span>   <span class="mf">0.2</span>     <span class="mf">1.3</span>
+<span class="mi">0</span>   <span class="mf">0.3</span>     <span class="mf">1.4</span>
+<span class="mi">0</span>   <span class="mf">0.4</span>     <span class="mf">1.5</span>
+<span class="mi">0</span>   <span class="mf">0.5</span>     <span class="mf">1.6</span>
+<span class="mi">1</span>   <span class="mf">0.1</span>     <span class="mf">1.4</span>
+<span class="mi">1</span>   <span class="mf">0.2</span>     <span class="mf">1.5</span>
+<span class="mi">1</span>   <span class="mf">0.3</span>     <span class="mf">1.6</span>
+<span class="mi">1</span>   <span class="mf">0.4</span>     <span class="mf">1.7</span>
+<span class="mi">1</span>   <span class="mf">0.5</span>     <span class="mf">1.8</span>
+<span class="mi">2</span>   <span class="mf">0.1</span>     <span class="mf">1.6</span>
+<span class="mi">2</span>   <span class="mf">0.2</span>     <span class="mf">1.7</span>
+<span class="mi">2</span>   <span class="mf">0.3</span>     <span class="mf">1.8</span>
+<span class="mi">2</span>   <span class="mf">0.4</span>     <span class="mf">1.9</span>
+<span class="mi">2</span>   <span class="mf">0.5</span>     <span class="mf">2.0</span>
+</pre></div>
+</div>
+<p>The program knows the data is 2D purely by the fact that the first two values in the first column are identical.</p>
+<p>By contrast, the below is interpreted as 1D data since the first two values in the first column are different:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.5</span>     <span class="mf">0.1</span>     <span class="mf">1.2</span>
+<span class="mf">0.45</span>    <span class="mf">0.2</span>     <span class="mf">1.3</span>
+<span class="mf">0.4</span>     <span class="mf">0.3</span>     <span class="mf">1.4</span>
+<span class="mf">0.35</span>    <span class="mf">0.4</span>     <span class="mf">1.5</span>
+<span class="mf">0.3</span>     <span class="mf">0.5</span>     <span class="mf">1.6</span>
+<span class="mf">0.25</span>    <span class="mf">0.1</span>     <span class="mf">1.4</span>
+<span class="mf">0.2</span>     <span class="mf">0.2</span>     <span class="mf">1.5</span>
+<span class="mf">0.15</span>    <span class="mf">0.3</span>     <span class="mf">1.6</span>
+<span class="mf">0.1</span>     <span class="mf">0.4</span>     <span class="mf">1.7</span>
+</pre></div>
+</div>
+<p>To automatically name the columns, you can use a numpy header, i.e. start the first line with ‘#’ and list the parameters:</p>
+<p><code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Voltage</span> <span class="pre">Temperature</span> <span class="pre">Conductance</span></code></p>
+<p>The default delimiter is any white space. If necessary, specify the delimiter under ‘Settings for Selected File’ to reload the data with the appropriate delimiter.</p>
+<p>It’s really hard (impossible) to ensure that all data can be loaded well. All 1D and 2D qcodes++ data, as well as any files produced by the offline plotting should load correctly; unfortunately I can’t really guarantee anything else but can perhaps help a little if you reach out.</p>
+</div>
+</div>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>The offline plotting interface was largely developed by Joeri de Bruijckere with the excellent name InSpectra Gadget (because it excels at visualising bias spectroscopy data). Matplotlib is used as the backend, in contrast to live plotting, which is based on pyqtgraph. As such, offline plotting is more powerful, with many built-in functions like peak fitting and taking numerical derivatives of two-dimensional datasets. However, since matplotlib is powerful, it is also big and bulky, and doesn’t track data well; hence using pyqtgraph for live plotting. Both plotting methods have the downside that they only accept rectangular arrays as data. For more complex dataset, you need to write your own code, or reshape the data. The offline plotting module might even crash if it gets data that it does not like. In general there are more bugs in the offline plotting, since it is more complicated/powerful, but we are always working to resolve them.</p>
+</div>
+<div class="section" id="a-note-about-fitting">
+<h2>A note about fitting<a class="headerlink" href="#a-note-about-fitting" title="Permalink to this headline">¶</a></h2>
+<p>Fitting real data to the ideal of an analytical expression is fraught with danger. Curve fitting works by minimising the difference between the values in the real data, and the values produced by an analytical equation. For functions with many parameters, there can be many points in the parameter space where a good fit can be made. That is, local minima exist and can potentially be found by the sitting software, meaning <em>the fit may return non-physical values</em>. This is especially true to the least-squares method of fitting, which is used by lmfit (and this software) by default. This is why providing a good, physical initial guess is very important; it increases the chance of finding the ‘right’ local minima. For simple analytical functions it’s usually reasonably obvious what the parameters might be. Therefore, if you don’t provide an initial guess, an initial guess is provided either by the built-in lmfit estimates or by estimates that I (Damon) made up. Usually they’re pretty good guesses but <em>do not trust them</em>. You must check to see if the fitted values are sensible and adjust the initial guesses if not.</p>
+<p>Finally, and very importantly!!: The ability to <em>constrain</em> fit parameters is (currently) unavailable in this software, but can be extremely important in fits with lots of parameters. If you have more than 5 fit parameters, I strongly suggest you do NOT use this software to fit your data. Fitting such complicated data is non-trivial, and you should really spend the time to carefully construct a custom fitting procedure using lmfit, sherpa or miniut.</p>
+</div>
+<div class="section" id="to-do">
+<h2>TO DO:<a class="headerlink" href="#to-do" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>MixedInternalData: don’t update view settings when applying filters to 1D data</p></li>
+<li><p>Saving/loading: Check like everything… like axis limits, scaling, font sizes, linewidths, all that.</p></li>
+<li><p>Make scrolling through diagonal linecuts faster</p></li>
+<li><p>Loading of data files… try to get better at getting the orientation right. There must be a pattern.</p></li>
+<li><p>Work out good estimates for the fourth and fifth parameters in peak fitting.</p></li>
+<li><p>Click to estimate peak height/position.</p></li>
+<li><p>Include specialised fits. Could also allow other kind of backgrounds for peak fitting. Damped oscillator, i.e. Qubit relevant: Rabi, Ramsey, T_echo.</p></li>
+<li><p>Do not populate 2D-exclusive filters and properties for 1D data.</p></li>
+<li><p>Enable .json imports; basically will be baseclassdata but just redefine the functions that work out the data dimension and make the data_dict.</p></li>
+<li><p>Option to plot X data as average of each line, if need be. Useful for fitting series.</p></li>
+<li><p>Single-axis scrolling as in pyqtplot</p></li>
+<li><p>More advanced preset import/export; user can choose what they want to save/load</p></li>
+<li><p>Fix circular linecuts</p></li>
+<li><p>diagonal linecuts should be moveable easily. Can work out equation of line between the points obviously, so no reason can’t click and drag it.</p></li>
+<li><p>duplicate for diagonal linecuts would be quite useful.</p></li>
+<li><p>Make it so that if a user edits the default labels they become fixed, and don’t change when changing plot_type. Or, if they edit the label, it gets transferred as a new default label that doesn’t change. Maybe. I’m not sure.</p></li>
+<li><p>Make cropX and cropY work for non-regular X/Y. perhaps go through <em>everything</em> and make sure it’s all working nicely with non-regular X/Y</p></li>
+<li><p>Icon</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">qcodes++</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">More about Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Offline plotting, a.k.a. InSpectra Gadget</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-plotting">Basic plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#plot-types">Plot types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fitting">Fitting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filters">Filters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#linecuts">Linecuts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fitting-linecuts">Fitting linecuts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-multiple-files">Working with multiple files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-an-entire-folder">Working with an entire folder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#combining-datasets-plots">Combining datasets/plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#saving-and-loading">Saving and loading</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#exporting-data-and-filters">Exporting data and filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#saving-and-loading-appearance-presets">Saving and loading appearance presets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loading-non-qcodes-data">Loading non-qcodes++ data.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-note-about-fitting">A note about fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#to-do">TO DO:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="data_analysis.html" title="previous chapter">Data loading and analysis</a></li>
+      <li>Next: <a href="measure.html" title="next chapter">The Measure class</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2025, qcodes++.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/offline_plotting.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

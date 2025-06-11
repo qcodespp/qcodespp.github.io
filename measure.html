@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>The Measure class &#8212; qcodes++ 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Advanced use of Loop" href="advanced.html" />
+    <link rel="prev" title="Offline plotting, a.k.a. InSpectra Gadget" href="offline_plotting.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="the-measure-class">
+<h1>The Measure class<a class="headerlink" href="#the-measure-class" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">Measure</span></code> is used to measure a set of parameters at a single point in time. The typical use case is where the parameter(s)’s get function(s) return(s) an array, e.g. an oscilloscope trace, or a spectrum analyser trace. At init, you can provide the parameters to measure and (optionally) setpoints. If no parameters are
+provided, the default station.measure() is used. If no setpoints are provided, dummy setpoints are created for each dimension found in the parametersn (recommended, see below). <code class="docutils literal notranslate"><span class="pre">Measure.run()</span></code> will execute the measurement, and return and save a <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code></p>
+<p>Examples:</p>
+<p>Measure two parameters:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station</span><span class="o">.</span><span class="n">set_measurement</span><span class="p">(</span><span class="n">array_param1</span><span class="p">,</span> <span class="n">array_param2</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">Measure</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Name for dataset filename&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Measure two parameters twice, changing some value in between:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station</span><span class="o">.</span><span class="n">set_measurement</span><span class="p">(</span><span class="n">array_param1</span><span class="p">,</span> <span class="n">array_param2</span><span class="p">)</span>
+<span class="n">measure</span> <span class="o">=</span> <span class="n">Measure</span><span class="p">()</span>
+<span class="n">data</span><span class="o">=</span><span class="n">measure</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;instrument parameter value = 0&#39;</span><span class="p">)</span>
+<span class="n">instrument</span><span class="o">.</span><span class="n">some_parameter</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>  <span class="c1"># Set some parameter to a value</span>
+<span class="n">data</span><span class="o">=</span><span class="n">measure</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;instrument parameter value = 1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Iteratively:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station</span><span class="o">.</span><span class="n">set_measurement</span><span class="p">(</span><span class="n">array_param1</span><span class="p">,</span> <span class="n">array_param2</span><span class="p">)</span>
+<span class="n">measure</span> <span class="o">=</span> <span class="n">Measure</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">instrument</span><span class="o">.</span><span class="n">some_parameter</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># Set some parameter to a value</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">measure</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;iteration </span><span class="si">{i}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And of course if the parameters return 1D or 2D rectangular arrays, you can plot the results using</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pp</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">live_plot</span><span class="p">(</span><span class="n">data</span><span class="p">,[</span><span class="n">data</span><span class="o">.</span><span class="n">array_param1</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">array_param2</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Note that the above can also be done within a <code class="docutils literal notranslate"><span class="pre">Loop</span></code>. The <code class="docutils literal notranslate"><span class="pre">Loop</span></code> class is smart enough to work out what the dimensions of the data will be, and create an array in the <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> of the correct shape. The downside is that these higher dimensional data sets then don’t play nice with default plotting, meaning you will always have to plot them manually.</p>
+<div class="section" id="setpoints">
+<h2>Setpoints<a class="headerlink" href="#setpoints" title="Permalink to this headline">¶</a></h2>
+<p>Elements in a <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> can either be <code class="docutils literal notranslate"><span class="pre">setpoints</span></code> or <code class="docutils literal notranslate"><span class="pre">measured</span></code>, and each <code class="docutils literal notranslate"><span class="pre">measured</span></code> element must have corresponding <code class="docutils literal notranslate"><span class="pre">setpoints</span></code> with the correct dimensions. In the case of <code class="docutils literal notranslate"><span class="pre">Loop</span></code>, the setpoints are automatically generated based on the sweep parameters, and the measured data is automatically assigned to the correct setpoints. For <code class="docutils literal notranslate"><span class="pre">Measure</span></code>, this has no obvious meaning. By default, each measured element gets associated with setpoints that are simply the indices of the measured data, i.e. for a measured element with shape (10,), the setpoints will be (0, 1, 2, …, 9). Therefore, it’s usually much more interesting to plot two measured elements against each other, rather than against the default setpoints.</p>
+<p>For example, if you measure the x-axis and y-axis of an oscilloscope trace, you can do:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station</span><span class="o">.</span><span class="n">set_measurement</span><span class="p">(</span><span class="n">oscilloscope</span><span class="o">.</span><span class="n">x_axis</span><span class="p">,</span><span class="n">oscilloscope</span><span class="o">.</span><span class="n">y_axis</span><span class="p">)</span>
+<span class="n">measure</span> <span class="o">=</span> <span class="n">Measure</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;dummy_name&#39;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">measure</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">pp</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">live_plot</span><span class="p">()</span>
+<span class="n">pp</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">oscilloscope_x_axis</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">oscilloscope_y_axis</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Oscilloscope trace&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;oscilloscope_trace&#39;</span><span class="p">,</span> <span class="n">subplot</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Optionally, one can provide <code class="docutils literal notranslate"><span class="pre">setpoints</span></code> to the <code class="docutils literal notranslate"><span class="pre">Measure</span></code> class, which has the disadvantage of being tricky to set up, but the advantage that if you do set it up correctly, <code class="docutils literal notranslate"><span class="pre">live_plot</span></code> will detect the axes automatically. A measured element with shape (10,) must have a corresponding setpoint with shape (10,), and a measured element with shape (10, 5) must have two corresponding setpoints: one with shape (10, 5) and a second with shape (10,). If you are familiar with the <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> objects generated by the <code class="docutils literal notranslate"><span class="pre">Loop</span></code> class, hopefully this system will also be familiar.</p>
+<p>Examples of using setpoints:</p>
+<p>For measuring a set of parameters with a shape of (101,):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">setpoints</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">101</span><span class="p">)</span>
+<span class="n">measure</span> <span class="o">=</span> <span class="n">Measure</span><span class="p">(</span><span class="n">setpoints</span><span class="o">=</span><span class="p">[</span><span class="n">setpoints</span><span class="p">],</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;dummy_name&#39;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">measure</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The setpoints can also be a <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> which returns an array of the correct shape. Taking the oscilloscope example from above, you can also do:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station</span><span class="o">.</span><span class="n">set_measurement</span><span class="p">(</span><span class="n">oscilloscope</span><span class="o">.</span><span class="n">y_axis</span><span class="p">)</span>
+<span class="n">setpoints</span><span class="o">=</span><span class="n">oscilloscope</span><span class="o">.</span><span class="n">x_axis</span>
+<span class="n">measure</span> <span class="o">=</span> <span class="n">Measure</span><span class="p">(</span><span class="n">setpoints</span><span class="o">=</span><span class="p">[</span><span class="n">setpoints</span><span class="p">],</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;dummy_name&#39;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">measure</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">pp</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">live_plot</span><span class="p">(</span><span class="n">data</span><span class="p">,[</span><span class="n">data</span><span class="o">.</span><span class="n">oscilloscope_y_axis</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>and the two axes will be plotted against each other correctly.</p>
+<p>However, <strong>please note that you can just as easily simply measure both parameters as measured elements, let the automatic setpoints be created, and then plot the data manually</strong>. This is the recommended way to do it, as it is much less error-prone.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">qcodes++</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">More about Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The Measure class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setpoints">Setpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="offline_plotting.html" title="previous chapter">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+      <li>Next: <a href="advanced.html" title="next chapter">Advanced use of Loop</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2025, qcodes++.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/measure.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

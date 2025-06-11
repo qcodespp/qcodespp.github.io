@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>More about Parameters &#8212; qcodes++ 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Connecting to actual instruments" href="visa.html" />
+    <link rel="prev" title="Commonly used features" href="more_features.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="more-about-parameters">
+<h1>More about Parameters<a class="headerlink" href="#more-about-parameters" title="Permalink to this headline">¶</a></h1>
+<p>Parameters are the main way to interact with instruments in qcodes++. They represent a single value that can be set or read from an instrument. Parameters can be simple, like a voltage or current, or more complex, like a waveform or a list of values. Either way, they are more than just a number; the have units, labels and other properties that help to keep track of what they represent.</p>
+<div class="section" id="custom-parameters">
+<h2>Custom parameters<a class="headerlink" href="#custom-parameters" title="Permalink to this headline">¶</a></h2>
+<p>An incredibly common task is to perform mathematical operations on parameters, e.g. dividing a voltage by a current to get a resistance. However, one cannot simply multiply or divide parameters, since they are not just numbers, but objects with properties. Your computer has no way of knowing that if you divide a voltage by a current, you should get a resistance with unit Ohm. Instead, you can create a new parameter that is defined as a function of other parameters, where you can give it all this information. For example, to create a resistance parameter from a two Parameters named voltage and current, you can do:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">resistance</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;resistance&#39;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;Ohm&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Resistance&#39;</span><span class="p">,</span>
+                          <span class="n">get_cmd</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">voltage</span><span class="p">()</span> <span class="o">/</span> <span class="n">current</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>where <a class="reference external" href="https://docs.python.org/3/reference/expressions.html#lambda">lambda</a> is a way to define a very simple function in python.</p>
+<p>The more long form way to it (assuming now the voltage and current measurements come from different instruments) would be:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_resistance</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">instrument1</span><span class="o">.</span><span class="n">voltage</span><span class="p">()</span> <span class="o">/</span> <span class="n">instrument2</span><span class="o">.</span><span class="n">current</span><span class="p">()</span>
+
+<span class="n">resistance</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;resistance&#39;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;Ohm&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Resistance&#39;</span><span class="p">,</span>
+                          <span class="n">get_cmd</span><span class="o">=</span><span class="n">get_resistance</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In both cases, we can see the parameter has a name, a unit, a label, and a get_cmd that defines how to get the value of the parameter. Parameters also accept a <code class="docutils literal notranslate"><span class="pre">set_cmd</span></code> argument, which defines how to set the value of the parameter, if relevant.</p>
+<p>Defining custom get commands can also enable us to do things like averaging, filtering, or any other operation that is not directly supported by the instrument. e.g.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="k">def</span> <span class="nf">get_average_voltage</span><span class="p">():</span>
+    <span class="c1"># Average as many readings as possible over 1 second</span>
+    <span class="n">voltages</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">while</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">voltages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">instrument1</span><span class="o">.</span><span class="n">voltage</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">voltages</span><span class="p">)</span>
+
+<span class="n">average_voltage</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;average_voltage&#39;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Average Voltage&#39;</span><span class="p">,</span>
+                               <span class="n">get_cmd</span><span class="o">=</span><span class="n">get_average_voltage</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For the special case of a scaling a parameter, there is <code class="docutils literal notranslate"><span class="pre">qc.ScaledParameter</span></code>, which accepts a base parameter and a scaling factor:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scaled_voltage</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">ScaledParameter</span><span class="p">(</span><span class="n">instrument1</span><span class="o">.</span><span class="n">voltage</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;scaled_voltage&#39;</span><span class="p">,</span> <span class="n">gain</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span>
+                                    <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;uV&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Scaled Voltage&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="moving-parameters">
+<h2>‘Moving’ Parameters<a class="headerlink" href="#moving-parameters" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes you want to sweep a parameter without taking data. This is Useful if you want to set a sensitive parameter, e.g. a gate voltage, where using <code class="docutils literal notranslate"><span class="pre">.set()</span></code> could damage the sample. For this you can use</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameter</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">end_value</span><span class="p">,</span><span class="n">steps</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span><span class="n">step_time</span><span class="o">=</span><span class="mf">0.03</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>for example</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">k2400</span><span class="o">.</span><span class="n">volt</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">steps</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span><span class="n">step_time</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or if you are happy with the default step number (101) and time (0.03 s), simply</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">k2400</span><span class="o">.</span><span class="n">volt</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="o">-</span><span class="mf">0.25</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="multiparameter-and-multiparameterwrapper">
+<h2>MultiParameter and MultiParameterWrapper<a class="headerlink" href="#multiparameter-and-multiparameterwrapper" title="Permalink to this headline">¶</a></h2>
+<p>MultiParameterWrapper enables easily setting, getting and sweeping multiple parameters. It is an extension of the MultiParameter from QCoDeS. To define it, simply provide a list of pre-existing parameters.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">multi</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">MultiParameterWrapper</span><span class="p">((</span><span class="n">parameter1</span><span class="p">,</span><span class="n">parameter2</span><span class="p">,</span><span class="n">parameter3</span><span class="p">),</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;multi&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can get as usual with multi(), which will return the values for all of the parameters. To set, you can either provide the same number of values as the number of parameters, e.g. multi((0.1,490,5.6)), or a single value to set all contained parameters to the same value, e.g. multi(0)</p>
+<p>To use it in a loop is just like for the standard Parameter except with multiple start and stop values corresponding to each parameter:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">loop</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">loop1d</span><span class="p">(</span><span class="n">sweep_param</span><span class="o">=</span><span class="n">multi</span><span class="p">,</span>
+                <span class="n">start</span><span class="o">=</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">),</span><span class="n">stop</span><span class="o">=</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Z</span><span class="p">),</span><span class="n">num</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span><span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+                <span class="n">name</span><span class="o">=</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or if you want to sweep all contained parameters across the same values just provide a single value to each of start and stop.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">loop</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">loop1d</span><span class="p">(</span><span class="n">sweep_param</span><span class="o">=</span><span class="n">multi</span><span class="p">,</span>
+                <span class="n">start</span><span class="o">=</span><span class="n">X</span><span class="p">,</span><span class="n">stop</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span><span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+                <span class="n">name</span><span class="o">=</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the case that each parameter is sweeping different values, the resulting data.multi array will contain values from 0 to num-1, not the specified setpoints!! However, the parameters declared in MultiParameterWrapper will automatically be measured, meaning you will always know what the parameters were really doing, and can of course plot them.</p>
+<p>One can also move the parameters</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">multi</span><span class="o">.</span><span class="n">move</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">4.5</span><span class="p">),</span><span class="n">steps</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span><span class="n">step_time</span><span class="o">=</span><span class="mf">0.03</span><span class="p">)</span>
+<span class="n">multi</span><span class="o">.</span><span class="n">move</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">4.5</span><span class="p">))</span>
+<span class="n">multi</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you provide a single value, all parameters will be moved to that single value. The parameters move sequentially, not simultaneously (in contrast to sweep where they move ‘simultaneously’)</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">qcodes++</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_features.html">Commonly used features</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">More about Parameters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#custom-parameters">Custom parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#moving-parameters">‘Moving’ Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multiparameter-and-multiparameterwrapper">MultiParameter and MultiParameterWrapper</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="more_features.html" title="previous chapter">Commonly used features</a></li>
+      <li>Next: <a href="visa.html" title="next chapter">Connecting to actual instruments</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2025, qcodes++.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/parameters.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

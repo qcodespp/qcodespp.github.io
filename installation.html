@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Installation &#8212; qcodes++ 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Getting started" href="dummy_measurements.html" />
+    <link rel="prev" title="Background" href="background.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installing-python">
+<h2>Installing python<a class="headerlink" href="#installing-python" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> is a popular programming language that is known for being intuitive and easy to learn. The standard python libraries cover a huge range of programming tasks, but what really makes python popular is the ability to easily create and add packages, which provide additional capabilities. For example, the scipy package contains scientific features such as least squares fitting, and the matplotlib package can be used to generate publication-quality figures.</p>
+<p>QCoDeS and qcodes++ operate within python and need a working python installation to run. The recommended way to install python is via <a class="reference external" href="https://www.anaconda.com/products/distribution">Anaconda</a> or <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">miniconda</a>, which provides a framework and tools for managing python packages. An important feature of Anaconda and miniconda is that they allow you to create isolated environments, which means you can have different versions of python and different sets of packages installed in each environment. This is very useful for avoiding conflicts between packages, and for keeping your main python installation clean.</p>
+</div>
+<div class="section" id="installing-qcodes">
+<h2>Installing qcodes++<a class="headerlink" href="#installing-qcodes" title="Permalink to this headline">¶</a></h2>
+<p>After you have installed python using Anaconda or miniconda, you can create a new environment by opening the Anaconda prompt (or your terminal if you are using miniconda) and running the following command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">-n</span> <span class="pre">qcodespp</span> <span class="pre">python</span></code></p>
+<p>Then activate the environment:</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">qcodespp</span></code></p>
+<p>and finally, install qcodes++:</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">qcodespp</span></code></p>
+<p>You can now run qcodes++ in a Jupyter notebook by starting Jupyter lab:</p>
+<p><code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code></p>
+<p>Continue with the <a class="reference external" href="dummy_measurements.html">getting started</a> tutorial to learn how to use qcodes++.
+Remember to activate the qcodespp environment before starting Jupyter lab.</p>
+</div>
+<div class="section" id="additionally">
+<h2>Additionally…<a class="headerlink" href="#additionally" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>If you are going to use VISA instruments (e.g. ones that communicate via GPIB, USB, RS232) you should install the NI VISA and GPIB(488.2) backends from the National Instruments website <a class="reference external" href="https://www.ni.com/en/support/downloads/drivers/download.ni-visa.html">here</a> and <a class="reference external" href="https://www.ni.com/en/support/downloads/drivers/download.ni-488-2.html">here</a>.</p></li>
+<li><p>If the qcodes install fails, you may need to install <a class="reference external" href="https://visualstudio.microsoft.com/downloads/">Visual Studio C++ build tools.</a>. After following the link, go to <em>Tools for Visual Studio</em> and then <em>Build Tools for Visual Studio</em>.</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">qcodes++</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="background.html">Background</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installing-python">Installing python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-qcodes">Installing qcodes++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#additionally">Additionally…</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">More about Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="background.html" title="previous chapter">Background</a></li>
+      <li>Next: <a href="dummy_measurements.html" title="next chapter">Getting started</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2025, qcodes++.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/installation.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

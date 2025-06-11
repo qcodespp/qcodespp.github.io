@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>qcodes++ documentation &#8212; qcodes++ 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Background" href="background.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="qcodes-documentation">
+<h1>qcodes++ documentation<a class="headerlink" href="#qcodes-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to the qcodes++ documentation. If you are completely new, jump in <a class="reference external" href="getting_started.html">right from the start</a>. If you have already used QCoDeS, you may want quickly check out the <a class="reference external" href="differences_from_qcodes.html">differences introduced in qcodes++</a>.</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installing-python">Installing python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installing-qcodes">Installing qcodes++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#additionally">Additionally…</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dummy_measurements.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dummy_measurements.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dummy_measurements.html#getting-and-setting-parameters">Getting and setting parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dummy_measurements.html#running-a-measurement">Running a measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dummy_measurements.html#higher-dimensions">Higher dimensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="more_features.html">Commonly used features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="more_features.html#station-set-measurement">station.set_measurement()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="more_features.html#instrument-info">instrument_info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="more_features.html#other-kinds-of-actions">Other kinds of actions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="more_features.html#tasks">Tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="more_features.html#breakif">BreakIf</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="more_features.html#live-plotting">Live plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">More about Parameters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html#custom-parameters">Custom parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html#moving-parameters">‘Moving’ Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html#multiparameter-and-multiparameterwrapper">MultiParameter and MultiParameterWrapper</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="visa.html">Connecting to actual instruments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="visa.html#where-are-the-drivers">Where are the drivers?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visa.html#how-do-i-know-which-features-an-instrument-has">How do I know which features an instrument has?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visa.html#writing-your-own-driver">Writing your own driver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_analysis.html#loading-data">Loading data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_analysis.html#plotting-and-analysis">Plotting and analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="offline_plotting.html#basic-plotting">Basic plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="offline_plotting.html#plot-types">Plot types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="offline_plotting.html#fitting">Fitting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="offline_plotting.html#filters">Filters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="offline_plotting.html#linecuts">Linecuts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="offline_plotting.html#fitting-linecuts">Fitting linecuts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="offline_plotting.html#working-with-multiple-files">Working with multiple files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline_plotting.html#working-with-an-entire-folder">Working with an entire folder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="offline_plotting.html#combining-datasets-plots">Combining datasets/plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="offline_plotting.html#saving-and-loading">Saving and loading</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="offline_plotting.html#exporting-data-and-filters">Exporting data and filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="offline_plotting.html#saving-and-loading-appearance-presets">Saving and loading appearance presets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="offline_plotting.html#loading-non-qcodes-data">Loading non-qcodes++ data.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="offline_plotting.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline_plotting.html#a-note-about-fitting">A note about fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline_plotting.html#to-do">TO DO:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="measure.html#setpoints">Setpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#sweep-types">Sweep types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="differences_from_qcodes.html#things-that-are-the-same">Things that are the same</a></li>
+<li class="toctree-l2"><a class="reference internal" href="differences_from_qcodes.html#small-differences-in-existing-classes">Small differences in existing classes:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="differences_from_qcodes.html#big-differences">Big differences</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">qcodes++</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">More about Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="background.html" title="next chapter">Background</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2025, qcodes++.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Data loading and analysis &#8212; qcodes++ 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Offline plotting, a.k.a. InSpectra Gadget" href="offline_plotting.html" />
+    <link rel="prev" title="Connecting to actual instruments" href="visa.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="data-loading-and-analysis">
+<h1>Data loading and analysis<a class="headerlink" href="#data-loading-and-analysis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="loading-data">
+<h2>Loading data<a class="headerlink" href="#loading-data" title="Permalink to this headline">¶</a></h2>
+<p>To load previously measured data, the easiest way is to load by the counter number.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">qc</span><span class="o">.</span><span class="n">load_data_num</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Number can be a string or an integer. e.g.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>data=qc.load_data_num(123) or data=qc.load_data_num(‘2’)
+</pre></div>
+</div>
+<p>If the folder your data is in isn’t just ‘data’, you can use the datafolder argument. Likewise, if underscore (‘_’) doesn’t appear after the number in your data file names, you need to specify what does.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">load_data_num</span><span class="p">(</span><span class="mi">123</span><span class="p">,</span><span class="n">datafolder</span><span class="o">=</span><span class="s1">&#39;magneticfielddata&#39;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>But for most cases, you can simply exclude datafolder and delimiter to use the default values.</p>
+<p>For loading multiple data files, use</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>qc.load_data_nums(listofnumbers,datafolder=”data”,delimiter=&#39;_&#39;)
+</pre></div>
+</div>
+<p>e.g.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datafiles</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">load_data_nums</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">123</span><span class="p">,</span><span class="mi">436</span><span class="p">,</span><span class="mi">20</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>or even</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datafiles</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">load_data_nums</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">12</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>When imported into the notebook, you can use data.*param_name* to load the values of a specific parameter. These are actually all stored in a dictionary under data.arrays, which means you can easily pull the names, units, etc using the standard <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">python dictionary</a> tools.</p>
+<p>data.metadata contains the metadata saved by station. <strong>This is extremely useful, and basically the entire point of defining a station in the first place</strong>. It contains, among other things, <em>the value of every single parameter of every single instrument declared in station when the measurement started</em>. Did you forget which lock-in frequency you were using? Did you make a mistake in the filename and write the wrong sweep range? Don’t worry! data.metadata contains ALL this information and more. Go have a look! Again it’s a dictionary, which you can dive into and pull out the parameters regarding the instruments, loop information, etc.</p>
+</div>
+<div class="section" id="plotting-and-analysis">
+<h2>Plotting and analysis<a class="headerlink" href="#plotting-and-analysis" title="Permalink to this headline">¶</a></h2>
+<p>For cases not covered by the built-in live_plot and offline_plotting, you will likely prepare plots using a package like matplotlib inside a Jupyter notebook. There are a few useful functions in qcodes++ to help you with this.</p>
+<ul class="simple">
+<li><p>You can use the two functions in <code class="docutils literal notranslate"><span class="pre">qcodespp.plotting.matplotlib_tools</span></code> to plot nice colorplots and line plots with nicely colored lines.</p></li>
+<li><p>You can use the fitting and filter functions from <code class="docutils literal notranslate"><span class="pre">qcodespp.plotting.offline_plotting.fits</span></code> and <code class="docutils literal notranslate"><span class="pre">qcodespp.plotting.offline_plotting.filters</span></code> either directly, or as inspiration for your own fitting and filtering functions.</p></li>
+</ul>
+<p>Look through the API and source code to see how to use them.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">qcodes++</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">More about Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data loading and analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#loading-data">Loading data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plotting-and-analysis">Plotting and analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="visa.html" title="previous chapter">Connecting to actual instruments</a></li>
+      <li>Next: <a href="offline_plotting.html" title="next chapter">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2025, qcodes++.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/data_analysis.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

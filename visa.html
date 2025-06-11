@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Connecting to actual instruments &#8212; qcodes++ 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data loading and analysis" href="data_analysis.html" />
+    <link rel="prev" title="More about Parameters" href="parameters.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="connecting-to-actual-instruments">
+<h1>Connecting to actual instruments<a class="headerlink" href="#connecting-to-actual-instruments" title="Permalink to this headline">¶</a></h1>
+<p>The vast majority of scientific instruments communicate via the VISA protocol, whether it’s over GPIB, USB, RS232, or Ethernet. Assuming you’ve installed a National Instruments or Keysight backend to handle VISA, qcodes++ deals with connecting to VISA instruments in a very uniform way. To find out which VISA instruments are attached to your computer, use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">qcodespp</span> <span class="k">as</span> <span class="nn">qc</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">listVISAinstruments</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The output should look something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Instrument</span> <span class="n">IDN</span><span class="p">:</span> <span class="n">KEITHLEY</span> <span class="n">INSTRUMENTS</span><span class="p">,</span><span class="n">MODEL</span> <span class="mi">2450</span><span class="p">,</span><span class="mi">04613345</span><span class="p">,</span><span class="mf">1.7</span><span class="o">.</span><span class="mi">12</span><span class="n">b</span>
+<span class="n">VISA</span> <span class="n">Address</span><span class="p">:</span> <span class="n">TCPIP0</span><span class="p">::</span><span class="mf">169.254</span><span class="o">.</span><span class="mf">100.202</span><span class="p">::</span><span class="n">inst0</span><span class="p">::</span><span class="n">INSTR</span>
+
+<span class="n">Instrument</span> <span class="n">IDN</span><span class="p">:</span> <span class="n">KEITHLEY</span> <span class="n">INSTRUMENTS</span><span class="p">,</span><span class="n">MODEL</span> <span class="mi">2450</span><span class="p">,</span><span class="mi">02613340</span><span class="p">,</span><span class="mf">1.7</span><span class="o">.</span><span class="mi">12</span><span class="n">b</span>
+<span class="n">VISA</span> <span class="n">Address</span><span class="p">:</span> <span class="n">GPIB0</span><span class="p">::</span><span class="mi">12</span><span class="p">::</span><span class="n">INSTR</span>
+
+<span class="n">Instrument</span> <span class="n">IDN</span><span class="p">:</span> <span class="n">QDevil</span><span class="p">,</span> <span class="n">QDAC</span><span class="o">-</span><span class="n">II</span><span class="p">,</span> <span class="mi">159</span><span class="p">,</span> <span class="mi">13</span><span class="o">-</span><span class="mf">1.57</span>
+<span class="n">VISA</span> <span class="n">Address</span><span class="p">:</span> <span class="n">ASRL9</span><span class="p">::</span><span class="n">INSTR</span>
+</pre></div>
+</div>
+<p>There are three instruments attached to the computer: two Keithley 2450 Source Meters, one over TCP/IP and one over GPIB, and a QDevil QDAC-II over USB/serial (ASRL). To connect to these instruments in our notebook, we first, import the relevant drivers, then create instrument objects from the drivers, using the addresses printed by <code class="docutils literal notranslate"><span class="pre">listVISAinstruments()</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qcodespp.instrument_drivers.QDevil.QDAC2</span> <span class="kn">import</span> <span class="n">QDac2</span>
+<span class="kn">from</span> <span class="nn">qcodespp.instrument_drivers.tektronix.Keithley_2450</span> <span class="kn">import</span> <span class="n">Keithley_2450</span>
+
+<span class="n">k1</span> <span class="o">=</span> <span class="n">Keithley_2450</span><span class="p">(</span><span class="s1">&#39;k1&#39;</span><span class="p">,</span><span class="s1">&#39;TCPIP0::169.254.100.202::inst0::INSTR&#39;</span><span class="p">)</span>
+<span class="n">k2</span> <span class="o">=</span> <span class="n">Keithley_2450</span><span class="p">(</span><span class="s1">&#39;k2&#39;</span><span class="p">,</span><span class="s1">&#39;GPIB0::16::INSTR&#39;</span><span class="p">)</span>
+<span class="n">qdac</span> <span class="o">=</span> <span class="n">QDac2</span><span class="p">(</span><span class="s1">&#39;qdac&#39;</span><span class="p">,</span><span class="s1">&#39;ASRL9::INSTR&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The process is the same no matter the instrument, or connection type, as long as it’s a VISA instrument. There are some instruments that don’t use VISA. Naturally, they will not show up when using <code class="docutils literal notranslate"><span class="pre">listVISAinstruments()</span></code>, and may require a different syntax to connect to them. Check out the relevant documentation or source code.</p>
+<div class="section" id="where-are-the-drivers">
+<h2>Where are the drivers?<a class="headerlink" href="#where-are-the-drivers" title="Permalink to this headline">¶</a></h2>
+<p>There are three possible sources for pre-existing instrument drivers; qcodes++, <a class="reference external" href="https://microsoft.github.io/Qcodes/drivers_api/index.html">QCoDeS</a> and <a class="reference external" href="https://qcodes.github.io/Qcodes_contrib_drivers/index.html">qcodes_contrib_drivers</a>. Look through the instruments available at those links to find the one you’re looking for. If you don’t have the qcodes_contrib_drivers package installed, you can install it with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">qcodes_contrib_drivers</span>
+</pre></div>
+</div>
+<p>Then import the driver you need:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qcodespp.instrument_drivers.QDevil.QDAC2</span> <span class="kn">import</span> <span class="n">QDac2</span>
+<span class="kn">from</span> <span class="nn">qcodes.instrument_drivers.Keithley</span> <span class="kn">import</span> <span class="n">Keithley2400</span>
+<span class="kn">from</span> <span class="nn">qcodes_contrib_drivers.drivers.Tektronix.AWG520</span> <span class="kn">import</span> <span class="n">Tektronix_AWG520</span>
+</pre></div>
+</div>
+<p>All these drivers will work perfectly fine with qcodes++ despite coming from different sources.</p>
+</div>
+<div class="section" id="how-do-i-know-which-features-an-instrument-has">
+<h2>How do I know which features an instrument has?<a class="headerlink" href="#how-do-i-know-which-features-an-instrument-has" title="Permalink to this headline">¶</a></h2>
+<p>There are many ways! If you kind of know what you’re looking for, hit the tab key after typing the instrument name, e.g. <code class="docutils literal notranslate"><span class="pre">k2600.</span></code> and it will show you all the available functions of the instrument. Many of those functions will either be Parameters or Submodules. Submodules are typically used to represent the channels of an instrument. For example, the Keithley 2600 Source Meters have two channels. In the qcodes driver, these are named <code class="docutils literal notranslate"><span class="pre">smua</span></code> and <code class="docutils literal notranslate"><span class="pre">smub</span></code>. Each of these submodules have various parameters, including <code class="docutils literal notranslate"><span class="pre">volt</span></code>, <code class="docutils literal notranslate"><span class="pre">curr</span></code>, etc. Therefore reading the voltage on Channel A is done with <code class="docutils literal notranslate"><span class="pre">k2600.smua.volt()</span></code></p>
+<p>You can list the Parameters of the instrument by running:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">instrument</span><span class="o">.</span><span class="n">parameters</span>
+</pre></div>
+</div>
+<p>and the SubModules by running:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">instrument</span><span class="o">.</span><span class="n">submodules</span>
+</pre></div>
+</div>
+<p>and of course the Parameters of any submodule by:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">instrument</span><span class="o">.</span><span class="n">channel01</span><span class="o">.</span><span class="n">parameters</span>
+</pre></div>
+</div>
+<p>To get the entire ‘picture’ of the current state of the instrument, you can use the <code class="docutils literal notranslate"><span class="pre">instrument.snapshot()</span></code> function.</p>
+<p>However, eventually you will be better off either reading the API for the driver or the source code, likely in combination with the instrument’s manual. It’s painful, I know, but it’s still better than writing your own driver ;)</p>
+</div>
+<div class="section" id="writing-your-own-driver">
+<h2>Writing your own driver<a class="headerlink" href="#writing-your-own-driver" title="Permalink to this headline">¶</a></h2>
+<p>If you can’t find a driver for your instrument from any of the above sources, you will need to write your own, following the instructions at <a class="reference external" href="https://qcodes.github.io/Qcodes_contrib_drivers/index.html">qcodes_contrib_drivers</a>.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">qcodes++</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">More about Parameters</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Connecting to actual instruments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#where-are-the-drivers">Where are the drivers?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-know-which-features-an-instrument-has">How do I know which features an instrument has?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#writing-your-own-driver">Writing your own driver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="parameters.html" title="previous chapter">More about Parameters</a></li>
+      <li>Next: <a href="data_analysis.html" title="next chapter">Data loading and analysis</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2025, qcodes++.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/visa.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

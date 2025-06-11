@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Advanced use of Loop &#8212; qcodes++ 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Comparing qcodes++ and QCoDeS" href="differences_from_qcodes.html" />
+    <link rel="prev" title="The Measure class" href="measure.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="advanced-use-of-loop">
+<h1>Advanced use of Loop<a class="headerlink" href="#advanced-use-of-loop" title="Permalink to this headline">¶</a></h1>
+<p>Throughout, we have used the <code class="docutils literal notranslate"><span class="pre">loop1d</span></code> and <code class="docutils literal notranslate"><span class="pre">loop2d</span></code> functions to create loops for 1D and 2D measurements. However, you can also create loops manually using the <code class="docutils literal notranslate"><span class="pre">qc.Loop</span></code> class, which gives you more control over the measurement process and allows for e.g. multidimensional loops, non-linear sweeps, etc.</p>
+<p>The general scheme is:</p>
+<ol class="arabic simple">
+<li><p>create a (potentially nested) <code class="docutils literal notranslate"><span class="pre">qc.Loop</span></code>, which defines the sweep setpoints and delays</p></li>
+<li><p>activate the <code class="docutils literal notranslate"><span class="pre">Loop</span></code> (which changes it to an <code class="docutils literal notranslate"><span class="pre">ActiveLoop</span></code> object), by attaching one or more actions to it, using the .each method. Actions can be: parameters to measure, tasks to run, waits, or other loops.</p></li>
+<li><p>Associate the <code class="docutils literal notranslate"><span class="pre">ActiveLoop</span></code> with a <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code>, which will hold the data collected, using the <code class="docutils literal notranslate"><span class="pre">get_data_set</span></code> method.</p></li>
+<li><p>Run the <code class="docutils literal notranslate"><span class="pre">ActiveLoop</span></code> with the <code class="docutils literal notranslate"><span class="pre">.run</span></code> method, which additionally can be passed parameters to be plotted using <code class="docutils literal notranslate"><span class="pre">live_plot</span></code>.</p></li>
+</ol>
+<p>The most basic examples, which are equivalent to the <code class="docutils literal notranslate"><span class="pre">loop1d</span></code> and <code class="docutils literal notranslate"><span class="pre">loop2d</span></code> functions, are:</p>
+<p>1D loop, specifying parameters to measure and plot</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">loop</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">Loop</span><span class="p">(</span><span class="n">sweep_parameter</span><span class="o">.</span><span class="n">sweep</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">101</span><span class="p">),</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="p">(</span><span class="n">measure_param1</span><span class="p">,</span> <span class="n">measure_param2</span><span class="p">)</span>
+<span class="n">data</span><span class="o">=</span><span class="n">loop</span><span class="o">.</span><span class="n">get_data_set</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;My 1D loop&#39;</span><span class="p">)</span>
+<span class="n">loop</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">measure_param1</span><span class="p">,</span> <span class="n">measure_param2</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>2D loop, using station.set_measurement to set the default measurement</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station</span><span class="o">.</span><span class="n">set_measurement</span><span class="p">(</span><span class="n">measure_param1</span><span class="p">,</span> <span class="n">measure_param2</span><span class="p">)</span>
+<span class="n">loop</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">Loop</span><span class="p">(</span><span class="n">sweep_parameter1</span><span class="o">.</span><span class="n">sweep</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">11</span><span class="p">),</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="n">sweep_parameter2</span><span class="o">.</span><span class="n">sweep</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">101</span><span class="p">),</span><span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="p">(</span><span class="o">*</span><span class="n">station</span><span class="o">.</span><span class="n">measure</span><span class="p">())</span>
+<span class="n">data</span><span class="o">=</span><span class="n">loop</span><span class="o">.</span><span class="n">get_data_set</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;My 2D loop&#39;</span><span class="p">)</span>
+<span class="n">loop</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">measure_param1</span><span class="p">,</span> <span class="n">measure_param2</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>2D (and higher dimension) loops can (also) be constructed by nesting loops in .each, e.g.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">loop1d</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">Loop</span><span class="p">(</span><span class="n">sweep_parameter2</span><span class="o">.</span><span class="n">sweep</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">101</span><span class="p">),</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="p">(</span><span class="o">*</span><span class="n">station</span><span class="o">.</span><span class="n">measure</span><span class="p">())</span>
+<span class="n">loop</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">Loop</span><span class="p">(</span><span class="n">sweep_parameter1</span><span class="o">.</span><span class="n">sweep</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">11</span><span class="p">),</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="p">(</span><span class="n">loop1d</span><span class="p">)</span>
+<span class="n">data</span><span class="o">=</span><span class="n">loop</span><span class="o">.</span><span class="n">get_data_set</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;My nested 2D loop&#39;</span><span class="p">)</span>
+<span class="n">loop</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">measure_param1</span><span class="p">,</span> <span class="n">measure_param2</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Some examples: Sweeping the inner loop up and down many times at each point of the outer loop:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">loopup</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">Loop</span><span class="p">(</span><span class="n">instrument</span><span class="o">.</span><span class="n">output1</span><span class="o">.</span><span class="n">sweep</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">101</span><span class="p">),</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="p">(</span><span class="o">*</span><span class="n">station</span><span class="o">.</span><span class="n">measure</span><span class="p">())</span>
+<span class="n">loopdown</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">Loop</span><span class="p">(</span><span class="n">instrument</span><span class="o">.</span><span class="n">output1</span><span class="o">.</span><span class="n">sweep</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">101</span><span class="p">),</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="p">(</span><span class="o">*</span><span class="n">station</span><span class="o">.</span><span class="n">measure</span><span class="p">())</span>
+<span class="n">actions</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">actions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loopup</span><span class="p">)</span>
+    <span class="n">actions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loopdown</span><span class="p">)</span>
+<span class="n">loop</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">Loop</span><span class="p">(</span><span class="n">instrument</span><span class="o">.</span><span class="n">output2</span><span class="o">.</span><span class="n">sweep</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">11</span><span class="p">),</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="p">(</span><span class="o">*</span><span class="n">actions</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A 3d loop would look something like the below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">loop1d</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">Loop</span><span class="p">(</span><span class="n">sweep_parameter3</span><span class="o">.</span><span class="n">sweep</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">11</span><span class="p">),</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="p">(</span><span class="o">*</span><span class="n">station</span><span class="o">.</span><span class="n">measure</span><span class="p">())</span>
+<span class="n">loop2d</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">Loop</span><span class="p">(</span><span class="n">sweep_parameter2</span><span class="o">.</span><span class="n">sweep</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">101</span><span class="p">),</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="p">(</span><span class="n">loop3d</span><span class="p">)</span>
+<span class="n">loop</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">Loop</span><span class="p">(</span><span class="n">sweep_parameter1</span><span class="o">.</span><span class="n">sweep</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">11</span><span class="p">),</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="p">(</span><span class="n">loop2d</span><span class="p">)</span>
+<span class="n">data</span><span class="o">=</span><span class="n">loop</span><span class="o">.</span><span class="n">get_data_set</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;My 3D loop&#39;</span><span class="p">)</span>
+<span class="n">loop</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The data generated by the last example is unfortunately beyond the bounds of both live_plotting and offline_plotting, which both only can interpret 1D or 2D rectangular arrays, so you will have to plot the data manually after the measurement is done. Usually I would recommend to actually embed a series of 2d <code class="docutils literal notranslate"><span class="pre">Loop</span></code> s inside a <em>python</em> loop, and create a series of 2D <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> s, which <em>can</em> then be plotted together using <code class="docutils literal notranslate"><span class="pre">live_plot</span></code>. Let’s pretend we want to checkout how the lock in frequency affects the conductance of a device in a series of 2d loops.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station</span><span class="o">.</span><span class="n">set_measurement</span><span class="p">(</span><span class="n">lockin</span><span class="o">.</span><span class="n">input1</span><span class="p">,</span><span class="n">lockin</span><span class="o">.</span><span class="n">input2</span><span class="p">,</span><span class="n">current</span><span class="p">,</span><span class="n">conductance</span><span class="p">)</span>
+
+<span class="n">pp</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">live_plot</span><span class="p">()</span>
+
+<span class="n">lockin_freqs</span><span class="o">=</span><span class="p">[</span><span class="mi">33</span><span class="p">,</span><span class="mi">73</span><span class="p">,</span><span class="mi">133</span><span class="p">,</span><span class="mi">223</span><span class="p">,</span><span class="mi">228</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">freq</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lockin_freqs</span><span class="p">):</span>
+    <span class="n">lockin</span><span class="o">.</span><span class="n">frequency</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span>
+    <span class="n">loop</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">Loop</span><span class="p">(</span><span class="n">voltage_source</span><span class="o">.</span><span class="n">output1</span><span class="o">.</span><span class="n">sweep</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">101</span><span class="p">),</span><span class="n">delay</span><span class="o">=</span><span class="mf">0.03</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="p">(</span><span class="o">*</span><span class="n">station</span><span class="o">.</span><span class="n">measure</span><span class="p">())</span>
+    <span class="n">outerloop</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">Loop</span><span class="p">(</span><span class="n">voltage_source</span><span class="o">.</span><span class="n">output2</span><span class="o">.</span><span class="n">sweep</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="o">-</span><span class="mf">0.3</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">21</span><span class="p">),</span><span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="p">(</span><span class="n">loop</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">outerloop</span><span class="o">.</span><span class="n">get_data_set</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Sample XYZ Vout1(-1 1)V Vout2(-0.5 -0.3) freq=</span><span class="si">{freq}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">publisher</span><span class="o">=</span><span class="n">pp</span>
+    <span class="n">pp</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">conductance</span><span class="p">,</span><span class="n">subplot</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">outerloop</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>or, completely equivalently, but using the built-in <code class="docutils literal notranslate"><span class="pre">qc.loop2d</span></code> to help automatically name the data files:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station</span><span class="o">.</span><span class="n">set_measurement</span><span class="p">(</span><span class="n">lockin</span><span class="o">.</span><span class="n">input1</span><span class="p">,</span><span class="n">lockin</span><span class="o">.</span><span class="n">input2</span><span class="p">,</span><span class="n">current</span><span class="p">,</span><span class="n">conductance</span><span class="p">)</span>
+
+<span class="n">pp</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">live_plot</span><span class="p">()</span>
+
+<span class="n">lockin_freqs</span><span class="o">=</span><span class="p">[</span><span class="mi">33</span><span class="p">,</span><span class="mi">73</span><span class="p">,</span><span class="mi">133</span><span class="p">,</span><span class="mi">223</span><span class="p">,</span><span class="mi">228</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">freq</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lockin_freqs</span><span class="p">):</span>
+    <span class="n">lockin</span><span class="o">.</span><span class="n">frequency</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span>
+    <span class="n">loop</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">loop2d</span><span class="p">(</span><span class="n">sweep_parameter</span><span class="o">=</span><span class="n">voltage_source</span><span class="o">.</span><span class="n">output1</span>
+                <span class="n">start</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span><span class="n">stop</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span><span class="n">delay</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+                <span class="n">step_parameter</span><span class="o">=</span><span class="n">voltage_source</span><span class="o">.</span><span class="n">output2</span>
+                <span class="n">step_start</span><span class="o">=-</span><span class="mf">0.5</span><span class="p">,</span><span class="n">step_stop</span><span class="o">=-</span><span class="mf">0.3</span><span class="p">,</span><span class="n">step_num</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span><span class="n">step_delay</span><span class="o">=</span><span class="mf">0.03</span><span class="p">,</span>
+                <span class="n">device_info</span><span class="o">=</span><span class="s1">&#39;Sample XYZ&#39;</span><span class="p">,</span> <span class="n">instrument_info</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;freq=</span><span class="si">{freq}</span><span class="s1">Hz&#39;</span><span class="p">)</span>
+    <span class="n">loop</span><span class="o">.</span><span class="n">data_set</span><span class="o">.</span><span class="n">publisher</span><span class="o">=</span><span class="n">pp</span>
+    <span class="n">pp</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">loop</span><span class="o">.</span><span class="n">data_set</span><span class="o">.</span><span class="n">conductance</span><span class="p">,</span><span class="n">subplot</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">loop</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="section" id="sweep-types">
+<h2>Sweep types<a class="headerlink" href="#sweep-types" title="Permalink to this headline">¶</a></h2>
+<p>The Setpoints of each Loop have so far been generated by the parameter.sweep method, which generates a linear list of values. There are three more sweep types. Firstly, returnsweep offers the possibility to return to the start value once the stop value is reached.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">loopdownup</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">Loop</span><span class="p">(</span><span class="n">keithley</span><span class="o">.</span><span class="n">volt</span><span class="o">.</span><span class="n">returnloop</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">101</span><span class="p">),</span><span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="p">(</span><span class="o">*</span><span class="n">station</span><span class="o">.</span><span class="n">measure</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>The above will return a loop with 201 steps, as the stop value is not repeated.</p>
+<p>Secondly, there is a logarithmic loop (useful for things such as frequency and in some cases temperature).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">freqloop</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">Loop</span><span class="p">(</span><span class="n">lockin</span><span class="o">.</span><span class="n">frequency</span><span class="o">.</span><span class="n">logsweep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">1001</span><span class="p">),</span><span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">each</span><span class="p">(</span><span class="o">*</span><span class="n">station</span><span class="o">.</span><span class="n">measure</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>For everything else, there is arbsweep, where you can pass an arbitrary list of values for the instrument to sweep. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">keithley</span><span class="o">.</span><span class="n">volt</span><span class="o">.</span><span class="n">arbsweep</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.66</span><span class="p">,</span><span class="mf">0.45</span><span class="p">,</span><span class="mf">0.456</span><span class="p">,</span><span class="mf">1.11</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">keithley</span><span class="o">.</span><span class="n">volt</span><span class="o">.</span><span class="n">arbsweep</span><span class="p">([</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p>Another usecase for arbsweep could be sweeps with regions of low and high data point densities. For example if you know the location of narrow peaks, you might want to create a list with a high density of data points around those points, while moving quickly between them.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">qcodes++</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">More about Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Advanced use of Loop</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sweep-types">Sweep types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="measure.html" title="previous chapter">The Measure class</a></li>
+      <li>Next: <a href="differences_from_qcodes.html" title="next chapter">Comparing qcodes++ and QCoDeS</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2025, qcodes++.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/advanced.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

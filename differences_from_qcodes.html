@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Comparing qcodes++ and QCoDeS &#8212; qcodes++ 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Advanced use of Loop" href="advanced.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="comparing-qcodes-and-qcodes">
+<h1>Comparing qcodes++ and QCoDeS<a class="headerlink" href="#comparing-qcodes-and-qcodes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="things-that-are-the-same">
+<h2>Things that are the same<a class="headerlink" href="#things-that-are-the-same" title="Permalink to this headline">¶</a></h2>
+<p><strong>1) All top level classes and functions in QCoDeS are directly inherited in qcodes++.</strong> All of these behave exactly the same way as in QCoDeS, so you can use them without change. Even though Parameter and Station have additions, they do not change the functionality of the original classes, so you can use them as you would in QCoDeS.</p>
+<p><strong>2) qcodes++ relies mainly on instrument drivers from QCoDes and the qcodes_contrib_drivers.</strong> In fact the instrument drivers included in qcodes++ are hopefully only here temporarily, and will be pulled back into QCoDeS or the qcodes_contrib_drivers in the near future.</p>
+</div>
+<div class="section" id="small-differences-in-existing-classes">
+<h2>Small differences in existing classes:<a class="headerlink" href="#small-differences-in-existing-classes" title="Permalink to this headline">¶</a></h2>
+<p><strong>1) The ``Parameter`` class has the following additional functions:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.move()</span></code> ‘moves’ the parameter to a new value in the given number of steps, without taking data. Useful if you want to set a sensitive parameter, e.g. a gate voltage, where using <code class="docutils literal notranslate"><span class="pre">.set()</span></code> could damage the sample.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.sweep()</span></code> same as in QCoDeS, but with the addition that if the start value of the sweep is different to the current value, it will warn the user.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.logsweep()</span></code> sweeps the parameter in a log10 scale.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.returnsweep()</span></code> sweeps the parameter up and down, i.e. first sweeps to the end value, then back to the start value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.arbsweep()</span></code> accepts a list of a values, rather than a start and end value, and sweeps the parameter through these values.</p></li>
+</ul>
+<p><strong>2) The ``Station`` class has the following additional functions:</strong></p>
+<ul class="simple">
+<li><p>Upon init, <code class="docutils literal notranslate"><span class="pre">Station</span></code> accepts the argument <code class="docutils literal notranslate"><span class="pre">add_variables(vars)</span></code> where <code class="docutils literal notranslate"><span class="pre">vars</span></code> can be e.g. <code class="docutils literal notranslate"><span class="pre">globals()</span></code> or <code class="docutils literal notranslate"><span class="pre">locals()</span></code>. This feature looks through ALL previously declared variables within the vars, and if the varible is a Parameter or instance, it adds it to the Station. This means you don’t have to do <code class="docutils literal notranslate"><span class="pre">station.add_component()</span></code> for every Instrument and Parameter. Just declare them before declaring the Station and use <code class="docutils literal notranslate"><span class="pre">station</span> <span class="pre">=</span> <span class="pre">Station(add_variables=globals())</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.set_measurement(*actions)</span></code> sets a series of actions (usually Parameters) to be performed when <code class="docutils literal notranslate"><span class="pre">station.measure()</span></code> is called.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">communication_time()</span></code> measures the average time it takes to perform the action in <code class="docutils literal notranslate"><span class="pre">.set_measurement()</span></code>.Typically this is just how long it takes to call the <code class="docutils literal notranslate"><span class="pre">.get()</span></code> functions of all the Parameters, giving you some idea of how long it takes the computer to communicate with the instruments.</p></li>
+</ul>
+</div>
+<div class="section" id="big-differences">
+<h2>Big differences<a class="headerlink" href="#big-differences" title="Permalink to this headline">¶</a></h2>
+<p><strong>1) The qcodes++ dataset, ``DataSetPP``, is a text-based dataset, where all the data is stored in numpy arrays.</strong> The dataset is thus intrinsically much more limited than the QCoDeS dataset, since each array must be rectangular and store only one type of data. However, these ‘limitations’ have made it possible to develop the rich plotting capabilities of qcodes++. Knowing exactly what to expect (i.e. rectangular arrays filled with floats), we can really write general purpose plotting functions that work for all 1D and 2D dataset. Thus, if you only ever do 1D or 2D measurements, we think you will really enjoy the simplicity of qcodes++.</p>
+<p>Indeed, the entire way of collecting data and setting up measurements is rather different. The best way to understand it is to check out the tutorials, starting from the <a class="reference external" href="getting_started.html">getting started</a> page.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">qcodes++</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">More about Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Comparing qcodes++ and QCoDeS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#things-that-are-the-same">Things that are the same</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#small-differences-in-existing-classes">Small differences in existing classes:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#big-differences">Big differences</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="advanced.html" title="previous chapter">Advanced use of Loop</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2025, qcodes++.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/differences_from_qcodes.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

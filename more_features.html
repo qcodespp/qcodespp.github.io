@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Commonly used features &#8212; qcodes++ 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="More about Parameters" href="parameters.html" />
+    <link rel="prev" title="Getting started" href="dummy_measurements.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="commonly-used-features">
+<h1>Commonly used features<a class="headerlink" href="#commonly-used-features" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="station-set-measurement">
+<h2>station.set_measurement()<a class="headerlink" href="#station-set-measurement" title="Permalink to this headline">¶</a></h2>
+<p>Instead of constantly supplying the params_to_measure to the loops, especially if you have many parameters, which you want to keep identical over many measurements, you can use the station to store default measurement parameters. This is done by running:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station</span><span class="o">.</span><span class="n">set_measurement</span><span class="p">(</span><span class="n">instrument</span><span class="o">.</span><span class="n">input1</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">input2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now you do not need to specify the params_to_measure in the loop1d, loop2d, loop2dUD.</p>
+</div>
+<div class="section" id="instrument-info">
+<h2>instrument_info<a class="headerlink" href="#instrument-info" title="Permalink to this headline">¶</a></h2>
+<p>There is one more option in loop1d and loop2d we didn’t mention, which is the ‘instrument_info’. Like the ‘device_info’, this is a string that will be included in the name of the DataSetPP, and can be used to list information that may not make it into the metadata. This may be e.g. settings on analog pre-amplifiers, or the presence of neutral density filters.</p>
+</div>
+<div class="section" id="other-kinds-of-actions">
+<h2>Other kinds of actions<a class="headerlink" href="#other-kinds-of-actions" title="Permalink to this headline">¶</a></h2>
+<p>The primary purpose of <code class="docutils literal notranslate"><span class="pre">params_to_measure</span></code> and <code class="docutils literal notranslate"><span class="pre">station.set_measurement()</span></code> is of course to tell qcodes++ what to measure. <a class="reference external" href="advanced.html">However, what these functions are *really* doing is telling the loop to perform certain actions</a>. If the action is a parameter, then the loop performs parameter() and stores the data. However, there are other options:</p>
+<div class="section" id="tasks">
+<h3>Tasks<a class="headerlink" href="#tasks" title="Permalink to this headline">¶</a></h3>
+<p>Within loops, you can also perform a <code class="docutils literal notranslate"><span class="pre">qc.Task</span></code>, which is a method for introducing arbitrary functions/scripts into the loop. For example, you could wait until your setup has reached a certain temperature before running measuring the parameters using</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">waitfortemp</span><span class="p">(</span><span class="n">setpoint</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">instrument</span><span class="o">.</span><span class="n">measured_temp</span><span class="p">()</span><span class="o">-</span><span class="n">setpoint</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">0.01</span><span class="p">:</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">station</span><span class="o">.</span><span class="n">set_measurement</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">Task</span><span class="p">(</span><span class="n">waitfortemp</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">param1</span><span class="p">,</span><span class="n">param2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The loop will wait at each point for the temperature to be within 10 mK of 2 K. Note how arguments to the functions within Task are passed: <code class="docutils literal notranslate"><span class="pre">qc.Task(waitfortemp,0.02)</span></code>, not <code class="docutils literal notranslate"><span class="pre">qc.Task(waitfortemp(0.02))</span></code>. If the function accepts no arguments, i.e. <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">func_with_no_args():</span></code>, simply write <code class="docutils literal notranslate"><span class="pre">qc.Task(func_with_no_args)</span></code>. e.g. wait for the temperature to stabilise within 10 mK no matter the setpoint:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">waitfortemp</span><span class="p">():</span>
+    <span class="k">while</span> <span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">instrument</span><span class="o">.</span><span class="n">measured_temp</span><span class="p">()</span><span class="o">-</span><span class="n">instrument</span><span class="o">.</span><span class="n">setpoint</span><span class="p">())</span><span class="o">&gt;</span><span class="mf">0.01</span><span class="p">:</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">station</span><span class="o">.</span><span class="n">set_measurement</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">Task</span><span class="p">(</span><span class="n">waitfortemp</span><span class="p">),</span><span class="n">param1</span><span class="p">,</span><span class="n">param2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">loop2d</span></code> and <code class="docutils literal notranslate"><span class="pre">loop2dUD</span></code>, you can also to perform actions at each step of the step_parameter by using the <code class="docutils literal notranslate"><span class="pre">step_action</span></code> argument. For example, if you want to wait for the temperature to stabilise at each step of the step_parameter, you can do:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">loop</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">loop2d</span><span class="p">(</span><span class="n">sweep_parameter</span><span class="o">=</span><span class="n">instrument</span><span class="o">.</span><span class="n">output1</span><span class="p">,</span>
+                <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">stop</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+                <span class="n">step_parameter</span><span class="o">=</span><span class="n">instrument</span><span class="o">.</span><span class="n">temperate_setpoint</span><span class="p">,</span>
+                <span class="n">step_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">step_stop</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">step_num</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">step_delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+                <span class="n">device_info</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">,</span>
+                <span class="n">params_to_measure</span><span class="o">=</span><span class="p">[</span><span class="n">instrument</span><span class="o">.</span><span class="n">input1</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">input2</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">measured_temp</span><span class="p">],</span>
+                <span class="n">step_action</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">Task</span><span class="p">(</span><span class="n">waitfortemp</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Note how in this case, the task is not a part of <code class="docutils literal notranslate"><span class="pre">params_to_measure</span></code>, (nor <code class="docutils literal notranslate"><span class="pre">station.set_measurement()</span></code>), since we only want to run the task immediately after the step_parameter is set, not at every point of the sweep_parameter.</p>
+</div>
+<div class="section" id="breakif">
+<h3>BreakIf<a class="headerlink" href="#breakif" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">qc.BreakIf</span></code> allows the loop to be automatically stopped if a certain condition occurs. For example, if you are using a Keithley on the gate, and want to ensure leakage current doesn’t exceed a certain value.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station</span><span class="o">.</span><span class="n">set_measurement</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">BreakIf</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">k1</span><span class="o">.</span><span class="n">curr</span><span class="p">())</span><span class="o">&gt;</span><span class="mf">2e-9</span><span class="p">),</span><span class="n">param1</span><span class="p">,</span><span class="n">param2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>lambda is used to turn the statement <cite>k1.curr()&gt;2e-9</cite> into a function with a Boolean output. You can also include BreakIf directly in the params_to_measure. You can also use ‘or’, ‘and’, etc</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station</span><span class="o">.</span><span class="n">set_measurement</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">BreakIf</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">k1</span><span class="o">.</span><span class="n">curr</span><span class="p">())</span><span class="o">&gt;</span><span class="mf">2e-9</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">k2</span><span class="o">.</span><span class="n">curr</span><span class="p">())</span><span class="o">&gt;</span><span class="mf">1e-9</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>If the loop gets broken during <code class="docutils literal notranslate"><span class="pre">loop.run()</span></code>, <code class="docutils literal notranslate"><span class="pre">loop.was_broken</span></code> turns True. You can use this fact to automatically do something smart in the case of the loop breaking.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">loop</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">loop</span><span class="o">.</span><span class="n">was_broken</span><span class="p">:</span>
+    <span class="n">keith</span><span class="o">.</span><span class="n">volt</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="live-plotting">
+<h2>Live plotting<a class="headerlink" href="#live-plotting" title="Permalink to this headline">¶</a></h2>
+<p>For more control over live plotting options, you can use the <code class="docutils literal notranslate"><span class="pre">qc.live_plot</span></code> function which returns a <code class="docutils literal notranslate"><span class="pre">qc.Plot</span></code> object and links the <code class="docutils literal notranslate"><span class="pre">Plot</span></code> to a specific <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pp</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">live_plot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">data</span></code> will typically be <code class="docutils literal notranslate"><span class="pre">loop.data_set</span></code>. To add elements of the <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> to the plot, you use the <code class="docutils literal notranslate"><span class="pre">add</span></code> method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pp</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">param1</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Parameter 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Parameter 1&#39;</span><span class="p">,</span> <span class="n">subplot</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">pp</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">param2</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Parameter 2&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Parameter 2&#39;</span><span class="p">,</span> <span class="n">subplot</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">add</span></code> does <em>not</em> accept <code class="docutils literal notranslate"><span class="pre">Parameters</span></code>, but rather only accepts <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> elements, which can be accessed using e.g. <code class="docutils literal notranslate"><span class="pre">data.param1</span></code> or <code class="docutils literal notranslate"><span class="pre">data.arrays['param1']</span></code>. To add multiple elements to the same subplot, simply use the same index for <code class="docutils literal notranslate"><span class="pre">subplot=</span></code>.</p>
+<p>After you have set up the plot as you prefer, you can run the loop without any arguments, i.e. <code class="docutils literal notranslate"><span class="pre">data=loop.run()</span></code>.</p>
+<p>By default, the provided dataset element is plotted as the y-axis for 1D plots and the z-axis for 2D plots, with the independent variables plotted on their respective axes. You can also specify the x-axis (and y-axis for 2D plots) explicitly by providing the appropriate number of dataset elements as arguments, e.g.:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pp</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">paramx</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">paramy</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">paramz</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Parameter 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Parameter 1&#39;</span><span class="p">,</span> <span class="n">subplot</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you want to continue to add data to the plot from a <em>different</em> DataSetPP/Loop, you can do so by linking the plot to the new DataSetPP via the DataSetPP’s <code class="docutils literal notranslate"><span class="pre">publisher</span></code> method. A few examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">new_data</span><span class="o">.</span><span class="n">publisher</span><span class="o">=</span><span class="n">pp</span>
+<span class="n">pp</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new_data</span><span class="o">.</span><span class="n">param1</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Parameter 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Parameter 1&#39;</span><span class="p">,</span> <span class="n">subplot</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">new_loop</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">new_loop</span><span class="o">.</span><span class="n">data_set</span><span class="o">.</span><span class="n">publisher</span><span class="o">=</span><span class="n">pp</span>
+<span class="n">pp</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new_loop</span><span class="o">.</span><span class="n">data_set</span><span class="o">.</span><span class="n">param1</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Parameter 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Parameter 1&#39;</span><span class="p">,</span> <span class="n">subplot</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">new_loop</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">qcodes++</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Commonly used features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#station-set-measurement">station.set_measurement()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instrument-info">instrument_info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-kinds-of-actions">Other kinds of actions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tasks">Tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#breakif">BreakIf</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#live-plotting">Live plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">More about Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="dummy_measurements.html" title="previous chapter">Getting started</a></li>
+      <li>Next: <a href="parameters.html" title="next chapter">More about Parameters</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2025, qcodes++.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/more_features.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

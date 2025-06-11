@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Background &#8212; qcodes++ 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="installation.html" />
+    <link rel="prev" title="qcodes++ documentation" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="background">
+<h1>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h1>
+<p>The main conceptual components of qcodes are:</p>
+<ol class="arabic simple">
+<li><p>Drivers for setting and reading parameters from instruments</p></li>
+<li><p>A framework for the storage and organization of data</p></li>
+<li><p>Loops, i.e. step-wise increment an independent parameter (e.g. a voltage)</p></li>
+</ol>
+<p>This means that one can vary an independent parameter, measure all dependent parameters, and store these
+data in a well-organised format. This is pretty much all one ever does in science. Two different plotting
+options are available for visualisation of data with one and two independent parameters.</p>
+<img alt="Qcodes++ structure visualisation" class="align-center" src="_images/qcodes_visualiser.png" />
+<p>The above graphic gives a rough conceptualisation of qcodes++ structure. The Station contains Instruments,
+which each contain various Parameters that can be measured and/or set. Parameters can be scaled, combined
+in any way and defined without instruments (e.g. time). The DataSet defines the independent parameter’s
+setpoints as a Loop, and collects measurements of the desired dependent parameters from Station. Station
+also sends important metadata to the DataSet. Two options for plotting are available: live plotting, which is
+very fast and allows you to see the data as it is being collected, and offline plotting, in which more complex
+analysis is possible; e.g. curve fitting, linecuts of 2D data, taking derivatives, etc.</p>
+<p>In addition to the Loop, qcodes++ also has a Measure function, which simply measures a set of parameters
+at a single point in time, without looping.</p>
+<p>The features of qcodes++ are mostly either directly inherited from the latest version of QCoDeS, or are
+improved versions of features that were present in QCoDeS prior to version 0.11. In particular, qcodes++
+uses the text-based DataSetPP, which although much less flexible than the QCoDeS DataSet, is much more
+user-friendly, especially when combined with the Loop and Measure classes. And indeed the limitations
+imposed by the DataSetPP enables the really excellent plotting capabilities developed by Merlin von Soosten,
+Joeri de Bruijckere, Dags Olsteins and others.</p>
+<p>In short; if you want a user-friendly way to collect and plot data, use qcodes++. If you need something
+highly customisable, use QCoDeS. The good news; installing qcodes++ does not interfere with a QCoDeS
+installation, and in fact requires it; this means you can use the best of both worlds!</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">qcodes++</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">More about Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">qcodes++ documentation</a></li>
+      <li>Next: <a href="installation.html" title="next chapter">Installation</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2025, qcodes++.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/background.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
