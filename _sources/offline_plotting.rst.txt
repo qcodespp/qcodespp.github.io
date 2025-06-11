@@ -227,10 +227,10 @@ There are three ways to combine datasets:
 
 The combined datasets are by default not saved to disk! Remember to either save your work or export the data. Similarly to duplicated data, linecuts, fits and (for 1D datasets) the properties of the 1D traces are not carried into the combined data.
 
-To produce the below, the peaks in the previous image were fitted to seven Lorentzians at each temperature. The parameter dependency was generated, and after combining this with the original 2D dataset, the peak centers were plotted ontop of the 2D data.
-
 .. figure:: IGcombined.png
     :alt: InSpectra Gadget combined dataset
+
+    A combined 1D and 2D dataset. To produce this plot, the peaks in the previous image were fitted to seven Lorentzians at each temperature. The parameter dependency was generated, and after combining this with the original 2D dataset, the peak centers were plotted ontop of the 2D data.
 
 Saving and loading
 ------------------
