@@ -1,53 +1,120 @@
+
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Offline plotting, a.k.a. InSpectra Gadget &mdash; qcodes++ 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
-    <title>Offline plotting, a.k.a. InSpectra Gadget &#8212; qcodes++ 0.1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="_static/nature.css?v=8fc2db88" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=2389946f"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=2389946f"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="The Measure class" href="measure.html" />
     <link rel="prev" title="Data loading and analysis" href="data_analysis.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="measure.html" title="The Measure class"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="data_analysis.html" title="Data loading and analysis"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Offline plotting, a.k.a. InSpectra Gadget</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            qcodes++
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">More about Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Offline plotting, a.k.a. InSpectra Gadget</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-plotting">Basic plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#plot-types">Plot types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fitting">Fitting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filters">Filters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#linecuts">Linecuts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fitting-linecuts">Fitting linecuts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-multiple-files">Working with multiple files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-an-entire-folder">Working with an entire folder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#combining-datasets-plots">Combining datasets/plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#saving-and-loading">Saving and loading</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#exporting-data-and-filters">Exporting data and filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#saving-and-loading-appearance-presets">Saving and loading appearance presets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loading-non-qcodes-data">Loading non-qcodes++ data.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-note-about-fitting">A note about fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#to-do">TO DO:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">qcodes++</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Offline plotting, a.k.a. InSpectra Gadget</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/offline_plotting.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="offline-plotting-a-k-a-inspectra-gadget">
-<h1>Offline plotting, a.k.a. InSpectra Gadget<a class="headerlink" href="#offline-plotting-a-k-a-inspectra-gadget" title="Permalink to this heading">¶</a></h1>
+<h1>Offline plotting, a.k.a. InSpectra Gadget<a class="headerlink" href="#offline-plotting-a-k-a-inspectra-gadget" title="Permalink to this heading"></a></h1>
 <p>Offline plotting is opened by running
 <code class="docutils literal notranslate"><span class="pre">qcodespp.offline_plotting()</span></code></p>
 <p>If you have declared <code class="docutils literal notranslate"><span class="pre">qcodespp.set_data_folder('foldername')</span></code>, data from that folder will automatically be opened. Alternatively, you can write <code class="docutils literal notranslate"><span class="pre">qcodespp.offline_plotting(folder=path_to_folder)</span></code> to open a different folder. Otherwise, the initial state is blank.</p>
 <section id="basic-plotting">
-<h2>Basic plotting<a class="headerlink" href="#basic-plotting" title="Permalink to this heading">¶</a></h2>
+<h2>Basic plotting<a class="headerlink" href="#basic-plotting" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Load data by clicking the ‘Open File’ button in the top left corner, or by opening/linking a folder (see below).</p></li>
 <li><p>If the data is 1D, a line trace will be plotted, and if it is 2D, it will plot a color plot.</p></li>
@@ -63,7 +130,7 @@
 <li><p>When you are done, you can click ‘Save’ or ‘Copy’ in the top right corner to save or copy the plot as an image. The saved pdfs work very well in Adobe Illustrator.</p></li>
 </ul>
 <section id="plot-types">
-<h3>Plot types<a class="headerlink" href="#plot-types" title="Permalink to this heading">¶</a></h3>
+<h3>Plot types<a class="headerlink" href="#plot-types" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.histogram.html">Histograms</a> and <a class="reference external" href="ahref=https://numpy.org/doc/stable/reference/generated/numpy.fft.rfft.htm">Fast Fourier Transforms (FFTs)</a> of the data can be plotted by selecting the appropriate ‘Plot type’ at the top of the window.</p>
 <ul class="simple">
 <li><p>For histograms, you can choose the number of bins either next to the ‘plot type’ menu (for 2D data) or line-by-line in the Traces table (for 1D data).</p></li>
@@ -71,7 +138,7 @@
 </ul>
 </section>
 <section id="fitting">
-<h3>Fitting<a class="headerlink" href="#fitting" title="Permalink to this heading">¶</a></h3>
+<h3>Fitting<a class="headerlink" href="#fitting" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>The fitting is basically a GUI for <a class="reference external" href="ahref=https://lmfit.github.io/lmfit-py/">lmfit</a>, with almost all built-in models implemented. See <a class="reference external" href="ahref=https://lmfit.github.io/lmfit-py/builtin_models.html">here for a description of each model/function</a>.</p></li>
 <li><p>To limit the fitting range, fill out the Xmin and Xmax fields, OR, click twice on the plot area. Lower limit first, upper limit second.</p></li>
@@ -85,7 +152,7 @@
 </ul>
 </section>
 <section id="filters">
-<h3>Filters<a class="headerlink" href="#filters" title="Permalink to this heading">¶</a></h3>
+<h3>Filters<a class="headerlink" href="#filters" title="Permalink to this heading"></a></h3>
 <p>‘Filters’ in InSpectra Gadget are simply mathematical operations that can be performed on the data. The filters thus handle everything from applying offsets to any of the axes, to doing numerical differentiation.</p>
 <ul class="simple">
 <li><p>You can add multiple instances of the same filter type, change the order they are applied in and turn them off and on.</p></li>
@@ -253,7 +320,7 @@
 </section>
 </section>
 <section id="linecuts">
-<h2>Linecuts<a class="headerlink" href="#linecuts" title="Permalink to this heading">¶</a></h2>
+<h2>Linecuts<a class="headerlink" href="#linecuts" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>To make a horizontal(vertical) linecut, left-click(middle-click) at the desired location on the plot.</p></li>
 <li><p>You can change the index at which the cut is made, the offset on the y-axis, and the colour of the line.</p></li>
@@ -263,7 +330,7 @@
 <li><p>You can also access the linecuts by right-clicking on the plot area. Here you also have the option to plot ‘diagonal’ linecuts, i.e. cuts along an arbitrary direction in the x-y plane, and circular linecuts.</p></li>
 </ul>
 <section id="fitting-linecuts">
-<h3>Fitting linecuts<a class="headerlink" href="#fitting-linecuts" title="Permalink to this heading">¶</a></h3>
+<h3>Fitting linecuts<a class="headerlink" href="#fitting-linecuts" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>The fitting is almost the same as in the 1D plotting case.</p></li>
 <li><p>An important difference is that you can now Generate a parameter dependency. This file has the value of the parent axis as one column, and all parameters from the lmfit result(s) as the other columns. The file is automatically added to the file list in the main window. You can then plot each fit parameter as a function of the parent parameter.</p></li>
@@ -271,7 +338,7 @@
 </section>
 </section>
 <section id="working-with-multiple-files">
-<h2>Working with multiple files<a class="headerlink" href="#working-with-multiple-files" title="Permalink to this heading">¶</a></h2>
+<h2>Working with multiple files<a class="headerlink" href="#working-with-multiple-files" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>To open another data file, just click ‘Open File’ again. Data from the new file will be plotted.</p></li>
 <li><p>To see data from both files side-by-side, activate the checkbox next to the original file. You now have two plots!</p></li>
@@ -283,14 +350,14 @@
 </ul>
 </section>
 <section id="working-with-an-entire-folder">
-<h2>Working with an entire folder<a class="headerlink" href="#working-with-an-entire-folder" title="Permalink to this heading">¶</a></h2>
+<h2>Working with an entire folder<a class="headerlink" href="#working-with-an-entire-folder" title="Permalink to this heading"></a></h2>
 <p>You can open data from an entire folder in two ways.</p>
 <ul class="simple">
 <li><p>You can select ‘Open Folder’ and choose the relevant folder. This will load the list of all the datasets found in that folder <em>and all sub-folders</em>. The data itself will not be loaded until you click the checkbox to plot it. This is because the data gets loaded into memory, which <em>might</em> start to affect your computer’s performance. However, unchecking a file does <em>not</em> free up memory. ‘Remove file’ and ‘Clear list’ <em>should</em> do it, but this is hard to troubleshoot. Certainly refreshing the kernel works.</p></li>
 <li><p>You can also ‘link’ to a folder with ongoing measurements by clicking ‘Link Folder’. Initially this will perform the same action as ‘Open Folder’, but now when you click ‘Refresh’, any new data will be added automatically to the list of Opened Files. (If you enable ‘Track data’ for the linked folder, on-going measurements will be tracked, with an update period of 30s. However, it’s really not recommended because the data has to be read from disk, which can be disruptive, and will inevitably eat up all your memory. It is much better to rely on <code class="docutils literal notranslate"><span class="pre">qcodespp.live_plot()</span></code> for live plotting, which goes to great pains to avoid these pitfalls.)</p></li>
 </ul>
 <section id="combining-datasets-plots">
-<h3>Combining datasets/plots<a class="headerlink" href="#combining-datasets-plots" title="Permalink to this heading">¶</a></h3>
+<h3>Combining datasets/plots<a class="headerlink" href="#combining-datasets-plots" title="Permalink to this heading"></a></h3>
 <p>There are three ways to combine datasets:</p>
 <ul class="simple">
 <li><p>1D data: an arbitrary number of datasets can be combined; all parameters from all datasets are available for plotting. It will not be possible to plot parameters from different datasets against each other unless the arrays have the same length.</p></li>
@@ -301,10 +368,10 @@
 </section>
 </section>
 <section id="saving-and-loading">
-<h2>Saving and loading<a class="headerlink" href="#saving-and-loading" title="Permalink to this heading">¶</a></h2>
+<h2>Saving and loading<a class="headerlink" href="#saving-and-loading" title="Permalink to this heading"></a></h2>
 <p>The entire state of the program can be saved in .igs format. Including linecuts, fits, etc etc.</p>
 <section id="exporting-data-and-filters">
-<h3>Exporting data and filters<a class="headerlink" href="#exporting-data-and-filters" title="Permalink to this heading">¶</a></h3>
+<h3>Exporting data and filters<a class="headerlink" href="#exporting-data-and-filters" title="Permalink to this heading"></a></h3>
 <p>If you need to do further analysis in another program/notebook, you can export the data in the ‘Export processed data’ menu. You can save in .dat, .csv or .json format. Note that for 1D data the .dat format is quite limiting, since numpy dat files do not support arrays of different lengths. Therefore fit lines are not exported, and in general combined 1D data files will not work. However, both features are supported by .csv and .json. For python, I recommend a json, because it can be easily loaded as a python dictionary:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;filename.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -313,11 +380,11 @@
 </div>
 </section>
 <section id="saving-and-loading-appearance-presets">
-<h3>Saving and loading appearance presets<a class="headerlink" href="#saving-and-loading-appearance-presets" title="Permalink to this heading">¶</a></h3>
+<h3>Saving and loading appearance presets<a class="headerlink" href="#saving-and-loading-appearance-presets" title="Permalink to this heading"></a></h3>
 <p>You can save the current state of the appearance settings from the ‘Presets’ menu.</p>
 </section>
 <section id="loading-non-qcodes-data">
-<h3>Loading non-qcodes++ data.<a class="headerlink" href="#loading-non-qcodes-data" title="Permalink to this heading">¶</a></h3>
+<h3>Loading non-qcodes++ data.<a class="headerlink" href="#loading-non-qcodes-data" title="Permalink to this heading"></a></h3>
 <p>To load data that wasn’t taken by qcodes++, you will need to make sure it has the right shape, and is saved in numpy .dat format. For 1D data, this is a series of columns of equal length. The first column should contain the independent variable. Numpy genfromtxt is a bit funny; sometimes it will interpret the data to be transposed to your intention. If this is the case, and e.g. you get 300 columns and 4 rows when you should have 4 columns and 300 rows, set ‘transpose’ to True under ‘Settings for Selected File’. The program will re-import the data and swap the meaning of rows and columns.</p>
 <p>For 2D data, again the data should be numpy .dat, with the number of columns being the number of parameters. The independent parameters should be in the first and second columns. A basic example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>   <span class="mf">0.1</span>     <span class="mf">1.2</span>
@@ -357,16 +424,16 @@
 </section>
 </section>
 <section id="background">
-<h2>Background<a class="headerlink" href="#background" title="Permalink to this heading">¶</a></h2>
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this heading"></a></h2>
 <p>The offline plotting interface was largely developed by Joeri de Bruijckere with the excellent name InSpectra Gadget (because it excels at visualising bias spectroscopy data). Matplotlib is used as the backend, in contrast to live plotting, which is based on pyqtgraph. As such, offline plotting is more powerful, with many built-in functions like peak fitting and taking numerical derivatives of two-dimensional datasets. However, since matplotlib is powerful, it is also big and bulky, and doesn’t track data well; hence using pyqtgraph for live plotting. Both plotting methods have the downside that they only accept rectangular arrays as data. For more complex dataset, you need to write your own code, or reshape the data. The offline plotting module might even crash if it gets data that it does not like. In general there are more bugs in the offline plotting, since it is more complicated/powerful, but we are always working to resolve them.</p>
 </section>
 <section id="a-note-about-fitting">
-<h2>A note about fitting<a class="headerlink" href="#a-note-about-fitting" title="Permalink to this heading">¶</a></h2>
+<h2>A note about fitting<a class="headerlink" href="#a-note-about-fitting" title="Permalink to this heading"></a></h2>
 <p>Fitting real data to the ideal of an analytical expression is fraught with danger. Curve fitting works by minimising the difference between the values in the real data, and the values produced by an analytical equation. For functions with many parameters, there can be many points in the parameter space where a good fit can be made. That is, local minima exist and can potentially be found by the sitting software, meaning <em>the fit may return non-physical values</em>. This is especially true to the least-squares method of fitting, which is used by lmfit (and this software) by default. This is why providing a good, physical initial guess is very important; it increases the chance of finding the ‘right’ local minima. For simple analytical functions it’s usually reasonably obvious what the parameters might be. Therefore, if you don’t provide an initial guess, an initial guess is provided either by the built-in lmfit estimates or by estimates that I (Damon) made up. Usually they’re pretty good guesses but <em>do not trust them</em>. You must check to see if the fitted values are sensible and adjust the initial guesses if not.</p>
 <p>Finally, and very importantly!!: The ability to <em>constrain</em> fit parameters is (currently) unavailable in this software, but can be extremely important in fits with lots of parameters. If you have more than 5 fit parameters, I strongly suggest you do NOT use this software to fit your data. Fitting such complicated data is non-trivial, and you should really spend the time to carefully construct a custom fitting procedure using lmfit, sherpa or miniut.</p>
 </section>
 <section id="to-do">
-<h2>TO DO:<a class="headerlink" href="#to-do" title="Permalink to this heading">¶</a></h2>
+<h2>TO DO:<a class="headerlink" href="#to-do" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>MixedInternalData: don’t update view settings when applying filters to 1D data</p></li>
 <li><p>Saving/loading: Check like everything… like axis limits, scaling, font sizes, linewidths, all that.</p></li>
@@ -391,98 +458,34 @@
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">Offline plotting, a.k.a. InSpectra Gadget</a><ul>
-<li><a class="reference internal" href="#basic-plotting">Basic plotting</a><ul>
-<li><a class="reference internal" href="#plot-types">Plot types</a></li>
-<li><a class="reference internal" href="#fitting">Fitting</a></li>
-<li><a class="reference internal" href="#filters">Filters</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#linecuts">Linecuts</a><ul>
-<li><a class="reference internal" href="#fitting-linecuts">Fitting linecuts</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#working-with-multiple-files">Working with multiple files</a></li>
-<li><a class="reference internal" href="#working-with-an-entire-folder">Working with an entire folder</a><ul>
-<li><a class="reference internal" href="#combining-datasets-plots">Combining datasets/plots</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#saving-and-loading">Saving and loading</a><ul>
-<li><a class="reference internal" href="#exporting-data-and-filters">Exporting data and filters</a></li>
-<li><a class="reference internal" href="#saving-and-loading-appearance-presets">Saving and loading appearance presets</a></li>
-<li><a class="reference internal" href="#loading-non-qcodes-data">Loading non-qcodes++ data.</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#background">Background</a></li>
-<li><a class="reference internal" href="#a-note-about-fitting">A note about fitting</a></li>
-<li><a class="reference internal" href="#to-do">TO DO:</a></li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="data_analysis.html" class="btn btn-neutral float-left" title="Data loading and analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="measure.html" class="btn btn-neutral float-right" title="The Measure class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, qcodes++.</p>
   </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="data_analysis.html"
-                          title="previous chapter">Data loading and analysis</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="measure.html"
-                          title="next chapter">The Measure class</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/offline_plotting.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="measure.html" title="The Measure class"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="data_analysis.html" title="Data loading and analysis"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Offline plotting, a.k.a. InSpectra Gadget</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, qcodes++.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

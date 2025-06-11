@@ -1,67 +1,130 @@
+
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qcodespp.data.format &mdash; qcodes++ 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
 
-    <title>qcodespp.data.format &#8212; qcodes++ 0.1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/nature.css?v=8fc2db88" />
-    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=2389946f"></script>
-    <script src="../../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=2389946f"></script>
+      <script src="../../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="qcodespp.data.gnuplot_format" href="../gnuplot_format/index.html" />
     <link rel="prev" title="qcodespp.data.data_set" href="../data_set/index.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../../../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../../../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="../gnuplot_format/index.html" title="qcodespp.data.gnuplot_format"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="../data_set/index.html" title="qcodespp.data.data_set"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../../../index.html" >API Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../../index.html" >qcodespp</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="../index.html" accesskey="U">qcodespp.data</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">qcodespp.data.format</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            qcodes++
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../parameters.html">More about Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">qcodespp</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../actions/index.html">qcodespp.actions</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">qcodespp.data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../instrument_drivers/index.html">qcodespp.instrument_drivers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../loops/index.html">qcodespp.loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../measure/index.html">qcodespp.measure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../parameters/index.html">qcodespp.parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../plotting/index.html">qcodespp.plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../station/index.html">qcodespp.station</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../utils/index.html">qcodespp.utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../version/index.html">qcodespp.version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">qcodes++</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">qcodespp</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">qcodespp.data</a></li>
+      <li class="breadcrumb-item active">qcodespp.data.format</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/qcodespp/data/format/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="module-qcodespp.data.format">
-<span id="qcodespp-data-format"></span><h1>qcodespp.data.format<a class="headerlink" href="#module-qcodespp.data.format" title="Permalink to this heading">¶</a></h1>
+<span id="qcodespp-data-format"></span><h1>qcodespp.data.format<a class="headerlink" href="#module-qcodespp.data.format" title="Permalink to this heading"></a></h1>
 <section id="attributes">
-<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">¶</a></h2>
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading"></a></h2>
 </section>
 <section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h2>
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">¶</a></h2>
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
 <dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.data.format.log">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.data.format.</span></span><span class="sig-name descname"><span class="pre">log</span></span><a class="headerlink" href="#qcodespp.data.format.log" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.data.format.</span></span><span class="sig-name descname"><span class="pre">log</span></span><a class="headerlink" href="#qcodespp.data.format.log" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.data.format.Formatter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.data.format.</span></span><span class="sig-name descname"><span class="pre">Formatter</span></span><a class="headerlink" href="#qcodespp.data.format.Formatter" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.data.format.</span></span><span class="sig-name descname"><span class="pre">Formatter</span></span><a class="headerlink" href="#qcodespp.data.format.Formatter" title="Permalink to this definition"></a></dt>
 <dd><p>Data file formatters</p>
 <p>Formatters translate between DataSetPPs and data files.</p>
 <p>Each Formatter is expected to implement writing methods:</p>
@@ -103,33 +166,33 @@ it found the specified file, to determine how much to write.</p></li>
 </ul>
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.data.format.Formatter.ArrayGroup">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ArrayGroup</span></span><a class="headerlink" href="#qcodespp.data.format.Formatter.ArrayGroup" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ArrayGroup</span></span><a class="headerlink" href="#qcodespp.data.format.Formatter.ArrayGroup" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.data.format.Formatter.ArrayGroup.shape">
-<span class="sig-name descname"><span class="pre">shape</span></span><a class="headerlink" href="#qcodespp.data.format.Formatter.ArrayGroup.shape" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">shape</span></span><a class="headerlink" href="#qcodespp.data.format.Formatter.ArrayGroup.shape" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.data.format.Formatter.ArrayGroup.set_arrays">
-<span class="sig-name descname"><span class="pre">set_arrays</span></span><a class="headerlink" href="#qcodespp.data.format.Formatter.ArrayGroup.set_arrays" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_arrays</span></span><a class="headerlink" href="#qcodespp.data.format.Formatter.ArrayGroup.set_arrays" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.data.format.Formatter.ArrayGroup.data">
-<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#qcodespp.data.format.Formatter.ArrayGroup.data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#qcodespp.data.format.Formatter.ArrayGroup.data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.data.format.Formatter.ArrayGroup.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#qcodespp.data.format.Formatter.ArrayGroup.name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#qcodespp.data.format.Formatter.ArrayGroup.name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.data.format.Formatter.write">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">io_manager</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_write</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_complete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.format.Formatter.write" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">io_manager</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_write</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_complete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.format.Formatter.write" title="Permalink to this definition"></a></dt>
 <dd><p>Write the DataSetPP to storage.</p>
 <p>Subclasses must override this method.</p>
 <p>It is up to the Formatter to decide when to overwrite completely,
@@ -150,7 +213,7 @@ only_complete (bool): Used only by the gnuplot formatter’s</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.data.format.Formatter.read">
-<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.format.Formatter.read" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.format.Formatter.read" title="Permalink to this definition"></a></dt>
 <dd><p>Read the entire <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code>.</p>
 <p>Find all files matching <code class="docutils literal notranslate"><span class="pre">data_set.location</span></code> (using io_manager.list)
 and call <code class="docutils literal notranslate"><span class="pre">read_one_file</span></code> on each. Subclasses may either override
@@ -171,7 +234,7 @@ expect to be overwritten)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.data.format.Formatter.write_metadata">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">io_manager</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.format.Formatter.write_metadata" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">io_manager</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.format.Formatter.write_metadata" title="Permalink to this definition"></a></dt>
 <dd><p>Write the metadata for this DataSetPP to storage.</p>
 <p>Subclasses must override this method.</p>
 <dl>
@@ -189,7 +252,7 @@ copy.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.data.format.Formatter.read_metadata">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_set</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.format.Formatter.read_metadata" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_set</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.format.Formatter.read_metadata" title="Permalink to this definition"></a></dt>
 <dd><p>Read the metadata from this DataSetPP from storage.</p>
 <p>Subclasses must override this method.</p>
 <dl class="simple">
@@ -200,7 +263,7 @@ copy.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.data.format.Formatter.read_one_file">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read_one_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids_read</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.format.Formatter.read_one_file" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read_one_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids_read</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.format.Formatter.read_one_file" title="Permalink to this definition"></a></dt>
 <dd><p>Read data from a single file into a <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code>.</p>
 <p>Formatter subclasses that break a DataSetPP into multiple data files may
 choose to override either this method, which handles one file at a
@@ -224,7 +287,7 @@ be read again.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.data.format.Formatter.match_save_range">
-<span class="sig-name descname"><span class="pre">match_save_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_exists</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_complete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_rewrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.format.Formatter.match_save_range" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">match_save_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_exists</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_complete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_rewrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.format.Formatter.match_save_range" title="Permalink to this definition"></a></dt>
 <dd><p>Find the save range that will joins all changes in an array group.</p>
 <p>Matches all full-sized arrays: the data arrays plus the inner loop
 setpoint array.</p>
@@ -266,7 +329,7 @@ Default True.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.data.format.Formatter.group_arrays">
-<span class="sig-name descname"><span class="pre">group_arrays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arrays</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.format.Formatter.group_arrays" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">group_arrays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arrays</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.format.Formatter.group_arrays" title="Permalink to this definition"></a></dt>
 <dd><p>Find the sets of arrays which share all the same setpoint arrays.</p>
 <p>Some Formatters use this grouping to determine which arrays to save
 together in one file.</p>
@@ -291,100 +354,34 @@ the setpoint array ids.</p></li>
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="../../../../index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">qcodespp.data.format</a><ul>
-<li><a class="reference internal" href="#attributes">Attributes</a></li>
-<li><a class="reference internal" href="#classes">Classes</a></li>
-<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
-<li><a class="reference internal" href="#qcodespp.data.format.log"><code class="docutils literal notranslate"><span class="pre">log</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.data.format.Formatter"><code class="docutils literal notranslate"><span class="pre">Formatter</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.data.format.Formatter.ArrayGroup"><code class="docutils literal notranslate"><span class="pre">Formatter.ArrayGroup</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.data.format.Formatter.ArrayGroup.shape"><code class="docutils literal notranslate"><span class="pre">Formatter.ArrayGroup.shape</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.data.format.Formatter.ArrayGroup.set_arrays"><code class="docutils literal notranslate"><span class="pre">Formatter.ArrayGroup.set_arrays</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.data.format.Formatter.ArrayGroup.data"><code class="docutils literal notranslate"><span class="pre">Formatter.ArrayGroup.data</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.data.format.Formatter.ArrayGroup.name"><code class="docutils literal notranslate"><span class="pre">Formatter.ArrayGroup.name</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.data.format.Formatter.write"><code class="docutils literal notranslate"><span class="pre">Formatter.write()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.data.format.Formatter.read"><code class="docutils literal notranslate"><span class="pre">Formatter.read()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.data.format.Formatter.write_metadata"><code class="docutils literal notranslate"><span class="pre">Formatter.write_metadata()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.data.format.Formatter.read_metadata"><code class="docutils literal notranslate"><span class="pre">Formatter.read_metadata()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.data.format.Formatter.read_one_file"><code class="docutils literal notranslate"><span class="pre">Formatter.read_one_file()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.data.format.Formatter.match_save_range"><code class="docutils literal notranslate"><span class="pre">Formatter.match_save_range()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.data.format.Formatter.group_arrays"><code class="docutils literal notranslate"><span class="pre">Formatter.group_arrays()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../data_set/index.html" class="btn btn-neutral float-left" title="qcodespp.data.data_set" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../gnuplot_format/index.html" class="btn btn-neutral float-right" title="qcodespp.data.gnuplot_format" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, qcodes++.</p>
   </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="../data_set/index.html"
-                          title="previous chapter">qcodespp.data.data_set</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="../gnuplot_format/index.html"
-                          title="next chapter">qcodespp.data.gnuplot_format</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../../../_sources/autoapi/qcodespp/data/format/index.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../../../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../../../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="../gnuplot_format/index.html" title="qcodespp.data.gnuplot_format"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="../data_set/index.html" title="qcodespp.data.data_set"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../../../index.html" >API Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../../index.html" >qcodespp</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="../index.html" >qcodespp.data</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">qcodespp.data.format</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, qcodes++.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

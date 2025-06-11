@@ -1,70 +1,133 @@
+
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qcodespp.plotting.RemoteQtPlotWidgets &mdash; qcodes++ 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
 
-    <title>qcodespp.plotting.RemoteQtPlotWidgets &#8212; qcodes++ 0.1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/nature.css?v=8fc2db88" />
-    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=2389946f"></script>
-    <script src="../../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=2389946f"></script>
+      <script src="../../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="qcodespp.plotting.colors" href="../colors/index.html" />
     <link rel="prev" title="qcodespp.plotting.RemotePlotClient" href="../RemotePlotClient/index.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../../../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../../../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="../colors/index.html" title="qcodespp.plotting.colors"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="../RemotePlotClient/index.html" title="qcodespp.plotting.RemotePlotClient"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../../../index.html" >API Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../../index.html" >qcodespp</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="../index.html" accesskey="U">qcodespp.plotting</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">qcodespp.plotting.RemoteQtPlotWidgets</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            qcodes++
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../parameters.html">More about Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">qcodespp</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../actions/index.html">qcodespp.actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data/index.html">qcodespp.data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../instrument_drivers/index.html">qcodespp.instrument_drivers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../loops/index.html">qcodespp.loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../measure/index.html">qcodespp.measure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../parameters/index.html">qcodespp.parameters</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">qcodespp.plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../station/index.html">qcodespp.station</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../utils/index.html">qcodespp.utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../version/index.html">qcodespp.version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">qcodes++</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">qcodespp</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">qcodespp.plotting</a></li>
+      <li class="breadcrumb-item active">qcodespp.plotting.RemoteQtPlotWidgets</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/qcodespp/plotting/RemoteQtPlotWidgets/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="module-qcodespp.plotting.RemoteQtPlotWidgets">
-<span id="qcodespp-plotting-remoteqtplotwidgets"></span><h1>qcodespp.plotting.RemoteQtPlotWidgets<a class="headerlink" href="#module-qcodespp.plotting.RemoteQtPlotWidgets" title="Permalink to this heading">¶</a></h1>
+<span id="qcodespp-plotting-remoteqtplotwidgets"></span><h1>qcodespp.plotting.RemoteQtPlotWidgets<a class="headerlink" href="#module-qcodespp.plotting.RemoteQtPlotWidgets" title="Permalink to this heading"></a></h1>
 <section id="attributes">
-<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">¶</a></h2>
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading"></a></h2>
 </section>
 <section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h2>
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading"></a></h2>
 </section>
 <section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h2>
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">¶</a></h2>
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.make_rgba">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.RemoteQtPlotWidgets.</span></span><span class="sig-name descname"><span class="pre">make_rgba</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colorscale</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.make_rgba" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.RemoteQtPlotWidgets.</span></span><span class="sig-name descname"><span class="pre">make_rgba</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colorscale</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.make_rgba" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.one_rgba">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.RemoteQtPlotWidgets.</span></span><span class="sig-name descname"><span class="pre">one_rgba</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.one_rgba" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.RemoteQtPlotWidgets.</span></span><span class="sig-name descname"><span class="pre">one_rgba</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.one_rgba" title="Permalink to this definition"></a></dt>
 <dd><p>convert a single color value to (r, g, b, a)
 input can be an rgb string ‘rgb(r,g,b)’, ‘#rrggbb’
 if we decide we want more we can make more, but for now this is just
@@ -73,12 +136,12 @@ to convert plotly colorscales to pyqtgraph tuples</p>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.qtapp">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.RemoteQtPlotWidgets.</span></span><span class="sig-name descname"><span class="pre">qtapp</span></span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.qtapp" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.RemoteQtPlotWidgets.</span></span><span class="sig-name descname"><span class="pre">qtapp</span></span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.qtapp" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotTrace">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.RemoteQtPlotWidgets.</span></span><span class="sig-name descname"><span class="pre">PlotTrace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotTrace" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.RemoteQtPlotWidgets.</span></span><span class="sig-name descname"><span class="pre">PlotTrace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotTrace" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pyqtgraph.PlotDataItem</span></code></p>
 <p>PlotDataItem with benefits</p>
 <p>delete()
@@ -87,21 +150,21 @@ update()
 - call set_data() with the updated data</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotTrace.setData">
-<span class="sig-name descname"><span class="pre">setData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotTrace.setData" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">setData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotTrace.setData" title="Permalink to this definition"></a></dt>
 <dd><p>Clear any data displayed by this item and display new data.
 See <code class="xref py py-func docutils literal notranslate"><span class="pre">__init__()</span></code> for details; it accepts the same arguments.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotTrace.update_data">
-<span class="sig-name descname"><span class="pre">update_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotTrace.update_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">update_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotTrace.update_data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotLinecuts">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.RemoteQtPlotWidgets.</span></span><span class="sig-name descname"><span class="pre">PlotLinecuts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotLinecuts" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.RemoteQtPlotWidgets.</span></span><span class="sig-name descname"><span class="pre">PlotLinecuts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotLinecuts" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pyqtgraph.PlotDataItem</span></code></p>
 <p>PlotDataItem with benefits</p>
 <p>delete()
@@ -110,21 +173,21 @@ update()
 - call set_data() with the updated data</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotLinecuts.setData">
-<span class="sig-name descname"><span class="pre">setData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotLinecuts.setData" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">setData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotLinecuts.setData" title="Permalink to this definition"></a></dt>
 <dd><p>Clear any data displayed by this item and display new data.
 See <code class="xref py py-func docutils literal notranslate"><span class="pre">__init__()</span></code> for details; it accepts the same arguments.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotLinecuts.update_data">
-<span class="sig-name descname"><span class="pre">update_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotLinecuts.update_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">update_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotLinecuts.update_data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotImage">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.RemoteQtPlotWidgets.</span></span><span class="sig-name descname"><span class="pre">PlotImage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotImage" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.RemoteQtPlotWidgets.</span></span><span class="sig-name descname"><span class="pre">PlotImage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotImage" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pyqtgraph.ImageItem</span></code></p>
 <p>ImageItem with benefits</p>
 <p>delete()
@@ -133,22 +196,22 @@ update()
 - call set_data() with the updated data</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotImage.x_data">
-<span class="sig-name descname"><span class="pre">x_data</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotImage.x_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">x_data</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotImage.x_data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotImage.y_data">
-<span class="sig-name descname"><span class="pre">y_data</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotImage.y_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">y_data</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotImage.y_data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotImage.z_data">
-<span class="sig-name descname"><span class="pre">z_data</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotImage.z_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">z_data</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotImage.z_data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotImage.setImage">
-<span class="sig-name descname"><span class="pre">setImage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotImage.setImage" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">setImage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotImage.setImage" title="Permalink to this definition"></a></dt>
 <dd><p>Updates the image displayed by this ImageItem. For more information on how the image
 is processed before displaying, see <code class="xref py py-func docutils literal notranslate"><span class="pre">makeARGB()</span></code>.</p>
 <p>For backward compatibility, image data is assumed to be in column-major order (column, row) by default.
@@ -160,7 +223,7 @@ However, most data is stored in row-major order (row, column). It can either be 
 <cite>imageAxisOrder</cite> <span class="xref std std-ref">global configuration option</span></p>
 <p>All keywords supported by <code class="xref py py-func docutils literal notranslate"><span class="pre">setOpts()</span></code> are also allowed here.</p>
 <section id="parameters">
-<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h3>
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h3>
 <dl>
 <dt>image: np.ndarray, optional</dt><dd><p>Image data given as NumPy array with an integer or floating
 point dtype of any bit depth. A 2-dimensional array describes single-valued (monochromatic) data.
@@ -187,14 +250,14 @@ Setting this larger than the total number of pixels considers all values.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotImage.update_data">
-<span class="sig-name descname"><span class="pre">update_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotImage.update_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">update_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotImage.update_data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotDock">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.RemoteQtPlotWidgets.</span></span><span class="sig-name descname"><span class="pre">PlotDock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.RemoteQtPlotWidgets.</span></span><span class="sig-name descname"><span class="pre">PlotDock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pyqtgraph.dockarea.Dock</span></code></p>
 <p>Dock with benefits</p>
 <ul class="simple">
@@ -207,97 +270,97 @@ save()
 to_matplolib()</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.theme">
-<span class="sig-name descname"><span class="pre">theme</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">((60,</span> <span class="pre">60,</span> <span class="pre">60),</span> <span class="pre">'w')</span></em><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.theme" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">theme</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">((60,</span> <span class="pre">60,</span> <span class="pre">60),</span> <span class="pre">'w')</span></em><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.theme" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.grid">
-<span class="sig-name descname"><span class="pre">grid</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20</span></em><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.grid" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">grid</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20</span></em><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.grid" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.dock_widget">
-<span class="sig-name descname"><span class="pre">dock_widget</span></span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.dock_widget" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dock_widget</span></span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.dock_widget" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.hist_item">
-<span class="sig-name descname"><span class="pre">hist_item</span></span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.hist_item" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">hist_item</span></span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.hist_item" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.plot_item">
-<span class="sig-name descname"><span class="pre">plot_item</span></span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.plot_item" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot_item</span></span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.plot_item" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.legend">
-<span class="sig-name descname"><span class="pre">legend</span></span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.legend" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">legend</span></span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.legend" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.set_cmap">
-<span class="sig-name descname"><span class="pre">set_cmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.set_cmap" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_cmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.set_cmap" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.add_item">
-<span class="sig-name descname"><span class="pre">add_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.add_item" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.add_item" title="Permalink to this definition"></a></dt>
 <dd><p>Shortcut to .plot_item.addItem() which also figures out 1D or 2D etc.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.set_labels">
-<span class="sig-name descname"><span class="pre">set_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.set_labels" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.set_labels" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.close">
-<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.close" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.close" title="Permalink to this definition"></a></dt>
 <dd><p>Remove this dock from the DockArea it lives inside.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.clear">
-<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.clear" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.clear" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.QtPlot">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.RemoteQtPlotWidgets.</span></span><span class="sig-name descname"><span class="pre">QtPlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1000,</span> <span class="pre">600)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figposition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theme</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">((60,</span> <span class="pre">60,</span> <span class="pre">60),</span> <span class="pre">'w')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'viridis'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.RemoteQtPlotWidgets.</span></span><span class="sig-name descname"><span class="pre">QtPlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1000,</span> <span class="pre">600)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figposition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theme</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">((60,</span> <span class="pre">60,</span> <span class="pre">60),</span> <span class="pre">'w')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'viridis'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">PyQt5.QtWidgets.QWidget</span></code></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.auto_updating">
-<span class="sig-name descname"><span class="pre">auto_updating</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.auto_updating" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">auto_updating</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.auto_updating" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.theme">
-<span class="sig-name descname"><span class="pre">theme</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">((60,</span> <span class="pre">60,</span> <span class="pre">60),</span> <span class="pre">'w')</span></em><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.theme" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">theme</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">((60,</span> <span class="pre">60,</span> <span class="pre">60),</span> <span class="pre">'w')</span></em><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.theme" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.area">
-<span class="sig-name descname"><span class="pre">area</span></span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.area" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">area</span></span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.area" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.clear">
-<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.clear" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.clear" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.closeEvent">
-<span class="sig-name descname"><span class="pre">closeEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.closeEvent" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">closeEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.closeEvent" title="Permalink to this definition"></a></dt>
 <dd><p>Make sure all dock-widgets are deleted upon closing or during garbage-
 collection. Otherwise references keep plots alive forever.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.add_dock">
-<span class="sig-name descname"><span class="pre">add_dock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'right'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relativeto</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.add_dock" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_dock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'right'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relativeto</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.add_dock" title="Permalink to this definition"></a></dt>
 <dd><p>Add a new dock to the current window.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><dl class="simple">
@@ -317,143 +380,48 @@ configuration for ‘above’ and ‘below’).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.add">
-<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subplot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.add" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subplot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.add" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemoteQtPlotWidgets.plot">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.RemoteQtPlotWidgets.</span></span><span class="sig-name descname"><span class="pre">plot</span></span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.plot" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.RemoteQtPlotWidgets.</span></span><span class="sig-name descname"><span class="pre">plot</span></span><a class="headerlink" href="#qcodespp.plotting.RemoteQtPlotWidgets.plot" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </section>
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="../../../../index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">qcodespp.plotting.RemoteQtPlotWidgets</a><ul>
-<li><a class="reference internal" href="#attributes">Attributes</a></li>
-<li><a class="reference internal" href="#classes">Classes</a></li>
-<li><a class="reference internal" href="#functions">Functions</a></li>
-<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.make_rgba"><code class="docutils literal notranslate"><span class="pre">make_rgba()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.one_rgba"><code class="docutils literal notranslate"><span class="pre">one_rgba()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.qtapp"><code class="docutils literal notranslate"><span class="pre">qtapp</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotTrace"><code class="docutils literal notranslate"><span class="pre">PlotTrace</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotTrace.setData"><code class="docutils literal notranslate"><span class="pre">PlotTrace.setData()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotTrace.update_data"><code class="docutils literal notranslate"><span class="pre">PlotTrace.update_data()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotLinecuts"><code class="docutils literal notranslate"><span class="pre">PlotLinecuts</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotLinecuts.setData"><code class="docutils literal notranslate"><span class="pre">PlotLinecuts.setData()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotLinecuts.update_data"><code class="docutils literal notranslate"><span class="pre">PlotLinecuts.update_data()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotImage"><code class="docutils literal notranslate"><span class="pre">PlotImage</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotImage.x_data"><code class="docutils literal notranslate"><span class="pre">PlotImage.x_data</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotImage.y_data"><code class="docutils literal notranslate"><span class="pre">PlotImage.y_data</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotImage.z_data"><code class="docutils literal notranslate"><span class="pre">PlotImage.z_data</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotImage.setImage"><code class="docutils literal notranslate"><span class="pre">PlotImage.setImage()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotImage.update_data"><code class="docutils literal notranslate"><span class="pre">PlotImage.update_data()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock"><code class="docutils literal notranslate"><span class="pre">PlotDock</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.theme"><code class="docutils literal notranslate"><span class="pre">PlotDock.theme</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.grid"><code class="docutils literal notranslate"><span class="pre">PlotDock.grid</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.dock_widget"><code class="docutils literal notranslate"><span class="pre">PlotDock.dock_widget</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.hist_item"><code class="docutils literal notranslate"><span class="pre">PlotDock.hist_item</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.plot_item"><code class="docutils literal notranslate"><span class="pre">PlotDock.plot_item</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.legend"><code class="docutils literal notranslate"><span class="pre">PlotDock.legend</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.set_cmap"><code class="docutils literal notranslate"><span class="pre">PlotDock.set_cmap()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.add_item"><code class="docutils literal notranslate"><span class="pre">PlotDock.add_item()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.set_labels"><code class="docutils literal notranslate"><span class="pre">PlotDock.set_labels()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.close"><code class="docutils literal notranslate"><span class="pre">PlotDock.close()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.PlotDock.clear"><code class="docutils literal notranslate"><span class="pre">PlotDock.clear()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot"><code class="docutils literal notranslate"><span class="pre">QtPlot</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.auto_updating"><code class="docutils literal notranslate"><span class="pre">QtPlot.auto_updating</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.theme"><code class="docutils literal notranslate"><span class="pre">QtPlot.theme</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.area"><code class="docutils literal notranslate"><span class="pre">QtPlot.area</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.clear"><code class="docutils literal notranslate"><span class="pre">QtPlot.clear()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.closeEvent"><code class="docutils literal notranslate"><span class="pre">QtPlot.closeEvent()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.add_dock"><code class="docutils literal notranslate"><span class="pre">QtPlot.add_dock()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.QtPlot.add"><code class="docutils literal notranslate"><span class="pre">QtPlot.add()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.plotting.RemoteQtPlotWidgets.plot"><code class="docutils literal notranslate"><span class="pre">plot</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../RemotePlotClient/index.html" class="btn btn-neutral float-left" title="qcodespp.plotting.RemotePlotClient" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../colors/index.html" class="btn btn-neutral float-right" title="qcodespp.plotting.colors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, qcodes++.</p>
   </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="../RemotePlotClient/index.html"
-                          title="previous chapter">qcodespp.plotting.RemotePlotClient</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="../colors/index.html"
-                          title="next chapter">qcodespp.plotting.colors</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../../../_sources/autoapi/qcodespp/plotting/RemoteQtPlotWidgets/index.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../../../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../../../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="../colors/index.html" title="qcodespp.plotting.colors"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="../RemotePlotClient/index.html" title="qcodespp.plotting.RemotePlotClient"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../../../index.html" >API Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../../index.html" >qcodespp</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="../index.html" >qcodespp.plotting</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">qcodespp.plotting.RemoteQtPlotWidgets</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, qcodes++.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

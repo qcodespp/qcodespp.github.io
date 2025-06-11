@@ -1,77 +1,140 @@
+
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qcodespp.plotting.offline.helpers &mdash; qcodes++ 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
 
-    <title>qcodespp.plotting.offline.helpers &#8212; qcodes++ 0.1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/nature.css?v=8fc2db88" />
-    <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=2389946f"></script>
-    <script src="../../../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+  
+      <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=2389946f"></script>
+      <script src="../../../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
     <link rel="next" title="qcodespp.plotting.offline.main" href="../main/index.html" />
     <link rel="prev" title="qcodespp.plotting.offline.fits" href="../fits/index.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../../../../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../../../../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="../main/index.html" title="qcodespp.plotting.offline.main"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="../fits/index.html" title="qcodespp.plotting.offline.fits"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../../index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../../../../index.html" >API Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../../../index.html" >qcodespp</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="../../index.html" >qcodespp.plotting</a> &#187;</li>
-          <li class="nav-item nav-item-4"><a href="../index.html" accesskey="U">qcodespp.plotting.offline</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">qcodespp.plotting.offline.helpers</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            qcodes++
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../parameters.html">More about Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">qcodespp</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../actions/index.html">qcodespp.actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../data/index.html">qcodespp.data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../instrument_drivers/index.html">qcodespp.instrument_drivers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../loops/index.html">qcodespp.loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../measure/index.html">qcodespp.measure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../parameters/index.html">qcodespp.parameters</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html">qcodespp.plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../station/index.html">qcodespp.station</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../utils/index.html">qcodespp.utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../version/index.html">qcodespp.version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">qcodes++</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">qcodespp</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">qcodespp.plotting</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">qcodespp.plotting.offline</a></li>
+      <li class="breadcrumb-item active">qcodespp.plotting.offline.helpers</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/autoapi/qcodespp/plotting/offline/helpers/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="module-qcodespp.plotting.offline.helpers">
-<span id="qcodespp-plotting-offline-helpers"></span><h1>qcodespp.plotting.offline.helpers<a class="headerlink" href="#module-qcodespp.plotting.offline.helpers" title="Permalink to this heading">¶</a></h1>
+<span id="qcodespp-plotting-offline-helpers"></span><h1>qcodespp.plotting.offline.helpers<a class="headerlink" href="#module-qcodespp.plotting.offline.helpers" title="Permalink to this heading"></a></h1>
 <section id="attributes">
-<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">¶</a></h2>
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading"></a></h2>
 </section>
 <section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h2>
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading"></a></h2>
 </section>
 <section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h2>
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">¶</a></h2>
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
 <dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.helpers.cmaps">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.helpers.</span></span><span class="sig-name descname"><span class="pre">cmaps</span></span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.cmaps" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.helpers.</span></span><span class="sig-name descname"><span class="pre">cmaps</span></span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.cmaps" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.helpers.MidpointNormalize">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.helpers.</span></span><span class="sig-name descname"><span class="pre">MidpointNormalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">midpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.MidpointNormalize" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.helpers.</span></span><span class="sig-name descname"><span class="pre">MidpointNormalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">midpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.MidpointNormalize" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></p>
 <p>A class which, when called, maps values within the interval
 <code class="docutils literal notranslate"><span class="pre">[vmin,</span> <span class="pre">vmax]</span></code> linearly to the interval <code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">1.0]</span></code>. The mapping of
 values outside <code class="docutils literal notranslate"><span class="pre">[vmin,</span> <span class="pre">vmax]</span></code> depends on <em>clip</em>.</p>
 <section id="examples">
-<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h3>
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 
 <span class="n">norm</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -82,19 +145,19 @@ values outside <code class="docutils literal notranslate"><span class="pre">[vmi
 </div>
 </section>
 <section id="see-also">
-<h3>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h3>
+<h3>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading"></a></h3>
 <p><span class="xref std std-ref">colormapnorms</span></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.helpers.MidpointNormalize.midpoint">
-<span class="sig-name descname"><span class="pre">midpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.helpers.MidpointNormalize.midpoint" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">midpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.helpers.MidpointNormalize.midpoint" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.helpers.MidpointNormalize.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.MidpointNormalize.__call__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.MidpointNormalize.__call__" title="Permalink to this definition"></a></dt>
 <dd><p>Normalize the data and return the normalized data.</p>
 <section id="parameters">
-<h4>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h4>
+<h4>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h4>
 <dl>
 <dt>value</dt><dd><p>Data to normalize.</p>
 </dd>
@@ -105,7 +168,7 @@ values outside <code class="docutils literal notranslate"><span class="pre">[vmi
 </dl>
 </section>
 <section id="notes">
-<h4>Notes<a class="headerlink" href="#notes" title="Permalink to this heading">¶</a></h4>
+<h4>Notes<a class="headerlink" href="#notes" title="Permalink to this heading"></a></h4>
 <p>If not already initialized, <code class="docutils literal notranslate"><span class="pre">self.vmin</span></code> and <code class="docutils literal notranslate"><span class="pre">self.vmax</span></code> are
 initialized using <code class="docutils literal notranslate"><span class="pre">self.autoscale_None(value)</span></code>.</p>
 </section>
@@ -116,7 +179,7 @@ initialized using <code class="docutils literal notranslate"><span class="pre">s
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.helpers.NavigationToolbarMod">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.helpers.</span></span><span class="sig-name descname"><span class="pre">NavigationToolbarMod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordinates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.NavigationToolbarMod" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.helpers.</span></span><span class="sig-name descname"><span class="pre">NavigationToolbarMod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordinates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.NavigationToolbarMod" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.backends.backend_qt5.NavigationToolbar2QT</span></code></p>
 <p>Base class for the navigation cursor, version 2.</p>
 <p>Backends must implement a canvas that handles connections for
@@ -144,71 +207,71 @@ of the data path.</p>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.helpers.DARK_COLOR">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.helpers.</span></span><span class="sig-name descname"><span class="pre">DARK_COLOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#19232D'</span></em><a class="headerlink" href="#qcodespp.plotting.offline.helpers.DARK_COLOR" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.helpers.</span></span><span class="sig-name descname"><span class="pre">DARK_COLOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#19232D'</span></em><a class="headerlink" href="#qcodespp.plotting.offline.helpers.DARK_COLOR" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.helpers.GREY_COLOR">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.helpers.</span></span><span class="sig-name descname"><span class="pre">GREY_COLOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#505F69'</span></em><a class="headerlink" href="#qcodespp.plotting.offline.helpers.GREY_COLOR" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.helpers.</span></span><span class="sig-name descname"><span class="pre">GREY_COLOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#505F69'</span></em><a class="headerlink" href="#qcodespp.plotting.offline.helpers.GREY_COLOR" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.helpers.LIGHT_COLOR">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.helpers.</span></span><span class="sig-name descname"><span class="pre">LIGHT_COLOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#F0F0F0'</span></em><a class="headerlink" href="#qcodespp.plotting.offline.helpers.LIGHT_COLOR" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.helpers.</span></span><span class="sig-name descname"><span class="pre">LIGHT_COLOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#F0F0F0'</span></em><a class="headerlink" href="#qcodespp.plotting.offline.helpers.LIGHT_COLOR" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.helpers.rcParams_to_dark_theme">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.helpers.</span></span><span class="sig-name descname"><span class="pre">rcParams_to_dark_theme</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.rcParams_to_dark_theme" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.helpers.</span></span><span class="sig-name descname"><span class="pre">rcParams_to_dark_theme</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.rcParams_to_dark_theme" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.helpers.rcParams_to_light_theme">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.helpers.</span></span><span class="sig-name descname"><span class="pre">rcParams_to_light_theme</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.rcParams_to_light_theme" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.helpers.</span></span><span class="sig-name descname"><span class="pre">rcParams_to_light_theme</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.rcParams_to_light_theme" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.helpers.NoScrollQComboBox">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.helpers.</span></span><span class="sig-name descname"><span class="pre">NoScrollQComboBox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.NoScrollQComboBox" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.helpers.</span></span><span class="sig-name descname"><span class="pre">NoScrollQComboBox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.NoScrollQComboBox" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">PyQt5.QtWidgets.QComboBox</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.helpers.NoScrollQComboBox.wheelEvent">
-<span class="sig-name descname"><span class="pre">wheelEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.NoScrollQComboBox.wheelEvent" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">wheelEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.NoScrollQComboBox.wheelEvent" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.helpers.DraggablePoint">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.helpers.</span></span><span class="sig-name descname"><span class="pre">DraggablePoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linecut</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">draw_line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">draw_circle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.DraggablePoint" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.helpers.</span></span><span class="sig-name descname"><span class="pre">DraggablePoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linecut</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">draw_line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">draw_circle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.DraggablePoint" title="Permalink to this definition"></a></dt>
 <dd><dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.helpers.DraggablePoint.lock">
-<span class="sig-name descname"><span class="pre">lock</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.helpers.DraggablePoint.lock" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">lock</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.helpers.DraggablePoint.lock" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.helpers.DraggablePoint.connect">
-<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.DraggablePoint.connect" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.DraggablePoint.connect" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.helpers.DraggablePoint.on_press">
-<span class="sig-name descname"><span class="pre">on_press</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.DraggablePoint.on_press" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">on_press</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.DraggablePoint.on_press" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.helpers.DraggablePoint.on_motion">
-<span class="sig-name descname"><span class="pre">on_motion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.DraggablePoint.on_motion" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">on_motion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.DraggablePoint.on_motion" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.helpers.DraggablePoint.on_release">
-<span class="sig-name descname"><span class="pre">on_release</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.DraggablePoint.on_release" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">on_release</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.DraggablePoint.on_release" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.helpers.DraggablePoint.disconnect">
-<span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.DraggablePoint.disconnect" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.helpers.DraggablePoint.disconnect" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -217,109 +280,34 @@ of the data path.</p>
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="../../../../../index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">qcodespp.plotting.offline.helpers</a><ul>
-<li><a class="reference internal" href="#attributes">Attributes</a></li>
-<li><a class="reference internal" href="#classes">Classes</a></li>
-<li><a class="reference internal" href="#functions">Functions</a></li>
-<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.helpers.cmaps"><code class="docutils literal notranslate"><span class="pre">cmaps</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.helpers.MidpointNormalize"><code class="docutils literal notranslate"><span class="pre">MidpointNormalize</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.helpers.MidpointNormalize.midpoint"><code class="docutils literal notranslate"><span class="pre">MidpointNormalize.midpoint</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.helpers.MidpointNormalize.__call__"><code class="docutils literal notranslate"><span class="pre">MidpointNormalize.__call__()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.helpers.NavigationToolbarMod"><code class="docutils literal notranslate"><span class="pre">NavigationToolbarMod</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.helpers.DARK_COLOR"><code class="docutils literal notranslate"><span class="pre">DARK_COLOR</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.helpers.GREY_COLOR"><code class="docutils literal notranslate"><span class="pre">GREY_COLOR</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.helpers.LIGHT_COLOR"><code class="docutils literal notranslate"><span class="pre">LIGHT_COLOR</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.helpers.rcParams_to_dark_theme"><code class="docutils literal notranslate"><span class="pre">rcParams_to_dark_theme()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.helpers.rcParams_to_light_theme"><code class="docutils literal notranslate"><span class="pre">rcParams_to_light_theme()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.helpers.NoScrollQComboBox"><code class="docutils literal notranslate"><span class="pre">NoScrollQComboBox</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.helpers.NoScrollQComboBox.wheelEvent"><code class="docutils literal notranslate"><span class="pre">NoScrollQComboBox.wheelEvent()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.helpers.DraggablePoint"><code class="docutils literal notranslate"><span class="pre">DraggablePoint</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.helpers.DraggablePoint.lock"><code class="docutils literal notranslate"><span class="pre">DraggablePoint.lock</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.helpers.DraggablePoint.connect"><code class="docutils literal notranslate"><span class="pre">DraggablePoint.connect()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.helpers.DraggablePoint.on_press"><code class="docutils literal notranslate"><span class="pre">DraggablePoint.on_press()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.helpers.DraggablePoint.on_motion"><code class="docutils literal notranslate"><span class="pre">DraggablePoint.on_motion()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.helpers.DraggablePoint.on_release"><code class="docutils literal notranslate"><span class="pre">DraggablePoint.on_release()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.helpers.DraggablePoint.disconnect"><code class="docutils literal notranslate"><span class="pre">DraggablePoint.disconnect()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../fits/index.html" class="btn btn-neutral float-left" title="qcodespp.plotting.offline.fits" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../main/index.html" class="btn btn-neutral float-right" title="qcodespp.plotting.offline.main" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, qcodes++.</p>
   </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="../fits/index.html"
-                          title="previous chapter">qcodespp.plotting.offline.fits</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="../main/index.html"
-                          title="next chapter">qcodespp.plotting.offline.main</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../../../../_sources/autoapi/qcodespp/plotting/offline/helpers/index.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../../../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../../../../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../../../../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="../main/index.html" title="qcodespp.plotting.offline.main"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="../fits/index.html" title="qcodespp.plotting.offline.fits"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../../index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../../../../index.html" >API Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../../../index.html" >qcodespp</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="../../index.html" >qcodespp.plotting</a> &#187;</li>
-          <li class="nav-item nav-item-4"><a href="../index.html" >qcodespp.plotting.offline</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">qcodespp.plotting.offline.helpers</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, qcodes++.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

@@ -1,63 +1,126 @@
+
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qcodespp.plotting.offline.fits &mdash; qcodes++ 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
 
-    <title>qcodespp.plotting.offline.fits &#8212; qcodes++ 0.1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/nature.css?v=8fc2db88" />
-    <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=2389946f"></script>
-    <script src="../../../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+  
+      <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=2389946f"></script>
+      <script src="../../../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
     <link rel="next" title="qcodespp.plotting.offline.helpers" href="../helpers/index.html" />
     <link rel="prev" title="qcodespp.plotting.offline.filters" href="../filters/index.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../../../../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../../../../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="../helpers/index.html" title="qcodespp.plotting.offline.helpers"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="../filters/index.html" title="qcodespp.plotting.offline.filters"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../../index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../../../../index.html" >API Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../../../index.html" >qcodespp</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="../../index.html" >qcodespp.plotting</a> &#187;</li>
-          <li class="nav-item nav-item-4"><a href="../index.html" accesskey="U">qcodespp.plotting.offline</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">qcodespp.plotting.offline.fits</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            qcodes++
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../parameters.html">More about Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">qcodespp</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../actions/index.html">qcodespp.actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../data/index.html">qcodespp.data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../instrument_drivers/index.html">qcodespp.instrument_drivers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../loops/index.html">qcodespp.loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../measure/index.html">qcodespp.measure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../parameters/index.html">qcodespp.parameters</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html">qcodespp.plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../station/index.html">qcodespp.station</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../utils/index.html">qcodespp.utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../version/index.html">qcodespp.version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">qcodes++</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">qcodespp</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">qcodespp.plotting</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">qcodespp.plotting.offline</a></li>
+      <li class="breadcrumb-item active">qcodespp.plotting.offline.fits</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/autoapi/qcodespp/plotting/offline/fits/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="module-qcodespp.plotting.offline.fits">
-<span id="qcodespp-plotting-offline-fits"></span><h1>qcodespp.plotting.offline.fits<a class="headerlink" href="#module-qcodespp.plotting.offline.fits" title="Permalink to this heading">¶</a></h1>
+<span id="qcodespp-plotting-offline-fits"></span><h1>qcodespp.plotting.offline.fits<a class="headerlink" href="#module-qcodespp.plotting.offline.fits" title="Permalink to this heading"></a></h1>
 <section id="attributes">
-<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">¶</a></h2>
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading"></a></h2>
 </section>
 <section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h2>
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">¶</a></h2>
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.linear">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">linear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.linear" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">linear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.linear" title="Permalink to this definition"></a></dt>
 <dd><p>Fit a linear model to the data.
 Args:</p>
 <blockquote>
@@ -73,7 +136,7 @@ ydata: y data to fit</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.polynomial">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">polynomial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.polynomial" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">polynomial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.polynomial" title="Permalink to this definition"></a></dt>
 <dd><p>Fit a polynomial model to the data.
 Args:</p>
 <blockquote>
@@ -90,7 +153,7 @@ inputinfo (int): degree of the polynomial to fit. Default 2</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.fit_powerlaw">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fit_powerlaw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.fit_powerlaw" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fit_powerlaw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.fit_powerlaw" title="Permalink to this definition"></a></dt>
 <dd><p>Fit a power law model to the data.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>xdata: x data to fit
@@ -105,7 +168,7 @@ inputinfo: a list containing the number of terms in the power law and whether to
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.fit_exponentials">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fit_exponentials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.fit_exponentials" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fit_exponentials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.fit_exponentials" title="Permalink to this definition"></a></dt>
 <dd><p>Fit one or more exponential terms to the data, with or without a constant offset.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>xdata: x data to fit
@@ -120,7 +183,7 @@ inputinfo: a list containing the number of terms in the exponential and whether 
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.fit_lorgausstype">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fit_lorgausstype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modeltype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.fit_lorgausstype" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fit_lorgausstype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modeltype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.fit_lorgausstype" title="Permalink to this definition"></a></dt>
 <dd><p>Fits x,y data with peaks characterised by amplitude, fwhm and position.</p>
 <dl>
 <dt>Args:</dt><dd><dl class="simple">
@@ -139,7 +202,7 @@ inputinfo: a list containing the number of peaks to fit and whether to include a
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.fit_voigttype">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fit_voigttype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modeltype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.fit_voigttype" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fit_voigttype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modeltype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.fit_voigttype" title="Permalink to this definition"></a></dt>
 <dd><p>Fits x,y data with peaks characterised by amplitude, fwhm, position and gamma.</p>
 <dl>
 <dt>Args:</dt><dd><dl class="simple">
@@ -159,7 +222,7 @@ inputinfo: a list containing the number of peaks to fit and whether to include a
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.fit_skewedpeaks">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fit_skewedpeaks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modeltype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.fit_skewedpeaks" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fit_skewedpeaks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modeltype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.fit_skewedpeaks" title="Permalink to this definition"></a></dt>
 <dd><p>Fits x,y data with peaks characterised by amplitude, fwhm, position, gamma and skew.
 Args:</p>
 <blockquote>
@@ -180,7 +243,7 @@ inputinfo: a list containing the number of peaks to fit and whether to include a
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.fit_sines">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fit_sines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.fit_sines" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fit_sines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.fit_sines" title="Permalink to this definition"></a></dt>
 <dd><p>Fits x,y data with multiple sine waves characterised by amplitude, frequency, phase and position.
 Args:</p>
 <blockquote>
@@ -197,7 +260,7 @@ inputinfo: a list containing the number of sine waves to fit and whether to incl
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.thermal_fit">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">thermal_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modeltype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.thermal_fit" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">thermal_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modeltype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.thermal_fit" title="Permalink to this definition"></a></dt>
 <dd><p>Fits x,y data with a thermal distribution characterised by temperature and amplitude.
 Args:</p>
 <blockquote>
@@ -218,7 +281,7 @@ inputinfo: not used.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.step_fit">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">step_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modeltype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.step_fit" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">step_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modeltype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.step_fit" title="Permalink to this definition"></a></dt>
 <dd><p>Fits x,y data with a step function characterised by amplitude, center and sigma.
 Args:</p>
 <blockquote>
@@ -239,7 +302,7 @@ inputinfo: not used.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.rectangle_fit">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">rectangle_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modeltype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.rectangle_fit" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">rectangle_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modeltype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.rectangle_fit" title="Permalink to this definition"></a></dt>
 <dd><p>Fits x,y data with a rectangle function characterised by amplitude, center1, center2, sigma1 and sigma2.
 Args:</p>
 <blockquote>
@@ -260,7 +323,7 @@ inputinfo: not used.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.expression_fit">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">expression_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.expression_fit" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">expression_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.expression_fit" title="Permalink to this definition"></a></dt>
 <dd><p>Fits x,y data with an arbitrary expression using lmfit’s ExpressionModel.
 Args:</p>
 <blockquote>
@@ -280,7 +343,7 @@ p0 (opt.): initial guesses for the parameters. Should be a list of strings.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.QD_fit">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">QD_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0.01]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.QD_fit" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">QD_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0.01]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.QD_fit" title="Permalink to this definition"></a></dt>
 <dd><p>Fits one or more Coulomb blockade peaks in the limit of low tunnel coupling: ‘G = G_0 * cosh(e*alpha*(Vg - V_0)/(2*k_B*T))**(-2)</p>
 <dl>
 <dt>Args:</dt><dd><p>xdata: x data to fit
@@ -301,7 +364,7 @@ p0 (opt.): initial guesses for the parameters. Should be a list of strings.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.FET_mobility">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">FET_mobility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.FET_mobility" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">FET_mobility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.FET_mobility" title="Permalink to this definition"></a></dt>
 <dd><p>Fits x,y data with a FET mobility model: ‘1/(R_s + L**2/(C*mu*(x-V_th)))’
 Args:</p>
 <blockquote>
@@ -324,7 +387,7 @@ p0 (opt.): List of initial guesses for the parameters.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.dynes_fit">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">dynes_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.dynes_fit" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">dynes_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.dynes_fit" title="Permalink to this definition"></a></dt>
 <dd><p>Fits x,y data with a Dynes model for a superconducting gap: ‘G_N * abs((e*x - i*gamma*e)/(sqrt((e*x - i*gamma*e)**2 - (delta*e)**2)))’</p>
 <dl>
 <dt>Args:</dt><dd><p>xdata: x data to fit
@@ -342,7 +405,7 @@ p0 (opt.): initial guesses for the parameters. Should be a list of floats.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.ramsey_fit">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">ramsey_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.ramsey_fit" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">ramsey_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.ramsey_fit" title="Permalink to this definition"></a></dt>
 <dd><p>Fits x,y data with a Ramsey model for T2 of a qubit: ‘A*cos(2*pi*f*x + phi)*exp(-x/T2) + B + C*x’</p>
 <dl>
 <dt>Args:</dt><dd><p>xdata: x data to fit
@@ -360,17 +423,17 @@ p0 (opt.): initial guesses for the parameters. Should be a list of floats.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.statistics">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">statistics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.statistics" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">statistics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.statistics" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.functions">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">functions</span></span><a class="headerlink" href="#qcodespp.plotting.offline.fits.functions" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">functions</span></span><a class="headerlink" href="#qcodespp.plotting.offline.fits.functions" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.multipeak_description">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">multipeak_description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Multiline-String</span></em><a class="headerlink" href="#qcodespp.plotting.offline.fits.multipeak_description" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">multipeak_description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Multiline-String</span></em><a class="headerlink" href="#qcodespp.plotting.offline.fits.multipeak_description" title="Permalink to this definition"></a></dt>
 <dd><details><summary>Show Value</summary><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Fit one or more {} peaks. The inputs are n,c, where n is the number of peaks and c is whether to include a constant offset in the fit. c=0 --&gt; no offset, c=1 --&gt; Offset.</span>
 <span class="sd">For exmaple, inputs of 4,0 will fit four peaks without a constant offset.</span>
 <span class="sd">By default, the fit assumes equally spaced peaks with heights approximately the max value of the data.</span>
@@ -382,7 +445,7 @@ p0 (opt.): initial guesses for the parameters. Should be a list of floats.</p>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.lorgaussform">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">lorgaussform</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Multiline-String</span></em><a class="headerlink" href="#qcodespp.plotting.offline.fits.lorgaussform" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">lorgaussform</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Multiline-String</span></em><a class="headerlink" href="#qcodespp.plotting.offline.fits.lorgaussform" title="Permalink to this definition"></a></dt>
 <dd><details><summary>Show Value</summary><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;w1 ... wn, a1 ... an, x1 ... xn, c where w = peak sigma a = peak amplitude, x = peak position and c = constant offset value (if used). For example:</span>
 <span class="sd">0.01 0.014 0.005, 1.1 1.05 1.2, -0.1 0 0.1</span>
 <span class="sd">for three peaks with no constant offset, and</span>
@@ -395,7 +458,7 @@ p0 (opt.): initial guesses for the parameters. Should be a list of floats.</p>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.fourparamform">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fourparamform</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Multiline-String</span></em><a class="headerlink" href="#qcodespp.plotting.offline.fits.fourparamform" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fourparamform</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Multiline-String</span></em><a class="headerlink" href="#qcodespp.plotting.offline.fits.fourparamform" title="Permalink to this definition"></a></dt>
 <dd><details><summary>Show Value</summary><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;w1 ... wn, a1 ... an, x1 ... xn, g1 ... gn, c where w = peak sigma, a = peak amplitude, x = peak position, g = gamma (see lmfit documentation for meaning in each case) and c = constant offset value (if used). For example:</span>
 <span class="sd">0.01 0.014 0.005, 1.1 1.05 1.2, -0.1 0 0.1, 0.001 0.001 0.001</span>
 <span class="sd">for three peaks with no constant offset, and</span>
@@ -408,7 +471,7 @@ p0 (opt.): initial guesses for the parameters. Should be a list of floats.</p>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.fiveparamform">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fiveparamform</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Multiline-String</span></em><a class="headerlink" href="#qcodespp.plotting.offline.fits.fiveparamform" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fiveparamform</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Multiline-String</span></em><a class="headerlink" href="#qcodespp.plotting.offline.fits.fiveparamform" title="Permalink to this definition"></a></dt>
 <dd><details><summary>Show Value</summary><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;w1 ... wn, a1 ... an, x1 ... xn, g1 ... gn, s1 ... sn, c where w = peak sigma, a = peak amplitude, x = peak position, g = gamma (see lmfit documentation for meaning in each case), s = skew and c = constant offset value (if used). For example:</span>
 <span class="sd">0.01 0.014 0.005, 1.1 1.05 1.2, -0.1 0 0.1, 0.001 0.001 0.001, 0.1 0.12 0.14</span>
 <span class="sd">for three peaks with no constant offset, and</span>
@@ -421,12 +484,12 @@ p0 (opt.): initial guesses for the parameters. Should be a list of floats.</p>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.thermaldescription">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">thermaldescription</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Fit</span> <span class="pre">to</span> <span class="pre">a</span> <span class="pre">{}</span> <span class="pre">distribution:</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">{}.</span> <span class="pre">kT</span> <span class="pre">is</span> <span class="pre">considered</span> <span class="pre">a</span> <span class="pre">single</span> <span class="pre">fit</span> <span class="pre">parameter.</span> <span class="pre">Initial</span> <span class="pre">guesses</span> <span class="pre">for...</span></em><a class="headerlink" href="#qcodespp.plotting.offline.fits.thermaldescription" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">thermaldescription</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Fit</span> <span class="pre">to</span> <span class="pre">a</span> <span class="pre">{}</span> <span class="pre">distribution:</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">{}.</span> <span class="pre">kT</span> <span class="pre">is</span> <span class="pre">considered</span> <span class="pre">a</span> <span class="pre">single</span> <span class="pre">fit</span> <span class="pre">parameter.</span> <span class="pre">Initial</span> <span class="pre">guesses</span> <span class="pre">for...</span></em><a class="headerlink" href="#qcodespp.plotting.offline.fits.thermaldescription" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.stepdescription">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">stepdescription</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Multiline-String</span></em><a class="headerlink" href="#qcodespp.plotting.offline.fits.stepdescription" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">stepdescription</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Multiline-String</span></em><a class="headerlink" href="#qcodespp.plotting.offline.fits.stepdescription" title="Permalink to this definition"></a></dt>
 <dd><details><summary>Show Value</summary><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Fit a single step function of type {} (see lmfit documentation for information).</span>
 <span class="sd">The step function starts at 0 and ends with value +/- A. The x-value where y=A/2 is given by x0, and sigma is the characteristic width of the step.</span>
 <span class="sd">Use an offset filter on the data in the main panel to ensure your data starts at y=0.</span>
@@ -438,7 +501,7 @@ p0 (opt.): initial guesses for the parameters. Should be a list of floats.</p>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.rectdescription">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">rectdescription</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Multiline-String</span></em><a class="headerlink" href="#qcodespp.plotting.offline.fits.rectdescription" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">rectdescription</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Multiline-String</span></em><a class="headerlink" href="#qcodespp.plotting.offline.fits.rectdescription" title="Permalink to this definition"></a></dt>
 <dd><details><summary>Show Value</summary><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Fit a rectangle function of type {} (see lmfit documentation for information).</span>
 <span class="sd">A rectangle function steps from 0 to +/- A, then back to 0. The x-values where y=A/2 are given by x0_1, x0_2, and sigma_1 and sigma_2 are the characteristic widths of the steps.</span>
 <span class="sd">Use an offset filter on the data in the main panel to ensure your data starts at y=0.</span>
@@ -450,146 +513,66 @@ p0 (opt.): initial guesses for the parameters. Should be a list of floats.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.get_class_names">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">get_class_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.get_class_names" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">get_class_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.get_class_names" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.get_function">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">get_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.get_function" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">get_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.get_function" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.get_names">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">get_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fitclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Polynomials</span> <span class="pre">and</span> <span class="pre">powers'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.get_names" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">get_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fitclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Polynomials</span> <span class="pre">and</span> <span class="pre">powers'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.get_names" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.get_parameters">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.get_parameters" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.get_parameters" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.get_description">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.get_description" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.get_description" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.fit_data">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fit_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.fit_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fit_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.fit_data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </section>
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="../../../../../index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">qcodespp.plotting.offline.fits</a><ul>
-<li><a class="reference internal" href="#attributes">Attributes</a></li>
-<li><a class="reference internal" href="#functions">Functions</a></li>
-<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.linear"><code class="docutils literal notranslate"><span class="pre">linear()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.polynomial"><code class="docutils literal notranslate"><span class="pre">polynomial()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.fit_powerlaw"><code class="docutils literal notranslate"><span class="pre">fit_powerlaw()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.fit_exponentials"><code class="docutils literal notranslate"><span class="pre">fit_exponentials()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.fit_lorgausstype"><code class="docutils literal notranslate"><span class="pre">fit_lorgausstype()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.fit_voigttype"><code class="docutils literal notranslate"><span class="pre">fit_voigttype()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.fit_skewedpeaks"><code class="docutils literal notranslate"><span class="pre">fit_skewedpeaks()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.fit_sines"><code class="docutils literal notranslate"><span class="pre">fit_sines()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.thermal_fit"><code class="docutils literal notranslate"><span class="pre">thermal_fit()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.step_fit"><code class="docutils literal notranslate"><span class="pre">step_fit()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.rectangle_fit"><code class="docutils literal notranslate"><span class="pre">rectangle_fit()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.expression_fit"><code class="docutils literal notranslate"><span class="pre">expression_fit()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.QD_fit"><code class="docutils literal notranslate"><span class="pre">QD_fit()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.FET_mobility"><code class="docutils literal notranslate"><span class="pre">FET_mobility()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.dynes_fit"><code class="docutils literal notranslate"><span class="pre">dynes_fit()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.ramsey_fit"><code class="docutils literal notranslate"><span class="pre">ramsey_fit()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.statistics"><code class="docutils literal notranslate"><span class="pre">statistics()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.functions"><code class="docutils literal notranslate"><span class="pre">functions</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.multipeak_description"><code class="docutils literal notranslate"><span class="pre">multipeak_description</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.lorgaussform"><code class="docutils literal notranslate"><span class="pre">lorgaussform</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.fourparamform"><code class="docutils literal notranslate"><span class="pre">fourparamform</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.fiveparamform"><code class="docutils literal notranslate"><span class="pre">fiveparamform</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.thermaldescription"><code class="docutils literal notranslate"><span class="pre">thermaldescription</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.stepdescription"><code class="docutils literal notranslate"><span class="pre">stepdescription</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.rectdescription"><code class="docutils literal notranslate"><span class="pre">rectdescription</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.get_class_names"><code class="docutils literal notranslate"><span class="pre">get_class_names()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.get_function"><code class="docutils literal notranslate"><span class="pre">get_function()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.get_names"><code class="docutils literal notranslate"><span class="pre">get_names()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.get_parameters"><code class="docutils literal notranslate"><span class="pre">get_parameters()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.get_description"><code class="docutils literal notranslate"><span class="pre">get_description()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.fits.fit_data"><code class="docutils literal notranslate"><span class="pre">fit_data()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../filters/index.html" class="btn btn-neutral float-left" title="qcodespp.plotting.offline.filters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../helpers/index.html" class="btn btn-neutral float-right" title="qcodespp.plotting.offline.helpers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, qcodes++.</p>
   </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="../filters/index.html"
-                          title="previous chapter">qcodespp.plotting.offline.filters</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="../helpers/index.html"
-                          title="next chapter">qcodespp.plotting.offline.helpers</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../../../../_sources/autoapi/qcodespp/plotting/offline/fits/index.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../../../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../../../../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../../../../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="../helpers/index.html" title="qcodespp.plotting.offline.helpers"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="../filters/index.html" title="qcodespp.plotting.offline.filters"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../../index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../../../../index.html" >API Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../../../index.html" >qcodespp</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="../../index.html" >qcodespp.plotting</a> &#187;</li>
-          <li class="nav-item nav-item-4"><a href="../index.html" >qcodespp.plotting.offline</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">qcodespp.plotting.offline.fits</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, qcodes++.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

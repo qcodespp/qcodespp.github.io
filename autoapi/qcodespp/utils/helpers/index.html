@@ -1,75 +1,138 @@
+
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qcodespp.utils.helpers &mdash; qcodes++ 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
 
-    <title>qcodespp.utils.helpers &#8212; qcodes++ 0.1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/nature.css?v=8fc2db88" />
-    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=2389946f"></script>
-    <script src="../../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=2389946f"></script>
+      <script src="../../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="qcodespp.utils.visa_helpers" href="../visa_helpers/index.html" />
     <link rel="prev" title="qcodespp.utils" href="../index.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../../../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../../../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="../visa_helpers/index.html" title="qcodespp.utils.visa_helpers"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="../index.html" title="qcodespp.utils"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../../../index.html" >API Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../../index.html" >qcodespp</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="../index.html" accesskey="U">qcodespp.utils</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">qcodespp.utils.helpers</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            qcodes++
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../parameters.html">More about Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">qcodespp</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../actions/index.html">qcodespp.actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data/index.html">qcodespp.data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../instrument_drivers/index.html">qcodespp.instrument_drivers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../loops/index.html">qcodespp.loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../measure/index.html">qcodespp.measure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../parameters/index.html">qcodespp.parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../plotting/index.html">qcodespp.plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../station/index.html">qcodespp.station</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">qcodespp.utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../version/index.html">qcodespp.version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">qcodes++</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">qcodespp</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">qcodespp.utils</a></li>
+      <li class="breadcrumb-item active">qcodespp.utils.helpers</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/qcodespp/utils/helpers/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="module-qcodespp.utils.helpers">
-<span id="qcodespp-utils-helpers"></span><h1>qcodespp.utils.helpers<a class="headerlink" href="#module-qcodespp.utils.helpers" title="Permalink to this heading">¶</a></h1>
+<span id="qcodespp-utils-helpers"></span><h1>qcodespp.utils.helpers<a class="headerlink" href="#module-qcodespp.utils.helpers" title="Permalink to this heading"></a></h1>
 <section id="attributes">
-<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">¶</a></h2>
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading"></a></h2>
 </section>
 <section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h2>
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading"></a></h2>
 </section>
 <section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h2>
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">¶</a></h2>
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
 <dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.log">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">log</span></span><a class="headerlink" href="#qcodespp.utils.helpers.log" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">log</span></span><a class="headerlink" href="#qcodespp.utils.helpers.log" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.NumpyJSONEncoder">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">NumpyJSONEncoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skipkeys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ensure_ascii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_circular</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_nan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separators</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.NumpyJSONEncoder" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">NumpyJSONEncoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skipkeys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ensure_ascii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_circular</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_nan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separators</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.NumpyJSONEncoder" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">json.JSONEncoder</span></code></p>
 <p>Return numpy types as standard types.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.NumpyJSONEncoder.default">
-<span class="sig-name descname"><span class="pre">default</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.NumpyJSONEncoder.default" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">default</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.NumpyJSONEncoder.default" title="Permalink to this definition"></a></dt>
 <dd><p>Implement this method in a subclass such that it returns
 a serializable object for <code class="docutils literal notranslate"><span class="pre">o</span></code>, or calls the base implementation
 (to raise a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>).</p>
@@ -92,13 +155,13 @@ implement default like this:</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.tprint">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">tprint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.tprint" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">tprint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.tprint" title="Permalink to this definition"></a></dt>
 <dd><p>Print progress of a loop every dt seconds</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.is_sequence">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">is_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.is_sequence" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">is_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.is_sequence" title="Permalink to this definition"></a></dt>
 <dd><p>Test if an object is a sequence.</p>
 <p>We do not consider strings or unordered collections like sets to be
 sequences, but we do accept iterators (such as generators)</p>
@@ -106,7 +169,7 @@ sequences, but we do accept iterators (such as generators)</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.is_sequence_of">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">is_sequence_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.is_sequence_of" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">is_sequence_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.is_sequence_of" title="Permalink to this definition"></a></dt>
 <dd><p>Test if object is a sequence of entirely certain class(es).</p>
 <dl>
 <dt>Args:</dt><dd><p>obj (any): the object to test.</p>
@@ -127,7 +190,7 @@ included, we set <code class="docutils literal notranslate"><span class="pre">de
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.is_function">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">is_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg_count</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coroutine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.is_function" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">is_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg_count</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coroutine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.is_function" title="Permalink to this definition"></a></dt>
 <dd><p>Check and require a function that can accept the specified number of
 positional arguments, which either is or is not a coroutine
 type casting “functions” are allowed, but only in the 1-argument form</p>
@@ -143,19 +206,19 @@ coroutine (bool): is a coroutine. Default: False</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.full_class">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">full_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.full_class" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">full_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.full_class" title="Permalink to this definition"></a></dt>
 <dd><p>The full importable path to an object’s class.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.named_repr">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">named_repr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.named_repr" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">named_repr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.named_repr" title="Permalink to this definition"></a></dt>
 <dd><p>Enhance the standard repr() with the object’s name attribute.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.deep_update">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">deep_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.deep_update" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">deep_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.deep_update" title="Permalink to this definition"></a></dt>
 <dd><p>Recursively update one JSON structure with another.</p>
 <p>Only dives into nested dicts; lists get replaced completely.
 If the original value is a dict and the new value is not, or vice versa,
@@ -164,7 +227,7 @@ we also replace the value completely.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.permissive_range">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">permissive_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.permissive_range" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">permissive_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.permissive_range" title="Permalink to this definition"></a></dt>
 <dd><p>returns range (as a list of values) with floating point step</p>
 <dl class="simple">
 <dt>inputs:</dt><dd><p>start, stop, step</p>
@@ -176,7 +239,7 @@ regardless of the sign of step</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.make_sweep">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">make_sweep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.make_sweep" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">make_sweep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.make_sweep" title="Permalink to this definition"></a></dt>
 <dd><p>Generate numbers over a specified interval.
 Requires <cite>start</cite> and <cite>stop</cite> and (<cite>step</cite> or <cite>num</cite>)
 The sign of <cite>step</cite> is not relevant.</p>
@@ -202,7 +265,7 @@ The sign of <cite>step</cite> is not relevant.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.wait_secs">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">wait_secs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">finish_clock</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.wait_secs" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">wait_secs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">finish_clock</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.wait_secs" title="Permalink to this definition"></a></dt>
 <dd><p>calculate the number of seconds until a given clock time
 The clock time should be the result of time.perf_counter()
 Does NOT wait for this time.</p>
@@ -210,7 +273,7 @@ Does NOT wait for this time.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.LogCapture">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">LogCapture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">logging.getLogger()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.LogCapture" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">LogCapture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">logging.getLogger()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.LogCapture" title="Permalink to this definition"></a></dt>
 <dd><p>context manager to grab all log messages, optionally
 from a specific logger</p>
 <p>usage:</p>
@@ -221,36 +284,36 @@ from a specific logger</p>
 </div>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.LogCapture.logger">
-<span class="sig-name descname"><span class="pre">logger</span></span><a class="headerlink" href="#qcodespp.utils.helpers.LogCapture.logger" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">logger</span></span><a class="headerlink" href="#qcodespp.utils.helpers.LogCapture.logger" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.LogCapture.stashed_handlers">
-<span class="sig-name descname"><span class="pre">stashed_handlers</span></span><a class="headerlink" href="#qcodespp.utils.helpers.LogCapture.stashed_handlers" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">stashed_handlers</span></span><a class="headerlink" href="#qcodespp.utils.helpers.LogCapture.stashed_handlers" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.LogCapture.__enter__">
-<span class="sig-name descname"><span class="pre">__enter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.LogCapture.__enter__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__enter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.LogCapture.__enter__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.LogCapture.__exit__">
-<span class="sig-name descname"><span class="pre">__exit__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tb</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.LogCapture.__exit__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__exit__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tb</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.LogCapture.__exit__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.make_unique">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">make_unique</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">existing</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.make_unique" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">make_unique</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">existing</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.make_unique" title="Permalink to this definition"></a></dt>
 <dd><p>make string s unique, able to be added to a sequence <cite>existing</cite> of
 existing names without duplication, by appending _&lt;int&gt; to it if needed</p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.DelegateAttributes">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">DelegateAttributes</span></span><a class="headerlink" href="#qcodespp.utils.helpers.DelegateAttributes" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">DelegateAttributes</span></span><a class="headerlink" href="#qcodespp.utils.helpers.DelegateAttributes" title="Permalink to this definition"></a></dt>
 <dd><p>Mixin class to create attributes of this object by
 delegating them to one or more dicts and/or objects</p>
 <p>Also fixes __dir__ so the delegated attributes will show up
@@ -279,34 +342,34 @@ should be passed through to self</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.DelegateAttributes.delegate_attr_dicts">
-<span class="sig-name descname"><span class="pre">delegate_attr_dicts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#qcodespp.utils.helpers.DelegateAttributes.delegate_attr_dicts" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">delegate_attr_dicts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#qcodespp.utils.helpers.DelegateAttributes.delegate_attr_dicts" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.DelegateAttributes.delegate_attr_objects">
-<span class="sig-name descname"><span class="pre">delegate_attr_objects</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#qcodespp.utils.helpers.DelegateAttributes.delegate_attr_objects" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">delegate_attr_objects</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#qcodespp.utils.helpers.DelegateAttributes.delegate_attr_objects" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.DelegateAttributes.omit_delegate_attrs">
-<span class="sig-name descname"><span class="pre">omit_delegate_attrs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#qcodespp.utils.helpers.DelegateAttributes.omit_delegate_attrs" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">omit_delegate_attrs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#qcodespp.utils.helpers.DelegateAttributes.omit_delegate_attrs" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.DelegateAttributes.__getattr__">
-<span class="sig-name descname"><span class="pre">__getattr__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.DelegateAttributes.__getattr__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__getattr__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.DelegateAttributes.__getattr__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.DelegateAttributes.__dir__">
-<span class="sig-name descname"><span class="pre">__dir__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.DelegateAttributes.__dir__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__dir__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.DelegateAttributes.__dir__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.strip_attrs">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">strip_attrs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">whitelist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.strip_attrs" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">strip_attrs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">whitelist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.strip_attrs" title="Permalink to this definition"></a></dt>
 <dd><p>Irreversibly remove all direct instance attributes of obj, to help with
 disposal, breaking circular references.</p>
 <dl class="simple">
@@ -318,7 +381,7 @@ whitelist (list): list of names that are not stripped from the object</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.compare_dictionaries">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">compare_dictionaries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dict_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict_1_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'d1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict_2_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'d2'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.compare_dictionaries" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">compare_dictionaries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dict_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict_1_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'d1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict_2_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'d2'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.compare_dictionaries" title="Permalink to this definition"></a></dt>
 <dd><p>Compare two dictionaries recursively to find non matching elements</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>dict_1: dictionary 1
@@ -334,12 +397,12 @@ dict_differences: formatted string containing the differences</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.warn_units">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">warn_units</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.warn_units" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">warn_units</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.warn_units" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.foreground_qt_window">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">foreground_qt_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.foreground_qt_window" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">foreground_qt_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.foreground_qt_window" title="Permalink to this definition"></a></dt>
 <dd><p>Try as hard as possible to bring a qt window to the front. This
 will use pywin32 if installed and running on windows as this
 seems to be the only reliable way to foreground a window. The
@@ -358,7 +421,7 @@ as in the example below.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.add_to_spyder_UMR_excludelist">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">add_to_spyder_UMR_excludelist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modulename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.add_to_spyder_UMR_excludelist" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">add_to_spyder_UMR_excludelist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modulename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.add_to_spyder_UMR_excludelist" title="Permalink to this definition"></a></dt>
 <dd><p>Spyder tries to reload any user module. This does not work well for
 qcodes because it overwrites Class variables. QCoDeS uses these to
 store global attributes such as default station, monitor and list of
@@ -372,7 +435,7 @@ TODO is there a better way to detect if we are in spyder?</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.attribute_set_to">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">attribute_set_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attribute_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.attribute_set_to" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">attribute_set_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attribute_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.attribute_set_to" title="Permalink to this definition"></a></dt>
 <dd><p>This context manager allows to change a given attribute of a given object
 to a new value, and the original value is reverted upon exit of the context
 manager.</p>
@@ -391,7 +454,7 @@ manager.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.utils.helpers.partial_with_docstring">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">partial_with_docstring</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">docstring</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.partial_with_docstring" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">partial_with_docstring</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">docstring</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.utils.helpers.partial_with_docstring" title="Permalink to this definition"></a></dt>
 <dd><p>We want to have a partial function which will allow us access the docstring
 through the python built-in help function. This is particularly important
 for client-facing driver methods, whose arguments might not be obvious.</p>
@@ -415,121 +478,34 @@ docstring (str)</p>
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="../../../../index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">qcodespp.utils.helpers</a><ul>
-<li><a class="reference internal" href="#attributes">Attributes</a></li>
-<li><a class="reference internal" href="#classes">Classes</a></li>
-<li><a class="reference internal" href="#functions">Functions</a></li>
-<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.log"><code class="docutils literal notranslate"><span class="pre">log</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.NumpyJSONEncoder"><code class="docutils literal notranslate"><span class="pre">NumpyJSONEncoder</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.NumpyJSONEncoder.default"><code class="docutils literal notranslate"><span class="pre">NumpyJSONEncoder.default()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.tprint"><code class="docutils literal notranslate"><span class="pre">tprint()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.is_sequence"><code class="docutils literal notranslate"><span class="pre">is_sequence()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.is_sequence_of"><code class="docutils literal notranslate"><span class="pre">is_sequence_of()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.is_function"><code class="docutils literal notranslate"><span class="pre">is_function()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.full_class"><code class="docutils literal notranslate"><span class="pre">full_class()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.named_repr"><code class="docutils literal notranslate"><span class="pre">named_repr()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.deep_update"><code class="docutils literal notranslate"><span class="pre">deep_update()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.permissive_range"><code class="docutils literal notranslate"><span class="pre">permissive_range()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.make_sweep"><code class="docutils literal notranslate"><span class="pre">make_sweep()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.wait_secs"><code class="docutils literal notranslate"><span class="pre">wait_secs()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.LogCapture"><code class="docutils literal notranslate"><span class="pre">LogCapture</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.LogCapture.logger"><code class="docutils literal notranslate"><span class="pre">LogCapture.logger</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.LogCapture.stashed_handlers"><code class="docutils literal notranslate"><span class="pre">LogCapture.stashed_handlers</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.LogCapture.__enter__"><code class="docutils literal notranslate"><span class="pre">LogCapture.__enter__()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.LogCapture.__exit__"><code class="docutils literal notranslate"><span class="pre">LogCapture.__exit__()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.make_unique"><code class="docutils literal notranslate"><span class="pre">make_unique()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.DelegateAttributes"><code class="docutils literal notranslate"><span class="pre">DelegateAttributes</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.DelegateAttributes.delegate_attr_dicts"><code class="docutils literal notranslate"><span class="pre">DelegateAttributes.delegate_attr_dicts</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.DelegateAttributes.delegate_attr_objects"><code class="docutils literal notranslate"><span class="pre">DelegateAttributes.delegate_attr_objects</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.DelegateAttributes.omit_delegate_attrs"><code class="docutils literal notranslate"><span class="pre">DelegateAttributes.omit_delegate_attrs</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.DelegateAttributes.__getattr__"><code class="docutils literal notranslate"><span class="pre">DelegateAttributes.__getattr__()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.DelegateAttributes.__dir__"><code class="docutils literal notranslate"><span class="pre">DelegateAttributes.__dir__()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.strip_attrs"><code class="docutils literal notranslate"><span class="pre">strip_attrs()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.compare_dictionaries"><code class="docutils literal notranslate"><span class="pre">compare_dictionaries()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.warn_units"><code class="docutils literal notranslate"><span class="pre">warn_units()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.foreground_qt_window"><code class="docutils literal notranslate"><span class="pre">foreground_qt_window()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.add_to_spyder_UMR_excludelist"><code class="docutils literal notranslate"><span class="pre">add_to_spyder_UMR_excludelist()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.attribute_set_to"><code class="docutils literal notranslate"><span class="pre">attribute_set_to()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.utils.helpers.partial_with_docstring"><code class="docutils literal notranslate"><span class="pre">partial_with_docstring()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="qcodespp.utils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../visa_helpers/index.html" class="btn btn-neutral float-right" title="qcodespp.utils.visa_helpers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, qcodes++.</p>
   </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="../index.html"
-                          title="previous chapter">qcodespp.utils</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="../visa_helpers/index.html"
-                          title="next chapter">qcodespp.utils.visa_helpers</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../../../_sources/autoapi/qcodespp/utils/helpers/index.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../../../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../../../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="../visa_helpers/index.html" title="qcodespp.utils.visa_helpers"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="../index.html" title="qcodespp.utils"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../../../index.html" >API Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../../index.html" >qcodespp</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="../index.html" >qcodespp.utils</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">qcodespp.utils.helpers</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, qcodes++.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

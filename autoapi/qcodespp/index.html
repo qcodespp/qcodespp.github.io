@@ -1,51 +1,139 @@
+
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qcodespp &mdash; qcodes++ 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
 
-    <title>qcodespp &#8212; qcodes++ 0.1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../_static/nature.css?v=8fc2db88" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=2389946f"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=2389946f"></script>
+      <script src="../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="qcodespp.actions" href="actions/index.html" />
     <link rel="prev" title="API Reference" href="../index.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="actions/index.html" title="qcodespp.actions"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="../index.html" title="API Reference"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">API Reference</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">qcodespp</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            qcodes++
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parameters.html">More about Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">qcodespp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="actions/index.html">qcodespp.actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="data/index.html">qcodespp.data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="instrument_drivers/index.html">qcodespp.instrument_drivers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="loops/index.html">qcodespp.loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="measure/index.html">qcodespp.measure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="parameters/index.html">qcodespp.parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plotting/index.html">qcodespp.plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="station/index.html">qcodespp.station</a></li>
+<li class="toctree-l4"><a class="reference internal" href="utils/index.html">qcodespp.utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="version/index.html">qcodespp.version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.config"><code class="docutils literal notranslate"><span class="pre">config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.Station"><code class="docutils literal notranslate"><span class="pre">Station</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.__version__"><code class="docutils literal notranslate"><span class="pre">__version__</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.Loop"><code class="docutils literal notranslate"><span class="pre">Loop</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.loop1d"><code class="docutils literal notranslate"><span class="pre">loop1d()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.loop2d"><code class="docutils literal notranslate"><span class="pre">loop2d()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.loop2dUD"><code class="docutils literal notranslate"><span class="pre">loop2dUD()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.Measure"><code class="docutils literal notranslate"><span class="pre">Measure</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.Task"><code class="docutils literal notranslate"><span class="pre">Task</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.Wait"><code class="docutils literal notranslate"><span class="pre">Wait</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.BreakIf"><code class="docutils literal notranslate"><span class="pre">BreakIf</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.Plot"><code class="docutils literal notranslate"><span class="pre">Plot</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.live_plot"><code class="docutils literal notranslate"><span class="pre">live_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.offline_plotting"><code class="docutils literal notranslate"><span class="pre">offline_plotting()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.new_data"><code class="docutils literal notranslate"><span class="pre">new_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.load_data"><code class="docutils literal notranslate"><span class="pre">load_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.load_data_num"><code class="docutils literal notranslate"><span class="pre">load_data_num()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.load_data_nums"><code class="docutils literal notranslate"><span class="pre">load_data_nums()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.set_data_format"><code class="docutils literal notranslate"><span class="pre">set_data_format()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.set_data_folder"><code class="docutils literal notranslate"><span class="pre">set_data_folder()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.listVISAinstruments"><code class="docutils literal notranslate"><span class="pre">listVISAinstruments()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.MultiParameterWrapper"><code class="docutils literal notranslate"><span class="pre">MultiParameterWrapper</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.ArrayParameterWrapper"><code class="docutils literal notranslate"><span class="pre">ArrayParameterWrapper</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">qcodes++</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">API Reference</a></li>
+      <li class="breadcrumb-item active">qcodespp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/autoapi/qcodespp/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="module-qcodespp">
-<span id="qcodespp"></span><h1>qcodespp<a class="headerlink" href="#module-qcodespp" title="Permalink to this heading">¶</a></h1>
+<span id="qcodespp"></span><h1>qcodespp<a class="headerlink" href="#module-qcodespp" title="Permalink to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="actions/index.html">qcodespp.actions</a></li>
@@ -62,24 +150,24 @@
 </div>
 </section>
 <section id="attributes">
-<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">¶</a></h2>
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading"></a></h2>
 </section>
 <section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h2>
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading"></a></h2>
 </section>
 <section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h2>
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h2>
 </section>
 <section id="package-contents">
-<h2>Package Contents<a class="headerlink" href="#package-contents" title="Permalink to this heading">¶</a></h2>
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Permalink to this heading"></a></h2>
 <dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.config">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">qcodes.configuration.Config</span></em><a class="headerlink" href="#qcodespp.config" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">qcodes.configuration.Config</span></em><a class="headerlink" href="#qcodespp.config" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.Station">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">Station</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">components</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">qcodes.metadatable.MetadatableWithName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_variables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_monitor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_snapshot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inc_timer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Station" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">Station</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">components</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">qcodes.metadatable.MetadatableWithName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_variables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_monitor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_snapshot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inc_timer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Station" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.Station</span></code></p>
 <p>A representation of the physical measurement setup/station.</p>
 <p>This class is a wrapper around the QCoDeS Station class, adding functionality
@@ -106,22 +194,22 @@ a sequence of strings, e.g. [‘~/station1.yaml’, ‘~/station2.yaml’]</p></
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Station.components">
-<span class="sig-name descname"><span class="pre">components</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">qcodes.metadatable.MetadatableWithName</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qcodespp.Station.components" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">components</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">qcodes.metadatable.MetadatableWithName</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qcodespp.Station.components" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Station.use_monitor">
-<span class="sig-name descname"><span class="pre">use_monitor</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.Station.use_monitor" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">use_monitor</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.Station.use_monitor" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Station.default_measurement">
-<span class="sig-name descname"><span class="pre">default_measurement</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#qcodespp.Station.default_measurement" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">default_measurement</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#qcodespp.Station.default_measurement" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Station.auto_add">
-<span class="sig-name descname"><span class="pre">auto_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_instruments</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_snapshot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Station.auto_add" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">auto_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_instruments</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_snapshot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Station.auto_add" title="Permalink to this definition"></a></dt>
 <dd><p>Automatically add previously defined instruments and parameters to the station. Usually, auto_add=globals().</p>
 <dl>
 <dt>Args:</dt><dd><p>variables: Dictionary of variables to check for Instruments and Parameters. e.g. globals(), locals(), etc.</p>
@@ -134,7 +222,7 @@ a sequence of strings, e.g. [‘~/station1.yaml’, ‘~/station2.yaml’]</p></
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Station.snapshot_base">
-<span class="sig-name descname"><span class="pre">snapshot_base</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_to_skip_update</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#qcodespp.Station.snapshot_base" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">snapshot_base</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_to_skip_update</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#qcodespp.Station.snapshot_base" title="Permalink to this definition"></a></dt>
 <dd><p>State of the station as a JSON-compatible dict.</p>
 <p>Note: in the station contains an instrument that has already been
 closed, not only will it not be snapshotted, it will also be removed
@@ -153,7 +241,7 @@ If False, just use the latest values in memory.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Station.set_measurement">
-<span class="sig-name descname"><span class="pre">set_measurement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Station.set_measurement" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_measurement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Station.set_measurement" title="Permalink to this definition"></a></dt>
 <dd><p>Save a set of <code class="docutils literal notranslate"><span class="pre">*actions`</span></code> as the default measurement for this Station.</p>
 <p>These actions will be executed by default by a Loop if this is the
 default Station, and any measurements among them can be done once
@@ -166,7 +254,7 @@ by .measure</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Station.communication_time">
-<span class="sig-name descname"><span class="pre">communication_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">measurement_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_average</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Station.communication_time" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">communication_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">measurement_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_average</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Station.communication_time" title="Permalink to this definition"></a></dt>
 <dd><p>Estimate how long it takes to communicate with the instruments in the station.</p>
 <dl>
 <dt>Args:</dt><dd><dl class="simple">
@@ -182,7 +270,7 @@ by .measure</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Station.measurement">
-<span class="sig-name descname"><span class="pre">measurement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Station.measurement" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">measurement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Station.measurement" title="Permalink to this definition"></a></dt>
 <dd><p>Measure the default measurement, or parameters in actions.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p><a href="#id3"><span class="problematic" id="id4">*</span></a>actions: parameters to mesure</p>
@@ -192,7 +280,7 @@ by .measure</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Station.measure">
-<span class="sig-name descname"><span class="pre">measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">actions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Station.measure" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">actions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Station.measure" title="Permalink to this definition"></a></dt>
 <dd><p>Pass the default measurement to a loop after previously setting it with set_measurement.</p>
 <dl class="simple">
 <dt>Example:</dt><dd><p>station.set_measurement(param1, param2)
@@ -203,13 +291,13 @@ loop = Loop(instrument.parameter.sweep(1, 10, 1),delay=0.1).each(<a href="#id5">
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Station.__getitem__">
-<span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Station.__getitem__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Station.__getitem__" title="Permalink to this definition"></a></dt>
 <dd><p>Shortcut to components dict.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Station.delegate_attr_dicts">
-<span class="sig-name descname"><span class="pre">delegate_attr_dicts</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['components']</span></em><a class="headerlink" href="#qcodespp.Station.delegate_attr_dicts" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">delegate_attr_dicts</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['components']</span></em><a class="headerlink" href="#qcodespp.Station.delegate_attr_dicts" title="Permalink to this definition"></a></dt>
 <dd><p>A list of names (strings) of dictionaries
 which are (or will be) attributes of <code class="docutils literal notranslate"><span class="pre">self</span></code>,
 whose keys should be treated as attributes of <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p>
@@ -219,12 +307,12 @@ whose keys should be treated as attributes of <code class="docutils literal notr
 
 <dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.__version__">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">__version__</span></span><a class="headerlink" href="#qcodespp.__version__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">__version__</span></span><a class="headerlink" href="#qcodespp.__version__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.Loop">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">Loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sweep_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snake</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Loop" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">Loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sweep_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snake</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Loop" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.utils.metadata.Metadatable</span></code></p>
 <p>Create a measurement loop to sweep over a parameter and store measured data from other
 parameters. The results are stored in a qcodespp.data.data_set.DataSetPP container.</p>
@@ -249,67 +337,67 @@ yield data), <code class="docutils literal notranslate"><span class="pre">Wait</
 inside this one.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Loop.sweep_values">
-<span class="sig-name descname"><span class="pre">sweep_values</span></span><a class="headerlink" href="#qcodespp.Loop.sweep_values" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">sweep_values</span></span><a class="headerlink" href="#qcodespp.Loop.sweep_values" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Loop.delay">
-<span class="sig-name descname"><span class="pre">delay</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#qcodespp.Loop.delay" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">delay</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#qcodespp.Loop.delay" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Loop.station">
-<span class="sig-name descname"><span class="pre">station</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.Loop.station" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">station</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.Loop.station" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Loop.nested_loop">
-<span class="sig-name descname"><span class="pre">nested_loop</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.Loop.nested_loop" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">nested_loop</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.Loop.nested_loop" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Loop.actions">
-<span class="sig-name descname"><span class="pre">actions</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.Loop.actions" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">actions</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.Loop.actions" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Loop.then_actions">
-<span class="sig-name descname"><span class="pre">then_actions</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#qcodespp.Loop.then_actions" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">then_actions</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#qcodespp.Loop.then_actions" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Loop.bg_task">
-<span class="sig-name descname"><span class="pre">bg_task</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.Loop.bg_task" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">bg_task</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.Loop.bg_task" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Loop.bg_final_task">
-<span class="sig-name descname"><span class="pre">bg_final_task</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.Loop.bg_final_task" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">bg_final_task</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.Loop.bg_final_task" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Loop.bg_min_delay">
-<span class="sig-name descname"><span class="pre">bg_min_delay</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.Loop.bg_min_delay" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">bg_min_delay</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.Loop.bg_min_delay" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Loop.progress_interval">
-<span class="sig-name descname"><span class="pre">progress_interval</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.Loop.progress_interval" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">progress_interval</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.Loop.progress_interval" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Loop.progress_bar">
-<span class="sig-name descname"><span class="pre">progress_bar</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#qcodespp.Loop.progress_bar" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">progress_bar</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#qcodespp.Loop.progress_bar" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Loop.snake">
-<span class="sig-name descname"><span class="pre">snake</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#qcodespp.Loop.snake" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">snake</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#qcodespp.Loop.snake" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Loop.__getitem__">
-<span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Loop.__getitem__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Loop.__getitem__" title="Permalink to this definition"></a></dt>
 <dd><p>Retrieves action with index <cite>item</cite></p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>item: actions index</p>
@@ -321,7 +409,7 @@ inside this one.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Loop.loop">
-<span class="sig-name descname"><span class="pre">loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sweep_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Loop.loop" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sweep_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Loop.loop" title="Permalink to this definition"></a></dt>
 <dd><p>Nest another loop inside this one.</p>
 <dl>
 <dt>Args:</dt><dd><p>sweep_values ():
@@ -341,7 +429,7 @@ delay (int):</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Loop.each">
-<span class="sig-name descname"><span class="pre">each</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Loop.each" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">each</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Loop.each" title="Permalink to this definition"></a></dt>
 <dd><p>Perform a set of actions at each setpoint of this loop.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p><a href="#id7"><span class="problematic" id="id8">*</span></a>actions (Any): actions to perform at each setpoint of the loop</p>
@@ -358,7 +446,7 @@ delay (int):</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Loop.with_bg_task">
-<span class="sig-name descname"><span class="pre">with_bg_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bg_final_task</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Loop.with_bg_task" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">with_bg_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bg_final_task</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Loop.with_bg_task" title="Permalink to this definition"></a></dt>
 <dd><p>Attaches a background task to this loop.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><dl class="simple">
@@ -381,28 +469,28 @@ through the loop.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Loop.validate_actions">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">validate_actions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Loop.validate_actions" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">validate_actions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Loop.validate_actions" title="Permalink to this definition"></a></dt>
 <dd><p>Whitelist acceptable actions, so we can give nice error messages
 if an action is not recognized</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Loop.run">
-<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Loop.run" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Loop.run" title="Permalink to this definition"></a></dt>
 <dd><p>shortcut to run a loop with the default measurement set
 stored by Station.set_measurement</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Loop.run_temp">
-<span class="sig-name descname"><span class="pre">run_temp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Loop.run_temp" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">run_temp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Loop.run_temp" title="Permalink to this definition"></a></dt>
 <dd><p>shortcut to run a loop in the foreground as a temporary dataset
 using the default measurement set</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Loop.then">
-<span class="sig-name descname"><span class="pre">then</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">actions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Loop.then" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">then</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">actions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Loop.then" title="Permalink to this definition"></a></dt>
 <dd><p>Attach actions to be performed after the loop completes.</p>
 <p>These can only be <code class="docutils literal notranslate"><span class="pre">Task</span></code> and <code class="docutils literal notranslate"><span class="pre">Wait</span></code> actions, as they may not generate
 any data.</p>
@@ -428,7 +516,7 @@ the Loop) will add to each other or overwrite the earlier ones.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Loop.snapshot_base">
-<span class="sig-name descname"><span class="pre">snapshot_base</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Loop.snapshot_base" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">snapshot_base</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Loop.snapshot_base" title="Permalink to this definition"></a></dt>
 <dd><p>State of the loop as a JSON-compatible dict.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><dl class="simple">
@@ -446,7 +534,7 @@ memory.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.loop1d">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">loop1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sweep_parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instrument_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_to_measure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_to_plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.loop1d" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">loop1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sweep_parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instrument_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_to_measure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_to_plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.loop1d" title="Permalink to this definition"></a></dt>
 <dd><p>Create a 1D loop, the associated data set, and optionally, live plotting.</p>
 <p>A 1D loop has a single independent parameter, swept over a range of values.
 At each point in the loop, a set of parameters is measured, either those
@@ -480,7 +568,7 @@ initiates the data set and live plotting window.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.loop2d">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">loop2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sweep_parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_delay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snake</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_action</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instrument_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_to_measure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_to_plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.loop2d" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">loop2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sweep_parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_delay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snake</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_action</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instrument_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_to_measure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_to_plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.loop2d" title="Permalink to this definition"></a></dt>
 <dd><p>Create a 2D loop, the associated data set, and optionally, live plotting.</p>
 <p>A 2D loop has two independent parameters, a ‘sweep’ parameter and a ‘step’ parameter.
 At each point in the step parameter, the sweep parameter performs a loop.</p>
@@ -525,7 +613,7 @@ At each point in the step parameter, the sweep parameter performs a loop.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.loop2dUD">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">loop2dUD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sweep_parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_delay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_action</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fast_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instrument_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_to_measure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_to_plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.loop2dUD" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">loop2dUD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sweep_parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_delay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_action</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fast_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instrument_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_to_measure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_to_plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.loop2dUD" title="Permalink to this definition"></a></dt>
 <dd><p>Create a 2D loop where at each point in the step parameter, the sweep parameter performs a loop
 in two directions: up and down. Create also a data set, and optionally, live plotting.</p>
 <dl>
@@ -568,7 +656,7 @@ in two directions: up and down. Create also a data set, and optionally, live plo
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.Measure">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">Measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setpoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Measure" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">Measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setpoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Measure" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.metadatable.Metadatable</span></code></p>
 <p>Class to create a <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> from a single (non-looped) set of measured parameters.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Measure</span></code> is used to measure a set of parameters at a single point in time.
@@ -626,37 +714,37 @@ whatever other parameter manually.</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Measure.station">
-<span class="sig-name descname"><span class="pre">station</span></span><a class="headerlink" href="#qcodespp.Measure.station" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">station</span></span><a class="headerlink" href="#qcodespp.Measure.station" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Measure.use_threads">
-<span class="sig-name descname"><span class="pre">use_threads</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#qcodespp.Measure.use_threads" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">use_threads</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#qcodespp.Measure.use_threads" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Measure.setpoints">
-<span class="sig-name descname"><span class="pre">setpoints</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.Measure.setpoints" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">setpoints</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.Measure.setpoints" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Measure.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.Measure.name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.Measure.name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Measure.timer">
-<span class="sig-name descname"><span class="pre">timer</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#qcodespp.Measure.timer" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">timer</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#qcodespp.Measure.timer" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Measure.actions">
-<span class="sig-name descname"><span class="pre">actions</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.Measure.actions" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">actions</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.Measure.actions" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Measure.each">
-<span class="sig-name descname"><span class="pre">each</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Measure.each" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">each</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Measure.each" title="Permalink to this definition"></a></dt>
 <dd><p>Set the actions to be performed in this measurement.</p>
 <p>Actions can be added during init, however this method is provided to make the Measure class
 look like a Loop, where actions are added with .each(), and it makes somehow sense gramatically.</p>
@@ -673,13 +761,13 @@ If no actions are provided, the default station.measure() is used.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Measure.run_temp">
-<span class="sig-name descname"><span class="pre">run_temp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Measure.run_temp" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">run_temp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Measure.run_temp" title="Permalink to this definition"></a></dt>
 <dd><p>Wrapper to run this measurement as a temporary data set</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Measure.run">
-<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_to_plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">publisher</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Measure.run" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_to_plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">publisher</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Measure.run" title="Permalink to this definition"></a></dt>
 <dd><p>Run the actions in this measurement and return their data as a DataSetPP</p>
 <dl>
 <dt>Args:</dt><dd><dl class="simple">
@@ -717,7 +805,7 @@ readable/meaningful to users</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Measure.snapshot_base">
-<span class="sig-name descname"><span class="pre">snapshot_base</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Measure.snapshot_base" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">snapshot_base</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Measure.snapshot_base" title="Permalink to this definition"></a></dt>
 <dd><p>Override this with the primary information for a subclass.</p>
 </dd></dl>
 
@@ -725,7 +813,7 @@ readable/meaningful to users</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.Task">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">Task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Task" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">Task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Task" title="Permalink to this definition"></a></dt>
 <dd><p>Execute a function within a measurement Loop, e.g. .each(Task(func, <a href="#id11"><span class="problematic" id="id12">*</span></a>args, <a href="#id13"><span class="problematic" id="id14">**</span></a>kwargs)).</p>
 <p>The first argument should be a callable function, to which any subsequent
 args and kwargs (which are evaluated before the loop starts) are passed.</p>
@@ -752,27 +840,27 @@ before being passed to the func.</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Task.func">
-<span class="sig-name descname"><span class="pre">func</span></span><a class="headerlink" href="#qcodespp.Task.func" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">func</span></span><a class="headerlink" href="#qcodespp.Task.func" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Task.args">
-<span class="sig-name descname"><span class="pre">args</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#qcodespp.Task.args" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">args</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#qcodespp.Task.args" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Task.kwargs">
-<span class="sig-name descname"><span class="pre">kwargs</span></span><a class="headerlink" href="#qcodespp.Task.kwargs" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">kwargs</span></span><a class="headerlink" href="#qcodespp.Task.kwargs" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Task.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">ignore_kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Task.__call__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">ignore_kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Task.__call__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Task.snapshot">
-<span class="sig-name descname"><span class="pre">snapshot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Task.snapshot" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">snapshot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Task.snapshot" title="Permalink to this definition"></a></dt>
 <dd><p>Snapshots  task
 Args:</p>
 <blockquote>
@@ -788,7 +876,7 @@ Args:</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.Wait">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">Wait</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Wait" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">Wait</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Wait" title="Permalink to this definition"></a></dt>
 <dd><p>A simple class to tell a Loop to wait &lt;delay&gt; seconds.</p>
 <p>This is transformed into a Task within the Loop, such that
 it can do other things (monitor, check for halt) during the delay.</p>
@@ -801,17 +889,17 @@ it can do other things (monitor, check for halt) during the delay.</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Wait.delay">
-<span class="sig-name descname"><span class="pre">delay</span></span><a class="headerlink" href="#qcodespp.Wait.delay" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">delay</span></span><a class="headerlink" href="#qcodespp.Wait.delay" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Wait.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Wait.__call__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Wait.__call__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Wait.snapshot">
-<span class="sig-name descname"><span class="pre">snapshot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Wait.snapshot" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">snapshot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Wait.snapshot" title="Permalink to this definition"></a></dt>
 <dd><p>Snapshots  delay
 Args:</p>
 <blockquote>
@@ -827,7 +915,7 @@ Args:</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.BreakIf">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">BreakIf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.BreakIf" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">BreakIf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.BreakIf" title="Permalink to this definition"></a></dt>
 <dd><p>Loop action that breaks out of the loop if a condition is truthy.</p>
 <dl>
 <dt>Args:</dt><dd><dl class="simple">
@@ -844,17 +932,17 @@ Args:</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.BreakIf.condition">
-<span class="sig-name descname"><span class="pre">condition</span></span><a class="headerlink" href="#qcodespp.BreakIf.condition" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">condition</span></span><a class="headerlink" href="#qcodespp.BreakIf.condition" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.BreakIf.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">ignore_kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.BreakIf.__call__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">ignore_kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.BreakIf.__call__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.BreakIf.snapshot">
-<span class="sig-name descname"><span class="pre">snapshot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.BreakIf.snapshot" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">snapshot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.BreakIf.snapshot" title="Permalink to this definition"></a></dt>
 <dd><p>Snapshots breakIf action
 Args:</p>
 <blockquote>
@@ -870,7 +958,7 @@ Args:</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.Plot">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">Plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">Plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot" title="Permalink to this definition"></a></dt>
 <dd><p>Main class for remote plotting.</p>
 <p>Most methods of this class should not be called directly; only add(), add_multiple(), clear() and close()
 should be used by the user.</p>
@@ -881,102 +969,102 @@ name (str, optional): Name of the plot instance. If not provided, a random UUID 
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Plot.context">
-<span class="sig-name descname"><span class="pre">context</span></span><a class="headerlink" href="#qcodespp.Plot.context" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">context</span></span><a class="headerlink" href="#qcodespp.Plot.context" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Plot.socket">
-<span class="sig-name descname"><span class="pre">socket</span></span><a class="headerlink" href="#qcodespp.Plot.socket" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">socket</span></span><a class="headerlink" href="#qcodespp.Plot.socket" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Plot.port">
-<span class="sig-name descname"><span class="pre">port</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8876</span></em><a class="headerlink" href="#qcodespp.Plot.port" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">port</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8876</span></em><a class="headerlink" href="#qcodespp.Plot.port" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Plot.encoding">
-<span class="sig-name descname"><span class="pre">encoding</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'utf-8'</span></em><a class="headerlink" href="#qcodespp.Plot.encoding" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">encoding</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'utf-8'</span></em><a class="headerlink" href="#qcodespp.Plot.encoding" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Plot.topic">
-<span class="sig-name descname"><span class="pre">topic</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'qcodes.plot.00000000000000000000000000000000'</span></em><a class="headerlink" href="#qcodespp.Plot.topic" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">topic</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'qcodes.plot.00000000000000000000000000000000'</span></em><a class="headerlink" href="#qcodespp.Plot.topic" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Plot.metadata">
-<span class="sig-name descname"><span class="pre">metadata</span></span><a class="headerlink" href="#qcodespp.Plot.metadata" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">metadata</span></span><a class="headerlink" href="#qcodespp.Plot.metadata" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Plot.data_uuid">
-<span class="sig-name descname"><span class="pre">data_uuid</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'00000000000000000000000000000000'</span></em><a class="headerlink" href="#qcodespp.Plot.data_uuid" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">data_uuid</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'00000000000000000000000000000000'</span></em><a class="headerlink" href="#qcodespp.Plot.data_uuid" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Plot.client_ready_event">
-<span class="sig-name descname"><span class="pre">client_ready_event</span></span><a class="headerlink" href="#qcodespp.Plot.client_ready_event" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">client_ready_event</span></span><a class="headerlink" href="#qcodespp.Plot.client_ready_event" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Plot.control_task">
-<span class="sig-name descname"><span class="pre">control_task</span></span><a class="headerlink" href="#qcodespp.Plot.control_task" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">control_task</span></span><a class="headerlink" href="#qcodespp.Plot.control_task" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Plot.control_port">
-<span class="sig-name descname"><span class="pre">control_port</span></span><a class="headerlink" href="#qcodespp.Plot.control_port" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">control_port</span></span><a class="headerlink" href="#qcodespp.Plot.control_port" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Plot.publish">
-<span class="sig-name descname"><span class="pre">publish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uuid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.publish" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">publish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uuid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.publish" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Plot.publish_data">
-<span class="sig-name descname"><span class="pre">publish_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uuid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arrays</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.publish_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">publish_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uuid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arrays</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.publish_data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Plot.add_metadata">
-<span class="sig-name descname"><span class="pre">add_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_metadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uuid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.add_metadata" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_metadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uuid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.add_metadata" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Plot.store">
-<span class="sig-name descname"><span class="pre">store</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop_indices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uuid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.store" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">store</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop_indices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uuid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.store" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Plot.save_metadata">
-<span class="sig-name descname"><span class="pre">save_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uuid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.save_metadata" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">save_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uuid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.save_metadata" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Plot.finalize">
-<span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uuid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.finalize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uuid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.finalize" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Plot.new_client">
-<span class="sig-name descname"><span class="pre">new_client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.new_client" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">new_client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.new_client" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Plot.clear">
-<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.clear" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.clear" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Plot.add_multiple">
-<span class="sig-name descname"><span class="pre">add_multiple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">z_params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.add_multiple" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_multiple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">z_params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.add_multiple" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Plot.add">
-<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subplot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relativeto</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zlabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xunit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yunit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zunit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linecuts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symbol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.add" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subplot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relativeto</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zlabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xunit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yunit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zunit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linecuts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symbol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.add" title="Permalink to this definition"></a></dt>
 <dd><p>Add a trace to the plot.</p>
 <dl>
 <dt>Args:</dt><dd><dl class="simple">
@@ -1014,7 +1102,7 @@ size (int, optional): Size of the symbol. Defaults to None.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Plot.expand_trace">
-<span class="sig-name descname"><span class="pre">expand_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.expand_trace" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">expand_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.expand_trace" title="Permalink to this definition"></a></dt>
 <dd><p>Complete the x, y (and possibly z) data definition for a trace.</p>
 <p>Also modifies kwargs in place so that all the data needed to fully specify the
 trace is present (ie either x and y or x and y and z)</p>
@@ -1052,44 +1140,44 @@ ValueError: if the data is provided twice</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Plot.set_title">
-<span class="sig-name descname"><span class="pre">set_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.set_title" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.set_title" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Plot.set_cmap">
-<span class="sig-name descname"><span class="pre">set_cmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.set_cmap" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_cmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.set_cmap" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Plot.save">
-<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subplot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.save" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subplot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.save" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Plot.set_xlabel">
-<span class="sig-name descname"><span class="pre">set_xlabel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subplot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.set_xlabel" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_xlabel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subplot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.set_xlabel" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Plot.set_ylabel">
-<span class="sig-name descname"><span class="pre">set_ylabel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subplot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.set_ylabel" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_ylabel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subplot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.set_ylabel" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Plot.set_geometry">
-<span class="sig-name descname"><span class="pre">set_geometry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.set_geometry" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_geometry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.set_geometry" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Plot.close">
-<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.close" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Plot.close" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.live_plot">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">live_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_items</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.live_plot" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">live_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_items</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.live_plot" title="Permalink to this definition"></a></dt>
 <dd><p>Entry point for live plotting of qcodespp data.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><dl class="simple">
@@ -1108,7 +1196,7 @@ the user can use <code class="docutils literal notranslate"><span class="pre">Pl
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.offline_plotting">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">offline_plotting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_to_default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_thread</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.offline_plotting" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">offline_plotting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_to_default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_thread</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.offline_plotting" title="Permalink to this definition"></a></dt>
 <dd><p>Entry point for qcodespp offline plotting. Call qcodespp.offline_plotting() to start the application.</p>
 <dl>
 <dt>Args:</dt><dd><p>folder (str): Path (inc relative) to a folder containing the data files to be plotted.
@@ -1126,7 +1214,7 @@ link_to_default (bool): Link to the qcodespp default folder specified by qc.set_
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.new_data">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">new_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loc_record</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">io</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backup_location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_write</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.new_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">new_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loc_record</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">io</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backup_location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_write</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.new_data" title="Permalink to this definition"></a></dt>
 <dd><p>Create a new DataSetPP, the text-based data set of qcodespp.</p>
 <dl>
 <dt>Args:</dt><dd><dl>
@@ -1170,7 +1258,7 @@ is initially <code class="docutils literal notranslate"><span class="pre">GNUPlo
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.load_data">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">io</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.load_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">io</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.load_data" title="Permalink to this definition"></a></dt>
 <dd><p>Load an existing DataSetPP.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><dl class="simple">
@@ -1195,7 +1283,7 @@ where you started the python session.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.load_data_num">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">load_data_num</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datafolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leadingzeros</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.load_data_num" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">load_data_num</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datafolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leadingzeros</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.load_data_num" title="Permalink to this definition"></a></dt>
 <dd><p>Load a qcodespp DataSetPP using the counter as identifier.</p>
 <p>Typically qcodespp DataSetPPs are forced to use the format counter_name_date_time,
 where the counter is a zero-padded integer. This function will search for
@@ -1221,7 +1309,7 @@ directory, which this location is a relative path inside.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.load_data_nums">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">load_data_nums</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listofnumbers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datafolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leadingzeros</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.load_data_nums" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">load_data_nums</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listofnumbers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datafolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leadingzeros</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.load_data_nums" title="Permalink to this definition"></a></dt>
 <dd><p>Loads numerous DataSetPPs from the specified folder by counter number.</p>
 <dl>
 <dt>Args:</dt><dd><p>litsofnumbers (list of strings or ints): list of desired dataset numbers.
@@ -1244,7 +1332,7 @@ directory, which this location is a relative path inside.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.set_data_format">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">set_data_format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data/#{counter}_{name}_{date}_{time}'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.set_data_format" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">set_data_format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data/#{counter}_{name}_{date}_{time}'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.set_data_format" title="Permalink to this definition"></a></dt>
 <dd><p>Set the default format for storing DataSetPPs. It is not recommended to alter this: instead use set_data_folder.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>fmt (str): A format string for the location of the data, with wildcards determined by the FormatLocation class.</p>
@@ -1254,7 +1342,7 @@ directory, which this location is a relative path inside.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.set_data_folder">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">set_data_folder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.set_data_folder" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">set_data_folder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.set_data_folder" title="Permalink to this definition"></a></dt>
 <dd><p>Set the default folder for storing DataSetPPs.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><dl class="simple">
@@ -1267,7 +1355,7 @@ directory, which this location is a relative path inside.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.listVISAinstruments">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">listVISAinstruments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">baudrates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'qdac'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.listVISAinstruments" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">listVISAinstruments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">baudrates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'qdac'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.listVISAinstruments" title="Permalink to this definition"></a></dt>
 <dd><p>List the VISA instruments connected to the computer. Deault baudrates checked are 9600 and 921600.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><dl class="simple">
@@ -1291,7 +1379,7 @@ or use predefined lists ‘standard’ or ‘all’, with baudrates defined acco
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.MultiParameterWrapper">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">MultiParameterWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instrument</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.MultiParameterWrapper" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">MultiParameterWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instrument</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.MultiParameterWrapper" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.parameters.MultiParameter</span></code></p>
 <p>Class to wrap multiple pre-existing parameters into MultiParameter. Enables getting, setting, sweeping and moving.</p>
 <dl>
@@ -1321,22 +1409,22 @@ each parameter gets measured at each setpoint.</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.MultiParameterWrapper.parameters">
-<span class="sig-name descname"><span class="pre">parameters</span></span><a class="headerlink" href="#qcodespp.MultiParameterWrapper.parameters" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">parameters</span></span><a class="headerlink" href="#qcodespp.MultiParameterWrapper.parameters" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.MultiParameterWrapper.labels">
-<span class="sig-name descname"><span class="pre">labels</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#qcodespp.MultiParameterWrapper.labels" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">labels</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#qcodespp.MultiParameterWrapper.labels" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.MultiParameterWrapper.units">
-<span class="sig-name descname"><span class="pre">units</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#qcodespp.MultiParameterWrapper.units" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">units</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#qcodespp.MultiParameterWrapper.units" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.MultiParameterWrapper.get_raw">
-<span class="sig-name descname"><span class="pre">get_raw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.MultiParameterWrapper.get_raw" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_raw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.MultiParameterWrapper.get_raw" title="Permalink to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">get_raw</span></code> is called to perform the actual data acquisition from the
 instrument. This method should either be overwritten to perform the
 desired operation or alternatively for <code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code> a
@@ -1347,7 +1435,7 @@ provide a <code class="docutils literal notranslate"><span class="pre">get</span
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.MultiParameterWrapper.set_raw">
-<span class="sig-name descname"><span class="pre">set_raw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.MultiParameterWrapper.set_raw" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_raw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.MultiParameterWrapper.set_raw" title="Permalink to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">set_raw</span></code> is called to perform the actual setting of a parameter on
 the instrument. This method should either be overwritten to perform the
 desired operation or alternatively for <code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code> a
@@ -1358,19 +1446,19 @@ provide a <code class="docutils literal notranslate"><span class="pre">set</span
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.MultiParameterWrapper.move">
-<span class="sig-name descname"><span class="pre">move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">end_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">101</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.03</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.MultiParameterWrapper.move" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">end_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">101</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.03</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.MultiParameterWrapper.move" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.MultiParameterWrapper.sweep">
-<span class="sig-name descname"><span class="pre">sweep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_vals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_vals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.MultiParameterWrapper.sweep" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">sweep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_vals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_vals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.MultiParameterWrapper.sweep" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.ArrayParameterWrapper">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">ArrayParameterWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instrument</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_cmd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.ArrayParameterWrapper" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">ArrayParameterWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instrument</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_cmd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.ArrayParameterWrapper" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.parameters.ArrayParameter</span></code></p>
 <p>Wrapper to easily declare ArrayParameters.</p>
 <dl>
@@ -1396,209 +1484,34 @@ get_cmd=VoltageInstrument.get_buffer)</p>
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="../../index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">qcodespp</a><ul>
-<li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#attributes">Attributes</a></li>
-<li><a class="reference internal" href="#classes">Classes</a></li>
-<li><a class="reference internal" href="#functions">Functions</a></li>
-<li><a class="reference internal" href="#package-contents">Package Contents</a><ul>
-<li><a class="reference internal" href="#qcodespp.config"><code class="docutils literal notranslate"><span class="pre">config</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Station"><code class="docutils literal notranslate"><span class="pre">Station</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.Station.components"><code class="docutils literal notranslate"><span class="pre">Station.components</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Station.use_monitor"><code class="docutils literal notranslate"><span class="pre">Station.use_monitor</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Station.default_measurement"><code class="docutils literal notranslate"><span class="pre">Station.default_measurement</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Station.auto_add"><code class="docutils literal notranslate"><span class="pre">Station.auto_add()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Station.snapshot_base"><code class="docutils literal notranslate"><span class="pre">Station.snapshot_base()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Station.set_measurement"><code class="docutils literal notranslate"><span class="pre">Station.set_measurement()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Station.communication_time"><code class="docutils literal notranslate"><span class="pre">Station.communication_time()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Station.measurement"><code class="docutils literal notranslate"><span class="pre">Station.measurement()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Station.measure"><code class="docutils literal notranslate"><span class="pre">Station.measure()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Station.__getitem__"><code class="docutils literal notranslate"><span class="pre">Station.__getitem__()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Station.delegate_attr_dicts"><code class="docutils literal notranslate"><span class="pre">Station.delegate_attr_dicts</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.__version__"><code class="docutils literal notranslate"><span class="pre">__version__</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Loop"><code class="docutils literal notranslate"><span class="pre">Loop</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.Loop.sweep_values"><code class="docutils literal notranslate"><span class="pre">Loop.sweep_values</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Loop.delay"><code class="docutils literal notranslate"><span class="pre">Loop.delay</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Loop.station"><code class="docutils literal notranslate"><span class="pre">Loop.station</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Loop.nested_loop"><code class="docutils literal notranslate"><span class="pre">Loop.nested_loop</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Loop.actions"><code class="docutils literal notranslate"><span class="pre">Loop.actions</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Loop.then_actions"><code class="docutils literal notranslate"><span class="pre">Loop.then_actions</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Loop.bg_task"><code class="docutils literal notranslate"><span class="pre">Loop.bg_task</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Loop.bg_final_task"><code class="docutils literal notranslate"><span class="pre">Loop.bg_final_task</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Loop.bg_min_delay"><code class="docutils literal notranslate"><span class="pre">Loop.bg_min_delay</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Loop.progress_interval"><code class="docutils literal notranslate"><span class="pre">Loop.progress_interval</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Loop.progress_bar"><code class="docutils literal notranslate"><span class="pre">Loop.progress_bar</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Loop.snake"><code class="docutils literal notranslate"><span class="pre">Loop.snake</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Loop.__getitem__"><code class="docutils literal notranslate"><span class="pre">Loop.__getitem__()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Loop.loop"><code class="docutils literal notranslate"><span class="pre">Loop.loop()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Loop.each"><code class="docutils literal notranslate"><span class="pre">Loop.each()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Loop.with_bg_task"><code class="docutils literal notranslate"><span class="pre">Loop.with_bg_task()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Loop.validate_actions"><code class="docutils literal notranslate"><span class="pre">Loop.validate_actions()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Loop.run"><code class="docutils literal notranslate"><span class="pre">Loop.run()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Loop.run_temp"><code class="docutils literal notranslate"><span class="pre">Loop.run_temp()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Loop.then"><code class="docutils literal notranslate"><span class="pre">Loop.then()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Loop.snapshot_base"><code class="docutils literal notranslate"><span class="pre">Loop.snapshot_base()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.loop1d"><code class="docutils literal notranslate"><span class="pre">loop1d()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.loop2d"><code class="docutils literal notranslate"><span class="pre">loop2d()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.loop2dUD"><code class="docutils literal notranslate"><span class="pre">loop2dUD()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Measure"><code class="docutils literal notranslate"><span class="pre">Measure</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.Measure.station"><code class="docutils literal notranslate"><span class="pre">Measure.station</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Measure.use_threads"><code class="docutils literal notranslate"><span class="pre">Measure.use_threads</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Measure.setpoints"><code class="docutils literal notranslate"><span class="pre">Measure.setpoints</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Measure.name"><code class="docutils literal notranslate"><span class="pre">Measure.name</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Measure.timer"><code class="docutils literal notranslate"><span class="pre">Measure.timer</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Measure.actions"><code class="docutils literal notranslate"><span class="pre">Measure.actions</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Measure.each"><code class="docutils literal notranslate"><span class="pre">Measure.each()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Measure.run_temp"><code class="docutils literal notranslate"><span class="pre">Measure.run_temp()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Measure.run"><code class="docutils literal notranslate"><span class="pre">Measure.run()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Measure.snapshot_base"><code class="docutils literal notranslate"><span class="pre">Measure.snapshot_base()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.Task"><code class="docutils literal notranslate"><span class="pre">Task</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.Task.func"><code class="docutils literal notranslate"><span class="pre">Task.func</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Task.args"><code class="docutils literal notranslate"><span class="pre">Task.args</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Task.kwargs"><code class="docutils literal notranslate"><span class="pre">Task.kwargs</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Task.__call__"><code class="docutils literal notranslate"><span class="pre">Task.__call__()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Task.snapshot"><code class="docutils literal notranslate"><span class="pre">Task.snapshot()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.Wait"><code class="docutils literal notranslate"><span class="pre">Wait</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.Wait.delay"><code class="docutils literal notranslate"><span class="pre">Wait.delay</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Wait.__call__"><code class="docutils literal notranslate"><span class="pre">Wait.__call__()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Wait.snapshot"><code class="docutils literal notranslate"><span class="pre">Wait.snapshot()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.BreakIf"><code class="docutils literal notranslate"><span class="pre">BreakIf</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.BreakIf.condition"><code class="docutils literal notranslate"><span class="pre">BreakIf.condition</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.BreakIf.__call__"><code class="docutils literal notranslate"><span class="pre">BreakIf.__call__()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.BreakIf.snapshot"><code class="docutils literal notranslate"><span class="pre">BreakIf.snapshot()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.Plot"><code class="docutils literal notranslate"><span class="pre">Plot</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.Plot.context"><code class="docutils literal notranslate"><span class="pre">Plot.context</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.socket"><code class="docutils literal notranslate"><span class="pre">Plot.socket</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.port"><code class="docutils literal notranslate"><span class="pre">Plot.port</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.encoding"><code class="docutils literal notranslate"><span class="pre">Plot.encoding</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.topic"><code class="docutils literal notranslate"><span class="pre">Plot.topic</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.metadata"><code class="docutils literal notranslate"><span class="pre">Plot.metadata</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.data_uuid"><code class="docutils literal notranslate"><span class="pre">Plot.data_uuid</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.client_ready_event"><code class="docutils literal notranslate"><span class="pre">Plot.client_ready_event</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.control_task"><code class="docutils literal notranslate"><span class="pre">Plot.control_task</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.control_port"><code class="docutils literal notranslate"><span class="pre">Plot.control_port</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.publish"><code class="docutils literal notranslate"><span class="pre">Plot.publish()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.publish_data"><code class="docutils literal notranslate"><span class="pre">Plot.publish_data()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.add_metadata"><code class="docutils literal notranslate"><span class="pre">Plot.add_metadata()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.store"><code class="docutils literal notranslate"><span class="pre">Plot.store()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.save_metadata"><code class="docutils literal notranslate"><span class="pre">Plot.save_metadata()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.finalize"><code class="docutils literal notranslate"><span class="pre">Plot.finalize()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.new_client"><code class="docutils literal notranslate"><span class="pre">Plot.new_client()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.clear"><code class="docutils literal notranslate"><span class="pre">Plot.clear()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.add_multiple"><code class="docutils literal notranslate"><span class="pre">Plot.add_multiple()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.add"><code class="docutils literal notranslate"><span class="pre">Plot.add()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.expand_trace"><code class="docutils literal notranslate"><span class="pre">Plot.expand_trace()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.set_title"><code class="docutils literal notranslate"><span class="pre">Plot.set_title()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.set_cmap"><code class="docutils literal notranslate"><span class="pre">Plot.set_cmap()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.save"><code class="docutils literal notranslate"><span class="pre">Plot.save()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.set_xlabel"><code class="docutils literal notranslate"><span class="pre">Plot.set_xlabel()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.set_ylabel"><code class="docutils literal notranslate"><span class="pre">Plot.set_ylabel()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.set_geometry"><code class="docutils literal notranslate"><span class="pre">Plot.set_geometry()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.Plot.close"><code class="docutils literal notranslate"><span class="pre">Plot.close()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.live_plot"><code class="docutils literal notranslate"><span class="pre">live_plot()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.offline_plotting"><code class="docutils literal notranslate"><span class="pre">offline_plotting()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.new_data"><code class="docutils literal notranslate"><span class="pre">new_data()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.load_data"><code class="docutils literal notranslate"><span class="pre">load_data()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.load_data_num"><code class="docutils literal notranslate"><span class="pre">load_data_num()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.load_data_nums"><code class="docutils literal notranslate"><span class="pre">load_data_nums()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.set_data_format"><code class="docutils literal notranslate"><span class="pre">set_data_format()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.set_data_folder"><code class="docutils literal notranslate"><span class="pre">set_data_folder()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.listVISAinstruments"><code class="docutils literal notranslate"><span class="pre">listVISAinstruments()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.MultiParameterWrapper"><code class="docutils literal notranslate"><span class="pre">MultiParameterWrapper</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.MultiParameterWrapper.parameters"><code class="docutils literal notranslate"><span class="pre">MultiParameterWrapper.parameters</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.MultiParameterWrapper.labels"><code class="docutils literal notranslate"><span class="pre">MultiParameterWrapper.labels</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.MultiParameterWrapper.units"><code class="docutils literal notranslate"><span class="pre">MultiParameterWrapper.units</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.MultiParameterWrapper.get_raw"><code class="docutils literal notranslate"><span class="pre">MultiParameterWrapper.get_raw()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.MultiParameterWrapper.set_raw"><code class="docutils literal notranslate"><span class="pre">MultiParameterWrapper.set_raw()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.MultiParameterWrapper.move"><code class="docutils literal notranslate"><span class="pre">MultiParameterWrapper.move()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.MultiParameterWrapper.sweep"><code class="docutils literal notranslate"><span class="pre">MultiParameterWrapper.sweep()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.ArrayParameterWrapper"><code class="docutils literal notranslate"><span class="pre">ArrayParameterWrapper</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="actions/index.html" class="btn btn-neutral float-right" title="qcodespp.actions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, qcodes++.</p>
   </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="../index.html"
-                          title="previous chapter">API Reference</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="actions/index.html"
-                          title="next chapter">qcodespp.actions</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../_sources/autoapi/qcodespp/index.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="actions/index.html" title="qcodespp.actions"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="../index.html" title="API Reference"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">qcodespp</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, qcodes++.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

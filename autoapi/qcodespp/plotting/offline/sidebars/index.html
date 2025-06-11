@@ -1,289 +1,352 @@
+
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qcodespp.plotting.offline.sidebars &mdash; qcodes++ 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
 
-    <title>qcodespp.plotting.offline.sidebars &#8212; qcodes++ 0.1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/nature.css?v=8fc2db88" />
-    <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=2389946f"></script>
-    <script src="../../../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+  
+      <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=2389946f"></script>
+      <script src="../../../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
     <link rel="next" title="qcodespp.station" href="../../../station/index.html" />
     <link rel="prev" title="qcodespp.plotting.offline.qcodes_pp_extension" href="../qcodes_pp_extension/index.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../../../../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../../../../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="../../../station/index.html" title="qcodespp.station"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="../qcodes_pp_extension/index.html" title="qcodespp.plotting.offline.qcodes_pp_extension"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../../index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../../../../index.html" >API Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../../../index.html" >qcodespp</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="../../index.html" >qcodespp.plotting</a> &#187;</li>
-          <li class="nav-item nav-item-4"><a href="../index.html" accesskey="U">qcodespp.plotting.offline</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">qcodespp.plotting.offline.sidebars</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            qcodes++
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../parameters.html">More about Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">qcodespp</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../actions/index.html">qcodespp.actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../data/index.html">qcodespp.data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../instrument_drivers/index.html">qcodespp.instrument_drivers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../loops/index.html">qcodespp.loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../measure/index.html">qcodespp.measure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../parameters/index.html">qcodespp.parameters</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html">qcodespp.plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../station/index.html">qcodespp.station</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../utils/index.html">qcodespp.utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../version/index.html">qcodespp.version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">qcodes++</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">qcodespp</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">qcodespp.plotting</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">qcodespp.plotting.offline</a></li>
+      <li class="breadcrumb-item active">qcodespp.plotting.offline.sidebars</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/autoapi/qcodespp/plotting/offline/sidebars/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="module-qcodespp.plotting.offline.sidebars">
-<span id="qcodespp-plotting-offline-sidebars"></span><h1>qcodespp.plotting.offline.sidebars<a class="headerlink" href="#module-qcodespp.plotting.offline.sidebars" title="Permalink to this heading">¶</a></h1>
+<span id="qcodespp-plotting-offline-sidebars"></span><h1>qcodespp.plotting.offline.sidebars<a class="headerlink" href="#module-qcodespp.plotting.offline.sidebars" title="Permalink to this heading"></a></h1>
 <section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h2>
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">¶</a></h2>
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.sidebars.</span></span><span class="sig-name descname"><span class="pre">Sidebar1D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">editor_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.sidebars.</span></span><span class="sig-name descname"><span class="pre">Sidebar1D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">editor_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">PyQt5.QtWidgets.QWidget</span></code></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.init_cmap">
-<span class="sig-name descname"><span class="pre">init_cmap</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'viridis'</span></em><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.init_cmap" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">init_cmap</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'viridis'</span></em><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.init_cmap" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.parent">
-<span class="sig-name descname"><span class="pre">parent</span></span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.parent" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">parent</span></span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.parent" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.running">
-<span class="sig-name descname"><span class="pre">running</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.running" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">running</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.running" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.init_widgets">
-<span class="sig-name descname"><span class="pre">init_widgets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.init_widgets" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">init_widgets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.init_widgets" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.init_connections">
-<span class="sig-name descname"><span class="pre">init_connections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.init_connections" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">init_connections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.init_connections" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.init_layouts">
-<span class="sig-name descname"><span class="pre">init_layouts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.init_layouts" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">init_layouts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.init_layouts" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.set_main_layout">
-<span class="sig-name descname"><span class="pre">set_main_layout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.set_main_layout" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_main_layout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.set_main_layout" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.init_trace_table">
-<span class="sig-name descname"><span class="pre">init_trace_table</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.init_trace_table" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">init_trace_table</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.init_trace_table" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.plot_type_changed">
-<span class="sig-name descname"><span class="pre">plot_type_changed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.plot_type_changed" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot_type_changed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.plot_type_changed" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.item_clicked">
-<span class="sig-name descname"><span class="pre">item_clicked</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.item_clicked" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">item_clicked</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.item_clicked" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.get_checked_items">
-<span class="sig-name descname"><span class="pre">get_checked_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traces_or_fits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'traces'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.get_checked_items" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_checked_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traces_or_fits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'traces'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.get_checked_items" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.duplicate_trace">
-<span class="sig-name descname"><span class="pre">duplicate_trace</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.duplicate_trace" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">duplicate_trace</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.duplicate_trace" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.add_trace_manually">
-<span class="sig-name descname"><span class="pre">add_trace_manually</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.add_trace_manually" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_trace_manually</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.add_trace_manually" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.append_trace_to_table">
-<span class="sig-name descname"><span class="pre">append_trace_to_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.append_trace_to_table" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">append_trace_to_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.append_trace_to_table" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.trace_table_edited">
-<span class="sig-name descname"><span class="pre">trace_table_edited</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.trace_table_edited" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">trace_table_edited</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.trace_table_edited" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.remove_trace">
-<span class="sig-name descname"><span class="pre">remove_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">which</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'selected'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.remove_trace" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">remove_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">which</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'selected'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.remove_trace" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.move_trace">
-<span class="sig-name descname"><span class="pre">move_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">direction</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.move_trace" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">move_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">direction</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.move_trace" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.apply_colormap">
-<span class="sig-name descname"><span class="pre">apply_colormap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.apply_colormap" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">apply_colormap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.apply_colormap" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.colormap_type_edited">
-<span class="sig-name descname"><span class="pre">colormap_type_edited</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.colormap_type_edited" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">colormap_type_edited</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.colormap_type_edited" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.open_trace_table_menu">
-<span class="sig-name descname"><span class="pre">open_trace_table_menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.open_trace_table_menu" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">open_trace_table_menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.open_trace_table_menu" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.change_all_checkstate">
-<span class="sig-name descname"><span class="pre">change_all_checkstate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkstate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.change_all_checkstate" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">change_all_checkstate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkstate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.change_all_checkstate" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.replace_table_entry">
-<span class="sig-name descname"><span class="pre">replace_table_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.replace_table_entry" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">replace_table_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.replace_table_entry" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.limits_edited">
-<span class="sig-name descname"><span class="pre">limits_edited</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.limits_edited" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">limits_edited</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.limits_edited" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.reset_limits">
-<span class="sig-name descname"><span class="pre">reset_limits</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.reset_limits" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reset_limits</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.reset_limits" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clearplot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.update" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clearplot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.update" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.fit_class_changed">
-<span class="sig-name descname"><span class="pre">fit_class_changed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.fit_class_changed" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">fit_class_changed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.fit_class_changed" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.fit_type_changed">
-<span class="sig-name descname"><span class="pre">fit_type_changed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.fit_type_changed" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">fit_type_changed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.fit_type_changed" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.collect_fit_data">
-<span class="sig-name descname"><span class="pre">collect_fit_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.collect_fit_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">collect_fit_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.collect_fit_data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.collect_fit_inputs">
-<span class="sig-name descname"><span class="pre">collect_fit_inputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.collect_fit_inputs" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">collect_fit_inputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.collect_fit_inputs" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.collect_init_guess">
-<span class="sig-name descname"><span class="pre">collect_init_guess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.collect_init_guess" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">collect_init_guess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.collect_init_guess" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.start_fitting">
-<span class="sig-name descname"><span class="pre">start_fitting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'manual'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multilinefit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.start_fitting" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">start_fitting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'manual'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multilinefit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.start_fitting" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.fit_checked">
-<span class="sig-name descname"><span class="pre">fit_checked</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.fit_checked" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">fit_checked</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.fit_checked" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.print_parameters">
-<span class="sig-name descname"><span class="pre">print_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.print_parameters" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">print_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.print_parameters" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.get_line_data">
-<span class="sig-name descname"><span class="pre">get_line_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.get_line_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_line_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.get_line_data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.plot_Yerr">
-<span class="sig-name descname"><span class="pre">plot_Yerr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.plot_Yerr" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot_Yerr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.plot_Yerr" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.plot_Xerr">
-<span class="sig-name descname"><span class="pre">plot_Xerr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.plot_Xerr" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot_Xerr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.plot_Xerr" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.process_uncertainties">
-<span class="sig-name descname"><span class="pre">process_uncertainties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.process_uncertainties" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">process_uncertainties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.process_uncertainties" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.draw_plot">
-<span class="sig-name descname"><span class="pre">draw_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clearplot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.draw_plot" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">draw_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clearplot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.draw_plot" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.draw_fits">
-<span class="sig-name descname"><span class="pre">draw_fits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.draw_fits" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">draw_fits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.draw_fits" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.save_fit_result">
-<span class="sig-name descname"><span class="pre">save_fit_result</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.save_fit_result" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">save_fit_result</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.save_fit_result" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.save_all_fits">
-<span class="sig-name descname"><span class="pre">save_all_fits</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.save_all_fits" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">save_all_fits</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.save_all_fits" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.clear_fit">
-<span class="sig-name descname"><span class="pre">clear_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'manual'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.clear_fit" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">clear_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'manual'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.clear_fit" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.clear_all_fits">
-<span class="sig-name descname"><span class="pre">clear_all_fits</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.clear_all_fits" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">clear_all_fits</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.clear_all_fits" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.save_fit_preset">
-<span class="sig-name descname"><span class="pre">save_fit_preset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.save_fit_preset" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">save_fit_preset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.save_fit_preset" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.load_fit_preset">
-<span class="sig-name descname"><span class="pre">load_fit_preset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.load_fit_preset" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">load_fit_preset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.load_fit_preset" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.sidebars.Sidebar1D.closeEvent">
-<span class="sig-name descname"><span class="pre">closeEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.closeEvent" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">closeEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.closeEvent" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -292,131 +355,34 @@
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="../../../../../index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">qcodespp.plotting.offline.sidebars</a><ul>
-<li><a class="reference internal" href="#classes">Classes</a></li>
-<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D"><code class="docutils literal notranslate"><span class="pre">Sidebar1D</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.init_cmap"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.init_cmap</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.parent"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.parent</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.running"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.running</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.init_widgets"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.init_widgets()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.init_connections"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.init_connections()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.init_layouts"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.init_layouts()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.set_main_layout"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.set_main_layout()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.init_trace_table"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.init_trace_table()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.plot_type_changed"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.plot_type_changed()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.item_clicked"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.item_clicked()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.get_checked_items"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.get_checked_items()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.duplicate_trace"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.duplicate_trace()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.add_trace_manually"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.add_trace_manually()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.append_trace_to_table"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.append_trace_to_table()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.trace_table_edited"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.trace_table_edited()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.remove_trace"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.remove_trace()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.move_trace"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.move_trace()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.apply_colormap"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.apply_colormap()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.colormap_type_edited"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.colormap_type_edited()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.open_trace_table_menu"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.open_trace_table_menu()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.change_all_checkstate"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.change_all_checkstate()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.replace_table_entry"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.replace_table_entry()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.limits_edited"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.limits_edited()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.reset_limits"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.reset_limits()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.update"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.update()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.fit_class_changed"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.fit_class_changed()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.fit_type_changed"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.fit_type_changed()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.collect_fit_data"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.collect_fit_data()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.collect_fit_inputs"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.collect_fit_inputs()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.collect_init_guess"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.collect_init_guess()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.start_fitting"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.start_fitting()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.fit_checked"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.fit_checked()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.print_parameters"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.print_parameters()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.get_line_data"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.get_line_data()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.plot_Yerr"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.plot_Yerr()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.plot_Xerr"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.plot_Xerr()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.process_uncertainties"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.process_uncertainties()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.draw_plot"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.draw_plot()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.draw_fits"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.draw_fits()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.save_fit_result"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.save_fit_result()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.save_all_fits"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.save_all_fits()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.clear_fit"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.clear_fit()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.clear_all_fits"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.clear_all_fits()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.save_fit_preset"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.save_fit_preset()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.load_fit_preset"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.load_fit_preset()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.sidebars.Sidebar1D.closeEvent"><code class="docutils literal notranslate"><span class="pre">Sidebar1D.closeEvent()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../qcodes_pp_extension/index.html" class="btn btn-neutral float-left" title="qcodespp.plotting.offline.qcodes_pp_extension" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../../station/index.html" class="btn btn-neutral float-right" title="qcodespp.station" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, qcodes++.</p>
   </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="../qcodes_pp_extension/index.html"
-                          title="previous chapter">qcodespp.plotting.offline.qcodes_pp_extension</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="../../../station/index.html"
-                          title="next chapter">qcodespp.station</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../../../../_sources/autoapi/qcodespp/plotting/offline/sidebars/index.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../../../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../../../../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../../../../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="../../../station/index.html" title="qcodespp.station"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="../qcodes_pp_extension/index.html" title="qcodespp.plotting.offline.qcodes_pp_extension"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../../index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../../../../index.html" >API Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../../../index.html" >qcodespp</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="../../index.html" >qcodespp.plotting</a> &#187;</li>
-          <li class="nav-item nav-item-4"><a href="../index.html" >qcodespp.plotting.offline</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">qcodespp.plotting.offline.sidebars</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, qcodes++.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

@@ -1,542 +1,605 @@
+
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qcodespp.plotting.offline.datatypes &mdash; qcodes++ 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
 
-    <title>qcodespp.plotting.offline.datatypes &#8212; qcodes++ 0.1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/nature.css?v=8fc2db88" />
-    <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=2389946f"></script>
-    <script src="../../../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+  
+      <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=2389946f"></script>
+      <script src="../../../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
     <link rel="next" title="qcodespp.plotting.offline.design" href="../design/index.html" />
     <link rel="prev" title="qcodespp.plotting.offline" href="../index.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../../../../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../../../../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="../design/index.html" title="qcodespp.plotting.offline.design"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="../index.html" title="qcodespp.plotting.offline"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../../index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../../../../index.html" >API Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../../../index.html" >qcodespp</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="../../index.html" >qcodespp.plotting</a> &#187;</li>
-          <li class="nav-item nav-item-4"><a href="../index.html" accesskey="U">qcodespp.plotting.offline</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">qcodespp.plotting.offline.datatypes</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            qcodes++
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../parameters.html">More about Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">qcodespp</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../actions/index.html">qcodespp.actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../data/index.html">qcodespp.data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../instrument_drivers/index.html">qcodespp.instrument_drivers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../loops/index.html">qcodespp.loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../measure/index.html">qcodespp.measure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../parameters/index.html">qcodespp.parameters</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html">qcodespp.plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../station/index.html">qcodespp.station</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../utils/index.html">qcodespp.utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../version/index.html">qcodespp.version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">qcodes++</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">qcodespp</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">qcodespp.plotting</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">qcodespp.plotting.offline</a></li>
+      <li class="breadcrumb-item active">qcodespp.plotting.offline.datatypes</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/autoapi/qcodespp/plotting/offline/datatypes/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="module-qcodespp.plotting.offline.datatypes">
-<span id="qcodespp-plotting-offline-datatypes"></span><h1>qcodespp.plotting.offline.datatypes<a class="headerlink" href="#module-qcodespp.plotting.offline.datatypes" title="Permalink to this heading">¶</a></h1>
+<span id="qcodespp-plotting-offline-datatypes"></span><h1>qcodespp.plotting.offline.datatypes<a class="headerlink" href="#module-qcodespp.plotting.offline.datatypes" title="Permalink to this heading"></a></h1>
 <section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h2>
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">¶</a></h2>
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.DataItem">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.datatypes.</span></span><span class="sig-name descname"><span class="pre">DataItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.DataItem" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.datatypes.</span></span><span class="sig-name descname"><span class="pre">DataItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.DataItem" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">PyQt5.QtWidgets.QListWidgetItem</span></code></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.DataItem.data">
-<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.DataItem.data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.DataItem.data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.datatypes.</span></span><span class="sig-name descname"><span class="pre">BaseClassData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.datatypes.</span></span><span class="sig-name descname"><span class="pre">BaseClassData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData" title="Permalink to this definition"></a></dt>
 <dd><dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.DEFAULT_PLOT_SETTINGS">
-<span class="sig-name descname"><span class="pre">DEFAULT_PLOT_SETTINGS</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.DEFAULT_PLOT_SETTINGS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">DEFAULT_PLOT_SETTINGS</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.DEFAULT_PLOT_SETTINGS" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.DEFAULT_VIEW_SETTINGS">
-<span class="sig-name descname"><span class="pre">DEFAULT_VIEW_SETTINGS</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.DEFAULT_VIEW_SETTINGS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">DEFAULT_VIEW_SETTINGS</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.DEFAULT_VIEW_SETTINGS" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.DEFAULT_AXLIM_SETTINGS">
-<span class="sig-name descname"><span class="pre">DEFAULT_AXLIM_SETTINGS</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.DEFAULT_AXLIM_SETTINGS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">DEFAULT_AXLIM_SETTINGS</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.DEFAULT_AXLIM_SETTINGS" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.filepath">
-<span class="sig-name descname"><span class="pre">filepath</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.filepath" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">filepath</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.filepath" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.canvas">
-<span class="sig-name descname"><span class="pre">canvas</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.canvas" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">canvas</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.canvas" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.label">
-<span class="sig-name descname"><span class="pre">label</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.label" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">label</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.label" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.loaded_data">
-<span class="sig-name descname"><span class="pre">loaded_data</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.loaded_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">loaded_data</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.loaded_data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.plot_type">
-<span class="sig-name descname"><span class="pre">plot_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.settings">
-<span class="sig-name descname"><span class="pre">settings</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.settings" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">settings</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.settings" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.view_settings">
-<span class="sig-name descname"><span class="pre">view_settings</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.view_settings" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">view_settings</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.view_settings" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.axlim_settings">
-<span class="sig-name descname"><span class="pre">axlim_settings</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.axlim_settings" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">axlim_settings</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.axlim_settings" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.filters">
-<span class="sig-name descname"><span class="pre">filters</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.filters" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">filters</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.filters" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.labels_changed">
-<span class="sig-name descname"><span class="pre">labels_changed</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.labels_changed" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">labels_changed</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.labels_changed" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.prepare_dataset">
-<span class="sig-name descname"><span class="pre">prepare_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.prepare_dataset" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">prepare_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.prepare_dataset" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.add_array_to_data_dict">
-<span class="sig-name descname"><span class="pre">add_array_to_data_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.add_array_to_data_dict" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_array_to_data_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.add_array_to_data_dict" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.get_column_data">
-<span class="sig-name descname"><span class="pre">get_column_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.get_column_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_column_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.get_column_data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.get_columns">
-<span class="sig-name descname"><span class="pre">get_columns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.get_columns" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_columns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.get_columns" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.load_and_reshape_data">
-<span class="sig-name descname"><span class="pre">load_and_reshape_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reload_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reload_from_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linefrompopup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.load_and_reshape_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">load_and_reshape_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reload_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reload_from_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linefrompopup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.load_and_reshape_data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.shape_single_array">
-<span class="sig-name descname"><span class="pre">shape_single_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.shape_single_array" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">shape_single_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.shape_single_array" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.filttocol">
-<span class="sig-name descname"><span class="pre">filttocol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.filttocol" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">filttocol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.filttocol" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.copy_raw_to_processed_data">
-<span class="sig-name descname"><span class="pre">copy_raw_to_processed_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.copy_raw_to_processed_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">copy_raw_to_processed_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.copy_raw_to_processed_data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.reshape_for_plot_type">
-<span class="sig-name descname"><span class="pre">reshape_for_plot_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.reshape_for_plot_type" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reshape_for_plot_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.reshape_for_plot_type" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_histogram">
-<span class="sig-name descname"><span class="pre">plot_type_histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_histogram" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot_type_histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_histogram" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_fft">
-<span class="sig-name descname"><span class="pre">plot_type_fft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_fft" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot_type_fft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_fft" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_histogram_y">
-<span class="sig-name descname"><span class="pre">plot_type_histogram_y</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_histogram_y" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot_type_histogram_y</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_histogram_y" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_histogram_x">
-<span class="sig-name descname"><span class="pre">plot_type_histogram_x</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_histogram_x" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot_type_histogram_x</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_histogram_x" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_ffty">
-<span class="sig-name descname"><span class="pre">plot_type_ffty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_ffty" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot_type_ffty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_ffty" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_fftx">
-<span class="sig-name descname"><span class="pre">plot_type_fftx</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_fftx" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot_type_fftx</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_fftx" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_fftxy">
-<span class="sig-name descname"><span class="pre">plot_type_fftxy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_fftxy" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot_type_fftxy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_fftxy" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.prepare_data_for_plot">
-<span class="sig-name descname"><span class="pre">prepare_data_for_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reload_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reload_from_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linefrompopup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_color_limits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.prepare_data_for_plot" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">prepare_data_for_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reload_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reload_from_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linefrompopup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_color_limits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.prepare_data_for_plot" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.init_plotted_lines">
-<span class="sig-name descname"><span class="pre">init_plotted_lines</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.init_plotted_lines" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">init_plotted_lines</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.init_plotted_lines" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.add_cbar_hist">
-<span class="sig-name descname"><span class="pre">add_cbar_hist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.add_cbar_hist" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_cbar_hist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.add_cbar_hist" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.add_plot">
-<span class="sig-name descname"><span class="pre">add_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">editor_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.add_plot" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">editor_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.add_plot" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.apply_default_lables">
-<span class="sig-name descname"><span class="pre">apply_default_lables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_default_lables" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">apply_default_lables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_default_lables" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.reset_view_settings">
-<span class="sig-name descname"><span class="pre">reset_view_settings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">overrule</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.reset_view_settings" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reset_view_settings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">overrule</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.reset_view_settings" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.reset_midpoint">
-<span class="sig-name descname"><span class="pre">reset_midpoint</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.reset_midpoint" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reset_midpoint</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.reset_midpoint" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.apply_plot_settings">
-<span class="sig-name descname"><span class="pre">apply_plot_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_plot_settings" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">apply_plot_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_plot_settings" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.apply_view_settings">
-<span class="sig-name descname"><span class="pre">apply_view_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_view_settings" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">apply_view_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_view_settings" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.apply_axlim_settings">
-<span class="sig-name descname"><span class="pre">apply_axlim_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_axlim_settings" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">apply_axlim_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_axlim_settings" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.apply_axscale_settings">
-<span class="sig-name descname"><span class="pre">apply_axscale_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_axscale_settings" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">apply_axscale_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_axscale_settings" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.reset_axlim_settings">
-<span class="sig-name descname"><span class="pre">reset_axlim_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.reset_axlim_settings" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reset_axlim_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.reset_axlim_settings" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.apply_colormap">
-<span class="sig-name descname"><span class="pre">apply_colormap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_colormap" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">apply_colormap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_colormap" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.apply_single_filter">
-<span class="sig-name descname"><span class="pre">apply_single_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">processed_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_single_filter" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">apply_single_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">processed_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_single_filter" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.apply_all_filters">
-<span class="sig-name descname"><span class="pre">apply_all_filters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update_color_limits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_box_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_all_filters" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">apply_all_filters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update_color_limits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_box_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_all_filters" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.extension_setting_edited">
-<span class="sig-name descname"><span class="pre">extension_setting_edited</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">editor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.extension_setting_edited" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">extension_setting_edited</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">editor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.extension_setting_edited" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.add_extension_actions">
-<span class="sig-name descname"><span class="pre">add_extension_actions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">editor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">menu</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.add_extension_actions" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_extension_actions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">editor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">menu</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.add_extension_actions" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.do_extension_actions">
-<span class="sig-name descname"><span class="pre">do_extension_actions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">editor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">menu</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.do_extension_actions" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">do_extension_actions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">editor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">menu</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.do_extension_actions" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.file_finished">
-<span class="sig-name descname"><span class="pre">file_finished</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.file_finished" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">file_finished</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.file_finished" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.BaseClassData.hide_linecuts">
-<span class="sig-name descname"><span class="pre">hide_linecuts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.hide_linecuts" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">hide_linecuts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.BaseClassData.hide_linecuts" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.NumpyData">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.datatypes.</span></span><span class="sig-name descname"><span class="pre">NumpyData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.NumpyData" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.datatypes.</span></span><span class="sig-name descname"><span class="pre">NumpyData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.NumpyData" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData" title="qcodespp.plotting.offline.datatypes.BaseClassData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseClassData</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.NumpyData.dataset">
-<span class="sig-name descname"><span class="pre">dataset</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.NumpyData.dataset" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dataset</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.NumpyData.dataset" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.NumpyData.label">
-<span class="sig-name descname"><span class="pre">label</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.NumpyData.label" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">label</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.NumpyData.label" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.NumpyData.filters">
-<span class="sig-name descname"><span class="pre">filters</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.NumpyData.filters" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">filters</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.NumpyData.filters" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.NumpyData.view_settings">
-<span class="sig-name descname"><span class="pre">view_settings</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.NumpyData.view_settings" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">view_settings</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.NumpyData.view_settings" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.NumpyData.axlim_settings">
-<span class="sig-name descname"><span class="pre">axlim_settings</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.NumpyData.axlim_settings" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">axlim_settings</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.NumpyData.axlim_settings" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.NumpyData.raw_data">
-<span class="sig-name descname"><span class="pre">raw_data</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.NumpyData.raw_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">raw_data</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.NumpyData.raw_data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.NumpyData.prepare_data_for_plot">
-<span class="sig-name descname"><span class="pre">prepare_data_for_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reload_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.NumpyData.prepare_data_for_plot" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">prepare_data_for_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reload_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.NumpyData.prepare_data_for_plot" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.InternalData">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.datatypes.</span></span><span class="sig-name descname"><span class="pre">InternalData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_parameter_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimension</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.InternalData" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.datatypes.</span></span><span class="sig-name descname"><span class="pre">InternalData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_parameter_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimension</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.InternalData" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData" title="qcodespp.plotting.offline.datatypes.BaseClassData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseClassData</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.InternalData.loaded_data">
-<span class="sig-name descname"><span class="pre">loaded_data</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.InternalData.loaded_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">loaded_data</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.InternalData.loaded_data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.InternalData.canvas">
-<span class="sig-name descname"><span class="pre">canvas</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.InternalData.canvas" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">canvas</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.InternalData.canvas" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.InternalData.all_parameter_names">
-<span class="sig-name descname"><span class="pre">all_parameter_names</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.InternalData.all_parameter_names" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">all_parameter_names</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.InternalData.all_parameter_names" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.InternalData.data_dict">
-<span class="sig-name descname"><span class="pre">data_dict</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.InternalData.data_dict" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">data_dict</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.InternalData.data_dict" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.InternalData.label">
-<span class="sig-name descname"><span class="pre">label</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.InternalData.label" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">label</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.InternalData.label" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.InternalData.dim">
-<span class="sig-name descname"><span class="pre">dim</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.InternalData.dim" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dim</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.InternalData.dim" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.InternalData.prepare_dataset">
-<span class="sig-name descname"><span class="pre">prepare_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.InternalData.prepare_dataset" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">prepare_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.InternalData.prepare_dataset" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.InternalData.load_and_reshape_data">
-<span class="sig-name descname"><span class="pre">load_and_reshape_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reload</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reload_from_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linefrompopup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.InternalData.load_and_reshape_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">load_and_reshape_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reload</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reload_from_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linefrompopup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.InternalData.load_and_reshape_data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.InternalData.get_column_data">
-<span class="sig-name descname"><span class="pre">get_column_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.InternalData.get_column_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_column_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.InternalData.get_column_data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.datatypes.</span></span><span class="sig-name descname"><span class="pre">MixedInternalData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset2d_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset1d_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset2d_filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset1d_filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset1d_loaded_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset2d_loaded_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset1d_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset2d_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset1d_all_parameter_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset2d_all_parameter_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset1d_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset2d_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.datatypes.</span></span><span class="sig-name descname"><span class="pre">MixedInternalData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset2d_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset1d_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset2d_filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset1d_filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset1d_loaded_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset2d_loaded_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset1d_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset2d_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset1d_all_parameter_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset2d_all_parameter_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset1d_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset2d_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData" title="qcodespp.plotting.offline.datatypes.BaseClassData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseClassData</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_type">
-<span class="sig-name descname"><span class="pre">dataset2d_type</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_type" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dataset2d_type</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_type" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_type">
-<span class="sig-name descname"><span class="pre">dataset1d_type</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_type" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dataset1d_type</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_type" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_filepath">
-<span class="sig-name descname"><span class="pre">dataset1d_filepath</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_filepath" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dataset1d_filepath</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_filepath" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_filepath">
-<span class="sig-name descname"><span class="pre">dataset2d_filepath</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_filepath" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dataset2d_filepath</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_filepath" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_loaded_data">
-<span class="sig-name descname"><span class="pre">dataset1d_loaded_data</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_loaded_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dataset1d_loaded_data</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_loaded_data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_loaded_data">
-<span class="sig-name descname"><span class="pre">dataset2d_loaded_data</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_loaded_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dataset2d_loaded_data</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_loaded_data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_label">
-<span class="sig-name descname"><span class="pre">dataset1d_label</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_label" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dataset1d_label</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_label" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_label">
-<span class="sig-name descname"><span class="pre">dataset2d_label</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_label" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dataset2d_label</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_label" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_all_parameter_names">
-<span class="sig-name descname"><span class="pre">dataset1d_all_parameter_names</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_all_parameter_names" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dataset1d_all_parameter_names</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_all_parameter_names" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_all_parameter_names">
-<span class="sig-name descname"><span class="pre">dataset2d_all_parameter_names</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_all_parameter_names" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dataset2d_all_parameter_names</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_all_parameter_names" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_dim">
-<span class="sig-name descname"><span class="pre">dataset1d_dim</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_dim" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dataset1d_dim</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_dim" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_dim">
-<span class="sig-name descname"><span class="pre">dataset2d_dim</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_dim" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dataset2d_dim</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_dim" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.filepath">
-<span class="sig-name descname"><span class="pre">filepath</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mixed_internal_data'</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.filepath" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">filepath</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mixed_internal_data'</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.filepath" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.canvas">
-<span class="sig-name descname"><span class="pre">canvas</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.canvas" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">canvas</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.canvas" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.label">
-<span class="sig-name descname"><span class="pre">label</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.label" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">label</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.label" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.dim">
-<span class="sig-name descname"><span class="pre">dim</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mixed'</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dim" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dim</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mixed'</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dim" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.show_2d_data">
-<span class="sig-name descname"><span class="pre">show_2d_data</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.show_2d_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">show_2d_data</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.show_2d_data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.plot_type">
-<span class="sig-name descname"><span class="pre">plot_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.plot_type" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.plot_type" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.all_parameter_names">
-<span class="sig-name descname"><span class="pre">all_parameter_names</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.all_parameter_names" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">all_parameter_names</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.all_parameter_names" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.settings_menu_options">
-<span class="sig-name descname"><span class="pre">settings_menu_options</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.settings_menu_options" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">settings_menu_options</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.settings_menu_options" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.filter_menu_options">
-<span class="sig-name descname"><span class="pre">filter_menu_options</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.filter_menu_options" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">filter_menu_options</span></span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.filter_menu_options" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.prepare_data_for_plot">
-<span class="sig-name descname"><span class="pre">prepare_data_for_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.prepare_data_for_plot" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">prepare_data_for_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.prepare_data_for_plot" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.reset_view_settings">
-<span class="sig-name descname"><span class="pre">reset_view_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.reset_view_settings" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reset_view_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.reset_view_settings" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.add_plot">
-<span class="sig-name descname"><span class="pre">add_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">editor_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.add_plot" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">editor_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.add_plot" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.apply_all_filters">
-<span class="sig-name descname"><span class="pre">apply_all_filters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update_color_limits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_box_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.apply_all_filters" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">apply_all_filters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update_color_limits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_box_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.apply_all_filters" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.datatypes.MixedInternalData.add_cbar_hist">
-<span class="sig-name descname"><span class="pre">add_cbar_hist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.add_cbar_hist" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_cbar_hist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.add_cbar_hist" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -545,189 +608,34 @@
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="../../../../../index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">qcodespp.plotting.offline.datatypes</a><ul>
-<li><a class="reference internal" href="#classes">Classes</a></li>
-<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.DataItem"><code class="docutils literal notranslate"><span class="pre">DataItem</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.DataItem.data"><code class="docutils literal notranslate"><span class="pre">DataItem.data</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData"><code class="docutils literal notranslate"><span class="pre">BaseClassData</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.DEFAULT_PLOT_SETTINGS"><code class="docutils literal notranslate"><span class="pre">BaseClassData.DEFAULT_PLOT_SETTINGS</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.DEFAULT_VIEW_SETTINGS"><code class="docutils literal notranslate"><span class="pre">BaseClassData.DEFAULT_VIEW_SETTINGS</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.DEFAULT_AXLIM_SETTINGS"><code class="docutils literal notranslate"><span class="pre">BaseClassData.DEFAULT_AXLIM_SETTINGS</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.filepath"><code class="docutils literal notranslate"><span class="pre">BaseClassData.filepath</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.canvas"><code class="docutils literal notranslate"><span class="pre">BaseClassData.canvas</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.label"><code class="docutils literal notranslate"><span class="pre">BaseClassData.label</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.loaded_data"><code class="docutils literal notranslate"><span class="pre">BaseClassData.loaded_data</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type"><code class="docutils literal notranslate"><span class="pre">BaseClassData.plot_type</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.settings"><code class="docutils literal notranslate"><span class="pre">BaseClassData.settings</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.view_settings"><code class="docutils literal notranslate"><span class="pre">BaseClassData.view_settings</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.axlim_settings"><code class="docutils literal notranslate"><span class="pre">BaseClassData.axlim_settings</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.filters"><code class="docutils literal notranslate"><span class="pre">BaseClassData.filters</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.labels_changed"><code class="docutils literal notranslate"><span class="pre">BaseClassData.labels_changed</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.prepare_dataset"><code class="docutils literal notranslate"><span class="pre">BaseClassData.prepare_dataset()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.add_array_to_data_dict"><code class="docutils literal notranslate"><span class="pre">BaseClassData.add_array_to_data_dict()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.get_column_data"><code class="docutils literal notranslate"><span class="pre">BaseClassData.get_column_data()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.get_columns"><code class="docutils literal notranslate"><span class="pre">BaseClassData.get_columns()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.load_and_reshape_data"><code class="docutils literal notranslate"><span class="pre">BaseClassData.load_and_reshape_data()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.shape_single_array"><code class="docutils literal notranslate"><span class="pre">BaseClassData.shape_single_array()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.filttocol"><code class="docutils literal notranslate"><span class="pre">BaseClassData.filttocol()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.copy_raw_to_processed_data"><code class="docutils literal notranslate"><span class="pre">BaseClassData.copy_raw_to_processed_data()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.reshape_for_plot_type"><code class="docutils literal notranslate"><span class="pre">BaseClassData.reshape_for_plot_type()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_histogram"><code class="docutils literal notranslate"><span class="pre">BaseClassData.plot_type_histogram()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_fft"><code class="docutils literal notranslate"><span class="pre">BaseClassData.plot_type_fft()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_histogram_y"><code class="docutils literal notranslate"><span class="pre">BaseClassData.plot_type_histogram_y()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_histogram_x"><code class="docutils literal notranslate"><span class="pre">BaseClassData.plot_type_histogram_x()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_ffty"><code class="docutils literal notranslate"><span class="pre">BaseClassData.plot_type_ffty()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_fftx"><code class="docutils literal notranslate"><span class="pre">BaseClassData.plot_type_fftx()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.plot_type_fftxy"><code class="docutils literal notranslate"><span class="pre">BaseClassData.plot_type_fftxy()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.prepare_data_for_plot"><code class="docutils literal notranslate"><span class="pre">BaseClassData.prepare_data_for_plot()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.init_plotted_lines"><code class="docutils literal notranslate"><span class="pre">BaseClassData.init_plotted_lines()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.add_cbar_hist"><code class="docutils literal notranslate"><span class="pre">BaseClassData.add_cbar_hist()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.add_plot"><code class="docutils literal notranslate"><span class="pre">BaseClassData.add_plot()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_default_lables"><code class="docutils literal notranslate"><span class="pre">BaseClassData.apply_default_lables()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.reset_view_settings"><code class="docutils literal notranslate"><span class="pre">BaseClassData.reset_view_settings()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.reset_midpoint"><code class="docutils literal notranslate"><span class="pre">BaseClassData.reset_midpoint()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_plot_settings"><code class="docutils literal notranslate"><span class="pre">BaseClassData.apply_plot_settings()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_view_settings"><code class="docutils literal notranslate"><span class="pre">BaseClassData.apply_view_settings()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_axlim_settings"><code class="docutils literal notranslate"><span class="pre">BaseClassData.apply_axlim_settings()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_axscale_settings"><code class="docutils literal notranslate"><span class="pre">BaseClassData.apply_axscale_settings()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.reset_axlim_settings"><code class="docutils literal notranslate"><span class="pre">BaseClassData.reset_axlim_settings()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_colormap"><code class="docutils literal notranslate"><span class="pre">BaseClassData.apply_colormap()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_single_filter"><code class="docutils literal notranslate"><span class="pre">BaseClassData.apply_single_filter()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.apply_all_filters"><code class="docutils literal notranslate"><span class="pre">BaseClassData.apply_all_filters()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.extension_setting_edited"><code class="docutils literal notranslate"><span class="pre">BaseClassData.extension_setting_edited()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.add_extension_actions"><code class="docutils literal notranslate"><span class="pre">BaseClassData.add_extension_actions()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.do_extension_actions"><code class="docutils literal notranslate"><span class="pre">BaseClassData.do_extension_actions()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.file_finished"><code class="docutils literal notranslate"><span class="pre">BaseClassData.file_finished()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.BaseClassData.hide_linecuts"><code class="docutils literal notranslate"><span class="pre">BaseClassData.hide_linecuts()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.NumpyData"><code class="docutils literal notranslate"><span class="pre">NumpyData</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.NumpyData.dataset"><code class="docutils literal notranslate"><span class="pre">NumpyData.dataset</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.NumpyData.label"><code class="docutils literal notranslate"><span class="pre">NumpyData.label</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.NumpyData.filters"><code class="docutils literal notranslate"><span class="pre">NumpyData.filters</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.NumpyData.view_settings"><code class="docutils literal notranslate"><span class="pre">NumpyData.view_settings</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.NumpyData.axlim_settings"><code class="docutils literal notranslate"><span class="pre">NumpyData.axlim_settings</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.NumpyData.raw_data"><code class="docutils literal notranslate"><span class="pre">NumpyData.raw_data</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.NumpyData.prepare_data_for_plot"><code class="docutils literal notranslate"><span class="pre">NumpyData.prepare_data_for_plot()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.InternalData"><code class="docutils literal notranslate"><span class="pre">InternalData</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.InternalData.loaded_data"><code class="docutils literal notranslate"><span class="pre">InternalData.loaded_data</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.InternalData.canvas"><code class="docutils literal notranslate"><span class="pre">InternalData.canvas</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.InternalData.all_parameter_names"><code class="docutils literal notranslate"><span class="pre">InternalData.all_parameter_names</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.InternalData.data_dict"><code class="docutils literal notranslate"><span class="pre">InternalData.data_dict</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.InternalData.label"><code class="docutils literal notranslate"><span class="pre">InternalData.label</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.InternalData.dim"><code class="docutils literal notranslate"><span class="pre">InternalData.dim</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.InternalData.prepare_dataset"><code class="docutils literal notranslate"><span class="pre">InternalData.prepare_dataset()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.InternalData.load_and_reshape_data"><code class="docutils literal notranslate"><span class="pre">InternalData.load_and_reshape_data()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.InternalData.get_column_data"><code class="docutils literal notranslate"><span class="pre">InternalData.get_column_data()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData"><code class="docutils literal notranslate"><span class="pre">MixedInternalData</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_type"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.dataset2d_type</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_type"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.dataset1d_type</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_filepath"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.dataset1d_filepath</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_filepath"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.dataset2d_filepath</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_loaded_data"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.dataset1d_loaded_data</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_loaded_data"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.dataset2d_loaded_data</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_label"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.dataset1d_label</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_label"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.dataset2d_label</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_all_parameter_names"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.dataset1d_all_parameter_names</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_all_parameter_names"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.dataset2d_all_parameter_names</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset1d_dim"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.dataset1d_dim</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dataset2d_dim"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.dataset2d_dim</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.filepath"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.filepath</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.canvas"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.canvas</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.label"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.label</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.dim"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.dim</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.show_2d_data"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.show_2d_data</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.plot_type"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.plot_type</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.all_parameter_names"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.all_parameter_names</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.settings_menu_options"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.settings_menu_options</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.filter_menu_options"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.filter_menu_options</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.prepare_data_for_plot"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.prepare_data_for_plot()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.reset_view_settings"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.reset_view_settings()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.add_plot"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.add_plot()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.apply_all_filters"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.apply_all_filters()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.datatypes.MixedInternalData.add_cbar_hist"><code class="docutils literal notranslate"><span class="pre">MixedInternalData.add_cbar_hist()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="qcodespp.plotting.offline" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../design/index.html" class="btn btn-neutral float-right" title="qcodespp.plotting.offline.design" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, qcodes++.</p>
   </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="../index.html"
-                          title="previous chapter">qcodespp.plotting.offline</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="../design/index.html"
-                          title="next chapter">qcodespp.plotting.offline.design</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../../../../_sources/autoapi/qcodespp/plotting/offline/datatypes/index.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../../../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../../../../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../../../../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="../design/index.html" title="qcodespp.plotting.offline.design"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="../index.html" title="qcodespp.plotting.offline"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../../index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../../../../index.html" >API Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../../../index.html" >qcodespp</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="../../index.html" >qcodespp.plotting</a> &#187;</li>
-          <li class="nav-item nav-item-4"><a href="../index.html" >qcodespp.plotting.offline</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">qcodespp.plotting.offline.datatypes</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, qcodes++.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

@@ -1,50 +1,101 @@
+
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Commonly used features &mdash; qcodes++ 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
-    <title>Commonly used features &#8212; qcodes++ 0.1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="_static/nature.css?v=8fc2db88" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=2389946f"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=2389946f"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="More about Parameters" href="parameters.html" />
     <link rel="prev" title="Getting started" href="dummy_measurements.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="parameters.html" title="More about Parameters"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="dummy_measurements.html" title="Getting started"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Commonly used features</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            qcodes++
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Commonly used features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#station-set-measurement">station.set_measurement()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instrument-info">instrument_info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-kinds-of-actions">Other kinds of actions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tasks">Tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#breakif">BreakIf</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#live-plotting">Live plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">More about Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">qcodes++</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Commonly used features</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/more_features.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="commonly-used-features">
-<h1>Commonly used features<a class="headerlink" href="#commonly-used-features" title="Permalink to this heading">¶</a></h1>
+<h1>Commonly used features<a class="headerlink" href="#commonly-used-features" title="Permalink to this heading"></a></h1>
 <section id="station-set-measurement">
-<h2>station.set_measurement()<a class="headerlink" href="#station-set-measurement" title="Permalink to this heading">¶</a></h2>
+<h2>station.set_measurement()<a class="headerlink" href="#station-set-measurement" title="Permalink to this heading"></a></h2>
 <p>Instead of constantly supplying the params_to_measure to the loops, especially if you have many parameters, which you want to keep identical over many measurements, you can use the station to store default measurement parameters. This is done by running:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station</span><span class="o">.</span><span class="n">set_measurement</span><span class="p">(</span><span class="n">instrument</span><span class="o">.</span><span class="n">input1</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">input2</span><span class="p">)</span>
 </pre></div>
@@ -52,14 +103,14 @@
 <p>Now you do not need to specify the params_to_measure in the loop1d, loop2d, loop2dUD.</p>
 </section>
 <section id="instrument-info">
-<h2>instrument_info<a class="headerlink" href="#instrument-info" title="Permalink to this heading">¶</a></h2>
+<h2>instrument_info<a class="headerlink" href="#instrument-info" title="Permalink to this heading"></a></h2>
 <p>There is one more option in loop1d and loop2d we didn’t mention, which is the ‘instrument_info’. Like the ‘device_info’, this is a string that will be included in the name of the DataSetPP, and can be used to list information that may not make it into the metadata. This may be e.g. settings on analog pre-amplifiers, or the presence of neutral density filters.</p>
 </section>
 <section id="other-kinds-of-actions">
-<h2>Other kinds of actions<a class="headerlink" href="#other-kinds-of-actions" title="Permalink to this heading">¶</a></h2>
+<h2>Other kinds of actions<a class="headerlink" href="#other-kinds-of-actions" title="Permalink to this heading"></a></h2>
 <p>The primary purpose of <code class="docutils literal notranslate"><span class="pre">params_to_measure</span></code> and <code class="docutils literal notranslate"><span class="pre">station.set_measurement()</span></code> is of course to tell qcodes++ what to measure. <a class="reference external" href="advanced.html">However, what these functions are *really* doing is telling the loop to perform certain actions</a>. If the action is a parameter, then the loop performs parameter() and stores the data. However, there are other options:</p>
 <section id="tasks">
-<h3>Tasks<a class="headerlink" href="#tasks" title="Permalink to this heading">¶</a></h3>
+<h3>Tasks<a class="headerlink" href="#tasks" title="Permalink to this heading"></a></h3>
 <p>Within loops, you can also perform a <code class="docutils literal notranslate"><span class="pre">qc.Task</span></code>, which is a method for introducing arbitrary functions/scripts into the loop. For example, you could wait until your setup has reached a certain temperature before running measuring the parameters using</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">waitfortemp</span><span class="p">(</span><span class="n">setpoint</span><span class="p">):</span>
     <span class="k">while</span> <span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">instrument</span><span class="o">.</span><span class="n">measured_temp</span><span class="p">()</span><span class="o">-</span><span class="n">setpoint</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">0.01</span><span class="p">:</span>
@@ -89,7 +140,7 @@
 <p>Note how in this case, the task is not a part of <code class="docutils literal notranslate"><span class="pre">params_to_measure</span></code>, (nor <code class="docutils literal notranslate"><span class="pre">station.set_measurement()</span></code>), since we only want to run the task immediately after the step_parameter is set, not at every point of the sweep_parameter.</p>
 </section>
 <section id="breakif">
-<h3>BreakIf<a class="headerlink" href="#breakif" title="Permalink to this heading">¶</a></h3>
+<h3>BreakIf<a class="headerlink" href="#breakif" title="Permalink to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">qc.BreakIf</span></code> allows the loop to be automatically stopped if a certain condition occurs. For example, if you are using a Keithley on the gate, and want to ensure leakage current doesn’t exceed a certain value.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station</span><span class="o">.</span><span class="n">set_measurement</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">BreakIf</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">k1</span><span class="o">.</span><span class="n">curr</span><span class="p">())</span><span class="o">&gt;</span><span class="mf">2e-9</span><span class="p">),</span><span class="n">param1</span><span class="p">,</span><span class="n">param2</span><span class="p">)</span>
 </pre></div>
@@ -107,7 +158,7 @@
 </section>
 </section>
 <section id="live-plotting">
-<h2>Live plotting<a class="headerlink" href="#live-plotting" title="Permalink to this heading">¶</a></h2>
+<h2>Live plotting<a class="headerlink" href="#live-plotting" title="Permalink to this heading"></a></h2>
 <p>For more control over live plotting options, you can use the <code class="docutils literal notranslate"><span class="pre">qc.live_plot</span></code> function which returns a <code class="docutils literal notranslate"><span class="pre">qc.Plot</span></code> object and links the <code class="docutils literal notranslate"><span class="pre">Plot</span></code> to a specific <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pp</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">live_plot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
@@ -138,82 +189,34 @@
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">Commonly used features</a><ul>
-<li><a class="reference internal" href="#station-set-measurement">station.set_measurement()</a></li>
-<li><a class="reference internal" href="#instrument-info">instrument_info</a></li>
-<li><a class="reference internal" href="#other-kinds-of-actions">Other kinds of actions</a><ul>
-<li><a class="reference internal" href="#tasks">Tasks</a></li>
-<li><a class="reference internal" href="#breakif">BreakIf</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#live-plotting">Live plotting</a></li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dummy_measurements.html" class="btn btn-neutral float-left" title="Getting started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="parameters.html" class="btn btn-neutral float-right" title="More about Parameters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, qcodes++.</p>
   </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="dummy_measurements.html"
-                          title="previous chapter">Getting started</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="parameters.html"
-                          title="next chapter">More about Parameters</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/more_features.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="parameters.html" title="More about Parameters"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="dummy_measurements.html" title="Getting started"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Commonly used features</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, qcodes++.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

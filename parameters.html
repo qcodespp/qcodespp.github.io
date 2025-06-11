@@ -1,51 +1,97 @@
+
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>More about Parameters &mdash; qcodes++ 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
-    <title>More about Parameters &#8212; qcodes++ 0.1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="_static/nature.css?v=8fc2db88" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=2389946f"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=2389946f"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Connecting to actual instruments" href="visa.html" />
     <link rel="prev" title="Commonly used features" href="more_features.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="visa.html" title="Connecting to actual instruments"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="more_features.html" title="Commonly used features"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">More about Parameters</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            qcodes++
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_features.html">Commonly used features</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">More about Parameters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#custom-parameters">Custom parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#moving-parameters">‘Moving’ Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multiparameter-and-multiparameterwrapper">MultiParameter and MultiParameterWrapper</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">qcodes++</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">More about Parameters</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/parameters.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="more-about-parameters">
-<h1>More about Parameters<a class="headerlink" href="#more-about-parameters" title="Permalink to this heading">¶</a></h1>
+<h1>More about Parameters<a class="headerlink" href="#more-about-parameters" title="Permalink to this heading"></a></h1>
 <p>Parameters are the main way to interact with instruments in qcodes++. They represent a single value that can be set or read from an instrument. Parameters can be simple, like a voltage or current, or more complex, like a waveform or a list of values. Either way, they are more than just a number; the have units, labels and other properties that help to keep track of what they represent.</p>
 <section id="custom-parameters">
-<h2>Custom parameters<a class="headerlink" href="#custom-parameters" title="Permalink to this heading">¶</a></h2>
+<h2>Custom parameters<a class="headerlink" href="#custom-parameters" title="Permalink to this heading"></a></h2>
 <p>An incredibly common task is to perform mathematical operations on parameters, e.g. dividing a voltage by a current to get a resistance. However, one cannot simply multiply or divide parameters, since they are not just numbers, but objects with properties. Your computer has no way of knowing that if you divide a voltage by a current, you should get a resistance with unit Ohm. Instead, you can create a new parameter that is defined as a function of other parameters, where you can give it all this information. For example, to create a resistance parameter from a two Parameters named voltage and current, you can do:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">resistance</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;resistance&#39;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;Ohm&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Resistance&#39;</span><span class="p">,</span>
                           <span class="n">get_cmd</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">voltage</span><span class="p">()</span> <span class="o">/</span> <span class="n">current</span><span class="p">())</span>
@@ -83,7 +129,7 @@
 </div>
 </section>
 <section id="moving-parameters">
-<h2>‘Moving’ Parameters<a class="headerlink" href="#moving-parameters" title="Permalink to this heading">¶</a></h2>
+<h2>‘Moving’ Parameters<a class="headerlink" href="#moving-parameters" title="Permalink to this heading"></a></h2>
 <p>Sometimes you want to sweep a parameter without taking data. This is Useful if you want to set a sensitive parameter, e.g. a gate voltage, where using <code class="docutils literal notranslate"><span class="pre">.set()</span></code> could damage the sample. For this you can use</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameter</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">end_value</span><span class="p">,</span><span class="n">steps</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span><span class="n">step_time</span><span class="o">=</span><span class="mf">0.03</span><span class="p">)</span>
 </pre></div>
@@ -98,7 +144,7 @@
 </div>
 </section>
 <section id="multiparameter-and-multiparameterwrapper">
-<h2>MultiParameter and MultiParameterWrapper<a class="headerlink" href="#multiparameter-and-multiparameterwrapper" title="Permalink to this heading">¶</a></h2>
+<h2>MultiParameter and MultiParameterWrapper<a class="headerlink" href="#multiparameter-and-multiparameterwrapper" title="Permalink to this heading"></a></h2>
 <p>MultiParameterWrapper enables easily setting, getting and sweeping multiple parameters. It is an extension of the MultiParameter from QCoDeS. To define it, simply provide a list of pre-existing parameters.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">multi</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">MultiParameterWrapper</span><span class="p">((</span><span class="n">parameter1</span><span class="p">,</span><span class="n">parameter2</span><span class="p">,</span><span class="n">parameter3</span><span class="p">),</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;multi&#39;</span><span class="p">)</span>
 </pre></div>
@@ -128,77 +174,34 @@
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">More about Parameters</a><ul>
-<li><a class="reference internal" href="#custom-parameters">Custom parameters</a></li>
-<li><a class="reference internal" href="#moving-parameters">‘Moving’ Parameters</a></li>
-<li><a class="reference internal" href="#multiparameter-and-multiparameterwrapper">MultiParameter and MultiParameterWrapper</a></li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="more_features.html" class="btn btn-neutral float-left" title="Commonly used features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="visa.html" class="btn btn-neutral float-right" title="Connecting to actual instruments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, qcodes++.</p>
   </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="more_features.html"
-                          title="previous chapter">Commonly used features</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="visa.html"
-                          title="next chapter">Connecting to actual instruments</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/parameters.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="visa.html" title="Connecting to actual instruments"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="more_features.html" title="Commonly used features"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">More about Parameters</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, qcodes++.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

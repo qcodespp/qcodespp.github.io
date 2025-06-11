@@ -1,216 +1,279 @@
+
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qcodespp.plotting.offline.filters &mdash; qcodes++ 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
 
-    <title>qcodespp.plotting.offline.filters &#8212; qcodes++ 0.1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/nature.css?v=8fc2db88" />
-    <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=2389946f"></script>
-    <script src="../../../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+  
+      <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=2389946f"></script>
+      <script src="../../../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
     <link rel="next" title="qcodespp.plotting.offline.fits" href="../fits/index.html" />
     <link rel="prev" title="qcodespp.plotting.offline.editor" href="../editor/index.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../../../../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../../../../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="../fits/index.html" title="qcodespp.plotting.offline.fits"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="../editor/index.html" title="qcodespp.plotting.offline.editor"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../../index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../../../../index.html" >API Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../../../index.html" >qcodespp</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="../../index.html" >qcodespp.plotting</a> &#187;</li>
-          <li class="nav-item nav-item-4"><a href="../index.html" accesskey="U">qcodespp.plotting.offline</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">qcodespp.plotting.offline.filters</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            qcodes++
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../parameters.html">More about Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">qcodespp</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../actions/index.html">qcodespp.actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../data/index.html">qcodespp.data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../instrument_drivers/index.html">qcodespp.instrument_drivers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../loops/index.html">qcodespp.loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../measure/index.html">qcodespp.measure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../parameters/index.html">qcodespp.parameters</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html">qcodespp.plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../station/index.html">qcodespp.station</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../utils/index.html">qcodespp.utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../version/index.html">qcodespp.version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">qcodes++</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">qcodespp</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">qcodespp.plotting</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">qcodespp.plotting.offline</a></li>
+      <li class="breadcrumb-item active">qcodespp.plotting.offline.filters</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/autoapi/qcodespp/plotting/offline/filters/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="module-qcodespp.plotting.offline.filters">
-<span id="qcodespp-plotting-offline-filters"></span><h1>qcodespp.plotting.offline.filters<a class="headerlink" href="#module-qcodespp.plotting.offline.filters" title="Permalink to this heading">¶</a></h1>
+<span id="qcodespp-plotting-offline-filters"></span><h1>qcodespp.plotting.offline.filters<a class="headerlink" href="#module-qcodespp.plotting.offline.filters" title="Permalink to this heading"></a></h1>
 <section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h2>
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading"></a></h2>
 </section>
 <section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h2>
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">¶</a></h2>
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.derivative">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">derivative</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times_y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.derivative" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">derivative</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times_y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.derivative" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.integrate">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">integrate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times_y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.integrate" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">integrate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times_y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.integrate" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.smooth">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">smooth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width_y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.smooth" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">smooth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width_y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.smooth" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.sav_gol">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">sav_gol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polyorder</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.sav_gol" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">sav_gol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polyorder</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.sav_gol" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.crop_x">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">crop_x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.crop_x" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">crop_x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.crop_x" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.crop_y">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">crop_y</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bottom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.crop_y" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">crop_y</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bottom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.crop_y" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.roll_x">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">roll_x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.roll_x" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">roll_x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.roll_x" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.roll_y">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">roll_y</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.roll_y" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">roll_y</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.roll_y" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.cut_x">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">cut_x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.cut_x" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">cut_x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.cut_x" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.cut_y">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">cut_y</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bottom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.cut_y" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">cut_y</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bottom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.cut_y" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.swap_xy">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">swap_xy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.swap_xy" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">swap_xy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.swap_xy" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.flip">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">flip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.flip" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">flip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.flip" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.normalize">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.normalize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.normalize" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.subtract_average">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">subtract_average</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.subtract_average" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">subtract_average</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.subtract_average" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.offset_line_by_line">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">offset_line_by_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.offset_line_by_line" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">offset_line_by_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.offset_line_by_line" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.subtract_ave_line_by_line">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">subtract_ave_line_by_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.subtract_ave_line_by_line" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">subtract_ave_line_by_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.subtract_ave_line_by_line" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.offset">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">offset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">array</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.offset" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">offset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">array</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.offset" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.absolute">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">absolute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.absolute" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">absolute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.absolute" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.multiply">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">multiply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">array</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.multiply" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">multiply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">array</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.multiply" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.divide">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">divide</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">array</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.divide" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">divide</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">array</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.divide" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.logarithm">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">logarithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.logarithm" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">logarithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.logarithm" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.power">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.power" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.power" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.root">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">root</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.root" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">root</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.root" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.interpolate">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">interpolate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.interpolate" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">interpolate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.interpolate" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.add_slope">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">add_slope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.add_slope" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">add_slope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.add_slope" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.subtract_trace">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">subtract_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.subtract_trace" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">subtract_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.subtract_trace" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.invert">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">invert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.invert" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">invert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.invert" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.Filter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">Filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkstate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.Filter" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.filters.</span></span><span class="sig-name descname"><span class="pre">Filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkstate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.filters.Filter" title="Permalink to this definition"></a></dt>
 <dd><dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.Filter.DEFAULT_SETTINGS">
-<span class="sig-name descname"><span class="pre">DEFAULT_SETTINGS</span></span><a class="headerlink" href="#qcodespp.plotting.offline.filters.Filter.DEFAULT_SETTINGS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">DEFAULT_SETTINGS</span></span><a class="headerlink" href="#qcodespp.plotting.offline.filters.Filter.DEFAULT_SETTINGS" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.Filter.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#qcodespp.plotting.offline.filters.Filter.name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#qcodespp.plotting.offline.filters.Filter.name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.Filter.method_list">
-<span class="sig-name descname"><span class="pre">method_list</span></span><a class="headerlink" href="#qcodespp.plotting.offline.filters.Filter.method_list" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">method_list</span></span><a class="headerlink" href="#qcodespp.plotting.offline.filters.Filter.method_list" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.filters.Filter.function">
-<span class="sig-name descname"><span class="pre">function</span></span><a class="headerlink" href="#qcodespp.plotting.offline.filters.Filter.function" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">function</span></span><a class="headerlink" href="#qcodespp.plotting.offline.filters.Filter.function" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -219,117 +282,34 @@
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="../../../../../index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">qcodespp.plotting.offline.filters</a><ul>
-<li><a class="reference internal" href="#classes">Classes</a></li>
-<li><a class="reference internal" href="#functions">Functions</a></li>
-<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.derivative"><code class="docutils literal notranslate"><span class="pre">derivative()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.integrate"><code class="docutils literal notranslate"><span class="pre">integrate()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.smooth"><code class="docutils literal notranslate"><span class="pre">smooth()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.sav_gol"><code class="docutils literal notranslate"><span class="pre">sav_gol()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.crop_x"><code class="docutils literal notranslate"><span class="pre">crop_x()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.crop_y"><code class="docutils literal notranslate"><span class="pre">crop_y()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.roll_x"><code class="docutils literal notranslate"><span class="pre">roll_x()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.roll_y"><code class="docutils literal notranslate"><span class="pre">roll_y()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.cut_x"><code class="docutils literal notranslate"><span class="pre">cut_x()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.cut_y"><code class="docutils literal notranslate"><span class="pre">cut_y()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.swap_xy"><code class="docutils literal notranslate"><span class="pre">swap_xy()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.flip"><code class="docutils literal notranslate"><span class="pre">flip()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.normalize"><code class="docutils literal notranslate"><span class="pre">normalize()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.subtract_average"><code class="docutils literal notranslate"><span class="pre">subtract_average()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.offset_line_by_line"><code class="docutils literal notranslate"><span class="pre">offset_line_by_line()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.subtract_ave_line_by_line"><code class="docutils literal notranslate"><span class="pre">subtract_ave_line_by_line()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.offset"><code class="docutils literal notranslate"><span class="pre">offset()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.absolute"><code class="docutils literal notranslate"><span class="pre">absolute()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.multiply"><code class="docutils literal notranslate"><span class="pre">multiply()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.divide"><code class="docutils literal notranslate"><span class="pre">divide()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.logarithm"><code class="docutils literal notranslate"><span class="pre">logarithm()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.power"><code class="docutils literal notranslate"><span class="pre">power()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.root"><code class="docutils literal notranslate"><span class="pre">root()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.interpolate"><code class="docutils literal notranslate"><span class="pre">interpolate()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.add_slope"><code class="docutils literal notranslate"><span class="pre">add_slope()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.subtract_trace"><code class="docutils literal notranslate"><span class="pre">subtract_trace()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.invert"><code class="docutils literal notranslate"><span class="pre">invert()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.Filter"><code class="docutils literal notranslate"><span class="pre">Filter</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.Filter.DEFAULT_SETTINGS"><code class="docutils literal notranslate"><span class="pre">Filter.DEFAULT_SETTINGS</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.Filter.name"><code class="docutils literal notranslate"><span class="pre">Filter.name</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.Filter.method_list"><code class="docutils literal notranslate"><span class="pre">Filter.method_list</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.plotting.offline.filters.Filter.function"><code class="docutils literal notranslate"><span class="pre">Filter.function</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../editor/index.html" class="btn btn-neutral float-left" title="qcodespp.plotting.offline.editor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../fits/index.html" class="btn btn-neutral float-right" title="qcodespp.plotting.offline.fits" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, qcodes++.</p>
   </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="../editor/index.html"
-                          title="previous chapter">qcodespp.plotting.offline.editor</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="../fits/index.html"
-                          title="next chapter">qcodespp.plotting.offline.fits</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../../../../_sources/autoapi/qcodespp/plotting/offline/filters/index.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../../../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../../../../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../../../../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="../fits/index.html" title="qcodespp.plotting.offline.fits"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="../editor/index.html" title="qcodespp.plotting.offline.editor"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../../index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../../../../index.html" >API Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../../../index.html" >qcodespp</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="../../index.html" >qcodespp.plotting</a> &#187;</li>
-          <li class="nav-item nav-item-4"><a href="../index.html" >qcodespp.plotting.offline</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">qcodespp.plotting.offline.filters</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, qcodes++.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

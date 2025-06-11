@@ -1,48 +1,94 @@
+
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connecting to actual instruments &mdash; qcodes++ 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
-    <title>Connecting to actual instruments &#8212; qcodes++ 0.1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="_static/nature.css?v=8fc2db88" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=2389946f"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=2389946f"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Data loading and analysis" href="data_analysis.html" />
     <link rel="prev" title="More about Parameters" href="parameters.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="data_analysis.html" title="Data loading and analysis"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="parameters.html" title="More about Parameters"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Connecting to actual instruments</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            qcodes++
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">More about Parameters</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Connecting to actual instruments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#where-are-the-drivers">Where are the drivers?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-know-which-features-an-instrument-has">How do I know which features an instrument has?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#writing-your-own-driver">Writing your own driver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">qcodes++</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Connecting to actual instruments</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/visa.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="connecting-to-actual-instruments">
-<h1>Connecting to actual instruments<a class="headerlink" href="#connecting-to-actual-instruments" title="Permalink to this heading">¶</a></h1>
+<h1>Connecting to actual instruments<a class="headerlink" href="#connecting-to-actual-instruments" title="Permalink to this heading"></a></h1>
 <p>The vast majority of scientific instruments communicate via the VISA protocol, whether it’s over GPIB, USB, RS232, or Ethernet. Assuming you’ve installed a National Instruments or Keysight backend to handle VISA, qcodes++ deals with connecting to VISA instruments in a very uniform way. To find out which VISA instruments are attached to your computer, use:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">qcodespp</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qc</span>
 <span class="n">qc</span><span class="o">.</span><span class="n">listVISAinstruments</span><span class="p">()</span>
@@ -70,7 +116,7 @@
 </div>
 <p>The process is the same no matter the instrument, or connection type, as long as it’s a VISA instrument. There are some instruments that don’t use VISA. Naturally, they will not show up when using <code class="docutils literal notranslate"><span class="pre">listVISAinstruments()</span></code>, and may require a different syntax to connect to them. Check out the relevant documentation or source code.</p>
 <section id="where-are-the-drivers">
-<h2>Where are the drivers?<a class="headerlink" href="#where-are-the-drivers" title="Permalink to this heading">¶</a></h2>
+<h2>Where are the drivers?<a class="headerlink" href="#where-are-the-drivers" title="Permalink to this heading"></a></h2>
 <p>There are three possible sources for pre-existing instrument drivers; qcodes++, <a class="reference external" href="https://microsoft.github.io/Qcodes/drivers_api/index.html">QCoDeS</a> and <a class="reference external" href="https://qcodes.github.io/Qcodes_contrib_drivers/index.html">qcodes_contrib_drivers</a>. Look through the instruments available at those links to find the one you’re looking for. If you don’t have the qcodes_contrib_drivers package installed, you can install it with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">qcodes_contrib_drivers</span>
 </pre></div>
@@ -84,7 +130,7 @@
 <p>All these drivers will work perfectly fine with qcodes++ despite coming from different sources.</p>
 </section>
 <section id="how-do-i-know-which-features-an-instrument-has">
-<h2>How do I know which features an instrument has?<a class="headerlink" href="#how-do-i-know-which-features-an-instrument-has" title="Permalink to this heading">¶</a></h2>
+<h2>How do I know which features an instrument has?<a class="headerlink" href="#how-do-i-know-which-features-an-instrument-has" title="Permalink to this heading"></a></h2>
 <p>There are many ways! If you kind of know what you’re looking for, hit the tab key after typing the instrument name, e.g. <code class="docutils literal notranslate"><span class="pre">k2600.</span></code> and it will show you all the available functions of the instrument. Many of those functions will either be Parameters or Submodules. Submodules are typically used to represent the channels of an instrument. For example, the Keithley 2600 Source Meters have two channels. In the qcodes driver, these are named <code class="docutils literal notranslate"><span class="pre">smua</span></code> and <code class="docutils literal notranslate"><span class="pre">smub</span></code>. Each of these submodules have various parameters, including <code class="docutils literal notranslate"><span class="pre">volt</span></code>, <code class="docutils literal notranslate"><span class="pre">curr</span></code>, etc. Therefore reading the voltage on Channel A is done with <code class="docutils literal notranslate"><span class="pre">k2600.smua.volt()</span></code></p>
 <p>You can list the Parameters of the instrument by running:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">instrument</span><span class="o">.</span><span class="n">parameters</span>
@@ -102,83 +148,40 @@
 <p>However, eventually you will be better off either reading the API for the driver or the source code, likely in combination with the instrument’s manual. It’s painful, I know, but it’s still better than writing your own driver ;)</p>
 </section>
 <section id="writing-your-own-driver">
-<h2>Writing your own driver<a class="headerlink" href="#writing-your-own-driver" title="Permalink to this heading">¶</a></h2>
+<h2>Writing your own driver<a class="headerlink" href="#writing-your-own-driver" title="Permalink to this heading"></a></h2>
 <p>If you can’t find a driver for your instrument from any of the above sources, you will need to write your own, following the instructions at <a class="reference external" href="https://qcodes.github.io/Qcodes_contrib_drivers/index.html">qcodes_contrib_drivers</a>.</p>
 </section>
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">Connecting to actual instruments</a><ul>
-<li><a class="reference internal" href="#where-are-the-drivers">Where are the drivers?</a></li>
-<li><a class="reference internal" href="#how-do-i-know-which-features-an-instrument-has">How do I know which features an instrument has?</a></li>
-<li><a class="reference internal" href="#writing-your-own-driver">Writing your own driver</a></li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="parameters.html" class="btn btn-neutral float-left" title="More about Parameters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="data_analysis.html" class="btn btn-neutral float-right" title="Data loading and analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, qcodes++.</p>
   </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="parameters.html"
-                          title="previous chapter">More about Parameters</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="data_analysis.html"
-                          title="next chapter">Data loading and analysis</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/visa.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="data_analysis.html" title="Data loading and analysis"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="parameters.html" title="More about Parameters"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Connecting to actual instruments</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, qcodes++.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

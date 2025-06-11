@@ -1,73 +1,136 @@
+
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qcodespp.instrument_drivers.QDevil.QDAC2_Array &mdash; qcodes++ 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
 
-    <title>qcodespp.instrument_drivers.QDevil.QDAC2_Array &#8212; qcodes++ 0.1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/nature.css?v=8fc2db88" />
-    <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=2389946f"></script>
-    <script src="../../../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+  
+      <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=2389946f"></script>
+      <script src="../../../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
     <link rel="next" title="qcodespp.instrument_drivers.QDevil.QSwitch_elab" href="../QSwitch_elab/index.html" />
     <link rel="prev" title="qcodespp.instrument_drivers.QDevil.QDAC2" href="../QDAC2/index.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../../../../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../../../../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="../QSwitch_elab/index.html" title="qcodespp.instrument_drivers.QDevil.QSwitch_elab"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="../QDAC2/index.html" title="qcodespp.instrument_drivers.QDevil.QDAC2"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../../index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../../../../index.html" >API Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../../../index.html" >qcodespp</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="../../index.html" >qcodespp.instrument_drivers</a> &#187;</li>
-          <li class="nav-item nav-item-4"><a href="../index.html" accesskey="U">qcodespp.instrument_drivers.QDevil</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">qcodespp.instrument_drivers.QDevil.QDAC2_Array</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            qcodes++
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../parameters.html">More about Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">qcodespp</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../actions/index.html">qcodespp.actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../data/index.html">qcodespp.data</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html">qcodespp.instrument_drivers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../loops/index.html">qcodespp.loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../measure/index.html">qcodespp.measure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../parameters/index.html">qcodespp.parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotting/index.html">qcodespp.plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../station/index.html">qcodespp.station</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../utils/index.html">qcodespp.utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../version/index.html">qcodespp.version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">qcodes++</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">qcodespp</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">qcodespp.instrument_drivers</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">qcodespp.instrument_drivers.QDevil</a></li>
+      <li class="breadcrumb-item active">qcodespp.instrument_drivers.QDevil.QDAC2_Array</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/autoapi/qcodespp/instrument_drivers/QDevil/QDAC2_Array/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="module-qcodespp.instrument_drivers.QDevil.QDAC2_Array">
-<span id="qcodespp-instrument-drivers-qdevil-qdac2-array"></span><h1>qcodespp.instrument_drivers.QDevil.QDAC2_Array<a class="headerlink" href="#module-qcodespp.instrument_drivers.QDevil.QDAC2_Array" title="Permalink to this heading">¶</a></h1>
+<span id="qcodespp-instrument-drivers-qdevil-qdac2-array"></span><h1>qcodespp.instrument_drivers.QDevil.QDAC2_Array<a class="headerlink" href="#module-qcodespp.instrument_drivers.QDevil.QDAC2_Array" title="Permalink to this heading"></a></h1>
 <section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h2>
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">¶</a></h2>
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.QDevil.QDAC2_Array.</span></span><span class="sig-name descname"><span class="pre">Array_Arrangement_Context</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qdacs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array" title="qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array"><span class="pre">QDac2_Array</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">contacts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_triggers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">internal_triggers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.QDevil.QDAC2_Array.</span></span><span class="sig-name descname"><span class="pre">Array_Arrangement_Context</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qdacs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array" title="qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array"><span class="pre">QDac2_Array</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">contacts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_triggers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">internal_triggers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context" title="Permalink to this definition"></a></dt>
 <dd><dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.__enter__">
-<span class="sig-name descname"><span class="pre">__enter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.__enter__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__enter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.__enter__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.__exit__">
-<span class="sig-name descname"><span class="pre">__exit__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exc_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exc_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exc_tb</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.__exit__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__exit__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exc_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exc_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exc_tb</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.__exit__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.contact_names">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">contact_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.contact_names" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">contact_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.contact_names" title="Permalink to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Returns:</dt><dd><p>Sequence[str]: Channel names</p>
 </dd>
@@ -76,7 +139,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.channel">
-<span class="sig-name descname"><span class="pre">channel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../QDAC2/index.html#qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Channel" title="qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Channel"><span class="pre">qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Channel</span></a></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.channel" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">channel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../QDAC2/index.html#qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Channel" title="qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Channel"><span class="pre">qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Channel</span></a></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.channel" title="Permalink to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Args:</dt><dd><p>contact (str): Name</p>
 </dd>
@@ -87,12 +150,12 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.qdac_names">
-<span class="sig-name descname"><span class="pre">qdac_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.qdac_names" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">qdac_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.qdac_names" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.virtual_voltage">
-<span class="sig-name descname"><span class="pre">virtual_voltage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.virtual_voltage" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">virtual_voltage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.virtual_voltage" title="Permalink to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Args:</dt><dd><p>contact (str): Name of contact</p>
 </dd>
@@ -103,12 +166,12 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.set_virtual_voltages">
-<span class="sig-name descname"><span class="pre">set_virtual_voltages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contacts_to_voltages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.set_virtual_voltages" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_virtual_voltages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contacts_to_voltages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.set_virtual_voltages" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.currents_A">
-<span class="sig-name descname"><span class="pre">currents_A</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nplc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'low'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.currents_A" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">currents_A</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nplc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'low'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.currents_A" title="Permalink to this definition"></a></dt>
 <dd><p>Measure currents on all contacts</p>
 <p>The order is that of contacts()</p>
 <dl class="simple">
@@ -120,7 +183,7 @@ current_range (str, optional): Current range (default low)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.leakage">
-<span class="sig-name descname"><span class="pre">leakage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modulation_V</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nplc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.leakage" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">leakage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modulation_V</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nplc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.leakage" title="Permalink to this definition"></a></dt>
 <dd><p>Run a simple leakage test between the contacts</p>
 <p>Each contact is changed in turn and the resulting change in current from
 steady-state is recorded.  The resulting resistance matrix is calculated
@@ -138,7 +201,7 @@ nplc (int, Optional): Powerline cycles to wait for each measurement</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.QDevil.QDAC2_Array.</span></span><span class="sig-name descname"><span class="pre">QDac2_Array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">controller</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../QDAC2/index.html#qcodespp.instrument_drivers.QDevil.QDAC2.QDac2" title="qcodespp.instrument_drivers.QDevil.QDAC2.QDac2"><span class="pre">qcodespp.instrument_drivers.QDevil.QDAC2.QDac2</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">listeners</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../QDAC2/index.html#qcodespp.instrument_drivers.QDevil.QDAC2.QDac2" title="qcodespp.instrument_drivers.QDevil.QDAC2.QDac2"><span class="pre">qcodespp.instrument_drivers.QDevil.QDAC2.QDac2</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.QDevil.QDAC2_Array.</span></span><span class="sig-name descname"><span class="pre">QDac2_Array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">controller</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../QDAC2/index.html#qcodespp.instrument_drivers.QDevil.QDAC2.QDac2" title="qcodespp.instrument_drivers.QDevil.QDAC2.QDac2"><span class="pre">qcodespp.instrument_drivers.QDevil.QDAC2.QDac2</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">listeners</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../QDAC2/index.html#qcodespp.instrument_drivers.QDevil.QDAC2.QDac2" title="qcodespp.instrument_drivers.QDevil.QDAC2.QDac2"><span class="pre">qcodespp.instrument_drivers.QDevil.QDAC2.QDac2</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array" title="Permalink to this definition"></a></dt>
 <dd><p>A collection of interconnected QDAC-IIs</p>
 <p>The instruments are required to be connected as described in section 5.5
 ‘Synchronization of multiple QDAC-II units’ in the manual.  The sync
@@ -147,17 +210,17 @@ continuously distributed, and the Controller can trigger all Listerners
 by sending pulses from Ext Out 4 to all Ext In 3 simultaneously.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.trigger_out">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trigger_out</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.trigger_out" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trigger_out</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.trigger_out" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.common_trigger_in">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">common_trigger_in</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">qcodespp.instrument_drivers.QDevil.QDAC2.ExternalInput</span></em><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.common_trigger_in" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">common_trigger_in</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">qcodespp.instrument_drivers.QDevil.QDAC2.ExternalInput</span></em><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.common_trigger_in" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.controller">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">controller</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.controller" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">controller</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.controller" title="Permalink to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Returns:</dt><dd><p>str: Name of Controller</p>
 </dd>
@@ -166,7 +229,7 @@ by sending pulses from Ext Out 4 to all Ext In 3 simultaneously.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.names">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">FrozenSet</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.names" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">FrozenSet</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.names" title="Permalink to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Returns:</dt><dd><p>FrozenSet[str]: Names of all QDAC-IIs in the array</p>
 </dd>
@@ -175,7 +238,7 @@ by sending pulses from Ext Out 4 to all Ext In 3 simultaneously.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.allocate_trigger">
-<span class="sig-name descname"><span class="pre">allocate_trigger</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../QDAC2/index.html#qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Trigger_Context" title="qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Trigger_Context"><span class="pre">qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Trigger_Context</span></a></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.allocate_trigger" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">allocate_trigger</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../QDAC2/index.html#qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Trigger_Context" title="qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Trigger_Context"><span class="pre">qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Trigger_Context</span></a></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.allocate_trigger" title="Permalink to this definition"></a></dt>
 <dd><p>Allocate internal trigger on the Controller</p>
 <dl class="simple">
 <dt>Returns:</dt><dd><p>QDac2Trigger_Context: context manager</p>
@@ -185,7 +248,7 @@ by sending pulses from Ext Out 4 to all Ext In 3 simultaneously.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.connect_external_trigger">
-<span class="sig-name descname"><span class="pre">connect_external_trigger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trigger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../QDAC2/index.html#qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Trigger_Context" title="qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Trigger_Context"><span class="pre">qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Trigger_Context</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">width_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.connect_external_trigger" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">connect_external_trigger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trigger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../QDAC2/index.html#qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Trigger_Context" title="qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Trigger_Context"><span class="pre">qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Trigger_Context</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">width_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.connect_external_trigger" title="Permalink to this definition"></a></dt>
 <dd><p>Route internal trigger to external trigger</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>port (int): External output trigger number
@@ -197,7 +260,7 @@ width_s (float, optional): Output trigger width in seconds (default 1ms)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.trigger">
-<span class="sig-name descname"><span class="pre">trigger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">internal_trigger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../QDAC2/index.html#qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Trigger_Context" title="qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Trigger_Context"><span class="pre">qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Trigger_Context</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.trigger" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">trigger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">internal_trigger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../QDAC2/index.html#qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Trigger_Context" title="qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Trigger_Context"><span class="pre">qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Trigger_Context</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.trigger" title="Permalink to this definition"></a></dt>
 <dd><p>Fire an internal trigger on the Controller</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>QDac2Trigger_Context: internal trigger</p>
@@ -207,7 +270,7 @@ width_s (float, optional): Output trigger width in seconds (default 1ms)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.sync">
-<span class="sig-name descname"><span class="pre">sync</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.sync" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">sync</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.sync" title="Permalink to this definition"></a></dt>
 <dd><p>Synchronizes the array of QDAC-IIs</p>
 <p>The Listeners will stop using their own clock and start using the
 Controller’s clock.</p>
@@ -215,7 +278,7 @@ Controller’s clock.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.arrange">
-<span class="sig-name descname"><span class="pre">arrange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contacts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_triggers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">internal_triggers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context" title="qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context"><span class="pre">Array_Arrangement_Context</span></a></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.arrange" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">arrange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contacts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_triggers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">internal_triggers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context" title="qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context"><span class="pre">Array_Arrangement_Context</span></a></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.arrange" title="Permalink to this definition"></a></dt>
 <dd><p>An arrangement of contacts across several QDAC-II instruments</p>
 <p>The arrangement is a collection of QDac2.arrangement, one for each
 instrument but with a dedicated controller.</p>
@@ -238,106 +301,34 @@ internal_triggers (Sequence[str], optional): List of names of internal triggers 
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="../../../../../index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">qcodespp.instrument_drivers.QDevil.QDAC2_Array</a><ul>
-<li><a class="reference internal" href="#classes">Classes</a></li>
-<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
-<li><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context"><code class="docutils literal notranslate"><span class="pre">Array_Arrangement_Context</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.__enter__"><code class="docutils literal notranslate"><span class="pre">Array_Arrangement_Context.__enter__()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.__exit__"><code class="docutils literal notranslate"><span class="pre">Array_Arrangement_Context.__exit__()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.contact_names"><code class="docutils literal notranslate"><span class="pre">Array_Arrangement_Context.contact_names</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.channel"><code class="docutils literal notranslate"><span class="pre">Array_Arrangement_Context.channel()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.qdac_names"><code class="docutils literal notranslate"><span class="pre">Array_Arrangement_Context.qdac_names()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.virtual_voltage"><code class="docutils literal notranslate"><span class="pre">Array_Arrangement_Context.virtual_voltage()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.set_virtual_voltages"><code class="docutils literal notranslate"><span class="pre">Array_Arrangement_Context.set_virtual_voltages()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.currents_A"><code class="docutils literal notranslate"><span class="pre">Array_Arrangement_Context.currents_A()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context.leakage"><code class="docutils literal notranslate"><span class="pre">Array_Arrangement_Context.leakage()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array"><code class="docutils literal notranslate"><span class="pre">QDac2_Array</span></code></a><ul>
-<li><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.trigger_out"><code class="docutils literal notranslate"><span class="pre">QDac2_Array.trigger_out</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.common_trigger_in"><code class="docutils literal notranslate"><span class="pre">QDac2_Array.common_trigger_in</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.controller"><code class="docutils literal notranslate"><span class="pre">QDac2_Array.controller</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.names"><code class="docutils literal notranslate"><span class="pre">QDac2_Array.names</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.allocate_trigger"><code class="docutils literal notranslate"><span class="pre">QDac2_Array.allocate_trigger()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.connect_external_trigger"><code class="docutils literal notranslate"><span class="pre">QDac2_Array.connect_external_trigger()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.trigger"><code class="docutils literal notranslate"><span class="pre">QDac2_Array.trigger()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.sync"><code class="docutils literal notranslate"><span class="pre">QDac2_Array.sync()</span></code></a></li>
-<li><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array.arrange"><code class="docutils literal notranslate"><span class="pre">QDac2_Array.arrange()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../QDAC2/index.html" class="btn btn-neutral float-left" title="qcodespp.instrument_drivers.QDevil.QDAC2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../QSwitch_elab/index.html" class="btn btn-neutral float-right" title="qcodespp.instrument_drivers.QDevil.QSwitch_elab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, qcodes++.</p>
   </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="../QDAC2/index.html"
-                          title="previous chapter">qcodespp.instrument_drivers.QDevil.QDAC2</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="../QSwitch_elab/index.html"
-                          title="next chapter">qcodespp.instrument_drivers.QDevil.QSwitch_elab</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../../../../_sources/autoapi/qcodespp/instrument_drivers/QDevil/QDAC2_Array/index.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../../../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../../../../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../../../../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="../QSwitch_elab/index.html" title="qcodespp.instrument_drivers.QDevil.QSwitch_elab"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="../QDAC2/index.html" title="qcodespp.instrument_drivers.QDevil.QDAC2"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../../index.html">qcodes++ 0.1.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../../../../index.html" >API Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../../../index.html" >qcodespp</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="../../index.html" >qcodespp.instrument_drivers</a> &#187;</li>
-          <li class="nav-item nav-item-4"><a href="../index.html" >qcodespp.instrument_drivers.QDevil</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">qcodespp.instrument_drivers.QDevil.QDAC2_Array</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, qcodes++.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>
