@@ -18,14 +18,14 @@ extensions = [
     'sphinx.ext.duration',
     'sphinx.ext.doctest',
     'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
-    'autoapi.extension',
-]
+    'sphinx.ext.autosummary']#
+#     'autoapi.extension',
+# ]
 
-autoapi_dirs=['C:/git/qcodespp/qcodespp']
-autoapi_options=[ 'members', 'undoc-members','show-inheritance', 'show-module-summary', 'special-members', 'imported-members']
-templates_path = ['_templates']
-exclude_patterns = ['_build', '_templates']
+# autoapi_dirs=['C:/git/qcodespp/qcodespp']
+# autoapi_options=[ 'members', 'undoc-members','show-inheritance', 'show-module-summary', 'special-members', 'imported-members']
+# templates_path = ['_templates']
+# exclude_patterns = ['_build', '_templates']
 
 
 
