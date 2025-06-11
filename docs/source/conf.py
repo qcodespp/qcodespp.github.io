@@ -18,7 +18,7 @@ extensions = [
     'sphinx.ext.duration',
     'sphinx.ext.doctest',
     'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary']#
+    'sphinx.ext.autosummary']#,
 #     'autoapi.extension',
 # ]
 
@@ -26,7 +26,7 @@ extensions = [
 # autoapi_options=[ 'members', 'undoc-members','show-inheritance', 'show-module-summary', 'special-members', 'imported-members']
 # templates_path = ['_templates']
 # exclude_patterns = ['_build', '_templates']
-
+# autoapi_keep_files = True
 
 
 # -- Options for HTML output -------------------------------------------------

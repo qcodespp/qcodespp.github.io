@@ -21,7 +21,7 @@ the package for you. Qcodes++ features
 * Improved drivers for certain instruments
 * and other user-friendliness improvements outlined in the following.
 
-The source code is available at `github <https://github.com/qcodespp/qcodespp>`__.
+The source code is available `here <https://github.com/qcodespp/qcodespp>`__.
 
 .. toctree::
    :maxdepth: 3
