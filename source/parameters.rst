@@ -107,29 +107,3 @@ One can also move the parameters
     multi.move(0)
 
 If you provide a single value, all parameters will be moved to that single value. The parameters move sequentially, not simultaneously (in contrast to sweep where they move 'simultaneously')
-
-
-Parameters inside Instruments
------------------------------
-
-How do I know which paramaters are available? There are many ways! If you kind of know what you're looking for, hit the tab key after typing the instrument name, e.g. ``instrument.`` and it will show you all the available functions of the instrument. Many of those functions will either be Parameters or SubModules. A SubModule might be a channel, and then the parameter you're interested in might be a part of that channel. This is the case for e.g. the Keithley 2600 Source Meters, since they have two channels. You need to do keithley.smua.volt() or keithley.smub.volt() to access the voltage parameter of the channel you're interested in.
-
-You can list the Parameters of the instrument by running:
-
-.. code-block:: python
-
-    instrument.parameters
-
-and the SubModules by running:
-
-.. code-block:: python
-
-    instrument.submodules
-
-and of course the Parameters of any submodule by:
-
-.. code-block:: python
-
-    instrument.channel01.parameters
-
-However, eventually you will be better off either reading the API for the driver (`here <https://microsoft.github.io/Qcodes/drivers_api/>`__  `here <https://qcodes.github.io/Qcodes_contrib_drivers/api/generated/qcodes_contrib_drivers.drivers.html>`__ or the source code. It's painful, I know, but it's still better than writing your own driver ;)

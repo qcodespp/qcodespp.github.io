@@ -10,6 +10,7 @@ Welcome to the qcodes++ documentation. If you are completely new, jump in `right
    background
    installation
    dummy_measurements
+   more_features
    parameters
    visa
    data_analysis

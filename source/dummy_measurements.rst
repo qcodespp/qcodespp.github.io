@@ -20,7 +20,7 @@ This will open a Jupyter lab window in your browser. In the Jupyter lab, create 
     import qcodespp as qc   
     from qcodespp.instrument_drivers.dummy import DummyMeasurementInstrument
 
-This code imports the top level of the qcodes++ package, and the DummyInstrument driver. In general the instrument drivers are python classes which can be used to create a specific connection with a specific instrument. In this case, we can easily 'connect' to our DummyInstrument by running:
+This code imports the top level of the qcodes++ package, and the DummyMeasurementInstrument driver. In general the instrument drivers are python classes which can be used to create a specific connection with a specific instrument. In this case, we 'connect' to our Instrument by running:
 
 .. code-block:: python
 
@@ -87,9 +87,9 @@ So far no data has been collected; we've just communicated with the instrument. 
 .. code-block:: python
 
     loop = qc.loop1d(sweep_parameter=instrument.output1,
-                      start=0,stop=10,num=101,delay=0.1,
-                      device_info='test',
-                      params_to_measure=[instrument.input1, instrument.input2])
+                    start=0,stop=10,num=101,delay=0.1,
+                    device_info='test',
+                    params_to_measure=[instrument.input1, instrument.input2])
 
 Here, we have created the object ``loop``. Inside of it, is a DataSetPP object, which will hold the measurements. The details of the DataSetPP are printed. You will see it will be saved in the 'data' folder we specified earlier, and the name of the file includes a counter with a unique number as well as the date and time of the measurement. Also included is the important information about the independent parameter settings. The ``device_info`` parameter is optional, but it is a good idea to include it, as it allows you to easily identify the device used in the measurement later on.
 
@@ -97,9 +97,9 @@ To run the measurement, we can invoke the ``run()`` method of the loop object, a
 
 .. code-block:: python
 
-    loop.run([instrument.input1, instrument.input2])
+    data=loop.run([instrument.input1, instrument.input2])
 
-A live plot window will be opened, showing measurements of the two parameters.
+A live plot window will be opened, showing measurements of the two parameters. The ``run()`` method returns the DataSetPP object, `which can also be reloaded later <data_analysis.html>`__.
 
 **That really is how easy it is to collect data with qcodes++!**
 
@@ -110,10 +110,10 @@ If you want to measure two independent parameters, you can use the ``loop2D`` fu
 .. code-block:: python
 
     loop=qc.loop2d(sweep_parameter=instrument.output1,
-                      start=0,stop=10,num=11,delay=0.1,
-                      step_parameter=instrument.output2,
-                      step_start=0,step_stop=10,step_num=11,step_delay=0.1
-                      device_info='test',
+                    start=0,stop=10,num=11,delay=0.1,
+                    step_parameter=instrument.output2,
+                    step_start=0,step_stop=10,step_num=11,step_delay=0.1
+                    device_info='test',
                     params_to_measure=[instrument.input1, instrument.input2])
 
 This function 'steps' instrument.output2, and at every step, it sweeps instrument.output1, and at each point on that sweep, the parameters in params_to_measure are measured.
@@ -132,40 +132,40 @@ Note that in a loop2d, the sweep_parameter jumps from the stop value back to the
 .. code-block:: python
 
     loop=qc.loop2dUD(sweep_parameter=instrument.output1,
-                      start=0,stop=10,num=11,delay=0.1,
-                      step_parameter=instrument.output2,
-                      step_start=0,step_stop=10,step_num=11,step_delay=0.1
-                      device_info='test',
+                    start=0,stop=10,num=11,delay=0.1,
+                    step_parameter=instrument.output2,
+                    step_start=0,step_stop=10,step_num=11,step_delay=0.1
+                    device_info='test',
                     params_to_measure=[instrument.input1, instrument.input2])
 
 However, you will now see that the dataset contains two lots of data for each parameter, representing the two directions of the sweep parameter's journey.
 
-The other option you have is to turn on the 'snake' behaviour of the loop2d. This alters the direction of the sweep_parameter every alternate step of the step_parameter. This is done by setting the ``snake`` parameter to True:
+The other option you have is to turn on the 'snake' behaviour of the loop2d. This alters the direction of the sweep_parameter every alternate step of the step_parameter. This is done by setting the ``snake`` attribute to True:
 
 .. code-block:: python
 
     loop=qc.loop2d(sweep_parameter=instrument.output1,
-                      start=0,stop=10,num=11,delay=0.1,
-                      step_parameter=instrument.output2,
-                      step_start=0,step_stop=10,step_num=11,step_delay=0.1
-                      device_info='test',
-                      snake=True,
+                    start=0,stop=10,num=11,delay=0.1,
+                    step_parameter=instrument.output2,
+                    step_start=0,step_stop=10,step_num=11,step_delay=0.1
+                    device_info='test',
+                    snake=True,
                     params_to_measure=[instrument.input1, instrument.input2])
 
-Here is a visualisation of the difference between the three types of 2D loops:
+Here is a visualisation of the three types of 2D loops:
 
 .. image:: loop2d.png
     :alt: Types of 2D loops
     :align: center
 
-More features
--------------
-Instead of constantly supplying the params_to_measure to the loops, especially if you have many parameters, which you want to keep identical over many measurements, you can use the station to store default measurement parameters. This is done by running:
+The ``loop2dUD`` function has the option to sweep the sweep_parameter with a fewer number of increments on the return sweep. To set this scaling factor, provide an integer to the ``fast_down`` attribute. For example, if you want to sweep the sweep_parameter with 101 increments on the up-sweep, and only 20 increments on the down-sweep, you can do:
 
 .. code-block:: python
 
-    station.set_measurement(instrument.input1, instrument.input2)
-
-Now you do not need to specify the params_to_measure in the loop1d, loop2d, loop2dUD.
-
-There is one more option in loop1d and loop2d we didn't mention, which is the 'instrument_info'. Like the 'device_info', this is a string that will be included in the name of the DataSetPP, and can be used to list information that may not make it into the metadata. This may be e.g. settings on analog pre-amplifiers, or the presence of neutral density filters.
+    loop=qc.loop2dUD(sweep_parameter=instrument.output1,
+                    start=0,stop=10,num=101,delay=0.1,
+                    step_parameter=instrument.output2,
+                    step_start=0,step_stop=10,step_num=11,step_delay=0.1
+                    device_info='test',
+                    fast_down=5,
+                    params_to_measure=[instrument.input1, instrument.input2])
