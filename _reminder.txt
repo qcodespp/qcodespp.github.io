@@ -1,0 +1,12 @@
+Reminder to myself on how to update the docs if the API is changed.
+
+In the /docs/source/conf file, uncomment the autoapi-related pieces.
+
+In anaconda prompt:
+activate qcodespp-docs
+cd C:/git/qcodespp.github.io/docs
+sphinx-build -M html source build
+
+Comment out again all the autoapi-related lines in the conf file.
+
+Commit and push.
