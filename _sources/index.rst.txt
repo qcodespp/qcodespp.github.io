@@ -38,3 +38,4 @@ The source code is available `here <https://github.com/qcodespp/qcodespp>`__.
    measure
    advanced
    differences_from_qcodes
+   autoapi/index
