@@ -6,6 +6,8 @@ Offline plotting, a.k.a. InSpectra Gadget
     :alt: InSpectra Gadget main window
     :align: center
 
+
+
 Offline plotting is opened by running
 ``qcodespp.offline_plotting()`` 
 
@@ -189,6 +191,8 @@ Linecuts
     :alt: InSpectra Gadget linecut window
     :align: center
 
+
+
 - To make a horizontal(vertical) linecut, left-click(middle-click) at the desired location on the plot.
 - You can change the index at which the cut is made, the offset on the y-axis, and the colour of the line.
 - You can add further cuts by clicking again, or manually adding them in the linecut window.
@@ -234,6 +238,8 @@ To produce the below, the peaks in the previous image were fitted to seven Loren
 .. image:: IGcombined.png
     :alt: InSpectra Gadget combined dataset
     :align: center
+
+
 
 Saving and loading
 ------------------
