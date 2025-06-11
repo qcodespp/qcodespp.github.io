@@ -110,6 +110,7 @@
              
   <section id="offline-plotting-a-k-a-inspectra-gadget">
 <h1>Offline plotting, a.k.a. InSpectra Gadget<a class="headerlink" href="#offline-plotting-a-k-a-inspectra-gadget" title="Permalink to this heading"></a></h1>
+<img alt="InSpectra Gadget main window" class="align-center" src="_images/IGmain.png" />
 <p>Offline plotting is opened by running
 <code class="docutils literal notranslate"><span class="pre">qcodespp.offline_plotting()</span></code></p>
 <p>If you have declared <code class="docutils literal notranslate"><span class="pre">qcodespp.set_data_folder('foldername')</span></code>, data from that folder will automatically be opened. Alternatively, you can write <code class="docutils literal notranslate"><span class="pre">qcodespp.offline_plotting(folder=path_to_folder)</span></code> to open a different folder. Otherwise, the initial state is blank.</p>
@@ -321,6 +322,7 @@
 </section>
 <section id="linecuts">
 <h2>Linecuts<a class="headerlink" href="#linecuts" title="Permalink to this heading"></a></h2>
+<img alt="InSpectra Gadget linecut window" class="align-center" src="_images/IGlinecuts.png" />
 <ul class="simple">
 <li><p>To make a horizontal(vertical) linecut, left-click(middle-click) at the desired location on the plot.</p></li>
 <li><p>You can change the index at which the cut is made, the offset on the y-axis, and the colour of the line.</p></li>
@@ -365,6 +367,8 @@
 <li><p>One 2D dataset and one 1D dataset: Makes it possible to plot lines/points ontop of the 2D dataset. No restriction on dimensions, but only supports one dataset of each type. If you need to add more than one dataset of a particular type, first combine those using one of the previous two options.</p></li>
 </ul>
 <p>The combined datasets are by default not saved to disk! Remember to either save your work or export the data. Similarly to duplicated data, linecuts, fits and (for 1D datasets) the properties of the 1D traces are not carried into the combined data.</p>
+<p>To produce the below, the peaks in the previous image were fitted to seven Lorentzians at each temperature. The parameter dependency was generated, and after combining this with the original 2D dataset, the peak centers were plotted ontop of the 2D data.</p>
+<img alt="InSpectra Gadget combined dataset" class="align-center" src="_images/IGcombined.png" />
 </section>
 </section>
 <section id="saving-and-loading">
