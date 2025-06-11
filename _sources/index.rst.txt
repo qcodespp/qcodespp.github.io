@@ -10,9 +10,9 @@ and a flexible - but complex - database-based method for collecting data
 and running measurement loops.
 
 The qcodes++ package provides a user-friendly
-frontend to the solid backend of qcodes. If you have always wanted to run 
+frontend to the solid backend of QCoDeS. If you have always wanted to run 
 your measurements using python but found QCoDeS too daunting, qcodes++ is 
-the package for you. Qcodes++ features
+the package for you. qcodes++ features
 
 * Text-based data (i.e. readable by e.g. notepad, excel, origin pro, etc)
 * A simple yet powerful method for taking data and running measurements and loops
