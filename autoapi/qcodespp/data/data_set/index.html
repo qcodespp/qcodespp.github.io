@@ -1,0 +1,927 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" />
+
+    <!-- Generated with Sphinx 7.1.2 and Furo 2024.08.06 -->
+        <title>qcodespp.data.data_set - qcodes++ 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?v=302659d7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../../index.html"><div class="brand">qcodes++ 0.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../../index.html">
+  
+  
+  <span class="sidebar-brand-text">qcodes++ 0.1 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../parameters.html">More about Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../../../../_sources/autoapi/qcodespp/data/data_set/index.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="module-qcodespp.data.data_set">
+<span id="qcodespp-data-data-set"></span><h1>qcodespp.data.data_set<a class="headerlink" href="#module-qcodespp.data.data_set" title="Permalink to this heading">¶</a></h1>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">¶</a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.log">
+<span class="sig-prename descclassname"><span class="pre">qcodespp.data.data_set.</span></span><span class="sig-name descname"><span class="pre">log</span></span><a class="headerlink" href="#qcodespp.data.data_set.log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.new_data">
+<span class="sig-prename descclassname"><span class="pre">qcodespp.data.data_set.</span></span><span class="sig-name descname"><span class="pre">new_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loc_record</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">io</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backup_location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_write</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.new_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new DataSetPP, the text-based data set of qcodespp.</p>
+<dl>
+<dt>Args:</dt><dd><dl>
+<dt>location (str or callable or False, optional): If you provide a string,</dt><dd><p>it must be an unused location in the io manager. Can also be:</p>
+<ul class="simple">
+<li><p>a callable <code class="docutils literal notranslate"><span class="pre">location</span> <span class="pre">provider</span></code> with one required parameter
+(the io manager), and one optional (<code class="docutils literal notranslate"><span class="pre">record</span></code> dict),
+which returns a location string when called</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code> - denotes an only-in-memory temporary DataSetPP.</p></li>
+</ul>
+<p>Note that the full path to or physical location of the data is a
+combination of io + location. the default <code class="docutils literal notranslate"><span class="pre">DiskIO</span></code> sets the base
+directory, which this location is a relative path inside.
+Default <code class="docutils literal notranslate"><span class="pre">DataSetPP.location_provider</span></code> which is initially
+<code class="docutils literal notranslate"><span class="pre">FormatLocation()</span></code></p>
+</dd>
+<dt>loc_record (dict, optional): If location is a callable, this will be</dt><dd><p>passed to it as <code class="docutils literal notranslate"><span class="pre">record</span></code></p>
+</dd>
+</dl>
+<p>name (str, optional): overrides the <code class="docutils literal notranslate"><span class="pre">name</span></code> key in the <code class="docutils literal notranslate"><span class="pre">loc_record</span></code>.</p>
+<dl class="simple">
+<dt>overwrite (bool): Are we allowed to overwrite an existing location?</dt><dd><p>Default False.</p>
+</dd>
+<dt>io (io_manager, optional): base physical location of the <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code>.</dt><dd><p>Default <code class="docutils literal notranslate"><span class="pre">DataSetPP.default_io</span></code> is initially <code class="docutils literal notranslate"><span class="pre">DiskIO('.')</span></code> which
+says the root data directory is the current working directory, ie
+where you started the python session.</p>
+</dd>
+<dt>arrays (Optional[List[qcodes.DataArray]): arrays to add to the DataSetPP.</dt><dd><p>Can be added later with <code class="docutils literal notranslate"><span class="pre">self.add_array(array)</span></code>.</p>
+</dd>
+<dt>formatter (Formatter, optional): sets the file format/structure to</dt><dd><p>write (and read) with. Default <code class="docutils literal notranslate"><span class="pre">DataSetPP.default_formatter</span></code> which
+is initially <code class="docutils literal notranslate"><span class="pre">GNUPlotFormat()</span></code>.</p>
+</dd>
+<dt>write_period (float or None, optional):seconds</dt><dd><p>between saves to disk.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A new <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> object ready for storing new data in.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.load_data">
+<span class="sig-prename descclassname"><span class="pre">qcodespp.data.data_set.</span></span><span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">io</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.load_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load an existing DataSetPP.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>location (str, optional): the location to load from. Default is the</dt><dd><p>current live DataSetPP.
+Note that the full path to or physical location of the data is a
+combination of io + location. the default <code class="docutils literal notranslate"><span class="pre">DiskIO</span></code> sets the base
+directory, which this location is a relative path inside.</p>
+</dd>
+<dt>formatter (Formatter, optional): sets the file format/structure to</dt><dd><p>read with. Default <code class="docutils literal notranslate"><span class="pre">DataSetPP.default_formatter</span></code> which
+is initially <code class="docutils literal notranslate"><span class="pre">GNUPlotFormat()</span></code>.</p>
+</dd>
+<dt>io (io_manager, optional): base physical location of the <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code>.</dt><dd><p>Default <code class="docutils literal notranslate"><span class="pre">DataSetPP.default_io</span></code> is initially <code class="docutils literal notranslate"><span class="pre">DiskIO('.')</span></code> which
+says the root data directory is the current working directory, ie
+where you started the python session.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A new <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> object loaded with pre-existing data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.load_data_num">
+<span class="sig-prename descclassname"><span class="pre">qcodespp.data.data_set.</span></span><span class="sig-name descname"><span class="pre">load_data_num</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datafolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leadingzeros</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.load_data_num" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a qcodespp DataSetPP using the counter as identifier.</p>
+<p>Typically qcodespp DataSetPPs are forced to use the format counter_name_date_time,
+where the counter is a zero-padded integer. This function will search for
+a folder with the given counter number, and load the data from it.</p>
+<dl>
+<dt>Args:</dt><dd><p>number (str or int): the dataset’s counter number
+datafolder (str, optional): the folder to load from. Default is the</p>
+<blockquote>
+<div><p>current live DataSetPP.
+Note that the full path to or physical location of the data is a
+combination of io + location. the default <code class="docutils literal notranslate"><span class="pre">DiskIO</span></code> sets the base
+directory, which this location is a relative path inside.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>delimiter (str, optional): The character after the number. Almost always</dt><dd><p>underscore but may be specified if necessary.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A new <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> object loaded with pre-existing data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.load_data_nums">
+<span class="sig-prename descclassname"><span class="pre">qcodespp.data.data_set.</span></span><span class="sig-name descname"><span class="pre">load_data_nums</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listofnumbers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datafolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leadingzeros</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.load_data_nums" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads numerous DataSetPPs from the specified folder by counter number.</p>
+<dl>
+<dt>Args:</dt><dd><p>litsofnumbers (list of strings or ints): list of desired dataset numbers.
+datafolder (str, optional): the folder to load from. Default is the</p>
+<blockquote>
+<div><p>current live DataSetPP.
+Note that the full path to or physical location of the data is a
+combination of io + location. the default <code class="docutils literal notranslate"><span class="pre">DiskIO</span></code> sets the base
+directory, which this location is a relative path inside.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>delimiter (str, optional): The character after the number. Almost always</dt><dd><p>underscore but may be specified if necessary.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>An array containing <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> objects loaded with pre-existing data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.set_data_format">
+<span class="sig-prename descclassname"><span class="pre">qcodespp.data.data_set.</span></span><span class="sig-name descname"><span class="pre">set_data_format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data/#{counter}_{name}_{date}_{time}'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.set_data_format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the default format for storing DataSetPPs. It is not recommended to alter this: instead use set_data_folder.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>fmt (str): A format string for the location of the data, with wildcards determined by the FormatLocation class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.set_data_folder">
+<span class="sig-prename descclassname"><span class="pre">qcodespp.data.data_set.</span></span><span class="sig-name descname"><span class="pre">set_data_folder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.set_data_folder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the default folder for storing DataSetPPs.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>folder (str): Folder name relative to the current working directory, e.g. location of the current</dt><dd><p>Jupyter notebook. The folder will be created if it does not exist.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.data.data_set.</span></span><span class="sig-name descname"><span class="pre">DataSetPP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arrays</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">io</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backup_location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_write</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.utils.helpers.DelegateAttributes</span></code></p>
+<p>A container for one complete measurement from qcodespp.Measure or qcodespp.Loop.</p>
+<p>A DataSetPP consists of multiple DataArrays with potentially different
+sizes and dimensionalities. It is accompanied by metadata containing snapshots
+of different qcodespp classes, e.g. Instruments and Parameters in the Station.</p>
+<p>A DataSetPP should not be instantiated directly, but constructed by qcodespp.Measure
+or qcodespp.Loop. A pre-existing DataSetPP can be loaded with qcodespp.load_data,
+load_data_num, or load_data_nums.</p>
+<p>The default format for storage is (a) text file(s) with GNUPlotFormat, where the
+DataArrays are converted to numpy arrays. This means that each DataArray must be
+rectangular, and all elements must be of the same type. Currently, types are limited
+to float or str; however, almost any type other than str can be converted to a float,
+and this is done automatically; e.g. boolean –&gt; (0,1).
+DataArrays which are also Setpoints can only be of type float.</p>
+<dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>location (str or False): A location in the io manager, or <code class="docutils literal notranslate"><span class="pre">False</span></code> for</dt><dd><p>an only-in-memory temporary DataSetPP.
+Note that the full path to or physical location of the data is a
+combination of io + location. the default <code class="docutils literal notranslate"><span class="pre">DiskIO</span></code> sets the base
+directory, which this location is a relative path inside.</p>
+</dd>
+<dt>io (io_manager, optional): base physical location of the <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code>.</dt><dd><p>Default <code class="docutils literal notranslate"><span class="pre">DataSetPP.default_io</span></code> is initially <code class="docutils literal notranslate"><span class="pre">DiskIO('.')</span></code> which
+says the root data directory is the current working directory, ie
+where you started the python session.</p>
+</dd>
+<dt>arrays (Optional[List[qcodes.DataArray]): arrays to add to the DataSetPP.</dt><dd><p>Can be added later with <code class="docutils literal notranslate"><span class="pre">self.add_array(array)</span></code>.</p>
+</dd>
+<dt>formatter (Formatter, optional): sets the file format/structure to</dt><dd><p>write (and read) with. Default <code class="docutils literal notranslate"><span class="pre">DataSetPP.default_formatter</span></code> which
+is initially <code class="docutils literal notranslate"><span class="pre">GNUPlotFormat()</span></code>.</p>
+</dd>
+<dt>write_period (float or None, optional): Only if <code class="docutils literal notranslate"><span class="pre">mode=LOCAL</span></code>, seconds</dt><dd><p>between saves to disk. If not <code class="docutils literal notranslate"><span class="pre">LOCAL</span></code>, the <code class="docutils literal notranslate"><span class="pre">DataServer</span></code> handles
+this and generally writes more often. Use None to disable writing
+from calls to <code class="docutils literal notranslate"><span class="pre">self.store</span></code>. Default 5.</p>
+</dd>
+</dl>
+</dd>
+<dt>Attributes:</dt><dd><dl>
+<dt>background_functions (OrderedDict[callable]): Class attribute,</dt><dd><p><code class="docutils literal notranslate"><span class="pre">{key:</span> <span class="pre">fn}</span></code>: <code class="docutils literal notranslate"><span class="pre">fn</span></code> is a callable accepting no arguments, and
+<code class="docutils literal notranslate"><span class="pre">key</span></code> is a name to identify the function and help you attach and
+remove it.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">DataSetPP.complete</span></code> we call each of these periodically, in the
+order that they were attached.</p>
+<p>Note that because this is a class attribute, the functions will
+apply to every DataSetPP. If you want specific functions for one
+DataSetPP you can override this with an instance attribute.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.delegate_attr_dicts">
+<span class="sig-name descname"><span class="pre">delegate_attr_dicts</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['arrays']</span></em><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.delegate_attr_dicts" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of names (strings) of dictionaries
+which are (or will be) attributes of <code class="docutils literal notranslate"><span class="pre">self</span></code>, whose keys should
+be treated as attributes of <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.default_io">
+<span class="sig-name descname"><span class="pre">default_io</span></span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.default_io" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.default_formatter">
+<span class="sig-name descname"><span class="pre">default_formatter</span></span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.default_formatter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.location_provider">
+<span class="sig-name descname"><span class="pre">location_provider</span></span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.location_provider" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.background_functions">
+<span class="sig-name descname"><span class="pre">background_functions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.background_functions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.backup_used">
+<span class="sig-name descname"><span class="pre">backup_used</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.backup_used" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.writing_skipped">
+<span class="sig-name descname"><span class="pre">writing_skipped</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.writing_skipped" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.finalized">
+<span class="sig-name descname"><span class="pre">finalized</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.finalized" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.publisher">
+<span class="sig-name descname"><span class="pre">publisher</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.publisher" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.formatter">
+<span class="sig-name descname"><span class="pre">formatter</span></span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.formatter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.io">
+<span class="sig-name descname"><span class="pre">io</span></span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.io" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.write_period">
+<span class="sig-name descname"><span class="pre">write_period</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.write_period" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.last_write">
+<span class="sig-name descname"><span class="pre">last_write</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.last_write" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.last_store">
+<span class="sig-name descname"><span class="pre">last_store</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">-1</span></em><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.last_store" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.force_write">
+<span class="sig-name descname"><span class="pre">force_write</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.force_write" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.metadata">
+<span class="sig-name descname"><span class="pre">metadata</span></span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.uuid">
+<span class="sig-name descname"><span class="pre">uuid</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'00000000000000000000000000000000'</span></em><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.arrays">
+<span class="sig-name descname"><span class="pre">arrays</span></span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.arrays" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.sync">
+<span class="sig-name descname"><span class="pre">sync</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synchronize this DataSetPP with the DataServer or storage.</p>
+<p>If this DataSetPP is on the server, asks the server for changes.
+If not, reads the entire DataSetPP from disk.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>bool: True if this DataSetPP is live on the server</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.fraction_complete">
+<span class="sig-name descname"><span class="pre">fraction_complete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.fraction_complete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the fraction of this DataSetPP which has data in it.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>float: the average of all measured (not setpoint) arrays’</dt><dd><p><code class="docutils literal notranslate"><span class="pre">fraction_complete()</span></code> values, independent of the individual
+array sizes. If there are no measured arrays, returns zero.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.complete">
+<span class="sig-name descname"><span class="pre">complete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.complete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Periodically sync the DataSetPP and display percent complete status.</p>
+<p>Also, each period, execute functions stored in (class attribute)
+<code class="docutils literal notranslate"><span class="pre">self.background_functions</span></code>. If a function fails, we log its
+traceback and continue on. If any one function fails twice in
+a row, it gets removed.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>delay (float): seconds between iterations. Default 1.5</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.get_changes">
+<span class="sig-name descname"><span class="pre">get_changes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">synced_indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.get_changes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find changes since the last sync of this DataSetPP.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>synced_indices (dict): <code class="docutils literal notranslate"><span class="pre">{array_id:</span> <span class="pre">synced_index}</span></code> where</dt><dd><p>synced_index is the last flat index which has already
+been synced, for any (usually all) arrays in the DataSetPP.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>Dict[dict]: keys are <code class="docutils literal notranslate"><span class="pre">array_id</span></code> for each array with changes,</dt><dd><p>values are dicts as returned by <code class="docutils literal notranslate"><span class="pre">DataArray.get_changes</span></code>
+and required as kwargs to <code class="docutils literal notranslate"><span class="pre">DataArray.apply_changes</span></code>.
+Note that not all arrays in <code class="docutils literal notranslate"><span class="pre">synced_indices</span></code> need be
+present in the return, only those with changes.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.add_array">
+<span class="sig-name descname"><span class="pre">add_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_array</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.add_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add one DataArray to this DataSetPP, and mark it as part of this DataSetPP.</p>
+<p>Note: DO NOT just set <code class="docutils literal notranslate"><span class="pre">data_set.arrays[id]</span> <span class="pre">=</span> <span class="pre">data_array</span></code>, because
+this will not check if we are overwriting another array, nor set the
+reference back to this DataSetPP, nor that the <code class="docutils literal notranslate"><span class="pre">array_id</span></code> in the array
+matches how you’re storing it here.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>data_array (DataArray): the new array to add</p>
+</dd>
+<dt>Raises:</dt><dd><p>ValueError: if there is already an array with this id here.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.remove_array">
+<span class="sig-name descname"><span class="pre">remove_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.remove_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove an array from a dataset</p>
+<p>Throws an exception when the array specified is refereced by other
+arrays in the dataset.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>array_id (str): array_id of array to be removed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.store">
+<span class="sig-name descname"><span class="pre">store</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop_indices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids_values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.store" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert data into one or more of our DataArrays.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>loop_indices (tuple): the indices within whatever loops we are</dt><dd><p>inside. May have fewer dimensions than some of the arrays
+we are inserting into, if the corresponding value makes up
+the remaining dimensionality.</p>
+</dd>
+<dt>values (Dict[Union[float, sequence]]): a dict whose keys are</dt><dd><p>array_ids, and values are single numbers or entire slices
+to insert into that array.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.default_parameter_name">
+<span class="sig-name descname"><span class="pre">default_parameter_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paramname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'amplitude'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.default_parameter_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return name of default parameter for plotting</p>
+<p>The default parameter is determined by looking into
+metdata[‘default_parameter_name’].  If this variable is not present,
+then the closest match to the argument paramname is tried.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>paramname (str): Name to match to parameter name</p>
+</dd>
+<dt>Returns:</dt><dd><p>name ( Union[str, None] ): name of the default parameter</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.default_parameter_array">
+<span class="sig-name descname"><span class="pre">default_parameter_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paramname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'amplitude'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.default_parameter_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return default parameter array</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>paramname (str): Name to match to parameter name.</dt><dd><p>Defaults to ‘amplitude’</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>array (DataArray): array corresponding to the default parameter</p>
+</dd>
+<dt>See also:</dt><dd><p>default_parameter_name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the whole DataSetPP from storage, overwriting the local data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.read_metadata">
+<span class="sig-name descname"><span class="pre">read_metadata</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.read_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the metadata from storage, overwriting the local data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">write_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_complete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_rewrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes updates to the DataSetPP to storage.</p>
+<p>N.B. it is recommended to call data_set.finalize() when a DataSetPP is
+no longer expected to change to ensure files get closed</p>
+<dl>
+<dt>Args:</dt><dd><p>write_metadata (bool): write the metadata to disk
+only_complete (bool): passed on to the match_save_range inside</p>
+<blockquote>
+<div><p>self.formatter.write. Used to ensure that all new data gets
+saved even when some columns are strange.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>filename (Optional[str]): The filename (minus extension) to use.</dt><dd><p>The file gets saved in the usual location.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.write_copy">
+<span class="sig-name descname"><span class="pre">write_copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">io_manager</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.write_copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a new complete copy of this DataSetPP to storage.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>path (str, optional): An absolute path on this system to write to.</dt><dd><p>If you specify this, you may not include either <code class="docutils literal notranslate"><span class="pre">io_manager</span></code>
+or <code class="docutils literal notranslate"><span class="pre">location</span></code>.</p>
+</dd>
+<dt>io_manager (io_manager, optional): A new <code class="docutils literal notranslate"><span class="pre">io_manager</span></code> to use with</dt><dd><p>either the <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code>’s same or a new <code class="docutils literal notranslate"><span class="pre">location</span></code>.</p>
+</dd>
+<dt>location (str, optional): A new <code class="docutils literal notranslate"><span class="pre">location</span></code> to write to, using</dt><dd><p>either this <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code>’s same or a new <code class="docutils literal notranslate"><span class="pre">io_manager</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.add_metadata">
+<span class="sig-name descname"><span class="pre">add_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_metadata</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.add_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update DataSetPP.metadata with additional data.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>new_metadata (dict): new data to be deep updated into</dt><dd><p>the existing metadata</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.save_metadata">
+<span class="sig-name descname"><span class="pre">save_metadata</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.save_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate and save the DataSetPP’s metadata.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.finalize">
+<span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_rewrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.finalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark the DataSetPP complete and write any remaining modifications.</p>
+<p>Also closes the data file(s), if the <code class="docutils literal notranslate"><span class="pre">Formatter</span></code> we’re using
+supports that.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>filename (Optional[str]): The file name (minus extension) to</dt><dd><p>write to. The location of the file is the usual one.</p>
+</dd>
+<dt>write_metadata (bool): Whether to save a snapshot. For e.g. dumping</dt><dd><p>raw data inside a loop, a snapshot is not wanted.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.snapshot">
+<span class="sig-name descname"><span class="pre">snapshot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>JSON state of the DataSetPP.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.get_array_metadata">
+<span class="sig-name descname"><span class="pre">get_array_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.get_array_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the metadata for a single contained DataArray.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>array_id (str): the array to get metadata for.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: metadata for this array.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rich information about the DataSetPP and contained arrays.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, qcodes++
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">qcodespp.data.data_set</a><ul>
+<li><a class="reference internal" href="#attributes">Attributes</a></li>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li><a class="reference internal" href="#qcodespp.data.data_set.log"><code class="docutils literal notranslate"><span class="pre">log</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.new_data"><code class="docutils literal notranslate"><span class="pre">new_data()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.load_data"><code class="docutils literal notranslate"><span class="pre">load_data()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.load_data_num"><code class="docutils literal notranslate"><span class="pre">load_data_num()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.load_data_nums"><code class="docutils literal notranslate"><span class="pre">load_data_nums()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.set_data_format"><code class="docutils literal notranslate"><span class="pre">set_data_format()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.set_data_folder"><code class="docutils literal notranslate"><span class="pre">set_data_folder()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP"><code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code></a><ul>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.delegate_attr_dicts"><code class="docutils literal notranslate"><span class="pre">DataSetPP.delegate_attr_dicts</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.default_io"><code class="docutils literal notranslate"><span class="pre">DataSetPP.default_io</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.default_formatter"><code class="docutils literal notranslate"><span class="pre">DataSetPP.default_formatter</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.location_provider"><code class="docutils literal notranslate"><span class="pre">DataSetPP.location_provider</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.background_functions"><code class="docutils literal notranslate"><span class="pre">DataSetPP.background_functions</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.backup_used"><code class="docutils literal notranslate"><span class="pre">DataSetPP.backup_used</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.writing_skipped"><code class="docutils literal notranslate"><span class="pre">DataSetPP.writing_skipped</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.finalized"><code class="docutils literal notranslate"><span class="pre">DataSetPP.finalized</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.publisher"><code class="docutils literal notranslate"><span class="pre">DataSetPP.publisher</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.name"><code class="docutils literal notranslate"><span class="pre">DataSetPP.name</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.formatter"><code class="docutils literal notranslate"><span class="pre">DataSetPP.formatter</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.io"><code class="docutils literal notranslate"><span class="pre">DataSetPP.io</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.write_period"><code class="docutils literal notranslate"><span class="pre">DataSetPP.write_period</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.last_write"><code class="docutils literal notranslate"><span class="pre">DataSetPP.last_write</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.last_store"><code class="docutils literal notranslate"><span class="pre">DataSetPP.last_store</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.force_write"><code class="docutils literal notranslate"><span class="pre">DataSetPP.force_write</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.metadata"><code class="docutils literal notranslate"><span class="pre">DataSetPP.metadata</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.uuid"><code class="docutils literal notranslate"><span class="pre">DataSetPP.uuid</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.arrays"><code class="docutils literal notranslate"><span class="pre">DataSetPP.arrays</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.sync"><code class="docutils literal notranslate"><span class="pre">DataSetPP.sync()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.fraction_complete"><code class="docutils literal notranslate"><span class="pre">DataSetPP.fraction_complete()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.complete"><code class="docutils literal notranslate"><span class="pre">DataSetPP.complete()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.get_changes"><code class="docutils literal notranslate"><span class="pre">DataSetPP.get_changes()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.add_array"><code class="docutils literal notranslate"><span class="pre">DataSetPP.add_array()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.remove_array"><code class="docutils literal notranslate"><span class="pre">DataSetPP.remove_array()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.store"><code class="docutils literal notranslate"><span class="pre">DataSetPP.store()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.default_parameter_name"><code class="docutils literal notranslate"><span class="pre">DataSetPP.default_parameter_name()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.default_parameter_array"><code class="docutils literal notranslate"><span class="pre">DataSetPP.default_parameter_array()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.read"><code class="docutils literal notranslate"><span class="pre">DataSetPP.read()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.read_metadata"><code class="docutils literal notranslate"><span class="pre">DataSetPP.read_metadata()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.write"><code class="docutils literal notranslate"><span class="pre">DataSetPP.write()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.write_copy"><code class="docutils literal notranslate"><span class="pre">DataSetPP.write_copy()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.add_metadata"><code class="docutils literal notranslate"><span class="pre">DataSetPP.add_metadata()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.save_metadata"><code class="docutils literal notranslate"><span class="pre">DataSetPP.save_metadata()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.finalize"><code class="docutils literal notranslate"><span class="pre">DataSetPP.finalize()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.snapshot"><code class="docutils literal notranslate"><span class="pre">DataSetPP.snapshot()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.get_array_metadata"><code class="docutils literal notranslate"><span class="pre">DataSetPP.get_array_metadata()</span></code></a></li>
+<li><a class="reference internal" href="#qcodespp.data.data_set.DataSetPP.__repr__"><code class="docutils literal notranslate"><span class="pre">DataSetPP.__repr__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=e031e9a9"></script>
+    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../_static/scripts/furo.js?v=5fa4622c"></script>
+    </body>
+</html>

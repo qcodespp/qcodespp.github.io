@@ -1,0 +1,126 @@
+qcodespp.plotting.offline.filters
+=================================
+
+.. py:module:: qcodespp.plotting.offline.filters
+
+.. autoapi-nested-parse::
+
+   Created on Thu Nov 9 20:05:23 2017
+
+   @author: Joeri de Bruijckere, Damon Carrad
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   qcodespp.plotting.offline.filters.Filter
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   qcodespp.plotting.offline.filters.derivative
+   qcodespp.plotting.offline.filters.integrate
+   qcodespp.plotting.offline.filters.smooth
+   qcodespp.plotting.offline.filters.sav_gol
+   qcodespp.plotting.offline.filters.crop_x
+   qcodespp.plotting.offline.filters.crop_y
+   qcodespp.plotting.offline.filters.roll_x
+   qcodespp.plotting.offline.filters.roll_y
+   qcodespp.plotting.offline.filters.cut_x
+   qcodespp.plotting.offline.filters.cut_y
+   qcodespp.plotting.offline.filters.swap_xy
+   qcodespp.plotting.offline.filters.flip
+   qcodespp.plotting.offline.filters.normalize
+   qcodespp.plotting.offline.filters.subtract_average
+   qcodespp.plotting.offline.filters.offset_line_by_line
+   qcodespp.plotting.offline.filters.subtract_ave_line_by_line
+   qcodespp.plotting.offline.filters.offset
+   qcodespp.plotting.offline.filters.absolute
+   qcodespp.plotting.offline.filters.multiply
+   qcodespp.plotting.offline.filters.divide
+   qcodespp.plotting.offline.filters.logarithm
+   qcodespp.plotting.offline.filters.power
+   qcodespp.plotting.offline.filters.root
+   qcodespp.plotting.offline.filters.interpolate
+   qcodespp.plotting.offline.filters.add_slope
+   qcodespp.plotting.offline.filters.subtract_trace
+   qcodespp.plotting.offline.filters.invert
+
+
+Module Contents
+---------------
+
+.. py:function:: derivative(data, method, times_x, times_y)
+
+.. py:function:: integrate(data, method, times_x, times_y)
+
+.. py:function:: smooth(data, method, width_x, width_y)
+
+.. py:function:: sav_gol(data, method, window_length, polyorder)
+
+.. py:function:: crop_x(data, method, left, right)
+
+.. py:function:: crop_y(data, method, bottom, top)
+
+.. py:function:: roll_x(data, method, position, amount)
+
+.. py:function:: roll_y(data, method, position, amount)
+
+.. py:function:: cut_x(data, method, left, width)
+
+.. py:function:: cut_y(data, method, bottom, width)
+
+.. py:function:: swap_xy(data, method, setting1, setting2)
+
+.. py:function:: flip(data, method, setting1, setting2)
+
+.. py:function:: normalize(data, method, point_x, point_y)
+
+.. py:function:: subtract_average(data, method, setting1, setting2)
+
+.. py:function:: offset_line_by_line(data, method, index, setting2)
+
+.. py:function:: subtract_ave_line_by_line(data, method, setting1, setting2)
+
+.. py:function:: offset(data, method, setting1, setting2, array=None)
+
+.. py:function:: absolute(data, method, setting1, setting2)
+
+.. py:function:: multiply(data, method, setting1, setting2, array=None)
+
+.. py:function:: divide(data, method, setting1, setting2, array=None)
+
+.. py:function:: logarithm(data, method, setting1=10, setting2=None)
+
+.. py:function:: power(data, method, setting1, setting2)
+
+.. py:function:: root(data, method, setting1, setting2)
+
+.. py:function:: interpolate(data, method, n_x, n_y)
+
+.. py:function:: add_slope(data, method, a_x, a_y)
+
+.. py:function:: subtract_trace(data, method, index, setting2)
+
+.. py:function:: invert(data, method, setting1, setting2)
+
+.. py:class:: Filter(name, method=None, settings=None, checkstate=None)
+
+   .. py:attribute:: DEFAULT_SETTINGS
+
+
+   .. py:attribute:: name
+
+
+   .. py:attribute:: method_list
+
+
+   .. py:attribute:: function
+
+
