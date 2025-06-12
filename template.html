@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Background &mdash; qcodes++ 0.1.0 documentation</title>
+  <title>Template for measurements &mdash; qcodes++ 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
@@ -19,8 +19,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installation" href="installation.html" />
-    <link rel="prev" title="qcodes++ documentation" href="index.html" /> 
+    <link rel="next" title="Offline plotting, a.k.a. InSpectra Gadget" href="offline_plotting.html" />
+    <link rel="prev" title="Data loading and analysis" href="data_analysis.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,14 +44,14 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="background.html">Background</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dummy_measurements.html">Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="more_features.html">Commonly used features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parameters.html">More about Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visa.html">Connecting to actual instruments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="template.html">Template for measurements</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Template for measurements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
 <li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a></li>
@@ -73,9 +73,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Background</li>
+      <li class="breadcrumb-item active">Template for measurements</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/background.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/template.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -83,44 +83,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="background">
-<h1>Background<a class="headerlink" href="#background" title="Permalink to this heading"></a></h1>
-<p>The conceptual components of qcodes are:</p>
-<ol class="arabic simple">
-<li><p>Drivers for setting and reading parameters from instruments</p></li>
-<li><p>A framework for the storage and organization of data</p></li>
-<li><p>Loops, i.e. step-wise increment an independent parameter (e.g. a voltage)</p></li>
-</ol>
-<p>This means that one can vary an independent parameter, measure all dependent parameters, and store these
-data in a well-organised format. This is pretty much all one ever does in science. Two different plotting
-options are available for visualisation of data with one and two independent parameters.</p>
-<img alt="Qcodes++ structure visualisation" class="align-center" src="_images/qcodes_visualiser.png" />
-<p>The above graphic gives a rough conceptualisation of qcodes++ structure. The Station contains Instruments,
-which each contain various Parameters that can be measured and/or set. Parameters can be scaled, combined
-in any way and defined without instruments (e.g. time). The DataSet defines the independent parameter’s
-setpoints as a Loop, and collects measurements of the desired dependent parameters from Station. Station
-also sends important metadata to the DataSet. Two options for plotting are available: live plotting, which is
-very fast and allows you to see the data as it is being collected, and offline plotting, in which more complex
-analysis is possible; e.g. curve fitting, linecuts of 2D data, taking derivatives, etc.</p>
-<p>In addition to the Loop, qcodes++ also has a Measure function, which simply measures a set of parameters
-at a single point in time, without looping.</p>
-<p>The features of qcodes++ are mostly either directly inherited from the latest version of QCoDeS, or are
-improved versions of features that were present in QCoDeS prior to version 0.11. In particular, qcodes++
-uses the text-based DataSetPP, which although much less flexible than the QCoDeS DataSet, is much more
-user-friendly, especially when combined with the Loop and Measure classes. And indeed the limitations
-imposed by the DataSetPP enables the really excellent plotting capabilities developed by Merlin von Soosten,
-Joeri de Bruijckere, Dags Olsteins and others.</p>
-<p>In short; if you want a user-friendly way to collect and plot data, use qcodes++. If you need something
-highly customisable, use QCoDeS. The good news; installing qcodes++ does not interfere with a QCoDeS
-installation, and in fact requires it; this means you can use the best of both worlds!</p>
+  <section id="template-for-measurements">
+<h1>Template for measurements<a class="headerlink" href="#template-for-measurements" title="Permalink to this heading"></a></h1>
+<p>To be filled out with a minimal working example of connecting to instruments, running 1d and 2d sweeps, and defining custom parameters.</p>
+<p>See if it’s possible to do it with a legit jupyter notebook</p>
+<p>import qcodespp as qc
+qc.listVISAinstruments()</p>
+<hr class="docutils" />
+<p>import qcodespp as qc
+from qcodespp.instrument_drivers.QDevil.QDAC2 import QDac2
+from qcodespp.instrument_drivers.ZI.ZIMFLI import ZIMFLI</p>
+<p>etc</p>
+<p>define a resistance</p>
+<p>qc.set_data_folder(‘data’)</p>
+<p># remember to define all instruments and parameters before defining the station to ensure all metadata is saved
+station=qc.Station(add_variables=globals())</p>
+<p>1d loop, gate voltage where leakage current is measured and stopped if leakage current is too high.</p>
+<p>2d loop, bias spec</p>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="qcodes++ documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="data_analysis.html" class="btn btn-neutral float-left" title="Data loading and analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="offline_plotting.html" class="btn btn-neutral float-right" title="Offline plotting, a.k.a. InSpectra Gadget" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
