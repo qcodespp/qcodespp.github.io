@@ -16,6 +16,7 @@ Functions
 
    qcodespp.plotting.matplotlib_tools.colorplot
    qcodespp.plotting.matplotlib_tools.colored_traces
+   qcodespp.plotting.matplotlib_tools.sort_lists
 
 
 Module Contents
@@ -95,5 +96,17 @@ Module Contents
    Returns:
        tuple: A tuple containing the figure and axis objects.
 
+
+
+.. py:function:: sort_lists(X, Y)
+
+   Sort two lists according to the ascending order of the first list.
+
+   Args:
+       X: List whose elements will be sorted in ascending order
+       Y: List whose elements will be sorted according to the new order of X
+
+   Returns
+       (X,Y): The sorted lists
 
 

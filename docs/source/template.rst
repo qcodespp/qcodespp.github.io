@@ -8,7 +8,8 @@ See if it's possible to do it with a legit jupyter notebook
 import qcodespp as qc
 qc.listVISAinstruments()
 
-----
+break
+-----
 
 import qcodespp as qc
 from qcodespp.instrument_drivers.QDevil.QDAC2 import QDac2
@@ -23,6 +24,7 @@ qc.set_data_folder('data')
 # remember to define all instruments and parameters before defining the station to ensure all metadata is saved
 station=qc.Station(add_variables=globals())
 
+break
 -----
 1d loop, IV curve, simples
 

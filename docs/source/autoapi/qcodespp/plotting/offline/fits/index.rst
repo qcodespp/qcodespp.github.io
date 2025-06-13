@@ -40,6 +40,7 @@ Functions
    qcodespp.plotting.offline.fits.FET_mobility
    qcodespp.plotting.offline.fits.dynes_fit
    qcodespp.plotting.offline.fits.ramsey_fit
+   qcodespp.plotting.offline.fits.RCSJfit
    qcodespp.plotting.offline.fits.statistics
    qcodespp.plotting.offline.fits.get_class_names
    qcodespp.plotting.offline.fits.get_function
@@ -276,6 +277,34 @@ Module Contents
        inputinfo: not used.
    Returns:
        result: lmfit result object.
+
+
+.. py:function:: RCSJfit(xdata, ydata, p0=None, inputinfo=None)
+
+   Fits the differential conductance, dI/dV of a Josephson junction vs the dc voltage, Vdc applied across it.
+
+   The model is fitted to the derivative of:
+
+   (Rj/(Rj+Rc))*(jc*Im(I_(1-in(v)(B))/I_(-in(V)(B))) + (Vdc-Vdc_0)/Rj)
+
+   where:
+   - Rj is the junction resistance,
+   - Rc is the shunt resistance,
+   - jc is the critical current density,
+   - Vdc_0 is the offset voltage,
+   - I_(1-in(v)(B)) and I_(-in(V)(B)) are modified Bessel functions of the first kind.
+   - n(V) = hbar*(Vdc-Vdc_0)/(2*e*Rc*k_B*T), where hbar is the reduced Planck's constant, e is the electron charge, k_B is the Boltzmann constant, and T is the temperature
+   - B = jc*hbar/(2*e*k_B*T)
+
+   See e.g. https://www.science.org/doi/suppl/10.1126/sciadv.aav1235/suppl_file/aav1235_sm.pdf, page 14 onwards.
+
+   Args:
+       xdata: x data to fit (Vdc)
+       ydata: y data to fit (dI/dV)
+       p0 (opt.): Initial guesses for jc, Rj, Rc, Vdc_0 and c (the constant offset).
+           Format should be: [jc, Rj, Rc, Vdc_0, c]
+       inputinfo: A list containing the temperature in Kelvin. If not provided, defaults to 0.02 K.
+           Format should be: [T]
 
 
 .. py:function:: statistics(xdata, ydata, p0, inputinfo)
