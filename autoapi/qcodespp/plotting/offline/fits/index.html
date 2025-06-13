@@ -423,6 +423,36 @@ p0 (opt.): initial guesses for the parameters. Should be a list of floats.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.RCSJfit">
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">RCSJfit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.RCSJfit" title="Permalink to this definition"></a></dt>
+<dd><p>Fits the differential conductance, dI/dV of a Josephson junction vs the dc voltage, Vdc applied across it.</p>
+<p>The model is fitted to the derivative of:</p>
+<p>(Rj/(Rj+Rc))*(jc*Im(I_(1-in(v)(B))/I_(-in(V)(B))) + (Vdc-Vdc_0)/Rj)</p>
+<p>where:
+- Rj is the junction resistance,
+- Rc is the shunt resistance,
+- jc is the critical current density,
+- Vdc_0 is the offset voltage,
+- I_(1-in(v)(B)) and I_(-in(V)(B)) are modified Bessel functions of the first kind.
+- n(V) = hbar*(Vdc-Vdc_0)/(2*e*Rc*k_B*T), where hbar is the reduced Planck’s constant, e is the electron charge, k_B is the Boltzmann constant, and T is the temperature
+- B = jc*hbar/(2*e*k_B*T)</p>
+<p>See e.g. <a class="reference external" href="https://www.science.org/doi/suppl/10.1126/sciadv.aav1235/suppl_file/aav1235_sm.pdf">https://www.science.org/doi/suppl/10.1126/sciadv.aav1235/suppl_file/aav1235_sm.pdf</a>, page 14 onwards.</p>
+<dl>
+<dt>Args:</dt><dd><p>xdata: x data to fit (Vdc)
+ydata: y data to fit (dI/dV)
+p0 (opt.): Initial guesses for jc, Rj, Rc, Vdc_0 and c (the constant offset).</p>
+<blockquote>
+<div><p>Format should be: [jc, Rj, Rc, Vdc_0, c]</p>
+</div></blockquote>
+<dl class="simple">
+<dt>inputinfo: A list containing the temperature in Kelvin. If not provided, defaults to 0.02 K.</dt><dd><p>Format should be: [T]</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.statistics">
 <span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">statistics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.statistics" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>

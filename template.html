@@ -51,7 +51,11 @@
 <li class="toctree-l1"><a class="reference internal" href="parameters.html">More about Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visa.html">Connecting to actual instruments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Template for measurements</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Template for measurements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#break">break</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">break</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
 <li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a></li>
@@ -89,7 +93,8 @@
 <p>See if it’s possible to do it with a legit jupyter notebook</p>
 <p>import qcodespp as qc
 qc.listVISAinstruments()</p>
-<hr class="docutils" />
+<section id="break">
+<h2>break<a class="headerlink" href="#break" title="Permalink to this heading"></a></h2>
 <p>import qcodespp as qc
 from qcodespp.instrument_drivers.QDevil.QDAC2 import QDac2
 from qcodespp.instrument_drivers.ZI.ZIMFLI import ZIMFLI</p>
@@ -98,8 +103,13 @@ from qcodespp.instrument_drivers.ZI.ZIMFLI import ZIMFLI</p>
 <p>qc.set_data_folder(‘data’)</p>
 <p># remember to define all instruments and parameters before defining the station to ensure all metadata is saved
 station=qc.Station(add_variables=globals())</p>
+</section>
+<section id="id1">
+<h2>break<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<p>1d loop, IV curve, simples</p>
 <p>1d loop, gate voltage where leakage current is measured and stopped if leakage current is too high.</p>
 <p>2d loop, bias spec</p>
+</section>
 </section>
 
 
