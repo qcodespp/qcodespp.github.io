@@ -4,9 +4,31 @@ Comparing qcodes++ and QCoDeS
 Things that are the same
 ------------------------
 
-**1) All top level classes and functions in QCoDeS are directly inherited in qcodes++.** All of these behave exactly the same way as in QCoDeS, so you can use them without change. Even though Parameter and Station have additions, they do not change the functionality of the original classes, so you can use them as you would in QCoDeS.
+**1) All top level classes and functions in QCoDeS are directly inherited in qcodes++.** All of these behave exactly the same way as in QCoDeS, so you can use them without change. If you used to do, e.g.
 
-**2) qcodes++ relies mainly on instrument drivers from QCoDes and the qcodes_contrib_drivers.** In fact the instrument drivers included in qcodes++ are hopefully only here temporarily, and will be pulled back into QCoDeS or the qcodes_contrib_drivers in the near future.
+.. code-block:: python
+
+    import qcodes as qc
+    from qcodes import Instrument, Station
+
+you can now do
+
+.. code-block:: python
+
+    import qcodespp as qc
+    from qcodespp import Instrument, Station
+
+and the rest of your code will work as before. Even though Parameter and Station have additions, they do not change the functionality of the original classes, so you can use them as you would in QCoDeS.
+
+For lower level classes/functions, the situation is a bit different, since these cannot be easily inherited. You cannot for example do:
+
+.. code-block:: python
+
+    from qcodespp.dataset import DataSetType
+
+since anything with a '.' after qcodes doesn't necessarily exist in qcodes++, and vice versa. However, you probably don't need to touch these lower level classes/functions, *except* of course for the instrument drivers. There, you always have to work out which package you want to import the driver from: qcodes++, QCoDeS or qcodes_contrib_drivers. However.....
+
+**2) qcodes++ relies mainly on instrument drivers from QCoDeS and the qcodes_contrib_drivers.** In fact the instrument drivers included in qcodes++ are hopefully only here temporarily, and will be pulled back into QCoDeS or the qcodes_contrib_drivers in the near future.
 
 Small differences in existing classes:
 --------------------------------------
@@ -36,4 +58,4 @@ Big differences
 
 **1) The qcodes++ dataset, ``DataSetPP``, is a text-based dataset, where all the data is stored in numpy arrays.** The dataset is thus intrinsically much more limited than the QCoDeS dataset, since each array must be rectangular and store only one type of data. However, these 'limitations' have made it possible to develop the rich plotting capabilities of qcodes++. Knowing exactly what to expect (i.e. rectangular arrays filled with floats), we can really write general purpose plotting functions that work for all 1D and 2D dataset. Thus, if you only ever do 1D or 2D measurements, we think you will really enjoy the simplicity of qcodes++.
 
-Indeed, the entire way of collecting data and setting up measurements is rather different. The best way to understand it is to check out the rest of the docs, in particular on running both `basic loop-based measurements <dummy_measurements.html#running-a-measurement>`_ and `more advanced measurements <advanced.html>`_.
+The best way to understand the approach to measurements is to check out the rest of the docs, in particular on running both `basic loop-based measurements <dummy_measurements.html#running-a-measurement>`_ and `more advanced measurements <advanced.html>`_.

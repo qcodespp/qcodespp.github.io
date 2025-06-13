@@ -92,8 +92,23 @@
 <h1>Comparing qcodes++ and QCoDeS<a class="headerlink" href="#comparing-qcodes-and-qcodes" title="Permalink to this heading"></a></h1>
 <section id="things-that-are-the-same">
 <h2>Things that are the same<a class="headerlink" href="#things-that-are-the-same" title="Permalink to this heading"></a></h2>
-<p><strong>1) All top level classes and functions in QCoDeS are directly inherited in qcodes++.</strong> All of these behave exactly the same way as in QCoDeS, so you can use them without change. Even though Parameter and Station have additions, they do not change the functionality of the original classes, so you can use them as you would in QCoDeS.</p>
-<p><strong>2) qcodes++ relies mainly on instrument drivers from QCoDes and the qcodes_contrib_drivers.</strong> In fact the instrument drivers included in qcodes++ are hopefully only here temporarily, and will be pulled back into QCoDeS or the qcodes_contrib_drivers in the near future.</p>
+<p><strong>1) All top level classes and functions in QCoDeS are directly inherited in qcodes++.</strong> All of these behave exactly the same way as in QCoDeS, so you can use them without change. If you used to do, e.g.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">qcodes</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qc</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">qcodes</span><span class="w"> </span><span class="kn">import</span> <span class="n">Instrument</span><span class="p">,</span> <span class="n">Station</span>
+</pre></div>
+</div>
+<p>you can now do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">qcodespp</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qc</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">qcodespp</span><span class="w"> </span><span class="kn">import</span> <span class="n">Instrument</span><span class="p">,</span> <span class="n">Station</span>
+</pre></div>
+</div>
+<p>and the rest of your code will work as before. Even though Parameter and Station have additions, they do not change the functionality of the original classes, so you can use them as you would in QCoDeS.</p>
+<p>For lower level classes/functions, the situation is a bit different, since these cannot be easily inherited. You cannot for example do:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">qcodespp.dataset</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataSetType</span>
+</pre></div>
+</div>
+<p>since anything with a ‘.’ after qcodes doesn’t necessarily exist in qcodes++, and vice versa. However, you probably don’t need to touch these lower level classes/functions, <em>except</em> of course for the instrument drivers. There, you always have to work out which package you want to import the driver from: qcodes++, QCoDeS or qcodes_contrib_drivers. However…..</p>
+<p><strong>2) qcodes++ relies mainly on instrument drivers from QCoDeS and the qcodes_contrib_drivers.</strong> In fact the instrument drivers included in qcodes++ are hopefully only here temporarily, and will be pulled back into QCoDeS or the qcodes_contrib_drivers in the near future.</p>
 </section>
 <section id="small-differences-in-existing-classes">
 <h2>Small differences in existing classes:<a class="headerlink" href="#small-differences-in-existing-classes" title="Permalink to this heading"></a></h2>
@@ -115,7 +130,7 @@
 <section id="big-differences">
 <h2>Big differences<a class="headerlink" href="#big-differences" title="Permalink to this heading"></a></h2>
 <p><strong>1) The qcodes++ dataset, ``DataSetPP``, is a text-based dataset, where all the data is stored in numpy arrays.</strong> The dataset is thus intrinsically much more limited than the QCoDeS dataset, since each array must be rectangular and store only one type of data. However, these ‘limitations’ have made it possible to develop the rich plotting capabilities of qcodes++. Knowing exactly what to expect (i.e. rectangular arrays filled with floats), we can really write general purpose plotting functions that work for all 1D and 2D dataset. Thus, if you only ever do 1D or 2D measurements, we think you will really enjoy the simplicity of qcodes++.</p>
-<p>Indeed, the entire way of collecting data and setting up measurements is rather different. The best way to understand it is to check out the rest of the docs, in particular on running both <a class="reference external" href="dummy_measurements.html#running-a-measurement">basic loop-based measurements</a> and <a class="reference external" href="advanced.html">more advanced measurements</a>.</p>
+<p>The best way to understand the approach to measurements is to check out the rest of the docs, in particular on running both <a class="reference external" href="dummy_measurements.html#running-a-measurement">basic loop-based measurements</a> and <a class="reference external" href="advanced.html">more advanced measurements</a>.</p>
 </section>
 </section>
 
