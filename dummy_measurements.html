@@ -57,7 +57,6 @@
 <li class="toctree-l1"><a class="reference internal" href="parameters.html">More about Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visa.html">Connecting to actual instruments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="template.html">Template for measurements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
 <li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a></li>
@@ -112,7 +111,7 @@
 </pre></div>
 </div>
 <p>As discussed in the <a class="reference external" href="background.html">background</a> section, qcodes has a virtual <code class="docutils literal notranslate"><span class="pre">Station</span></code> which contains all the instruments and parameters. We can initialise the Station and add our instrument to it by running:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">Station</span><span class="p">(</span><span class="n">add_variables</span><span class="p">(</span><span class="nb">globals</span><span class="p">()))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">Station</span><span class="p">(</span><span class="n">add_variables</span><span class="o">=</span><span class="nb">globals</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>This command creates a Station object and checks all the python variables defined in the notebook. If the variable is a qcodes Instrument or Parameter, it is added to the Station.</p>
@@ -154,7 +153,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">loop</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">loop1d</span><span class="p">(</span><span class="n">sweep_parameter</span><span class="o">=</span><span class="n">instrument</span><span class="o">.</span><span class="n">output1</span><span class="p">,</span>
                 <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">stop</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span><span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
                 <span class="n">device_info</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">,</span>
-                <span class="n">params_to_measure</span><span class="o">=</span><span class="p">[</span><span class="n">instrument</span><span class="o">.</span><span class="n">input1</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">input2</span><span class="p">])</span>
+                <span class="n">measure</span><span class="o">=</span><span class="p">[</span><span class="n">instrument</span><span class="o">.</span><span class="n">input1</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">input2</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Here, we have created the object <code class="docutils literal notranslate"><span class="pre">loop</span></code>. Inside of it, is a DataSetPP object, which will hold the measurements. The details of the DataSetPP are printed. You will see it will be saved in the ‘data’ folder we specified earlier, and the name of the file includes a counter with a unique number as well as the date and time of the measurement. Also included is the important information about the independent parameter settings. The <code class="docutils literal notranslate"><span class="pre">device_info</span></code> parameter is optional, but it is a good idea to include it, as it allows you to easily identify the device used in the measurement later on.</p>
@@ -173,10 +172,10 @@
                 <span class="n">step_parameter</span><span class="o">=</span><span class="n">instrument</span><span class="o">.</span><span class="n">output2</span><span class="p">,</span>
                 <span class="n">step_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">step_stop</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">step_num</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">step_delay</span><span class="o">=</span><span class="mf">0.1</span>
                 <span class="n">device_info</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">,</span>
-                <span class="n">params_to_measure</span><span class="o">=</span><span class="p">[</span><span class="n">instrument</span><span class="o">.</span><span class="n">input1</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">input2</span><span class="p">])</span>
+                <span class="n">measure</span><span class="o">=</span><span class="p">[</span><span class="n">instrument</span><span class="o">.</span><span class="n">input1</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">input2</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>This function ‘steps’ instrument.output2, and at every step, it sweeps instrument.output1, and at each point on that sweep, the parameters in params_to_measure are measured.</p>
+<p>This function ‘steps’ instrument.output2, and at every step, it sweeps instrument.output1, and at each point on that sweep, the parameters in measure are measured.</p>
 <p>Again, we are given information about the DataSetPP, which shows the array shapes are now indeed two dimensional.</p>
 <p>Running the measurement is again just</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">loop</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">instrument</span><span class="o">.</span><span class="n">input1</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">input2</span><span class="p">])</span>
@@ -188,7 +187,7 @@
                 <span class="n">step_parameter</span><span class="o">=</span><span class="n">instrument</span><span class="o">.</span><span class="n">output2</span><span class="p">,</span>
                 <span class="n">step_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">step_stop</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">step_num</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">step_delay</span><span class="o">=</span><span class="mf">0.1</span>
                 <span class="n">device_info</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">,</span>
-                <span class="n">params_to_measure</span><span class="o">=</span><span class="p">[</span><span class="n">instrument</span><span class="o">.</span><span class="n">input1</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">input2</span><span class="p">])</span>
+                <span class="n">measure</span><span class="o">=</span><span class="p">[</span><span class="n">instrument</span><span class="o">.</span><span class="n">input1</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">input2</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>However, you will now see that the dataset contains two lots of data for each parameter, representing the two directions of the sweep parameter’s journey.</p>
@@ -199,7 +198,7 @@
                 <span class="n">step_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">step_stop</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">step_num</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">step_delay</span><span class="o">=</span><span class="mf">0.1</span>
                 <span class="n">device_info</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">,</span>
                 <span class="n">snake</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                <span class="n">params_to_measure</span><span class="o">=</span><span class="p">[</span><span class="n">instrument</span><span class="o">.</span><span class="n">input1</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">input2</span><span class="p">])</span>
+                <span class="n">measure</span><span class="o">=</span><span class="p">[</span><span class="n">instrument</span><span class="o">.</span><span class="n">input1</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">input2</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Here is a visualisation of the three types of 2D loops:</p>
@@ -211,7 +210,7 @@
                 <span class="n">step_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">step_stop</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">step_num</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">step_delay</span><span class="o">=</span><span class="mf">0.1</span>
                 <span class="n">device_info</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">,</span>
                 <span class="n">fast_down</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-                <span class="n">params_to_measure</span><span class="o">=</span><span class="p">[</span><span class="n">instrument</span><span class="o">.</span><span class="n">input1</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">input2</span><span class="p">])</span>
+                <span class="n">measure</span><span class="o">=</span><span class="p">[</span><span class="n">instrument</span><span class="o">.</span><span class="n">input1</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">input2</span><span class="p">])</span>
 </pre></div>
 </div>
 </section>

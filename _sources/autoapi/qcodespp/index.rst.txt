@@ -153,7 +153,7 @@ Package Contents
 
 
 
-   .. py:method:: set_measurement(*actions)
+   .. py:method:: set_measurement(*actions, check_in_station=True)
 
       Save a set of ``*actions``` as the default measurement for this Station.
 
@@ -436,13 +436,13 @@ Package Contents
 
 
 
-.. py:function:: loop1d(sweep_parameter, start, stop, num, delay, device_info='', instrument_info='', params_to_measure=None, params_to_plot=None, run=False)
+.. py:function:: loop1d(sweep_parameter, start, stop, num, delay, device_info='', instrument_info='', measure=None, plot=None, run=False)
 
    Create a 1D loop, the associated data set, and optionally, live plotting.
 
    A 1D loop has a single independent parameter, swept over a range of values.
    At each point in the loop, a set of parameters is measured, either those
-   given as the argument params_to_measure, or the default measurement set by
+   given as the argument measure, or the default measurement set by
    station.set_measurement
 
    In addition to creating the loop, this function also
@@ -464,10 +464,10 @@ Package Contents
        instrument_info (str): a string with information about the setup that will not
            be captured by the metadata (e.g. voltage dividers, preamp settings)
 
-       params_to_measure (list): a list of parameters to measure at each point in the
+       measure (list): a list of parameters to measure at each point in the
            loop. If None, will use the default measurement set by the default station
 
-       params_to_plot (list): a list of parameters to plot at each point in the loop.
+       plot (list): a list of parameters to plot at each point in the loop.
 
        run (bool, default False): run the loop immediately after creation.
 
@@ -476,7 +476,7 @@ Package Contents
            for plotting, if necessary, e.g. pp=qc.live_plot(loop.data_set,params_to_plot)
 
 
-.. py:function:: loop2d(sweep_parameter, start, stop, num, delay, step_parameter, step_start, step_stop, step_num, step_delay, snake=False, step_action=None, device_info='', instrument_info='', params_to_measure=None, params_to_plot=None, run=False)
+.. py:function:: loop2d(sweep_parameter, start, stop, num, delay, step_parameter, step_start, step_stop, step_num, step_delay, snake=False, step_action=None, device_info='', instrument_info='', measure=None, plot=None, run=False)
 
    Create a 2D loop, the associated data set, and optionally, live plotting.
 
@@ -517,10 +517,10 @@ Package Contents
        instrument_info (str): a string with information about the setup that will not
            be captured by the metadata (e.g. voltage dividers, preamp settings)
 
-       params_to_measure (list): a list of parameters to measure at each point in the
+       measure (list): a list of parameters to measure at each point in the
            loop. If None, will use the default measurement set by the default station
 
-       params_to_plot (list): a list of parameters to plot at each point in the loop.
+       plot (list): a list of parameters to plot at each point in the loop.
 
        run (bool, default False): run the loop immediately after creation.
 
@@ -529,7 +529,7 @@ Package Contents
            for plotting, if necessary, e.g. pp=qc.live_plot(loop.data_set,params_to_plot)
 
 
-.. py:function:: loop2dUD(sweep_parameter, start, stop, num, delay, step_parameter, step_start, step_stop, step_num, step_delay, step_action=None, fast_down=False, device_info='', instrument_info='', params_to_measure=None, params_to_plot=None, run=False)
+.. py:function:: loop2dUD(sweep_parameter, start, stop, num, delay, step_parameter, step_start, step_stop, step_num, step_delay, step_action=None, fast_down=False, device_info='', instrument_info='', measure=None, plot=None, run=False)
 
    Create a 2D loop where at each point in the step parameter, the sweep parameter performs a loop
    in two directions: up and down. Create also a data set, and optionally, live plotting.
@@ -567,10 +567,10 @@ Package Contents
        instrument_info (str): a string with information about the setup that will not
            be captured by the metadata (e.g. voltage dividers, preamp settings)
 
-       params_to_measure (list): a list of parameters to measure at each point in the
+       measure (list): a list of parameters to measure at each point in the
            loop. If None, will use the default measurement set by the default station
 
-       params_to_plot (list): a list of parameters to plot at each point in the loop.
+       plot (list): a list of parameters to plot at each point in the loop.
 
        run (bool, default False): run the loop immediately after creation.
 

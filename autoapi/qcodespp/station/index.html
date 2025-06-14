@@ -51,7 +51,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../parameters.html">More about Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../visa.html">Connecting to actual instruments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../data_analysis.html">Data loading and analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../template.html">Template for measurements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../measure.html">The Measure class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../advanced.html">Advanced use of Loop</a></li>
@@ -190,7 +189,7 @@ If False, just use the latest values in memory.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.station.Station.set_measurement">
-<span class="sig-name descname"><span class="pre">set_measurement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.station.Station.set_measurement" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">set_measurement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">actions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_in_station</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.station.Station.set_measurement" title="Permalink to this definition"></a></dt>
 <dd><p>Save a set of <code class="docutils literal notranslate"><span class="pre">*actions`</span></code> as the default measurement for this Station.</p>
 <p>These actions will be executed by default by a Loop if this is the
 default Station, and any measurements among them can be done once

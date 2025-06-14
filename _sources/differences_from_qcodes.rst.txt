@@ -47,7 +47,7 @@ Small differences in existing classes:
 
 **2) The ``Station`` class has the following additional functions:**
 
-* Upon init, ``Station`` accepts the argument ``add_variables(vars)`` where ``vars`` can be e.g. ``globals()`` or ``locals()``. This feature looks through ALL previously declared variables within the vars, and if the varible is a Parameter or instance, it adds it to the Station. This means you don't have to do ``station.add_component()`` for every Instrument and Parameter. Just declare them before declaring the Station and use ``station = Station(add_variables=globals())``.
+* Upon init, ``Station`` accepts the argument ``add_variables=vars`` where ``vars`` can be e.g. ``globals()`` or ``locals()``. This feature looks through ALL previously declared variables within the vars, and if the varible is a Parameter or instance, it adds it to the Station. This means you don't have to do ``station.add_component()`` for every Instrument and Parameter. Just declare them before declaring the Station and use ``station = Station(add_variables=globals())``.
 
 * ``.set_measurement(*actions)`` sets a series of actions (usually Parameters) to be performed when ``station.measure()`` is called.
 

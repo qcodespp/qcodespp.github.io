@@ -61,7 +61,6 @@
 <li class="toctree-l1"><a class="reference internal" href="parameters.html">More about Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visa.html">Connecting to actual instruments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="template.html">Template for measurements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
 <li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a></li>
@@ -97,19 +96,19 @@
 <h1>Commonly used features<a class="headerlink" href="#commonly-used-features" title="Permalink to this heading"></a></h1>
 <section id="station-set-measurement">
 <h2>station.set_measurement()<a class="headerlink" href="#station-set-measurement" title="Permalink to this heading"></a></h2>
-<p>Instead of constantly supplying the params_to_measure to the loops, especially if you have many parameters, which you want to keep identical over many measurements, you can use the station to store default measurement parameters. This is done by running:</p>
+<p>Instead of constantly supplying the <code class="docutils literal notranslate"><span class="pre">measure</span></code> argument to the loops, especially if you have many parameters, which you want to keep identical over many measurements, you can use the <code class="docutils literal notranslate"><span class="pre">Station</span></code> to store default measurement parameters. This is done by running:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station</span><span class="o">.</span><span class="n">set_measurement</span><span class="p">(</span><span class="n">instrument</span><span class="o">.</span><span class="n">input1</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">input2</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Now you do not need to specify the params_to_measure in the loop1d, loop2d, loop2dUD.</p>
+<p>Now you do not need to specify <code class="docutils literal notranslate"><span class="pre">measure</span></code> in <code class="docutils literal notranslate"><span class="pre">loop1d</span></code>, <code class="docutils literal notranslate"><span class="pre">loop2d</span></code>, <code class="docutils literal notranslate"><span class="pre">loop2dUD</span></code>.</p>
 </section>
 <section id="instrument-info">
 <h2>instrument_info<a class="headerlink" href="#instrument-info" title="Permalink to this heading"></a></h2>
-<p>There is one more option in loop1d and loop2d we didn’t mention, which is the ‘instrument_info’. Like the ‘device_info’, this is a string that will be included in the name of the DataSetPP, and can be used to list information that may not make it into the metadata. This may be e.g. settings on analog pre-amplifiers, or the presence of neutral density filters.</p>
+<p>There is one more option in the loop functions we didn’t mention, which is the <code class="docutils literal notranslate"><span class="pre">instrument_info</span></code>. Like the <code class="docutils literal notranslate"><span class="pre">device_info</span></code>, this is a string that will be included in the name of the <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code>, and can be used to list information that may not make it into the metadata. This may be e.g. settings on analog pre-amplifiers, or the presence of neutral density filters.</p>
 </section>
 <section id="other-kinds-of-actions">
 <h2>Other kinds of actions<a class="headerlink" href="#other-kinds-of-actions" title="Permalink to this heading"></a></h2>
-<p>The primary purpose of <code class="docutils literal notranslate"><span class="pre">params_to_measure</span></code> and <code class="docutils literal notranslate"><span class="pre">station.set_measurement()</span></code> is of course to tell qcodes++ what to measure. <a class="reference external" href="advanced.html">However, what these functions are *really* doing is telling the loop to perform certain actions</a>. If the action is a parameter, then the loop performs parameter() and stores the data. However, there are other options:</p>
+<p>The primary purpose of <code class="docutils literal notranslate"><span class="pre">measure</span></code> and <code class="docutils literal notranslate"><span class="pre">station.set_measurement()</span></code> is of course to tell qcodes++ what to measure. <a class="reference external" href="advanced.html">However, what these functions are *really* doing is telling the loop to perform certain actions</a>. If the action is a parameter, then the loop performs parameter() and stores the data. However, there are other options:</p>
 <section id="tasks">
 <h3>Tasks<a class="headerlink" href="#tasks" title="Permalink to this heading"></a></h3>
 <p>Within loops, you can also perform a <code class="docutils literal notranslate"><span class="pre">qc.Task</span></code>, which is a method for introducing arbitrary functions/scripts into the loop. For example, you could wait until your setup has reached a certain temperature before running measuring the parameters using</p>
@@ -134,11 +133,11 @@
                 <span class="n">step_parameter</span><span class="o">=</span><span class="n">instrument</span><span class="o">.</span><span class="n">temperate_setpoint</span><span class="p">,</span>
                 <span class="n">step_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">step_stop</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">step_num</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">step_delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
                 <span class="n">device_info</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">,</span>
-                <span class="n">params_to_measure</span><span class="o">=</span><span class="p">[</span><span class="n">instrument</span><span class="o">.</span><span class="n">input1</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">input2</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">measured_temp</span><span class="p">],</span>
+                <span class="n">measure</span><span class="o">=</span><span class="p">[</span><span class="n">instrument</span><span class="o">.</span><span class="n">input1</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">input2</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">measured_temp</span><span class="p">],</span>
                 <span class="n">step_action</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">Task</span><span class="p">(</span><span class="n">waitfortemp</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Note how in this case, the task is not a part of <code class="docutils literal notranslate"><span class="pre">params_to_measure</span></code>, (nor <code class="docutils literal notranslate"><span class="pre">station.set_measurement()</span></code>), since we only want to run the task immediately after the step_parameter is set, not at every point of the sweep_parameter.</p>
+<p>Note how in this case, the task is not a part of the <code class="docutils literal notranslate"><span class="pre">measure</span></code> argument, (nor <code class="docutils literal notranslate"><span class="pre">station.set_measurement()</span></code>), since we only want to run the task immediately after the step_parameter is set, not at every point of the sweep_parameter.</p>
 </section>
 <section id="breakif">
 <h3>BreakIf<a class="headerlink" href="#breakif" title="Permalink to this heading"></a></h3>
@@ -146,7 +145,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station</span><span class="o">.</span><span class="n">set_measurement</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">BreakIf</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">k1</span><span class="o">.</span><span class="n">curr</span><span class="p">())</span><span class="o">&gt;</span><span class="mf">2e-9</span><span class="p">),</span><span class="n">param1</span><span class="p">,</span><span class="n">param2</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>lambda is used to turn the statement <cite>k1.curr()&gt;2e-9</cite> into a function with a Boolean output. You can also include BreakIf directly in the params_to_measure. You can also use ‘or’, ‘and’, etc</p>
+<p><code class="docutils literal notranslate"><span class="pre">lambda</span></code> is used to turn the statement <code class="docutils literal notranslate"><span class="pre">k1.curr()&gt;2e-9</span></code> into a function with a Boolean output. You can also include <code class="docutils literal notranslate"><span class="pre">BreakIf</span></code> directly in the <code class="docutils literal notranslate"><span class="pre">measure</span></code> argument. You can also use <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code>, etc</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station</span><span class="o">.</span><span class="n">set_measurement</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">BreakIf</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">k1</span><span class="o">.</span><span class="n">curr</span><span class="p">())</span><span class="o">&gt;</span><span class="mf">2e-9</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">k2</span><span class="o">.</span><span class="n">curr</span><span class="p">())</span><span class="o">&gt;</span><span class="mf">1e-9</span><span class="p">))</span>
 </pre></div>
 </div>
