@@ -1,4 +1,4 @@
 furo==2024.8.6
 sphinx-rtd-theme==3.0.2
-myst-nb
+myst-nb==1.2.0
 #sphinx-autoapi==3.6.0
