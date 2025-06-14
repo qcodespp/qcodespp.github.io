@@ -18,8 +18,7 @@ extensions = [
     'sphinx.ext.duration',
     'sphinx.ext.doctest',
     'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
-    'myst_nb'],
+    'sphinx.ext.autosummary']
 #     'autoapi.extension',
 # ]
 
