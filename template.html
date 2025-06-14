@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Template for measurements &mdash; qcodes++ 0.1.0 documentation</title>
+  <title>Example template &mdash; qcodes++ 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
@@ -18,7 +18,9 @@
       <script src="_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Offline plotting, a.k.a. InSpectra Gadget" href="offline_plotting.html" />
+    <link rel="prev" title="Data loading and analysis" href="data_analysis.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,7 +43,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="background.html">Background</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dummy_measurements.html">Getting started</a></li>
@@ -49,6 +51,7 @@
 <li class="toctree-l1"><a class="reference internal" href="parameters.html">More about Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visa.html">Connecting to actual instruments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Example template</a></li>
 <li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
 <li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a></li>
@@ -70,7 +73,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Template for measurements</li>
+      <li class="breadcrumb-item active">Example template</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/template.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -80,35 +83,111 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="template-for-measurements">
-<h1>Template for measurements<a class="headerlink" href="#template-for-measurements" title="Permalink to this heading"></a></h1>
-<p>To be filled out with a minimal working example of connecting to instruments, running 1d and 2d sweeps, and defining custom parameters.</p>
-<p>See if it’s possible to do it with a legit jupyter notebook</p>
-<p>import qcodespp as qc
-qc.listVISAinstruments()</p>
-<section id="break">
-<h2>break<a class="headerlink" href="#break" title="Permalink to this heading"></a></h2>
-<p>import qcodespp as qc
-from qcodespp.instrument_drivers.QDevil.QDAC2 import QDac2
-from qcodespp.instrument_drivers.ZI.ZIMFLI import ZIMFLI</p>
-<p>etc</p>
-<p>define a resistance</p>
-<p>qc.set_data_folder(‘data’)</p>
-<p># remember to define all instruments and parameters before defining the station to ensure all metadata is saved
-station=qc.Station(add_variables=globals())</p>
-</section>
-<section id="id1">
-<h2>break<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
-<p>1d loop, IV curve, simples</p>
-<p>1d loop, gate voltage where leakage current is measured and stopped if leakage current is too high.</p>
-<p>2d loop, bias spec</p>
-</section>
+  <section id="example-template">
+<h1>Example template<a class="headerlink" href="#example-template" title="Permalink to this heading"></a></h1>
+<p>An example Jupyter notebook for running realistic measurements with qcodes++ is included with the installation, and is also available for download <a class="reference external" href="https://github.com/qcodespp/qcodespp/blob/main/qcodespp_template.ipynb">here</a>.</p>
+<p>The code looks like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optional: check for VISA instruments</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">qcodespp</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qc</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">listVISAinstruments</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import packages, instrument drivers, and connect to instruments.</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">qcodespp</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qc</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">qcodespp.instrument_drivers.QDevil.QDAC2</span><span class="w"> </span><span class="kn">import</span> <span class="n">QDac2</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">qcodespp.instrument_drivers.ZI.ZIHF2LI</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZIHF2LI</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">qcodespp.instrument_drivers.tektronix.Keithley_2450</span><span class="w"> </span><span class="kn">import</span> <span class="n">Keithley_2450</span>
+
+<span class="n">qdac</span> <span class="o">=</span> <span class="n">QDac2</span><span class="p">(</span><span class="s1">&#39;qdac&#39;</span><span class="p">,</span><span class="s1">&#39;ASRL9::INSTR&#39;</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">ZIHF2LI</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">,</span><span class="s1">&#39;dev1832&#39;</span><span class="p">)</span> <span class="c1"># ZI instruments don&#39;t use VISA</span>
+<span class="n">k2450</span> <span class="o">=</span> <span class="n">Keithley_2450</span><span class="p">(</span><span class="s1">&#39;k2450&#39;</span><span class="p">,</span><span class="s1">&#39;TCPIP0::169.254.100.202::inst0::INSTR&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define custom parameters</span>
+
+<span class="n">stepper</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;stepper&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stepper&#39;</span><span class="p">,</span><span class="n">unit</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">set_cmd</span><span class="o">=</span><span class="k">lambda</span> <span class="n">val</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">currentX</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">ScaledParameter</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">demod0_X</span><span class="p">,</span><span class="n">gain</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;currentX&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Current&#39;</span><span class="p">,</span><span class="n">unit</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="n">currentY</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">ScaledParameter</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">demod0_Y</span><span class="p">,</span><span class="n">gain</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;currentY&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Current&#39;</span><span class="p">,</span><span class="n">unit</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="n">voltageX</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">ScaledParameter</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">demod1_X</span><span class="p">,</span><span class="n">gain</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;voltageX&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Voltage&#39;</span><span class="p">,</span><span class="n">unit</span><span class="o">=</span><span class="s1">&#39;V&#39;</span><span class="p">)</span>
+<span class="n">voltageY</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">ScaledParameter</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">demod1_Y</span><span class="p">,</span><span class="n">gain</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;voltageY&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Voltage&#39;</span><span class="p">,</span><span class="n">unit</span><span class="o">=</span><span class="s1">&#39;V&#39;</span><span class="p">)</span>
+
+<span class="n">resistance</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;resistance&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Resistance&#39;</span><span class="p">,</span><span class="n">unit</span><span class="o">=</span><span class="s1">&#39;Ohm&#39;</span><span class="p">,</span><span class="n">get_cmd</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">voltageX</span><span class="p">()</span><span class="o">/</span><span class="n">currentX</span><span class="p">())</span>
+
+<span class="c1"># Tell qcodespp where to store data</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">set_data_folder</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+
+<span class="c1"># Init the station.</span>
+<span class="n">station</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">Station</span><span class="p">(</span><span class="n">add_variables</span><span class="o">=</span><span class="nb">globals</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1D loops</span>
+<span class="n">loop</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">loop1d</span><span class="p">(</span><span class="n">sweep_parameter</span><span class="o">=</span><span class="n">qdac</span><span class="o">.</span><span class="n">ch01</span><span class="o">.</span><span class="n">volt</span><span class="p">,</span>
+           <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">stop</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span><span class="n">delay</span><span class="o">=</span><span class="mf">0.03</span><span class="p">,</span>
+           <span class="n">device_info</span><span class="o">=</span><span class="s1">&#39;Device1&#39;</span><span class="p">,</span>
+           <span class="n">instrument_info</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;ACdiv=1e5 DCdiv=1e3 freq=</span><span class="si">{</span><span class="n">li</span><span class="o">.</span><span class="n">osc0_freq</span><span class="p">()</span><span class="si">:</span><span class="s1">.6g</span><span class="si">}</span><span class="s1"> Hz&#39;</span><span class="p">,</span>
+           <span class="n">measure</span><span class="o">=</span><span class="p">[</span><span class="n">currentX</span><span class="p">,</span> <span class="n">currentY</span><span class="p">,</span> <span class="n">voltageX</span><span class="p">,</span> <span class="n">voltageY</span><span class="p">,</span> <span class="n">resistance</span><span class="p">],</span>
+           <span class="n">plot</span><span class="o">=</span><span class="p">[</span><span class="n">currentX</span><span class="p">,</span><span class="n">voltageX</span><span class="p">,</span><span class="n">resistance</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">loop</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1D loop with a break condition</span>
+<span class="n">loop</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">loop1d</span><span class="p">(</span><span class="n">sweep_parameter</span><span class="o">=</span><span class="n">k2450</span><span class="o">.</span><span class="n">volt</span><span class="p">,</span>
+            <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">stop</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span><span class="n">delay</span><span class="o">=</span><span class="mf">0.03</span><span class="p">,</span>
+            <span class="n">device_info</span><span class="o">=</span><span class="s1">&#39;Device1&#39;</span><span class="p">,</span>
+            <span class="n">instrument_info</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;ACdiv=1e5 DCdiv=1e3 freq=</span><span class="si">{</span><span class="n">li</span><span class="o">.</span><span class="n">osc0_freq</span><span class="p">()</span><span class="si">:</span><span class="s1">.6g</span><span class="si">}</span><span class="s1"> Hz&#39;</span><span class="p">,</span>
+            <span class="n">measure</span><span class="o">=</span><span class="p">[</span><span class="n">qc</span><span class="o">.</span><span class="n">BreakIf</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">k2450</span><span class="o">.</span><span class="n">curr</span><span class="p">())</span><span class="o">&gt;</span><span class="mf">1e-9</span><span class="p">),</span>
+                        <span class="n">currentX</span><span class="p">,</span> <span class="n">currentY</span><span class="p">,</span> <span class="n">voltageX</span><span class="p">,</span> <span class="n">voltageY</span><span class="p">,</span> <span class="n">resistance</span><span class="p">],</span>
+            <span class="n">plot</span><span class="o">=</span><span class="p">[</span><span class="n">currentX</span><span class="p">,</span><span class="n">voltageX</span><span class="p">,</span><span class="n">resistance</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">loop</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2D loop</span>
+<span class="n">loop</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">loop2d</span><span class="p">(</span><span class="n">sweep_parameter</span><span class="o">=</span><span class="n">qdac</span><span class="o">.</span><span class="n">ch01</span><span class="o">.</span><span class="n">volt</span><span class="p">,</span>
+                <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">stop</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">delay</span><span class="o">=</span><span class="mf">0.03</span><span class="p">,</span>
+                <span class="n">step_parameter</span><span class="o">=</span><span class="n">k2450</span><span class="o">.</span><span class="n">volt</span><span class="p">,</span>
+                <span class="n">step_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">step_stop</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">step_num</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">step_delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+                <span class="n">device_info</span><span class="o">=</span><span class="s1">&#39;Device1&#39;</span><span class="p">,</span>
+                <span class="n">instrument_info</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;ACdiv=1e5 DCdiv=1e3 freq=</span><span class="si">{</span><span class="n">li</span><span class="o">.</span><span class="n">osc0_freq</span><span class="p">()</span><span class="si">:</span><span class="s1">.6g</span><span class="si">}</span><span class="s1"> Hz&#39;</span><span class="p">,</span>
+                <span class="n">measure</span><span class="o">=</span><span class="p">[</span><span class="n">currentX</span><span class="p">,</span> <span class="n">currentY</span><span class="p">,</span> <span class="n">voltageX</span><span class="p">,</span> <span class="n">voltageY</span><span class="p">,</span> <span class="n">resistance</span><span class="p">],</span>
+                <span class="n">plot</span><span class="o">=</span><span class="p">[</span><span class="n">currentX</span><span class="p">,</span><span class="n">voltageX</span><span class="p">,</span><span class="n">resistance</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">loop</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2D loops with sweep in both directions.</span>
+<span class="n">loop</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">loop2dUD</span><span class="p">(</span><span class="n">sweep_parameter</span><span class="o">=</span><span class="n">qdac</span><span class="o">.</span><span class="n">ch01</span><span class="o">.</span><span class="n">volt</span><span class="p">,</span>
+                <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">stop</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">delay</span><span class="o">=</span><span class="mf">0.03</span><span class="p">,</span>
+                <span class="n">step_parameter</span><span class="o">=</span><span class="n">k2450</span><span class="o">.</span><span class="n">volt</span><span class="p">,</span>
+                <span class="n">step_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">step_stop</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">step_num</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">step_delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+                <span class="n">device_info</span><span class="o">=</span><span class="s1">&#39;Device1&#39;</span><span class="p">,</span>
+                <span class="n">instrument_info</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;ACdiv=1e5 DCdiv=1e3 freq=</span><span class="si">{</span><span class="n">li</span><span class="o">.</span><span class="n">osc0_freq</span><span class="p">()</span><span class="si">:</span><span class="s1">.6g</span><span class="si">}</span><span class="s1"> Hz&#39;</span><span class="p">,</span>
+                <span class="n">measure</span><span class="o">=</span><span class="p">[</span><span class="n">currentX</span><span class="p">,</span> <span class="n">currentY</span><span class="p">,</span> <span class="n">voltageX</span><span class="p">,</span> <span class="n">voltageY</span><span class="p">,</span> <span class="n">resistance</span><span class="p">],</span>
+                <span class="n">plot</span><span class="o">=</span><span class="p">[</span><span class="n">currentX</span><span class="p">,</span><span class="n">voltageX</span><span class="p">,</span><span class="n">resistance</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">loop</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
 </section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="data_analysis.html" class="btn btn-neutral float-left" title="Data loading and analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="offline_plotting.html" class="btn btn-neutral float-right" title="Offline plotting, a.k.a. InSpectra Gadget" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

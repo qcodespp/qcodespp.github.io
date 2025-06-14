@@ -34,7 +34,7 @@ The source code is available `here <https://github.com/qcodespp/qcodespp>`__, an
    parameters
    visa
    data_analysis
-   qcodespp_template
+   template
    offline_plotting
    measure
    advanced
