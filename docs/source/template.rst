@@ -3,6 +3,10 @@ Example template
 
 An example Jupyter notebook for running realistic measurements with qcodes++ is included with the installation, and is also available for download `here <https://github.com/qcodespp/qcodespp/blob/main/qcodespp_template.ipynb>`__.
 
+.. image:: template.png
+    :alt: How to download from github
+    :align: center
+
 The code looks like this:
 
 .. code-block:: python
