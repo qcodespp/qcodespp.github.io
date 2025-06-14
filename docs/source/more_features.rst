@@ -4,23 +4,23 @@ Commonly used features
 station.set_measurement()
 -------------------------
 
-Instead of constantly supplying the params_to_measure to the loops, especially if you have many parameters, which you want to keep identical over many measurements, you can use the station to store default measurement parameters. This is done by running:
+Instead of constantly supplying the ``measure`` argument to the loops, especially if you have many parameters, which you want to keep identical over many measurements, you can use the ``Station`` to store default measurement parameters. This is done by running:
 
 .. code-block:: python
 
     station.set_measurement(instrument.input1, instrument.input2)
 
-Now you do not need to specify the params_to_measure in the loop1d, loop2d, loop2dUD.
+Now you do not need to specify ``measure`` in ``loop1d``, ``loop2d``, ``loop2dUD``.
 
 instrument_info
 ---------------
 
-There is one more option in loop1d and loop2d we didn't mention, which is the 'instrument_info'. Like the 'device_info', this is a string that will be included in the name of the DataSetPP, and can be used to list information that may not make it into the metadata. This may be e.g. settings on analog pre-amplifiers, or the presence of neutral density filters.
+There is one more option in the loop functions we didn't mention, which is the ``instrument_info``. Like the ``device_info``, this is a string that will be included in the name of the ``DataSetPP``, and can be used to list information that may not make it into the metadata. This may be e.g. settings on analog pre-amplifiers, or the presence of neutral density filters.
 
 Other kinds of actions
 ----------------------
 
-The primary purpose of ``params_to_measure`` and ``station.set_measurement()`` is of course to tell qcodes++ what to measure. `However, what these functions are *really* doing is telling the loop to perform certain actions <advanced.html>`__. If the action is a parameter, then the loop performs parameter() and stores the data. However, there are other options:
+The primary purpose of ``measure`` and ``station.set_measurement()`` is of course to tell qcodes++ what to measure. `However, what these functions are *really* doing is telling the loop to perform certain actions <advanced.html>`__. If the action is a parameter, then the loop performs parameter() and stores the data. However, there are other options:
 
 Tasks
 ^^^^^
@@ -54,10 +54,10 @@ In ``loop2d`` and ``loop2dUD``, you can also to perform actions at each step of 
                     step_parameter=instrument.temperate_setpoint,
                     step_start=0,step_stop=10,step_num=11,step_delay=0.1,
                     device_info='test',
-                    params_to_measure=[instrument.input1, instrument.input2, instrument.measured_temp],
+                    measure=[instrument.input1, instrument.input2, instrument.measured_temp],
                     step_action=qc.Task(waitfortemp))
 
-Note how in this case, the task is not a part of ``params_to_measure``, (nor ``station.set_measurement()``), since we only want to run the task immediately after the step_parameter is set, not at every point of the sweep_parameter.
+Note how in this case, the task is not a part of the ``measure`` argument, (nor ``station.set_measurement()``), since we only want to run the task immediately after the step_parameter is set, not at every point of the sweep_parameter.
 
 BreakIf
 ^^^^^^^
@@ -68,7 +68,7 @@ BreakIf
 
     station.set_measurement(qc.BreakIf(lambda: np.abs(k1.curr())>2e-9),param1,param2)
 
-lambda is used to turn the statement `k1.curr()>2e-9` into a function with a Boolean output. You can also include BreakIf directly in the params_to_measure. You can also use 'or', 'and', etc
+``lambda`` is used to turn the statement ``k1.curr()>2e-9`` into a function with a Boolean output. You can also include ``BreakIf`` directly in the ``measure`` argument. You can also use ``or``, ``and``, etc
 
 .. code-block:: python
 

@@ -54,8 +54,8 @@ qcodespp.loops
        parameter2, -1, 0, 101, 0.1,
        device_info='My device',
        instrument_info='My setup',
-       params_to_measure=[measure_param1, measure_param2],
-       params_to_plot=[measure_param1, measure_param2])
+       measure=[measure_param1, measure_param2],
+       plot=[measure_param1, measure_param2])
    >>> loop.run()
 
 
@@ -92,13 +92,13 @@ Module Contents
 
 .. py:data:: log
 
-.. py:function:: loop1d(sweep_parameter, start, stop, num, delay, device_info='', instrument_info='', params_to_measure=None, params_to_plot=None, run=False)
+.. py:function:: loop1d(sweep_parameter, start, stop, num, delay, device_info='', instrument_info='', measure=None, plot=None, run=False)
 
    Create a 1D loop, the associated data set, and optionally, live plotting.
 
    A 1D loop has a single independent parameter, swept over a range of values.
    At each point in the loop, a set of parameters is measured, either those
-   given as the argument params_to_measure, or the default measurement set by
+   given as the argument measure, or the default measurement set by
    station.set_measurement
 
    In addition to creating the loop, this function also
@@ -120,10 +120,10 @@ Module Contents
        instrument_info (str): a string with information about the setup that will not
            be captured by the metadata (e.g. voltage dividers, preamp settings)
 
-       params_to_measure (list): a list of parameters to measure at each point in the
+       measure (list): a list of parameters to measure at each point in the
            loop. If None, will use the default measurement set by the default station
 
-       params_to_plot (list): a list of parameters to plot at each point in the loop.
+       plot (list): a list of parameters to plot at each point in the loop.
 
        run (bool, default False): run the loop immediately after creation.
 
@@ -132,7 +132,7 @@ Module Contents
            for plotting, if necessary, e.g. pp=qc.live_plot(loop.data_set,params_to_plot)
 
 
-.. py:function:: loop2d(sweep_parameter, start, stop, num, delay, step_parameter, step_start, step_stop, step_num, step_delay, snake=False, step_action=None, device_info='', instrument_info='', params_to_measure=None, params_to_plot=None, run=False)
+.. py:function:: loop2d(sweep_parameter, start, stop, num, delay, step_parameter, step_start, step_stop, step_num, step_delay, snake=False, step_action=None, device_info='', instrument_info='', measure=None, plot=None, run=False)
 
    Create a 2D loop, the associated data set, and optionally, live plotting.
 
@@ -173,10 +173,10 @@ Module Contents
        instrument_info (str): a string with information about the setup that will not
            be captured by the metadata (e.g. voltage dividers, preamp settings)
 
-       params_to_measure (list): a list of parameters to measure at each point in the
+       measure (list): a list of parameters to measure at each point in the
            loop. If None, will use the default measurement set by the default station
 
-       params_to_plot (list): a list of parameters to plot at each point in the loop.
+       plot (list): a list of parameters to plot at each point in the loop.
 
        run (bool, default False): run the loop immediately after creation.
 
@@ -185,7 +185,7 @@ Module Contents
            for plotting, if necessary, e.g. pp=qc.live_plot(loop.data_set,params_to_plot)
 
 
-.. py:function:: loop2dUD(sweep_parameter, start, stop, num, delay, step_parameter, step_start, step_stop, step_num, step_delay, step_action=None, fast_down=False, device_info='', instrument_info='', params_to_measure=None, params_to_plot=None, run=False)
+.. py:function:: loop2dUD(sweep_parameter, start, stop, num, delay, step_parameter, step_start, step_stop, step_num, step_delay, step_action=None, fast_down=False, device_info='', instrument_info='', measure=None, plot=None, run=False)
 
    Create a 2D loop where at each point in the step parameter, the sweep parameter performs a loop
    in two directions: up and down. Create also a data set, and optionally, live plotting.
@@ -223,10 +223,10 @@ Module Contents
        instrument_info (str): a string with information about the setup that will not
            be captured by the metadata (e.g. voltage dividers, preamp settings)
 
-       params_to_measure (list): a list of parameters to measure at each point in the
+       measure (list): a list of parameters to measure at each point in the
            loop. If None, will use the default measurement set by the default station
 
-       params_to_plot (list): a list of parameters to plot at each point in the loop.
+       plot (list): a list of parameters to plot at each point in the loop.
 
        run (bool, default False): run the loop immediately after creation.
 
@@ -686,12 +686,12 @@ Module Contents
 
 
 
-   .. py:method:: run(params_to_plot=None, use_threads=False, quiet=False, station=None, progress_interval=False, set_active=True, publisher=None, progress_bar=True, check_written_data=True, *args, **kwargs)
+   .. py:method:: run(plot=None, use_threads=False, quiet=False, station=None, progress_interval=False, set_active=True, publisher=None, progress_bar=True, check_written_data=True, *args, **kwargs)
 
       Execute this loop.
 
       Args:
-          params_to_plot: a list of parameters to plot at each point in the loop.
+          plot: a list of parameters to plot at each point in the loop.
               Can either be the DataArray objects, or the parameters themselves.
 
           use_threads: (default False): whenever there are multiple `get` calls

@@ -101,7 +101,7 @@ Module Contents
 
 
 
-   .. py:method:: set_measurement(*actions)
+   .. py:method:: set_measurement(*actions, check_in_station=True)
 
       Save a set of ``*actions``` as the default measurement for this Station.
 

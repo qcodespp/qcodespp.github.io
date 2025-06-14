@@ -30,7 +30,7 @@ As discussed in the `background <background.html>`_ section, qcodes has a virtua
 
 .. code-block:: python
 
-    station = qc.Station(add_variables(globals()))
+    station = qc.Station(add_variables=globals())
 
 This command creates a Station object and checks all the python variables defined in the notebook. If the variable is a qcodes Instrument or Parameter, it is added to the Station.
 
@@ -89,7 +89,7 @@ So far no data has been collected; we've just communicated with the instrument. 
     loop = qc.loop1d(sweep_parameter=instrument.output1,
                     start=0,stop=10,num=101,delay=0.1,
                     device_info='test',
-                    params_to_measure=[instrument.input1, instrument.input2])
+                    measure=[instrument.input1, instrument.input2])
 
 Here, we have created the object ``loop``. Inside of it, is a DataSetPP object, which will hold the measurements. The details of the DataSetPP are printed. You will see it will be saved in the 'data' folder we specified earlier, and the name of the file includes a counter with a unique number as well as the date and time of the measurement. Also included is the important information about the independent parameter settings. The ``device_info`` parameter is optional, but it is a good idea to include it, as it allows you to easily identify the device used in the measurement later on.
 
@@ -114,9 +114,9 @@ If you want to measure two independent parameters, you can use the ``loop2D`` fu
                     step_parameter=instrument.output2,
                     step_start=0,step_stop=10,step_num=11,step_delay=0.1
                     device_info='test',
-                    params_to_measure=[instrument.input1, instrument.input2])
+                    measure=[instrument.input1, instrument.input2])
 
-This function 'steps' instrument.output2, and at every step, it sweeps instrument.output1, and at each point on that sweep, the parameters in params_to_measure are measured.
+This function 'steps' instrument.output2, and at every step, it sweeps instrument.output1, and at each point on that sweep, the parameters in measure are measured.
 
 Again, we are given information about the DataSetPP, which shows the array shapes are now indeed two dimensional.
 
@@ -136,7 +136,7 @@ Note that in a loop2d, the sweep_parameter jumps from the stop value back to the
                     step_parameter=instrument.output2,
                     step_start=0,step_stop=10,step_num=11,step_delay=0.1
                     device_info='test',
-                    params_to_measure=[instrument.input1, instrument.input2])
+                    measure=[instrument.input1, instrument.input2])
 
 However, you will now see that the dataset contains two lots of data for each parameter, representing the two directions of the sweep parameter's journey.
 
@@ -150,7 +150,7 @@ The other option you have is to turn on the 'snake' behaviour of the loop2d. Thi
                     step_start=0,step_stop=10,step_num=11,step_delay=0.1
                     device_info='test',
                     snake=True,
-                    params_to_measure=[instrument.input1, instrument.input2])
+                    measure=[instrument.input1, instrument.input2])
 
 Here is a visualisation of the three types of 2D loops:
 
@@ -168,4 +168,4 @@ The ``loop2dUD`` function has the option to sweep the sweep_parameter with a few
                     step_start=0,step_stop=10,step_num=11,step_delay=0.1
                     device_info='test',
                     fast_down=5,
-                    params_to_measure=[instrument.input1, instrument.input2])
+                    measure=[instrument.input1, instrument.input2])
