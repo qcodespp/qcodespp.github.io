@@ -7,7 +7,7 @@ An example Jupyter notebook for running realistic measurements with qcodes++ is 
     :alt: How to download from github
     :align: center
 
-    Click on the download icon in the top right corner.
+    `Click on the download icon in the top right corner. <https://github.com/qcodespp/qcodespp/blob/main/qcodespp_template.ipynb>`__.
       
 
 The code
