@@ -25,8 +25,9 @@ extensions = [
 # autoapi_dirs=['C:/git/qcodespp/qcodespp']
 # autoapi_options=[ 'members', 'undoc-members','show-inheritance', 'show-module-summary', 'special-members', 'imported-members']
 # templates_path = ['_templates']
-# exclude_patterns = ['_build', '_templates']
 # autoapi_keep_files = True
+
+exclude_patterns = ['_build', '_templates', "**.ipynb_checkpoints"]
 
 
 # -- Options for HTML output -------------------------------------------------
