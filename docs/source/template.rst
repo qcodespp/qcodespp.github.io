@@ -1,7 +1,7 @@
 Example template
 ================
 
-An example Jupyter notebook for running realistic measurements with qcodes++ is included with the installation, and is also available for download `here <https://github.com/qcodespp/qcodespp/blob/main/qcodespp_template.ipynb>`__.
+An example Jupyter notebook for running realistic measurements with qcodes++ is included with the installation, and is also available for download `here <https://github.com/qcodespp/qcodespp/blob/main/qcodespp_template.ipynb>`__. Click on the download icon in the top right corner.
 
 .. figure:: template.png
     :alt: How to download from github
