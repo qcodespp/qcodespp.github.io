@@ -51,7 +51,10 @@
 <li class="toctree-l1"><a class="reference internal" href="parameters.html">More about Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visa.html">Connecting to actual instruments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Example template</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Example template</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-code">The code</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
 <li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a></li>
@@ -86,8 +89,11 @@
   <section id="example-template">
 <h1>Example template<a class="headerlink" href="#example-template" title="Permalink to this heading"></a></h1>
 <p>An example Jupyter notebook for running realistic measurements with qcodes++ is included with the installation, and is also available for download <a class="reference external" href="https://github.com/qcodespp/qcodespp/blob/main/qcodespp_template.ipynb">here</a>.</p>
-<img alt="How to download from github" class="align-center" src="_images/template.png" />
-<p>The code looks like this:</p>
+<figure class="align-center">
+<img alt="How to download from github" src="_images/template.png" />
+</figure>
+<section id="the-code">
+<h2>The code<a class="headerlink" href="#the-code" title="Permalink to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optional: check for VISA instruments</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">qcodespp</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qc</span>
@@ -180,6 +186,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">loop</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
+</section>
 </section>
 
 
