@@ -33,7 +33,7 @@ since anything with a '.' after qcodes doesn't necessarily exist in qcodes++, an
 The big difference: Data structure.
 -----------------------------------
 
-**In summary**: If you only ever do 1D or 2D measurements, qcodes++ makes it easy to obtain, visualise and share data, and it a great choice. If you want to do more complex measurements, QCoDeS may be the better choice.
+**In summary**: If you only ever do 1D or 2D measurements, qcodes++ makes it easy to obtain, visualise and share data. If you want to do more complex measurements, you may prefer QCoDeS.
 
 **In detail**: The qcodes++ dataset, ``DataSetPP``, is a text-based dataset, where all the data is stored in numpy arrays of pre-determined shape. There are big advantages:
 
@@ -70,6 +70,6 @@ Small differences in existing classes:
 
 * ``.arbsweep()`` accepts a list of a values, rather than a start and end value, and sweeps the parameter through these values.
 
-**MultiParameterWrapper makes it easy to create a MultiParameter from existing Parameters.**
+**``MultiParameterWrapper`` makes it easy to create a ``MultiParameter`` from existing Parameters.**
 
 See the `MultiParameterWrapper documentation <https://qcodespp.github.io/parameters.html#multiparameter-and-multiparameterwrapper>`__ for more details.

@@ -1,5 +1,5 @@
-Connecting to actual instruments
-================================
+Instruments
+===========
 
 The vast majority of scientific instruments communicate via the VISA protocol, whether it's over GPIB, USB, RS232, or Ethernet. Assuming you've installed a National Instruments or Keysight backend to handle VISA, qcodes++ deals with connecting to VISA instruments in a very uniform way. To find out which VISA instruments are attached to your computer, use:
 
@@ -19,7 +19,7 @@ The output should look something like this::
     Instrument IDN: QDevil, QDAC-II, 159, 13-1.57
     VISA Address: ASRL9::INSTR 
 
-There are three instruments attached to the computer: two Keithley 2450 Source Meters, one over TCP/IP and one over GPIB, and a QDevil QDAC-II over USB/serial (ASRL). To connect to these instruments in our notebook, we first, import the relevant drivers, then create instrument objects from the drivers, using the addresses printed by ``listVISAinstruments()``.
+There are three instruments attached to the computer: two Keithley 2450 Source Meters, one over TCP/IP and one over GPIB, and a QDevil QDAC-II over USB/serial (ASRL). To connect to these instruments in our notebook, we first import the relevant drivers, then create instrument objects from the drivers, using the addresses printed by ``listVISAinstruments()``.
 
 .. code-block:: python
 
