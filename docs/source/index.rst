@@ -23,6 +23,10 @@ the package for you. qcodes++ features
 
 The source code is available `here <https://github.com/qcodespp/qcodespp>`__, and the following documentation will guide you on how to quickly and easily start running measurements.
 
+The name: In addition to being a really stupid pun on q(c++), it reflects the fact that really we just want 
+to add some nice features to the main package, and also it makes me happy because totally 
+coincidentally we have always named our plotting windows pp, e.g. pp = qc.live_plot().
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
