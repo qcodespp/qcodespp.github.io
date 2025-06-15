@@ -1,7 +1,7 @@
 The Measure class
 =================
 
-``Measure`` is used to measure a set of ``parameter`` s at a single point in time. The typical use case is where the ``parameter`` (s)'s get function(s) return(s) an array, e.g. an oscilloscope trace, or a spectrum analyser trace. At init, you can provide the ``Parameter`` s to measure and (optionally) ``setpoints``. If no ``Parameter`` s are provided, the default ``station.measure()`` is used. If no ``setpoints`` are provided, dummy setpoints are created for each dimension found in the parameters (recommended, see below). ``Measure.run()`` will execute the measurement, and return and save a ``DataSetPP``
+``qcodespp.Measure`` is used to measure a set of ``Parameter`` s at a single point in time. The typical use case is where the ``Parameter`` (s)'s get function(s) return(s) an array, e.g. an oscilloscope trace, or a spectrum analyser trace. At init, you can provide the ``Parameter`` s to measure and (optionally) ``setpoints``. If no ``Parameter`` s are provided, the default ``station.measure()`` is used. If no ``setpoints`` are provided, dummy setpoints are created for each dimension found in the parameters (recommended, see below). ``Measure.run()`` will execute the measurement, and return and save a ``DataSetPP``
 
 Examples:
 
@@ -10,14 +10,14 @@ Measure two parameters:
 .. code-block:: python
 
     station.set_measurement(array_param1, array_param2)
-    data = Measure(name='Name for dataset filename').run()
+    data = qc.Measure(name='Name for dataset filename').run()
 
 Measure two parameters twice, changing some value in between:
 
 .. code-block:: python
 
     station.set_measurement(array_param1, array_param2)
-    measure = Measure()
+    measure = qc.Measure()
     data=measure.run(name='instrument parameter value = 0')
     instrument.some_parameter(1.0)  # Set some parameter to a value
     data=measure.run(name='instrument parameter value = 1')
@@ -27,7 +27,7 @@ Iteratively:
 .. code-block:: python
 
     station.set_measurement(array_param1, array_param2)
-    measure = Measure()
+    measure = qc.Measure()
     for i in range(10):
         instrument.some_parameter(i)  # Set some parameter to a value
         data=measure.run(name=f'iteration {i}')
@@ -51,7 +51,7 @@ For example, if you measure the x-axis and y-axis of an oscilloscope trace, you 
 .. code-block:: python
 
     station.set_measurement(oscilloscope.x_axis,oscilloscope.y_axis)
-    measure = Measure(name='dummy_name')
+    measure = qc.Measure(name='dummy_name')
     data = measure.run()
     pp=qc.live_plot()
     pp.add(data.oscilloscope_x_axis, data.oscilloscope_y_axis, 
@@ -66,7 +66,7 @@ For measuring a set of parameters with a shape of (101,):
 .. code-block:: python
 
     setpoints=np.linspace(0,0.5,101)
-    measure = Measure(setpoints=[setpoints],name='dummy_name')
+    measure = qc.Measure(setpoints=[setpoints],name='dummy_name')
     data = measure.run()
 
 The setpoints can also be a ``Parameter`` which returns an array of the correct shape. Taking the oscilloscope example from above, you can also do:
@@ -75,7 +75,7 @@ The setpoints can also be a ``Parameter`` which returns an array of the correct 
 
     station.set_measurement(oscilloscope.y_axis)
     setpoints=oscilloscope.x_axis
-    measure = Measure(setpoints=[setpoints],name='dummy_name')
+    measure = qc.Measure(setpoints=[setpoints],name='dummy_name')
     data = measure.run()
     pp=qc.live_plot(data,[data.oscilloscope_y_axis])
 
