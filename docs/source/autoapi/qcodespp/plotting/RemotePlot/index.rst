@@ -24,15 +24,19 @@ Functions
 Module Contents
 ---------------
 
-.. py:function:: live_plot(data_set=None, data_items=None)
+.. py:function:: live_plot(*args, data_set=None, data_items=None)
 
    Entry point for live plotting of qcodespp data.
 
    Args:
+       *args (DataSetPP, DataArray, Parameter, list, tuple): Positional arguments can be:
+           - ``DataSetPP``: The dataset to link to the live plot.
+           - ``DataArray`` or ``Parameter``: The data items to plot.
+           - A list or tuple of ``DataArray`` or ``Parameter`` objects to plot.
        data_set (``DataSetPP``, optional): The ``DataSetPP`` to link to the live plot.
            If not provided, it will try to use the default dataset.
            If no data_set, one can add items to the plot, but the data will not be tracked.
-       *data_items (Sequence[``DataArray``, ``Parameter``], optional): List of ``DataArray``
+       data_items (Sequence[``DataArray``, ``Parameter``], optional): List of ``DataArray``
            or ``Parameter`` objects to plot. If not provided, nothing will be plotted initially,
            the user can use ``Plot.add()`` later.
 
@@ -157,6 +161,13 @@ Module Contents
 
 
    .. py:method:: add_multiple(*z_params)
+
+      Add multiple ``DataArray`` s to the ``Plot``.
+
+      Args:
+          *z_params (Sequence [DataArray]): DataArrays to be added to the Plot.
+              Each DataArray is added to a separate subplot.
+
 
 
    .. py:method:: add(*args, x=None, y=None, z=None, subplot=0, name=None, title=None, position=None, relativeto=None, xlabel=None, ylabel=None, zlabel=None, xunit=None, yunit=None, zunit=None, silent=True, linecuts=False, symbol=None, size=None, **kwargs)
