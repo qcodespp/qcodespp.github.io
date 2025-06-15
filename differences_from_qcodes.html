@@ -48,8 +48,8 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dummy_measurements.html">Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="more_features.html">Commonly used features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parameters.html">More about Parameters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="visa.html">Connecting to actual instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visa.html">Instruments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="template.html">Example template</a></li>
 <li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
@@ -112,7 +112,7 @@
 </section>
 <section id="the-big-difference-data-structure">
 <h2>The big difference: Data structure.<a class="headerlink" href="#the-big-difference-data-structure" title="Permalink to this heading"></a></h2>
-<p><strong>In summary</strong>: If you only ever do 1D or 2D measurements, qcodes++ makes it easy to obtain, visualise and share data, and it a great choice. If you want to do more complex measurements, QCoDeS may be the better choice.</p>
+<p><strong>In summary</strong>: If you only ever do 1D or 2D measurements, qcodes++ makes it easy to obtain, visualise and share data. If you want to do more complex measurements, you may prefer QCoDeS.</p>
 <p><strong>In detail</strong>: The qcodes++ dataset, <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code>, is a text-based dataset, where all the data is stored in numpy arrays of pre-determined shape. There are big advantages:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> is very easy to use and open across all platforms and programs.</p></li>
@@ -141,7 +141,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">.returnsweep()</span></code> sweeps the parameter up and down, i.e. first sweeps to the end value, then back to the start value.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">.arbsweep()</span></code> accepts a list of a values, rather than a start and end value, and sweeps the parameter through these values.</p></li>
 </ul>
-<p><strong>MultiParameterWrapper makes it easy to create a MultiParameter from existing Parameters.</strong></p>
+<p><strong>``MultiParameterWrapper`` makes it easy to create a ``MultiParameter`` from existing Parameters.</strong></p>
 <p>See the <a class="reference external" href="https://qcodespp.github.io/parameters.html#multiparameter-and-multiparameterwrapper">MultiParameterWrapper documentation</a> for more details.</p>
 </section>
 </section>

@@ -19,7 +19,7 @@ the package for you. qcodes++ features
 * True live plotting and an integrated offline plotting/analysis tool
 * Improvements to core qcodes functions (e.g. Station, Parameters) to streamline data acquisition, protect (meta)data integtrity and minimise user error
 * Improved drivers for certain instruments
-* and other user-friendliness improvements outlined in the following.
+* and other user-friendliness improvements
 
 The source code is available `here <https://github.com/qcodespp/qcodespp>`__, and the following documentation will guide you on how to quickly and easily start running measurements.
 

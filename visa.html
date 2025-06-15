@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Connecting to actual instruments &mdash; qcodes++ 0.1.0 documentation</title>
+  <title>Instruments &mdash; qcodes++ 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Data loading and analysis" href="data_analysis.html" />
-    <link rel="prev" title="More about Parameters" href="parameters.html" /> 
+    <link rel="prev" title="Parameters" href="parameters.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,8 +48,8 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dummy_measurements.html">Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="more_features.html">Commonly used features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parameters.html">More about Parameters</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Connecting to actual instruments</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">Parameters</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Instruments</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#where-are-the-drivers">Where are the drivers?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-do-i-know-which-features-an-instrument-has">How do I know which features an instrument has?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#writing-your-own-driver">Writing your own driver</a></li>
@@ -78,7 +78,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Connecting to actual instruments</li>
+      <li class="breadcrumb-item active">Instruments</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/visa.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -88,8 +88,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="connecting-to-actual-instruments">
-<h1>Connecting to actual instruments<a class="headerlink" href="#connecting-to-actual-instruments" title="Permalink to this heading"></a></h1>
+  <section id="instruments">
+<h1>Instruments<a class="headerlink" href="#instruments" title="Permalink to this heading"></a></h1>
 <p>The vast majority of scientific instruments communicate via the VISA protocol, whether it’s over GPIB, USB, RS232, or Ethernet. Assuming you’ve installed a National Instruments or Keysight backend to handle VISA, qcodes++ deals with connecting to VISA instruments in a very uniform way. To find out which VISA instruments are attached to your computer, use:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">qcodespp</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qc</span>
 <span class="n">qc</span><span class="o">.</span><span class="n">listVISAinstruments</span><span class="p">()</span>
@@ -106,7 +106,7 @@
 <span class="n">VISA</span> <span class="n">Address</span><span class="p">:</span> <span class="n">ASRL9</span><span class="p">::</span><span class="n">INSTR</span>
 </pre></div>
 </div>
-<p>There are three instruments attached to the computer: two Keithley 2450 Source Meters, one over TCP/IP and one over GPIB, and a QDevil QDAC-II over USB/serial (ASRL). To connect to these instruments in our notebook, we first, import the relevant drivers, then create instrument objects from the drivers, using the addresses printed by <code class="docutils literal notranslate"><span class="pre">listVISAinstruments()</span></code>.</p>
+<p>There are three instruments attached to the computer: two Keithley 2450 Source Meters, one over TCP/IP and one over GPIB, and a QDevil QDAC-II over USB/serial (ASRL). To connect to these instruments in our notebook, we first import the relevant drivers, then create instrument objects from the drivers, using the addresses printed by <code class="docutils literal notranslate"><span class="pre">listVISAinstruments()</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">qcodespp.instrument_drivers.QDevil.QDAC2</span><span class="w"> </span><span class="kn">import</span> <span class="n">QDac2</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">qcodespp.instrument_drivers.tektronix.Keithley_2450</span><span class="w"> </span><span class="kn">import</span> <span class="n">Keithley_2450</span>
 
@@ -158,7 +158,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="parameters.html" class="btn btn-neutral float-left" title="More about Parameters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="parameters.html" class="btn btn-neutral float-left" title="Parameters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="data_analysis.html" class="btn btn-neutral float-right" title="Data loading and analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

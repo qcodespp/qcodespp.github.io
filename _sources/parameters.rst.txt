@@ -1,11 +1,11 @@
-More about Parameters
-=====================
+Parameters
+==========
 
-Parameters are the main way to interact with instruments in qcodes++. They represent a single value that can be set or read from an instrument. Parameters can be simple, like a voltage or current, or more complex, like a waveform or a list of values. Either way, they are more than just a number; the have units, labels and other properties that help to keep track of what they represent.
+``Parameter`` s represent a single value that can be set or read from an instrument. ``Parameter`` s can be simple, like a voltage or current, or more complex, like a waveform or a list of values. Either way, they are more than just a number; the have units, labels and other properties that help to keep track of what they represent. See `the QCoDeS documentation <https://microsoft.github.io/Qcodes/examples/Parameters/Parameters.html>`__ for more information.
 
 Custom parameters
 -----------------
-An incredibly common task is to perform mathematical operations on parameters, e.g. dividing a voltage by a current to get a resistance. However, one cannot simply multiply or divide parameters, since they are not just numbers, but objects with properties. Your computer has no way of knowing that if you divide a voltage by a current, you should get a resistance with unit Ohm. Instead, you can create a new parameter that is defined as a function of other parameters, where you can give it all this information. For example, to create a resistance parameter from a two Parameters named voltage and current, you can do:
+An incredibly common task is to perform mathematical operations on ``Parameter`` s, e.g. dividing a voltage by a current to get a resistance. However, one cannot simply multiply or divide ``Parameter`` s like ``param1*param2``, since they are not just numbers, but objects with properies. You need to also tell the computer that if you divide a voltage by a current, you should get a resistance with unit Ohm. To do this, you create a new ``Parameter``, with the relevant labels and units, and provide (a) function(s) to get and set the new ``Parameter`` s. For example, to create a resistance ``Parameter`` from a two ``Parameter`` s named voltage and current, you can do:
 
 .. code-block:: python
 
@@ -14,17 +14,17 @@ An incredibly common task is to perform mathematical operations on parameters, e
 
 where `lambda <https://docs.python.org/3/reference/expressions.html#lambda>`__ is a way to define a very simple function in python.
 
-The more long form way to it (assuming now the voltage and current measurements come from different instruments) would be:
+This is equivalent to:
 
 .. code-block:: python
 
     def get_resistance():
-        return instrument1.voltage() / instrument2.current()
+        return voltage() / current()
 
     resistance = qc.Parameter('resistance', unit='Ohm', label='Resistance',
                               get_cmd=get_resistance)
 
-In both cases, we can see the parameter has a name, a unit, a label, and a get_cmd that defines how to get the value of the parameter. Parameters also accept a ``set_cmd`` argument, which defines how to set the value of the parameter, if relevant.
+Parameters also accept a ``set_cmd`` argument, which defines how to set the value of the parameter, if relevant.
 
 Defining custom get commands can also enable us to do things like averaging, filtering, or any other operation that is not directly supported by the instrument. e.g.
 
@@ -32,6 +32,7 @@ Defining custom get commands can also enable us to do things like averaging, fil
 
     import numpy as np
     import time
+
     def get_average_voltage():
         # Average as many readings as possible over 1 second
         voltages=[]
@@ -43,7 +44,7 @@ Defining custom get commands can also enable us to do things like averaging, fil
     average_voltage = qc.Parameter('average_voltage', unit='V', label='Average Voltage',
                                    get_cmd=get_average_voltage)
 
-For the special case of a scaling a parameter, there is ``qc.ScaledParameter``, which accepts a base parameter and a scaling factor:
+For the special case of a scaling a parameter, there is ``qc.ScaledParameter``, which accepts a ``Parameter`` to scale and a scaling factor:
 
 .. code-block:: python
 
@@ -52,7 +53,7 @@ For the special case of a scaling a parameter, there is ``qc.ScaledParameter``, 
 
 'Moving' Parameters
 -------------------
-Sometimes you want to sweep a parameter without taking data. This is Useful if you want to set a sensitive parameter, e.g. a gate voltage, where using ``.set()`` could damage the sample. For this you can use
+Sometimes you want to sweep a parameter without taking data. This is useful if you want to set a sensitive parameter, e.g. a gate voltage, where using ``.set()`` could damage the sample. For this you can use
 
 .. code-block:: python
 
@@ -72,15 +73,16 @@ or if you are happy with the default step number (101) and time (0.03 s), simply
 
 MultiParameter and MultiParameterWrapper
 ----------------------------------------
-MultiParameterWrapper enables easily setting, getting and sweeping multiple parameters. It is an extension of the MultiParameter from QCoDeS. To define it, simply provide a list of pre-existing parameters.
+``MultiParameterWrapper`` enables easily setting, getting and sweeping multiple parameters. It is an extension of the ``MultiParameter`` `from QCoDeS <https://microsoft.github.io/Qcodes/examples/Parameters/MultiParameter.html>`__. To define it, simply provide a list of pre-existing parameters.
 
 .. code-block:: python
 
     multi=qc.MultiParameterWrapper((parameter1,parameter2,parameter3),name='multi') 
 
-You can get as usual with multi(), which will return the values for all of the parameters. To set, you can either provide the same number of values as the number of parameters, e.g. multi((0.1,490,5.6)), or a single value to set all contained parameters to the same value, e.g. multi(0)
+You can get as usual with ``multi()``, which will return the values for all of the parameters. To set, you can either provide the same number of values as the number of parameters, e.g. ``multi((0.1,490,5.6))``, or a single value to set all contained parameters to the same value, e.g. multi(0)
 
-To use it in a loop is just like for the standard Parameter except with multiple start and stop values corresponding to each parameter:
+To use it in a ``Loop``, provide multiple ``start`` and ``stop`` values, corresponding to each 
+``Parameter``:
 
 .. code-block:: python
 
@@ -88,7 +90,7 @@ To use it in a loop is just like for the standard Parameter except with multiple
                     start=(A,B,C),stop=(X,Y,Z),num=101,delay=0.1,
                     name='example') 
 
-or if you want to sweep all contained parameters across the same values just provide a single value to each of start and stop.
+or if you want all contained ``Parameter`` s to sweep across the same values, simply provide a single value to each of ``start`` and ``stop``.
 
 .. code-block:: python
 
@@ -96,7 +98,7 @@ or if you want to sweep all contained parameters across the same values just pro
                     start=X,stop=Y,num=101,delay=0.1,
                     name='example') 
 
-In the case that each parameter is sweeping different values, the resulting data.multi array will contain values from 0 to num-1, not the specified setpoints!! However, the parameters declared in MultiParameterWrapper will automatically be measured, meaning you will always know what the parameters were really doing, and can of course plot them.
+In the case that each ``Parameter`` is sweeping different values, the resulting data.multi array will contain values from 0 to num-1, not the specified setpoints!! However, the parameters declared in MultiParameterWrapper will automatically be measured, meaning you will always know what the parameters were really doing, and can of course plot them.
 
 One can also move the parameters
 
