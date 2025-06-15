@@ -55,8 +55,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="visa.html">Instruments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_plot.html">Live plotting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="template.html">Example template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
 <li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a></li>
@@ -90,7 +91,7 @@
              
   <section id="parameters">
 <h1>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">Parameter</span></code> s represent a single value that can be set or read from an instrument. <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> s can be simple, like a voltage or current, or more complex, like a waveform or a list of values. Either way, they are more than just a number; the have units, labels and other properties that help to keep track of what they represent. See <a class="reference external" href="https://microsoft.github.io/Qcodes/examples/Parameters/Parameters.html">the QCoDeS documentation</a> for more information.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> represent a single value that can be set or read from an instrument. A <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> can be simple, like a voltage or current, or more complex, like a waveform or a list of values. Either way, they are more than just a number; the have units, labels and other properties that help to keep track of what they represent. See <a class="reference external" href="https://microsoft.github.io/Qcodes/examples/Parameters/Parameters.html">the QCoDeS documentation</a> for more information.</p>
 <section id="custom-parameters">
 <h2>Custom parameters<a class="headerlink" href="#custom-parameters" title="Permalink to this heading"></a></h2>
 <p>An incredibly common task is to perform mathematical operations on <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> s, e.g. dividing a voltage by a current to get a resistance. However, one cannot simply multiply or divide <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> s like <code class="docutils literal notranslate"><span class="pre">param1*param2</span></code>, since they are not just numbers, but objects with properies. You need to also tell the computer that if you divide a voltage by a current, you should get a resistance with unit Ohm. To do this, you create a new <code class="docutils literal notranslate"><span class="pre">Parameter</span></code>, with the relevant labels and units, and provide (a) function(s) to get and set the new <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> s. For example, to create a resistance <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> from a two <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> s named voltage and current, you can do:</p>
@@ -107,8 +108,7 @@
                           <span class="n">get_cmd</span><span class="o">=</span><span class="n">get_resistance</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Parameters also accept a <code class="docutils literal notranslate"><span class="pre">set_cmd</span></code> argument, which defines how to set the value of the parameter, if relevant.</p>
-<p>Defining custom get commands can also enable us to do things like averaging, filtering, or any other operation that is not directly supported by the instrument. e.g.</p>
+<p>Defining a custom <code class="docutils literal notranslate"><span class="pre">get_cmd</span></code> enables e.g. averaging, filtering, or any other operation that is not directly supported by the instrument.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
@@ -122,6 +122,19 @@
 
 <span class="n">average_voltage</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;average_voltage&#39;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Average Voltage&#39;</span><span class="p">,</span>
                                <span class="n">get_cmd</span><span class="o">=</span><span class="n">get_average_voltage</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parameter</span></code> s also accept a <code class="docutils literal notranslate"><span class="pre">set_cmd</span></code> argument, which defines how to set the value of the <code class="docutils literal notranslate"><span class="pre">Parameter</span></code>, if relevant.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_feed</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="c1"># Set the instrument output to a value scaled by the value at its input</span>
+    <span class="n">intrument</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">value</span> <span class="o">*</span> <span class="n">instrument</span><span class="o">.</span><span class="n">input</span><span class="p">())</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_feed</span><span class="p">():</span>
+    <span class="c1"># Get the instrument output scaled by the value at its input</span>
+    <span class="k">return</span> <span class="n">instrument</span><span class="o">.</span><span class="n">output</span><span class="p">()</span> <span class="o">/</span> <span class="n">instrument</span><span class="o">.</span><span class="n">input</span><span class="p">()</span>
+
+<span class="n">feedparam</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;feedparam&#39;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Voltage&#39;</span><span class="p">,</span>
+                          <span class="n">get_cmd</span><span class="o">=</span><span class="n">get_feed</span><span class="p">,</span> <span class="n">set_cmd</span><span class="o">=</span><span class="n">set_feed</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>For the special case of a scaling a parameter, there is <code class="docutils literal notranslate"><span class="pre">qc.ScaledParameter</span></code>, which accepts a <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> to scale and a scaling factor:</p>

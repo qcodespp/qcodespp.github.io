@@ -54,13 +54,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#breakif">BreakIf</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#live-plotting">Live plotting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="parameters.html">Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visa.html">Instruments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_plot.html">Live plotting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="template.html">Example template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
 <li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a></li>
@@ -154,35 +154,6 @@
 </div>
 <p>See <a class="reference external" href="parameters.html">the page on Parameters</a> for more information about the <code class="docutils literal notranslate"><span class="pre">move</span></code> function.</p>
 </section>
-</section>
-<section id="live-plotting">
-<h2>Live plotting<a class="headerlink" href="#live-plotting" title="Permalink to this heading"></a></h2>
-<p>For more control over live plotting options, you can use the <code class="docutils literal notranslate"><span class="pre">qc.live_plot</span></code> function which returns a <code class="docutils literal notranslate"><span class="pre">qc.Plot</span></code> object and links the <code class="docutils literal notranslate"><span class="pre">Plot</span></code> to a specific <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pp</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">live_plot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>where <code class="docutils literal notranslate"><span class="pre">data</span></code> will typically be <code class="docutils literal notranslate"><span class="pre">loop.data_set</span></code>. To add elements of the <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> to the plot, you use the <code class="docutils literal notranslate"><span class="pre">add</span></code> method:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pp</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">param1</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Parameter 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Parameter 1&#39;</span><span class="p">,</span> <span class="n">subplot</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">pp</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">param2</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Parameter 2&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Parameter 2&#39;</span><span class="p">,</span> <span class="n">subplot</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Note that <code class="docutils literal notranslate"><span class="pre">add</span></code> does <em>not</em> accept <code class="docutils literal notranslate"><span class="pre">Parameters</span></code>, but rather only accepts <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> elements, which can be accessed using e.g. <code class="docutils literal notranslate"><span class="pre">data.param1</span></code> or <code class="docutils literal notranslate"><span class="pre">data.arrays['param1']</span></code>. To add multiple elements to the same subplot, simply use the same index for <code class="docutils literal notranslate"><span class="pre">subplot=</span></code>.</p>
-<p>After you have set up the plot as you prefer, you can run the loop without any arguments, i.e. <code class="docutils literal notranslate"><span class="pre">data=loop.run()</span></code>.</p>
-<p>By default, the provided dataset element is plotted as the y-axis for 1D plots and the z-axis for 2D plots, with the independent variables plotted on their respective axes. You can also specify the x-axis (and y-axis for 2D plots) explicitly by providing the appropriate number of dataset elements as arguments, e.g.:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pp</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">paramx</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">paramy</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">paramz</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Parameter 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Parameter 1&#39;</span><span class="p">,</span> <span class="n">subplot</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>If you want to continue to add data to the plot from a <em>different</em> <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code>/<code class="docutils literal notranslate"><span class="pre">Loop</span></code>, you can do so by linking the plot to the new DataSetPP via the DataSetPP’s <code class="docutils literal notranslate"><span class="pre">publisher</span></code> method. Some examples:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">new_data</span><span class="o">.</span><span class="n">publisher</span><span class="o">=</span><span class="n">pp</span>
-<span class="n">pp</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new_data</span><span class="o">.</span><span class="n">param1</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Parameter 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Parameter 1&#39;</span><span class="p">,</span> <span class="n">subplot</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">new_loop</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">new_loop</span><span class="o">.</span><span class="n">data_set</span><span class="o">.</span><span class="n">publisher</span><span class="o">=</span><span class="n">pp</span>
-<span class="n">pp</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new_loop</span><span class="o">.</span><span class="n">data_set</span><span class="o">.</span><span class="n">param1</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Parameter 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Parameter 1&#39;</span><span class="p">,</span> <span class="n">subplot</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">new_loop</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</pre></div>
-</div>
 </section>
 </section>
 

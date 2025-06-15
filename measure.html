@@ -50,8 +50,9 @@
 <li class="toctree-l1"><a class="reference internal" href="more_features.html">Commonly used features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parameters.html">Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visa.html">Instruments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_plot.html">Live plotting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="template.html">Example template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Data loading and analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">The Measure class</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#setpoints">Setpoints</a></li>
@@ -88,8 +89,7 @@
              
   <section id="the-measure-class">
 <h1>The Measure class<a class="headerlink" href="#the-measure-class" title="Permalink to this heading"></a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">Measure</span></code> is used to measure a set of parameters at a single point in time. The typical use case is where the parameter(s)’s get function(s) return(s) an array, e.g. an oscilloscope trace, or a spectrum analyser trace. At init, you can provide the parameters to measure and (optionally) setpoints. If no parameters are
-provided, the default station.measure() is used. If no setpoints are provided, dummy setpoints are created for each dimension found in the parametersn (recommended, see below). <code class="docutils literal notranslate"><span class="pre">Measure.run()</span></code> will execute the measurement, and return and save a <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Measure</span></code> is used to measure a set of <code class="docutils literal notranslate"><span class="pre">parameter</span></code> s at a single point in time. The typical use case is where the <code class="docutils literal notranslate"><span class="pre">parameter</span></code> (s)’s get function(s) return(s) an array, e.g. an oscilloscope trace, or a spectrum analyser trace. At init, you can provide the <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> s to measure and (optionally) <code class="docutils literal notranslate"><span class="pre">setpoints</span></code>. If no <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> s are provided, the default <code class="docutils literal notranslate"><span class="pre">station.measure()</span></code> is used. If no <code class="docutils literal notranslate"><span class="pre">setpoints</span></code> are provided, dummy setpoints are created for each dimension found in the parameters (recommended, see below). <code class="docutils literal notranslate"><span class="pre">Measure.run()</span></code> will execute the measurement, and return and save a <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code></p>
 <p>Examples:</p>
 <p>Measure two parameters:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station</span><span class="o">.</span><span class="n">set_measurement</span><span class="p">(</span><span class="n">array_param1</span><span class="p">,</span> <span class="n">array_param2</span><span class="p">)</span>

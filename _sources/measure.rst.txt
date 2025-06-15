@@ -1,8 +1,7 @@
 The Measure class
 =================
 
-``Measure`` is used to measure a set of parameters at a single point in time. The typical use case is where the parameter(s)'s get function(s) return(s) an array, e.g. an oscilloscope trace, or a spectrum analyser trace. At init, you can provide the parameters to measure and (optionally) setpoints. If no parameters are 
-provided, the default station.measure() is used. If no setpoints are provided, dummy setpoints are created for each dimension found in the parametersn (recommended, see below). ``Measure.run()`` will execute the measurement, and return and save a ``DataSetPP``
+``Measure`` is used to measure a set of ``parameter`` s at a single point in time. The typical use case is where the ``parameter`` (s)'s get function(s) return(s) an array, e.g. an oscilloscope trace, or a spectrum analyser trace. At init, you can provide the ``Parameter`` s to measure and (optionally) ``setpoints``. If no ``Parameter`` s are provided, the default ``station.measure()`` is used. If no ``setpoints`` are provided, dummy setpoints are created for each dimension found in the parameters (recommended, see below). ``Measure.run()`` will execute the measurement, and return and save a ``DataSetPP``
 
 Examples:
 
