@@ -1,7 +1,7 @@
 qcodes++ documentation
 ======================
 
-qcodes++ (aka qcodespp, qcpp, qc++) is a python package to run scientific experiments. qcodes++ is built on top of `QCoDeS <https://qcodes.github.io/Qcodes/>`__, both preserving old features and extending capabilities.
+qcodes++ (aka qcodespp, qcpp, qc++) is a python package to run scientific experiments. qcodes++ is built on top of `QCoDeS <https://qcodes.github.io/Qcodes/>`__, both extending capabilities and preserving older features.
 
 QCoDeS is a Python-based data acquisition framework developed by the
 Copenhagen / Delft / Sydney / Microsoft quantum computing consortium.
@@ -33,8 +33,9 @@ The source code is available `here <https://github.com/qcodespp/qcodespp>`__, an
    more_features
    parameters
    visa
-   data_analysis
+   live_plot
    template
+   data_analysis
    offline_plotting
    measure
    advanced

@@ -1,7 +1,7 @@
 Parameters
 ==========
 
-``Parameter`` s represent a single value that can be set or read from an instrument. ``Parameter`` s can be simple, like a voltage or current, or more complex, like a waveform or a list of values. Either way, they are more than just a number; the have units, labels and other properties that help to keep track of what they represent. See `the QCoDeS documentation <https://microsoft.github.io/Qcodes/examples/Parameters/Parameters.html>`__ for more information.
+A ``Parameter`` represent a single value that can be set or read from an instrument. A ``Parameter`` can be simple, like a voltage or current, or more complex, like a waveform or a list of values. Either way, they are more than just a number; the have units, labels and other properties that help to keep track of what they represent. See `the QCoDeS documentation <https://microsoft.github.io/Qcodes/examples/Parameters/Parameters.html>`__ for more information.
 
 Custom parameters
 -----------------
@@ -24,9 +24,7 @@ This is equivalent to:
     resistance = qc.Parameter('resistance', unit='Ohm', label='Resistance',
                               get_cmd=get_resistance)
 
-Parameters also accept a ``set_cmd`` argument, which defines how to set the value of the parameter, if relevant.
-
-Defining custom get commands can also enable us to do things like averaging, filtering, or any other operation that is not directly supported by the instrument. e.g.
+Defining a custom ``get_cmd`` enables e.g. averaging, filtering, or any other operation that is not directly supported by the instrument.
 
 .. code-block:: python
 
@@ -43,6 +41,21 @@ Defining custom get commands can also enable us to do things like averaging, fil
 
     average_voltage = qc.Parameter('average_voltage', unit='V', label='Average Voltage',
                                    get_cmd=get_average_voltage)
+
+``Parameter`` s also accept a ``set_cmd`` argument, which defines how to set the value of the ``Parameter``, if relevant.
+
+.. code-block:: python
+
+    def set_feed(value):
+        # Set the instrument output to a value scaled by the value at its input
+        intrument.output(value * instrument.input())
+
+    def get_feed():
+        # Get the instrument output scaled by the value at its input
+        return instrument.output() / instrument.input()
+
+    feedparam = qc.Parameter('feedparam', unit='V', label='Voltage',
+                              get_cmd=get_feed, set_cmd=set_feed)
 
 For the special case of a scaling a parameter, there is ``qc.ScaledParameter``, which accepts a ``Parameter`` to scale and a scaling factor:
 
