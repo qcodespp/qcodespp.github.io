@@ -23,8 +23,8 @@ The above graphic gives a rough conceptualisation of qcodes++ structure.
 * The Data Set defines the independent parameter’s setpoints as a Loop
 * Running a Loop collects measurements of the desired dependent parameters. 
 * Station also sends important metadata to the DataSet including the value of every Parameter from every Instrument at the start of the Loop, whether that Parameter was measured at each setpoint of the Loop or not.
-* In addition to the Loop, qcodes++ also has a Measure function, which simply measures a set of parameters
-at a single point in time, without looping.
+
+In addition to the Loop, qcodes++ also has a Measure function, which simply measures a set of parameters at a single point in time, without looping.
 
 Two options for plotting are available: live plotting, which is very fast and allows you to see the data as it is being collected, and offline plotting, in which more complex analysis is possible; e.g. curve fitting, linecuts of 2D data, taking derivatives, etc.
 
