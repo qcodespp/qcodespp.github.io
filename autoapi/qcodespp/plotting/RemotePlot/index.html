@@ -122,14 +122,20 @@
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemotePlot.live_plot">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.RemotePlot.</span></span><span class="sig-name descname"><span class="pre">live_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_items</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemotePlot.live_plot" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.RemotePlot.</span></span><span class="sig-name descname"><span class="pre">live_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_items</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemotePlot.live_plot" title="Permalink to this definition"></a></dt>
 <dd><p>Entry point for live plotting of qcodespp data.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><dl class="simple">
+<dt><a href="#id1"><span class="problematic" id="id2">*</span></a>args (DataSetPP, DataArray, Parameter, list, tuple): Positional arguments can be:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code>: The dataset to link to the live plot.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DataArray</span></code> or <code class="docutils literal notranslate"><span class="pre">Parameter</span></code>: The data items to plot.</p></li>
+<li><p>A list or tuple of <code class="docutils literal notranslate"><span class="pre">DataArray</span></code> or <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> objects to plot.</p></li>
+</ul>
+</dd>
 <dt>data_set (<code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code>, optional): The <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> to link to the live plot.</dt><dd><p>If not provided, it will try to use the default dataset.
 If no data_set, one can add items to the plot, but the data will not be tracked.</p>
 </dd>
-<dt><a href="#id1"><span class="problematic" id="id2">*</span></a>data_items (Sequence[<code class="docutils literal notranslate"><span class="pre">DataArray</span></code>, <code class="docutils literal notranslate"><span class="pre">Parameter</span></code>], optional): List of <code class="docutils literal notranslate"><span class="pre">DataArray</span></code></dt><dd><p>or <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> objects to plot. If not provided, nothing will be plotted initially,
+<dt>data_items (Sequence[<code class="docutils literal notranslate"><span class="pre">DataArray</span></code>, <code class="docutils literal notranslate"><span class="pre">Parameter</span></code>], optional): List of <code class="docutils literal notranslate"><span class="pre">DataArray</span></code></dt><dd><p>or <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> objects to plot. If not provided, nothing will be plotted initially,
 the user can use <code class="docutils literal notranslate"><span class="pre">Plot.add()</span></code> later.</p>
 </dd>
 </dl>
@@ -290,7 +296,15 @@ name (str, optional): Name of the plot instance. If not provided, a random UUID 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemotePlot.Plot.add_multiple">
 <span class="sig-name descname"><span class="pre">add_multiple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">z_params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.RemotePlot.Plot.add_multiple" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Add multiple <code class="docutils literal notranslate"><span class="pre">DataArray</span></code> s to the <code class="docutils literal notranslate"><span class="pre">Plot</span></code>.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt><a href="#id3"><span class="problematic" id="id4">*</span></a>z_params (Sequence [DataArray]): DataArrays to be added to the Plot.</dt><dd><p>Each DataArray is added to a separate subplot.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.RemotePlot.Plot.add">
@@ -298,7 +312,7 @@ name (str, optional): Name of the plot instance. If not provided, a random UUID 
 <dd><p>Add a trace to the plot.</p>
 <dl>
 <dt>Args:</dt><dd><dl class="simple">
-<dt><a href="#id3"><span class="problematic" id="id4">*</span></a>args (DataArray): positional arguments, can be:</dt><dd><ul class="simple">
+<dt><a href="#id5"><span class="problematic" id="id6">*</span></a>args (DataArray): positional arguments, can be:</dt><dd><ul class="simple">
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">y</span></code> or <code class="docutils literal notranslate"><span class="pre">z</span></code>: specify just the 1D or 2D data independent parameter, with the setpoint</dt><dd><p>axis or axes implied from the DataSetPP setpoints.</p>
 </dd>
