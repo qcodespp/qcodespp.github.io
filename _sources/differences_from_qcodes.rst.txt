@@ -30,8 +30,8 @@ since anything with a '.' after qcodes doesn't necessarily exist in qcodes++, an
 
 **2) qcodes++ relies mainly on instrument drivers from QCoDeS and the qcodes_contrib_drivers.** In fact the instrument drivers included in qcodes++ are hopefully only here temporarily, and will be pulled back into QCoDeS or the qcodes_contrib_drivers in the near future.
 
-The big difference: Data structure.
------------------------------------
+The big difference: Data structure
+----------------------------------
 
 **In summary**: If you only ever do 1D or 2D measurements, qcodes++ makes it easy to obtain, visualise and share data. If you want to do more complex measurements, you may prefer QCoDeS.
 
@@ -47,8 +47,8 @@ However, there is potentially one big disadvantage:
 
 **The good news**: If you install qcodes++, you can use both datasets and measurement philosophies side-by-side!
 
-Small differences in existing classes:
---------------------------------------
+Small differences in existing classes
+-------------------------------------
 
 **The ``Station`` class has the following additional functions:**
 

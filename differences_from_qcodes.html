@@ -59,8 +59,8 @@
 <li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use of Loop</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Comparing qcodes++ and QCoDeS</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#things-that-are-the-same">Things that are the same</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#the-big-difference-data-structure">The big difference: Data structure.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#small-differences-in-existing-classes">Small differences in existing classes:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-big-difference-data-structure">The big difference: Data structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#small-differences-in-existing-classes">Small differences in existing classes</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
@@ -113,7 +113,7 @@
 <p><strong>2) qcodes++ relies mainly on instrument drivers from QCoDeS and the qcodes_contrib_drivers.</strong> In fact the instrument drivers included in qcodes++ are hopefully only here temporarily, and will be pulled back into QCoDeS or the qcodes_contrib_drivers in the near future.</p>
 </section>
 <section id="the-big-difference-data-structure">
-<h2>The big difference: Data structure.<a class="headerlink" href="#the-big-difference-data-structure" title="Permalink to this heading"></a></h2>
+<h2>The big difference: Data structure<a class="headerlink" href="#the-big-difference-data-structure" title="Permalink to this heading"></a></h2>
 <p><strong>In summary</strong>: If you only ever do 1D or 2D measurements, qcodes++ makes it easy to obtain, visualise and share data. If you want to do more complex measurements, you may prefer QCoDeS.</p>
 <p><strong>In detail</strong>: The qcodes++ dataset, <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code>, is a text-based dataset, where all the data is stored in numpy arrays of pre-determined shape. There are big advantages:</p>
 <ul class="simple">
@@ -128,7 +128,7 @@
 <p><strong>The good news</strong>: If you install qcodes++, you can use both datasets and measurement philosophies side-by-side!</p>
 </section>
 <section id="small-differences-in-existing-classes">
-<h2>Small differences in existing classes:<a class="headerlink" href="#small-differences-in-existing-classes" title="Permalink to this heading"></a></h2>
+<h2>Small differences in existing classes<a class="headerlink" href="#small-differences-in-existing-classes" title="Permalink to this heading"></a></h2>
 <p><strong>The ``Station`` class has the following additional functions:</strong></p>
 <ul class="simple">
 <li><p>Upon init, <code class="docutils literal notranslate"><span class="pre">Station</span></code> accepts the argument <code class="docutils literal notranslate"><span class="pre">add_variables=vars</span></code> where <code class="docutils literal notranslate"><span class="pre">vars</span></code> can be e.g. <code class="docutils literal notranslate"><span class="pre">globals()</span></code> or <code class="docutils literal notranslate"><span class="pre">locals()</span></code>. This feature looks through ALL previously declared variables within the vars, and if the varible is a Parameter or instance, it adds it to the Station. This means you don’t have to do <code class="docutils literal notranslate"><span class="pre">station.add_component()</span></code> for every Instrument and Parameter. Just declare them before declaring the Station and use <code class="docutils literal notranslate"><span class="pre">station</span> <span class="pre">=</span> <span class="pre">Station(add_variables=globals())</span></code>.</p></li>
