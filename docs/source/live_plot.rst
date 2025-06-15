@@ -1,7 +1,7 @@
 Live plotting
 =============
 
-As we've seen so far, if you just want to plot a ``Parameter`` in each of the subplots of the live plotting windown, you can simply pass the list of ``Parameters`` to ``loop.run()``. You can also pass them when you define the ``Loop`` using the ``plot`` argument, e.g.:
+As we've seen so far, if you just want to plot a ``Parameter`` in each of the subplots of the live plotting window, you can simply pass the list of ``Parameters`` to ``loop.run()``. You can also pass them when you define the ``Loop`` using the ``plot`` argument, e.g.:
 
 .. code-block:: python
 
@@ -12,7 +12,7 @@ As we've seen so far, if you just want to plot a ``Parameter`` in each of the su
                measure=[currentX, currentY, voltageX, voltageY, resistance],
                plot=[currentX,voltageX,resistance])
 
-For more control over live plotting options, you can use the ``qc.live_plot`` function which returns a ``qc.Plot`` object and links the ``Plot`` to a specific ``DataSetPP``.
+For more control over live plotting options, you can use the ``qc.live_plot`` function which returns a ``qc.Plot`` object and optionally links a specific ``DataSetPP`` to it.
 
 .. code-block:: python
 
@@ -48,3 +48,14 @@ If you want to continue to add data to the plot from a *different* ``DataSetPP``
     new_loop.data_set.publisher=pp
     pp.add(new_loop.data_set.param1, title='Parameter 1', name='Parameter 1', subplot=2)
     new_loop.run()
+
+Finally, the ``add_multiple()`` method takes a list of ``DataSetPP`` elements and plots them in different subplots.
+
+.. code-block:: python
+
+    data = loop.data_set
+    pp = qc.live_plot(data)
+    pp.add_multiple(data.param1, data.param2, data.param3)
+    loop.run()
+
+The above behaviour is excatly the same as ``pp = qc.live_plot(data, [data.param1, data.param2, data.param3])``, but ``add_multiple()`` is useful if you want to add more elements to the plot later. Note that ``add_multiple()`` also accepts only ``DataSetPP`` elements, not ``Parameters``.
