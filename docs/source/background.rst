@@ -6,10 +6,10 @@ The conceptual components of qcodes are:
 1)	Drivers for setting and reading parameters from instruments
 2)	A framework for the storage and organization of data
 3)  Loops, i.e. step-wise increment an independent parameter (e.g. a voltage)
+4)  Plotting tools for data visualisation
 
-This means that one can vary an independent parameter, measure all dependent parameters, and store these
-data in a well-organised format. This is pretty much all one ever does in science. Two different plotting
-options are available for data visualisation and analysis.
+This means that one can vary an independent parameter, measure all dependent parameters, store these
+data in a well-organised format, and visualise them. This is pretty much all one ever does in science.
 
 .. figure:: qcodes_visualiser.png
     :alt: Qcodes++ structure visualisation
@@ -36,4 +36,4 @@ imposed by the ``DataSetPP`` enables the plotting capabilities developed by Merl
 
 In short; if you want a user-friendly way to collect and plot data, use qcodes++. If you need something
 highly customisable, use QCoDeS. The good news; installing qcodes++ does not interfere with a QCoDeS
-installation, and in fact requires it; this means you can use the best of both worlds!
+installation, and in fact requires it; this means you can use the best of both worlds! `See here for a more detailed comparison. <https://qcodespp.github.io/differences_from_qcodes.html>`__
