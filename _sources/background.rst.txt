@@ -14,7 +14,8 @@ options are available for data visualisation and analysis.
 .. figure:: qcodes_visualiser.png
     :alt: Qcodes++ structure visualisation
     :align: center
-    
+     
+
 The above graphic gives a rough conceptualisation of qcodes++ structure. 
 
 * The Station contains Instruments, which each contain various Parameters that can be measured and/or set. 
