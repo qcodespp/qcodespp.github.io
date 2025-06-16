@@ -7,7 +7,7 @@ qcodespp.plotting.offline.design
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.offline.design.app
 
@@ -15,7 +15,7 @@ Attributes
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.offline.design.Ui_MainWindow
 

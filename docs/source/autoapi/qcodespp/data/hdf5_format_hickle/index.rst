@@ -7,7 +7,7 @@ qcodespp.data.hdf5_format_hickle
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.data.hdf5_format_hickle.log
 
@@ -15,7 +15,7 @@ Attributes
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.data.hdf5_format_hickle.HDF5FormatHickle
 

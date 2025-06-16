@@ -12,7 +12,7 @@ qcodespp.station
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.station.Station
 

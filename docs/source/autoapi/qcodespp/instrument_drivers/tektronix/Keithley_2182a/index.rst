@@ -7,7 +7,7 @@ qcodespp.instrument_drivers.tektronix.Keithley_2182a
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.tektronix.Keithley_2182a.Keithley_2182a
 
@@ -15,7 +15,7 @@ Classes
 Functions
 ---------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.tektronix.Keithley_2182a.parse_output_string
    qcodespp.instrument_drivers.tektronix.Keithley_2182a.parse_output_bool

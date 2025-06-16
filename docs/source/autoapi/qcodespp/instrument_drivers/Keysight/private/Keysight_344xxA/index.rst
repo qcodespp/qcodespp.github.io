@@ -7,7 +7,7 @@ qcodespp.instrument_drivers.Keysight.private.Keysight_344xxA
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.Keysight.private.Keysight_344xxA.log
 
@@ -15,7 +15,7 @@ Attributes
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.Keysight.private.Keysight_344xxA.ArrayMeasurement
 

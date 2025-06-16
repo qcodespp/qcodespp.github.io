@@ -12,7 +12,7 @@ qcodespp.actions
 Exceptions
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.actions.UnsafeThreadingException
 
@@ -20,7 +20,7 @@ Exceptions
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.actions.Task
    qcodespp.actions.Wait

@@ -7,7 +7,7 @@ qcodespp.instrument_drivers.national_instruments.PXI_6733_e
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.national_instruments.PXI_6733_e.p
 
@@ -15,7 +15,7 @@ Attributes
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.national_instruments.PXI_6733_e.ParameterArray
    qcodespp.instrument_drivers.national_instruments.PXI_6733_e.AOTask

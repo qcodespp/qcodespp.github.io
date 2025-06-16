@@ -7,7 +7,7 @@ qcodespp.data.format
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.data.format.log
 
@@ -15,7 +15,7 @@ Attributes
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.data.format.Formatter
 

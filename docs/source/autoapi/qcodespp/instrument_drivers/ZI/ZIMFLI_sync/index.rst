@@ -7,7 +7,7 @@ qcodespp.instrument_drivers.ZI.ZIMFLI_sync
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.ZI.ZIMFLI_sync.daq
 
@@ -15,7 +15,7 @@ Attributes
 Functions
 ---------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.ZI.ZIMFLI_sync.MDS_addDevice
    qcodespp.instrument_drivers.ZI.ZIMFLI_sync.MDS_setDevices

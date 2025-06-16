@@ -14,7 +14,7 @@ qcodespp.plotting.offline.filters
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.offline.filters.Filter
 
@@ -22,7 +22,7 @@ Classes
 Functions
 ---------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.offline.filters.derivative
    qcodespp.plotting.offline.filters.integrate

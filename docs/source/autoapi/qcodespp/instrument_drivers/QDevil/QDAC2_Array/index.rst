@@ -7,7 +7,7 @@ qcodespp.instrument_drivers.QDevil.QDAC2_Array
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.QDevil.QDAC2_Array.Array_Arrangement_Context
    qcodespp.instrument_drivers.QDevil.QDAC2_Array.QDac2_Array

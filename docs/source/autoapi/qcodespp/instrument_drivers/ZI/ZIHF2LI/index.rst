@@ -7,7 +7,7 @@ qcodespp.instrument_drivers.ZI.ZIHF2LI
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.ZI.ZIHF2LI.ZIHF2LI
 

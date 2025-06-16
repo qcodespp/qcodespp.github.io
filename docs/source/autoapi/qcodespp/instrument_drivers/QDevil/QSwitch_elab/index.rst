@@ -7,7 +7,7 @@ qcodespp.instrument_drivers.QDevil.QSwitch_elab
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.QDevil.QSwitch_elab.State
    qcodespp.instrument_drivers.QDevil.QSwitch_elab.relay_lines
@@ -17,7 +17,7 @@ Attributes
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.QDevil.QSwitch_elab.QSwitch
 
@@ -25,7 +25,7 @@ Classes
 Functions
 ---------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.QDevil.QSwitch_elab.channel_list_to_state
    qcodespp.instrument_drivers.QDevil.QSwitch_elab.state_to_expanded_list

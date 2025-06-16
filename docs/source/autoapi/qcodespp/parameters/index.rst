@@ -14,7 +14,7 @@ qcodespp.parameters
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.parameters.ArrayParameterWrapper
    qcodespp.parameters.MultiParameterWrapper
@@ -23,7 +23,7 @@ Classes
 Functions
 ---------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.parameters.move
    qcodespp.parameters.sweep

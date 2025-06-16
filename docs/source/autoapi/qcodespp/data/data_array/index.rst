@@ -7,7 +7,7 @@ qcodespp.data.data_array
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.data.data_array.DataArray
 

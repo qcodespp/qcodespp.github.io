@@ -7,7 +7,7 @@ qcodespp.plotting.offline.datatypes
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.offline.datatypes.DataItem
    qcodespp.plotting.offline.datatypes.BaseClassData

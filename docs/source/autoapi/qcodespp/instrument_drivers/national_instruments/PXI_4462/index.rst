@@ -7,7 +7,7 @@ qcodespp.instrument_drivers.national_instruments.PXI_4462
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.national_instruments.PXI_4462.p
 
@@ -15,7 +15,7 @@ Attributes
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.national_instruments.PXI_4462.ParameterArray
    qcodespp.instrument_drivers.national_instruments.PXI_4462.AITask

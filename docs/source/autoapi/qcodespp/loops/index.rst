@@ -63,7 +63,7 @@ qcodespp.loops
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.loops.log
 
@@ -71,7 +71,7 @@ Attributes
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.loops.Loop
    qcodespp.loops.ActiveLoop
@@ -80,7 +80,7 @@ Classes
 Functions
 ---------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.loops.loop1d
    qcodespp.loops.loop2d

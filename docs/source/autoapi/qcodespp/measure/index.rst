@@ -7,7 +7,7 @@ qcodespp.measure
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.measure.Measure
 

@@ -7,7 +7,7 @@ qcodespp.plotting.offline.main
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.offline.main.DARK_THEME
    qcodespp.plotting.offline.main.qdarkstyle_imported
@@ -16,7 +16,7 @@ Attributes
 Functions
 ---------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.offline.main.offline_plotting
    qcodespp.plotting.offline.main.main

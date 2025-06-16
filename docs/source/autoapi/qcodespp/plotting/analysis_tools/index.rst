@@ -12,7 +12,7 @@ qcodespp.plotting.analysis_tools
 Functions
 ---------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.analysis_tools.colorplot
    qcodespp.plotting.analysis_tools.colored_traces

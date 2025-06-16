@@ -7,7 +7,7 @@ qcodespp.instrument_drivers.multiplexer_instrument
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.multiplexer_instrument.MultiplexerChannel
    qcodespp.instrument_drivers.multiplexer_instrument.Multiplexer

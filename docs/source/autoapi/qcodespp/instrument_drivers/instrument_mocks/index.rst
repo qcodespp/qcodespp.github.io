@@ -7,7 +7,7 @@ qcodespp.instrument_drivers.instrument_mocks
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.instrument_mocks.log
 
@@ -15,7 +15,7 @@ Attributes
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.instrument_mocks.MockParabola
    qcodespp.instrument_drivers.instrument_mocks.MockMetaParabola
@@ -33,7 +33,7 @@ Classes
 Functions
 ---------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.instrument_mocks.setpoint_generator
 

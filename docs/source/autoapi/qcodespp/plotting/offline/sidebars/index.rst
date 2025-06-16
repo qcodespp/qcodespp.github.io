@@ -7,7 +7,7 @@ qcodespp.plotting.offline.sidebars
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.offline.sidebars.Sidebar1D
 
