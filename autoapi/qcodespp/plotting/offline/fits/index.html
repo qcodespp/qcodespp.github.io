@@ -19,9 +19,7 @@
       <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="qcodespp.plotting.offline.helpers" href="../helpers/index.html" />
-    <link rel="prev" title="qcodespp.plotting.offline.filters" href="../filters/index.html" /> 
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,7 +42,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../background.html">Background</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../dummy_measurements.html">Getting started</a></li>
@@ -58,29 +56,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../measure.html">The Measure class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../advanced.html">Advanced use of Loop</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">qcodespp</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html#submodules">Submodules</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../../../actions/index.html">qcodespp.actions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../data/index.html">qcodespp.data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../instrument_drivers/index.html">qcodespp.instrument_drivers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../loops/index.html">qcodespp.loops</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../measure/index.html">qcodespp.measure</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../parameters/index.html">qcodespp.parameters</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../../index.html">qcodespp.plotting</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../station/index.html">qcodespp.station</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../utils/index.html">qcodespp.utils</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../version/index.html">qcodespp.version</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../index.html#attributes">Attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../index.html#classes">Classes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../index.html#functions">Functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../index.html#package-contents">Package Contents</a></li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 
         </div>
@@ -97,10 +72,6 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../../../../index.html">API Reference</a></li>
-          <li class="breadcrumb-item"><a href="../../../index.html">qcodespp</a></li>
-          <li class="breadcrumb-item"><a href="../../index.html">qcodespp.plotting</a></li>
-          <li class="breadcrumb-item"><a href="../index.html">qcodespp.plotting.offline</a></li>
       <li class="breadcrumb-item active">qcodespp.plotting.offline.fits</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../../../_sources/autoapi/qcodespp/plotting/offline/fits/index.rst.txt" rel="nofollow"> View page source</a>
@@ -124,15 +95,17 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.linear">
 <span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">linear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.linear" title="Permalink to this definition"></a></dt>
-<dd><p>Fit a linear model to the data.
-Args:</p>
-<blockquote>
-<div><p>xdata: x data to fit
-ydata: y data to fit</p>
-<p>Initial guesses and inputinfo not used.</p>
-</div></blockquote>
+<dd><p>Fit a linear model to the data.</p>
 <dl class="simple">
-<dt>Returns:</dt><dd><p>result: lmfit result object.</p>
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>xdata: x data to fit</p></li>
+<li><p>ydata: y data to fit</p></li>
+<li><p>Initial guesses and inputinfo not used.</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>result: lmfit result object.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -140,16 +113,18 @@ ydata: y data to fit</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.polynomial">
 <span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">polynomial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.polynomial" title="Permalink to this definition"></a></dt>
-<dd><p>Fit a polynomial model to the data.
-Args:</p>
-<blockquote>
-<div><p>xdata: x data to fit
-ydata: y data to fit
-inputinfo (int): degree of the polynomial to fit. Default 2</p>
-<p>Initial guesses (p0) are not used.</p>
-</div></blockquote>
+<dd><p>Fit a polynomial model to the data.</p>
 <dl class="simple">
-<dt>Returns:</dt><dd><p>result: lmfit result object.</p>
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>xdata: x data to fit</p></li>
+<li><p>ydata: y data to fit</p></li>
+<li><p>inputinfo (int): degree of the polynomial to fit. Default 2</p></li>
+<li><p>Initial guesses (p0) are not used.</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>result: lmfit result object.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -159,12 +134,16 @@ inputinfo (int): degree of the polynomial to fit. Default 2</p>
 <span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fit_powerlaw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.fit_powerlaw" title="Permalink to this definition"></a></dt>
 <dd><p>Fit a power law model to the data.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>xdata: x data to fit
-ydata: y data to fit
-p0 (opt.): initial guesses for the parameters. Should be a list of floats.
-inputinfo: a list containing the number of terms in the power law and whether to include a constant offset.</p>
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>xdata: x data to fit</p></li>
+<li><p>ydata: y data to fit</p></li>
+<li><p>p0 (opt.): initial guesses for the parameters. Should be a list of floats.</p></li>
+<li><p>inputinfo: a list containing the number of terms in the power law and whether to include a constant offset.</p></li>
+</ul>
 </dd>
-<dt>Returns:</dt><dd><p>result: lmfit result object.</p>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>result: lmfit result object.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -174,12 +153,16 @@ inputinfo: a list containing the number of terms in the power law and whether to
 <span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fit_exponentials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.fit_exponentials" title="Permalink to this definition"></a></dt>
 <dd><p>Fit one or more exponential terms to the data, with or without a constant offset.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>xdata: x data to fit
-ydata: y data to fit
-p0 (opt.): initial guesses for the parameters. Should be a list of floats.
-inputinfo: a list containing the number of terms in the exponential and whether to include a constant offset.</p>
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>xdata: x data to fit</p></li>
+<li><p>ydata: y data to fit</p></li>
+<li><p>p0 (opt.): initial guesses for the parameters. Should be a list of floats.</p></li>
+<li><p>inputinfo: a list containing the number of terms in the exponential and whether to include a constant offset.</p></li>
+</ul>
 </dd>
-<dt>Returns:</dt><dd><p>result: lmfit result object.</p>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>result: lmfit result object.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -188,17 +171,22 @@ inputinfo: a list containing the number of terms in the exponential and whether 
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.fit_lorgausstype">
 <span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fit_lorgausstype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modeltype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.fit_lorgausstype" title="Permalink to this definition"></a></dt>
 <dd><p>Fits x,y data with peaks characterised by amplitude, fwhm and position.</p>
-<dl>
-<dt>Args:</dt><dd><dl class="simple">
-<dt>modeltype: lmfit model to use for fitting. Options are:</dt><dd><p>LorentzianModel, GaussianModel, LognormalModel, StudentsTModel, DampedOscillatorModel</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>modeltype: lmfit model to use for fitting. Options are</dt><dd><p>LorentzianModel, GaussianModel, LognormalModel, StudentsTModel, DampedOscillatorModel</p>
 </dd>
 </dl>
-<p>xdata: x data to fit
-ydata: y data to fit
-p0 (opt.): initial guesses for the parameters. Should be a list of strings.
-inputinfo: a list containing the number of peaks to fit and whether to include a constant offset.</p>
+</li>
+<li><p>xdata: x data to fit</p></li>
+<li><p>ydata: y data to fit</p></li>
+<li><p>p0 (opt.): initial guesses for the parameters. Should be a list of strings.</p></li>
+<li><p>inputinfo: a list containing the number of peaks to fit and whether to include a constant offset.</p></li>
+</ul>
 </dd>
-<dt>Returns:</dt><dd><p>result: lmfit result object.</p>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>result: lmfit result object.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -207,18 +195,23 @@ inputinfo: a list containing the number of peaks to fit and whether to include a
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.fit_voigttype">
 <span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fit_voigttype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modeltype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.fit_voigttype" title="Permalink to this definition"></a></dt>
 <dd><p>Fits x,y data with peaks characterised by amplitude, fwhm, position and gamma.</p>
-<dl>
-<dt>Args:</dt><dd><dl class="simple">
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><dl class="simple">
 <dt>modeltype: lmfit model to use for fitting. Options are:</dt><dd><p>VoigtModel, PseudoVoigtModel, BreitWignerModel, SplitLorentzianModel, ExponentialGaussianModel,
 SkewedGaussianModel, MoffatModel, Pearson7Model, DampedHarmonicOscillatorModel, DoniachModel</p>
 </dd>
 </dl>
-<p>xdata: x data to fit
-ydata: y data to fit
-p0 (opt.): initial guesses for the parameters. Should be a list of strings.
-inputinfo: a list containing the number of peaks to fit and whether to include a constant offset.</p>
+</li>
+<li><p>xdata: x data to fit</p></li>
+<li><p>ydata: y data to fit</p></li>
+<li><p>p0 (opt.): initial guesses for the parameters. Should be a list of strings.</p></li>
+<li><p>inputinfo: a list containing the number of peaks to fit and whether to include a constant offset.</p></li>
+</ul>
 </dd>
-<dt>Returns:</dt><dd><p>result: lmfit result object.</p>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>result: lmfit result object.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -226,20 +219,23 @@ inputinfo: a list containing the number of peaks to fit and whether to include a
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.fit_skewedpeaks">
 <span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fit_skewedpeaks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modeltype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.fit_skewedpeaks" title="Permalink to this definition"></a></dt>
-<dd><p>Fits x,y data with peaks characterised by amplitude, fwhm, position, gamma and skew.
-Args:</p>
-<blockquote>
-<div><dl class="simple">
+<dd><p>Fits x,y data with peaks characterised by amplitude, fwhm, position, gamma and skew.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><dl class="simple">
 <dt>modeltype: lmfit model to use for fitting. Options are:</dt><dd><p>Pearson4Model, SkewedVoigtModel</p>
 </dd>
 </dl>
-<p>xdata: x data to fit
-ydata: y data to fit
-p0 (opt.): initial guesses for the parameters. Should be a list of strings.
-inputinfo: a list containing the number of peaks to fit and whether to include a constant offset.</p>
-</div></blockquote>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>result: lmfit result object.</p>
+</li>
+<li><p>xdata: x data to fit</p></li>
+<li><p>ydata: y data to fit</p></li>
+<li><p>p0 (opt.): initial guesses for the parameters. Should be a list of strings.</p></li>
+<li><p>inputinfo: a list containing the number of peaks to fit and whether to include a constant offset.</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>result: lmfit result object.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -247,16 +243,18 @@ inputinfo: a list containing the number of peaks to fit and whether to include a
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.fit_sines">
 <span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">fit_sines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.fit_sines" title="Permalink to this definition"></a></dt>
-<dd><p>Fits x,y data with multiple sine waves characterised by amplitude, frequency, phase and position.
-Args:</p>
-<blockquote>
-<div><p>xdata: x data to fit
-ydata: y data to fit
-p0 (opt.): initial guesses for the parameters. Should be a list of strings.
-inputinfo: a list containing the number of sine waves to fit and whether to include a constant offset.</p>
-</div></blockquote>
+<dd><p>Fits x,y data with multiple sine waves characterised by amplitude, frequency, phase and position.</p>
 <dl class="simple">
-<dt>Returns:</dt><dd><p>result: lmfit result object.</p>
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>xdata: x data to fit</p></li>
+<li><p>ydata: y data to fit</p></li>
+<li><p>p0 (opt.): initial guesses for the parameters. Should be a list of strings.</p></li>
+<li><p>inputinfo: a list containing the number of sine waves to fit and whether to include a constant offset.</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>result: lmfit result object.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -264,20 +262,23 @@ inputinfo: a list containing the number of sine waves to fit and whether to incl
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.thermal_fit">
 <span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">thermal_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modeltype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.thermal_fit" title="Permalink to this definition"></a></dt>
-<dd><p>Fits x,y data with a thermal distribution characterised by temperature and amplitude.
-Args:</p>
-<blockquote>
-<div><dl class="simple">
+<dd><p>Fits x,y data with a thermal distribution characterised by temperature and amplitude.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><dl class="simple">
 <dt>modeltype (str): the type of thermal distribution to fit. Options are:</dt><dd><p>maxwell, fermi, bose.</p>
 </dd>
 </dl>
-<p>xdata: x data to fit
-ydata: y data to fit
-p0 (opt.): initial guesses for the parameters. Should be a list of floats.
-inputinfo: not used.</p>
-</div></blockquote>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>result: lmfit result object.</p>
+</li>
+<li><p>xdata: x data to fit</p></li>
+<li><p>ydata: y data to fit</p></li>
+<li><p>p0 (opt.): initial guesses for the parameters. Should be a list of floats.</p></li>
+<li><p>inputinfo: not used.</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>result: lmfit result object.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -285,20 +286,23 @@ inputinfo: not used.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.step_fit">
 <span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">step_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modeltype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.step_fit" title="Permalink to this definition"></a></dt>
-<dd><p>Fits x,y data with a step function characterised by amplitude, center and sigma.
-Args:</p>
-<blockquote>
-<div><dl class="simple">
+<dd><p>Fits x,y data with a step function characterised by amplitude, center and sigma.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><dl class="simple">
 <dt>modeltype (str): the type of step function to fit. Options are:</dt><dd><p>linear, arctan, erf, logistic</p>
 </dd>
 </dl>
-<p>xdata: x data to fit
-ydata: y data to fit
-p0 (opt.): initial guesses for the parameters. Should be a list of floats.
-inputinfo: not used.</p>
-</div></blockquote>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>result: lmfit result object.</p>
+</li>
+<li><p>xdata: x data to fit</p></li>
+<li><p>ydata: y data to fit</p></li>
+<li><p>p0 (opt.): initial guesses for the parameters. Should be a list of floats.</p></li>
+<li><p>inputinfo: not used.</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>result: lmfit result object.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -306,20 +310,24 @@ inputinfo: not used.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.rectangle_fit">
 <span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">rectangle_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modeltype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.rectangle_fit" title="Permalink to this definition"></a></dt>
-<dd><p>Fits x,y data with a rectangle function characterised by amplitude, center1, center2, sigma1 and sigma2.
-Args:</p>
+<dd><p>Fits x,y data with a rectangle function characterised by amplitude, center1, center2, sigma1 and sigma2.</p>
+<dl>
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>modeltype (str): the type of rectangle function to fit. Options are:</p></li>
+</ul>
 <blockquote>
-<div><dl class="simple">
-<dt>modeltype (str): the type of rectangle function to fit. Options are:</dt><dd><p>linear, arctan, erf, logistic</p>
-</dd>
-</dl>
-<p>xdata: x data to fit
-ydata: y data to fit
-p0 (opt.): initial guesses for the parameters. Should be a list of floats.
-inputinfo: not used.</p>
+<div><p>linear, arctan, erf, logistic</p>
 </div></blockquote>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>result: lmfit result object.</p>
+<ul class="simple">
+<li><p>xdata: x data to fit</p></li>
+<li><p>ydata: y data to fit</p></li>
+<li><p>p0 (opt.): initial guesses for the parameters. Should be a list of floats.</p></li>
+<li><p>inputinfo: not used.</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>result: lmfit result object.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -327,19 +335,22 @@ inputinfo: not used.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.expression_fit">
 <span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">expression_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.expression_fit" title="Permalink to this definition"></a></dt>
-<dd><p>Fits x,y data with an arbitrary expression using lmfit’s ExpressionModel.
-Args:</p>
-<blockquote>
-<div><p>xdata: x data to fit
-ydata: y data to fit
-p0 (opt.): initial guesses for the parameters. Should be a list of strings.</p>
-<blockquote>
-<div><p>Format should be: [‘x0=x0_value’, ‘G0=G0_value’, …]</p>
-</div></blockquote>
-<p>inputinfo: The expression to fit, as a string. Should be a valid lmfit expression.</p>
-</div></blockquote>
+<dd><p>Fits x,y data with an arbitrary expression using lmfit’s ExpressionModel.</p>
 <dl class="simple">
-<dt>Returns:</dt><dd><p>result: lmfit result object.</p>
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>xdata: x data to fit</p></li>
+<li><p>ydata: y data to fit</p></li>
+<li><dl class="simple">
+<dt>p0 (opt.): initial guesses for the parameters. Should be a list of strings.</dt><dd><p>Format should be: [‘x0=x0_value’, ‘G0=G0_value’, …]</p>
+</dd>
+</dl>
+</li>
+<li><p>inputinfo: The expression to fit, as a string. Should be a valid lmfit expression.</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>result: lmfit result object.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -348,19 +359,25 @@ p0 (opt.): initial guesses for the parameters. Should be a list of strings.</p>
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.QD_fit">
 <span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">QD_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0.01]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.QD_fit" title="Permalink to this definition"></a></dt>
 <dd><p>Fits one or more Coulomb blockade peaks in the limit of low tunnel coupling: ‘G = G_0 * cosh(e*alpha*(Vg - V_0)/(2*k_B*T))**(-2)</p>
-<dl>
-<dt>Args:</dt><dd><p>xdata: x data to fit
-ydata: y data to fit
-p0 (opt.): initial guesses for the parameters. Should be a list of strings.</p>
-<blockquote>
-<div><p>Format should be: [‘x0 x0 … x0’,’G0 G0 … G0’,’T’]</p>
-</div></blockquote>
 <dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>xdata: x data to fit</p></li>
+<li><p>ydata: y data to fit</p></li>
+<li><dl class="simple">
+<dt>p0 (opt.): initial guesses for the parameters. Should be a list of strings.</dt><dd><p>Format should be: [‘x0 x0 … x0’,’G0 G0 … G0’,’T’]</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>inputinfo: a list containing the number of peaks to fit and the alpha parameter.</dt><dd><p>Format should be: [numofpeaks, alpha]</p>
 </dd>
 </dl>
+</li>
+</ul>
 </dd>
-<dt>Returns:</dt><dd><p>result: lmfit result object.</p>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>result: lmfit result object.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -368,22 +385,26 @@ p0 (opt.): initial guesses for the parameters. Should be a list of strings.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.FET_mobility">
 <span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">FET_mobility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.FET_mobility" title="Permalink to this definition"></a></dt>
-<dd><p>Fits x,y data with a FET mobility model: ‘1/(R_s + L**2/(C*mu*(x-V_th)))’
-Args:</p>
-<blockquote>
-<div><p>xdata: x data to fit
-ydata: y data to fit
-p0 (opt.): List of initial guesses for the parameters.</p>
-<blockquote>
-<div><p>Format should be: [mu, V_th, R_s]</p>
-</div></blockquote>
+<dd><p>Fits x,y data with a FET mobility model: ‘1/(R_s + L**2/(C*mu*(x-V_th)))’</p>
 <dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>xdata: x data to fit</p></li>
+<li><p>ydata: y data to fit</p></li>
+<li><dl class="simple">
+<dt>p0 (opt.): List of initial guesses for the parameters.</dt><dd><p>Format should be: [mu, V_th, R_s]</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>inputinfo: a list containing the capacitance C and device length L.</dt><dd><p>Format should be: [C, L]</p>
 </dd>
 </dl>
-</div></blockquote>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>result: lmfit result object.</p>
+</li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>result: lmfit result object.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -392,16 +413,21 @@ p0 (opt.): List of initial guesses for the parameters.</p>
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.dynes_fit">
 <span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">dynes_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.dynes_fit" title="Permalink to this definition"></a></dt>
 <dd><p>Fits x,y data with a Dynes model for a superconducting gap: ‘G_N * abs((e*x - i*gamma*e)/(sqrt((e*x - i*gamma*e)**2 - (delta*e)**2)))’</p>
-<dl>
-<dt>Args:</dt><dd><p>xdata: x data to fit
-ydata: y data to fit
-p0 (opt.): initial guesses for the parameters. Should be a list of floats.</p>
-<blockquote>
-<div><p>Format should be: [G_N, gamma, delta]</p>
-</div></blockquote>
-<p>inputinfo: not used.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>xdata: x data to fit</p></li>
+<li><p>ydata: y data to fit</p></li>
+<li><dl class="simple">
+<dt>p0 (opt.): initial guesses for the parameters. Should be a list of floats.</dt><dd><p>Format should be: [G_N, gamma, delta]</p>
 </dd>
-<dt>Returns:</dt><dd><p>result: lmfit result object.</p>
+</dl>
+</li>
+<li><p>inputinfo: not used.</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>result: lmfit result object.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -410,16 +436,21 @@ p0 (opt.): initial guesses for the parameters. Should be a list of floats.</p>
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.ramsey_fit">
 <span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">ramsey_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.ramsey_fit" title="Permalink to this definition"></a></dt>
 <dd><p>Fits x,y data with a Ramsey model for T2 of a qubit: ‘A*cos(2*pi*f*x + phi)*exp(-x/T2) + B + C*x’</p>
-<dl>
-<dt>Args:</dt><dd><p>xdata: x data to fit
-ydata: y data to fit
-p0 (opt.): initial guesses for the parameters. Should be a list of floats.</p>
-<blockquote>
-<div><p>Format should be: [A, B, C, f, phi, T2]</p>
-</div></blockquote>
-<p>inputinfo: not used.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>xdata: x data to fit</p></li>
+<li><p>ydata: y data to fit</p></li>
+<li><dl class="simple">
+<dt>p0 (opt.): initial guesses for the parameters. Should be a list of floats.</dt><dd><p>Format should be: [A, B, C, f, phi, T2]</p>
 </dd>
-<dt>Returns:</dt><dd><p>result: lmfit result object.</p>
+</dl>
+</li>
+<li><p>inputinfo: not used.</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>result: lmfit result object.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -439,17 +470,21 @@ p0 (opt.): initial guesses for the parameters. Should be a list of floats.</p>
 - n(V) = hbar*(Vdc-Vdc_0)/(2*e*Rc*k_B*T), where hbar is the reduced Planck’s constant, e is the electron charge, k_B is the Boltzmann constant, and T is the temperature
 - B = jc*hbar/(2*e*k_B*T)</p>
 <p>See e.g. <a class="reference external" href="https://www.science.org/doi/suppl/10.1126/sciadv.aav1235/suppl_file/aav1235_sm.pdf">https://www.science.org/doi/suppl/10.1126/sciadv.aav1235/suppl_file/aav1235_sm.pdf</a>, page 14 onwards.</p>
-<dl>
-<dt>Args:</dt><dd><p>xdata: x data to fit (Vdc)
-ydata: y data to fit (dI/dV)
-p0 (opt.): Initial guesses for jc, Rj, Rc, Vdc_0 and c (the constant offset).</p>
-<blockquote>
-<div><p>Format should be: [jc, Rj, Rc, Vdc_0, c]</p>
-</div></blockquote>
 <dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>xdata: x data to fit (Vdc)</p></li>
+<li><p>ydata: y data to fit (dI/dV)</p></li>
+<li><dl class="simple">
+<dt>p0 (opt.): Initial guesses for jc, Rj, Rc, Vdc_0 and c (the constant offset).</dt><dd><p>Format should be: [jc, Rj, Rc, Vdc_0, c]</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>inputinfo: A list containing the temperature in Kelvin. If not provided, defaults to 0.02 K.</dt><dd><p>Format should be: [T]</p>
 </dd>
 </dl>
+</li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -457,7 +492,27 @@ p0 (opt.): Initial guesses for jc, Rj, Rc, Vdc_0 and c (the constant offset).</p
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.statistics">
 <span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.fits.</span></span><span class="sig-name descname"><span class="pre">statistics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputinfo</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.fits.statistics" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Return various statists from the data</p>
+<dl>
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>xdata: x data to use for statistics</p></li>
+<li><p>ydata: y data to use for statistics</p></li>
+<li><p>p0 (opt.): Either percentiles to return or weights of the weighted average.</p></li>
+<li><dl class="simple">
+<dt>inputinfo: A string containing the statistics to return. Options are:</dt><dd><p>‘mean’, ‘average’, ‘std’, ‘var’, ‘median’, ‘min’, ‘max’, ‘range’, ‘sum’, ‘skew’, ‘percentile’, ‘autocorrelation’, ‘autocorrelation_norm’,
+‘all’ (all except percentiles and autocorrelation), ‘all1d’ (all except percentiles, autocorrelation and skew).</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>result: A dictionary containing the requested statistics. If percentiles are requested,</p></li>
+</ul>
+<p>they are also included in the dictionary under the key ‘percentiles’.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.fits.functions">
@@ -580,10 +635,7 @@ p0 (opt.): Initial guesses for jc, Rj, Rc, Vdc_0 and c (the constant offset).</p
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../filters/index.html" class="btn btn-neutral float-left" title="qcodespp.plotting.offline.filters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../helpers/index.html" class="btn btn-neutral float-right" title="qcodespp.plotting.offline.helpers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

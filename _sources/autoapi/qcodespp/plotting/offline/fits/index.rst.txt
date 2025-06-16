@@ -56,28 +56,28 @@ Module Contents
 .. py:function:: linear(xdata, ydata, p0=None, inputinfo=None)
 
    Fit a linear model to the data.
+
    Args:
-       xdata: x data to fit
-       ydata: y data to fit
-       
-       Initial guesses and inputinfo not used.
+       * xdata: x data to fit
+       * ydata: y data to fit
+       * Initial guesses and inputinfo not used.
        
    Returns:
-       result: lmfit result object.
+       * result: lmfit result object.
 
 
 .. py:function:: polynomial(xdata, ydata, p0=None, inputinfo=2)
 
    Fit a polynomial model to the data.
-   Args:
-       xdata: x data to fit
-       ydata: y data to fit
-       inputinfo (int): degree of the polynomial to fit. Default 2
 
-       Initial guesses (p0) are not used.
+   Args:
+       * xdata: x data to fit
+       * ydata: y data to fit
+       * inputinfo (int): degree of the polynomial to fit. Default 2
+       * Initial guesses (p0) are not used.
 
    Returns:
-       result: lmfit result object.
+       * result: lmfit result object.
 
 
 .. py:function:: fit_powerlaw(xdata, ydata, p0=None, inputinfo=[1, 0])
@@ -85,12 +85,13 @@ Module Contents
    Fit a power law model to the data.
 
    Args:
-       xdata: x data to fit
-       ydata: y data to fit
-       p0 (opt.): initial guesses for the parameters. Should be a list of floats.
-       inputinfo: a list containing the number of terms in the power law and whether to include a constant offset.
+       * xdata: x data to fit
+       * ydata: y data to fit
+       * p0 (opt.): initial guesses for the parameters. Should be a list of floats.
+       * inputinfo: a list containing the number of terms in the power law and whether to include a constant offset.
+
    Returns:
-       result: lmfit result object.
+       - result: lmfit result object.
 
 
 .. py:function:: fit_exponentials(xdata, ydata, p0=None, inputinfo=[1, 0])
@@ -98,13 +99,13 @@ Module Contents
    Fit one or more exponential terms to the data, with or without a constant offset.
 
    Args:
-       xdata: x data to fit
-       ydata: y data to fit
-       p0 (opt.): initial guesses for the parameters. Should be a list of floats.
-       inputinfo: a list containing the number of terms in the exponential and whether to include a constant offset.
+       * xdata: x data to fit
+       * ydata: y data to fit
+       * p0 (opt.): initial guesses for the parameters. Should be a list of floats.
+       * inputinfo: a list containing the number of terms in the exponential and whether to include a constant offset.
 
    Returns:
-       result: lmfit result object.
+       * result: lmfit result object.
 
 
 .. py:function:: fit_lorgausstype(modeltype, xdata, ydata, p0=None, inputinfo=[1, 0])
@@ -112,14 +113,15 @@ Module Contents
    Fits x,y data with peaks characterised by amplitude, fwhm and position.
 
    Args:
-       modeltype: lmfit model to use for fitting. Options are:
+       * modeltype: lmfit model to use for fitting. Options are 
            LorentzianModel, GaussianModel, LognormalModel, StudentsTModel, DampedOscillatorModel
-       xdata: x data to fit
-       ydata: y data to fit
-       p0 (opt.): initial guesses for the parameters. Should be a list of strings.
-       inputinfo: a list containing the number of peaks to fit and whether to include a constant offset.
+       * xdata: x data to fit
+       * ydata: y data to fit
+       * p0 (opt.): initial guesses for the parameters. Should be a list of strings.
+       * inputinfo: a list containing the number of peaks to fit and whether to include a constant offset.
+
    Returns:
-       result: lmfit result object.
+       * result: lmfit result object.
 
 
 .. py:function:: fit_voigttype(modeltype, xdata, ydata, p0=None, inputinfo=[1, 0])
@@ -127,99 +129,110 @@ Module Contents
    Fits x,y data with peaks characterised by amplitude, fwhm, position and gamma.
 
    Args:
-       modeltype: lmfit model to use for fitting. Options are:
+       * modeltype: lmfit model to use for fitting. Options are:
            VoigtModel, PseudoVoigtModel, BreitWignerModel, SplitLorentzianModel, ExponentialGaussianModel,
            SkewedGaussianModel, MoffatModel, Pearson7Model, DampedHarmonicOscillatorModel, DoniachModel
-       xdata: x data to fit
-       ydata: y data to fit
-       p0 (opt.): initial guesses for the parameters. Should be a list of strings.
-       inputinfo: a list containing the number of peaks to fit and whether to include a constant offset.
+       * xdata: x data to fit
+       * ydata: y data to fit
+       * p0 (opt.): initial guesses for the parameters. Should be a list of strings.
+       * inputinfo: a list containing the number of peaks to fit and whether to include a constant offset.
 
    Returns:
-       result: lmfit result object.
+       * result: lmfit result object.
 
 
 .. py:function:: fit_skewedpeaks(modeltype, xdata, ydata, p0=None, inputinfo=[1, 0])
 
    Fits x,y data with peaks characterised by amplitude, fwhm, position, gamma and skew.
+
    Args:
-       modeltype: lmfit model to use for fitting. Options are:
+       * modeltype: lmfit model to use for fitting. Options are:
            Pearson4Model, SkewedVoigtModel
-       xdata: x data to fit
-       ydata: y data to fit
-       p0 (opt.): initial guesses for the parameters. Should be a list of strings.
-       inputinfo: a list containing the number of peaks to fit and whether to include a constant offset.
+       * xdata: x data to fit
+       * ydata: y data to fit
+       * p0 (opt.): initial guesses for the parameters. Should be a list of strings.
+       * inputinfo: a list containing the number of peaks to fit and whether to include a constant offset.
+
    Returns:
-       result: lmfit result object.
+       * result: lmfit result object.
 
 
 .. py:function:: fit_sines(xdata, ydata, p0=None, inputinfo=[1, 0])
 
    Fits x,y data with multiple sine waves characterised by amplitude, frequency, phase and position.
+
    Args:
-       xdata: x data to fit
-       ydata: y data to fit
-       p0 (opt.): initial guesses for the parameters. Should be a list of strings.
-       inputinfo: a list containing the number of sine waves to fit and whether to include a constant offset.
+       * xdata: x data to fit
+       * ydata: y data to fit
+       * p0 (opt.): initial guesses for the parameters. Should be a list of strings.
+       * inputinfo: a list containing the number of sine waves to fit and whether to include a constant offset.
+
    Returns:
-       result: lmfit result object.
+       * result: lmfit result object.
 
 
 .. py:function:: thermal_fit(modeltype, xdata, ydata, p0=None, inputinfo=None)
 
    Fits x,y data with a thermal distribution characterised by temperature and amplitude.
+
    Args:
-       modeltype (str): the type of thermal distribution to fit. Options are:
+       * modeltype (str): the type of thermal distribution to fit. Options are:
            maxwell, fermi, bose.
-       xdata: x data to fit
-       ydata: y data to fit
-       p0 (opt.): initial guesses for the parameters. Should be a list of floats.
-       inputinfo: not used.
+       * xdata: x data to fit
+       * ydata: y data to fit
+       * p0 (opt.): initial guesses for the parameters. Should be a list of floats.
+       * inputinfo: not used.
+
    Returns:
-       result: lmfit result object.
+       * result: lmfit result object.
 
 
 .. py:function:: step_fit(modeltype, xdata, ydata, p0=None, inputinfo=None)
 
    Fits x,y data with a step function characterised by amplitude, center and sigma.
+
    Args:
-       modeltype (str): the type of step function to fit. Options are:
+       * modeltype (str): the type of step function to fit. Options are:
            linear, arctan, erf, logistic
 
-       xdata: x data to fit
-       ydata: y data to fit
-       p0 (opt.): initial guesses for the parameters. Should be a list of floats.
-       inputinfo: not used.
+       * xdata: x data to fit
+       * ydata: y data to fit
+       * p0 (opt.): initial guesses for the parameters. Should be a list of floats.
+       * inputinfo: not used.
 
    Returns:
-       result: lmfit result object.
+       * result: lmfit result object.
 
 
 .. py:function:: rectangle_fit(modeltype, xdata, ydata, p0=None, inputinfo=None)
 
    Fits x,y data with a rectangle function characterised by amplitude, center1, center2, sigma1 and sigma2.
+
    Args:
-       modeltype (str): the type of rectangle function to fit. Options are:
+       * modeltype (str): the type of rectangle function to fit. Options are:
         linear, arctan, erf, logistic
-       xdata: x data to fit
-       ydata: y data to fit
-       p0 (opt.): initial guesses for the parameters. Should be a list of floats.
-       inputinfo: not used.
+       * xdata: x data to fit
+       * ydata: y data to fit
+       * p0 (opt.): initial guesses for the parameters. Should be a list of floats.
+       * inputinfo: not used.
+
    Returns:
-       result: lmfit result object.
+       * result: lmfit result object.
 
 
 .. py:function:: expression_fit(xdata, ydata, p0, inputinfo)
 
    Fits x,y data with an arbitrary expression using lmfit's ExpressionModel.
+
    Args:
-       xdata: x data to fit
-       ydata: y data to fit
-       p0 (opt.): initial guesses for the parameters. Should be a list of strings.
+       * xdata: x data to fit
+       * ydata: y data to fit
+       * p0 (opt.): initial guesses for the parameters. Should be a list of strings.
            Format should be: ['x0=x0_value', 'G0=G0_value', ...]
-       inputinfo: The expression to fit, as a string. Should be a valid lmfit expression.
+       * inputinfo: The expression to fit, as a string. Should be a valid lmfit expression.
+
    Returns:
-       result: lmfit result object.
+       * result: lmfit result object.
 
 
 .. py:function:: QD_fit(xdata, ydata, p0=None, inputinfo=[1, 0.01])
@@ -227,28 +240,31 @@ Module Contents
    Fits one or more Coulomb blockade peaks in the limit of low tunnel coupling: 'G = G_0 * cosh(e*alpha*(Vg - V_0)/(2*k_B*T))**(-2)
 
    Args:
-       xdata: x data to fit
-       ydata: y data to fit
-       p0 (opt.): initial guesses for the parameters. Should be a list of strings.
+       * xdata: x data to fit
+       * ydata: y data to fit
+       * p0 (opt.): initial guesses for the parameters. Should be a list of strings.
            Format should be: ['x0 x0 ... x0','G0 G0 ... G0','T']
-       inputinfo: a list containing the number of peaks to fit and the alpha parameter.
+       * inputinfo: a list containing the number of peaks to fit and the alpha parameter.
            Format should be: [numofpeaks, alpha]
+
    Returns:
-       result: lmfit result object.
+       * result: lmfit result object.
 
 
 .. py:function:: FET_mobility(xdata, ydata, p0=None, inputinfo=None)
 
    Fits x,y data with a FET mobility model: '1/(R_s + L**2/(C*mu*(x-V_th)))'
+
    Args:
-       xdata: x data to fit
-       ydata: y data to fit
-       p0 (opt.): List of initial guesses for the parameters.
+       * xdata: x data to fit
+       * ydata: y data to fit
+       * p0 (opt.): List of initial guesses for the parameters.
            Format should be: [mu, V_th, R_s]
-       inputinfo: a list containing the capacitance C and device length L.
+       * inputinfo: a list containing the capacitance C and device length L.
            Format should be: [C, L]
+
    Returns:
-       result: lmfit result object.
+       * result: lmfit result object.
 
 
 .. py:function:: dynes_fit(xdata, ydata, p0=None, inputinfo=None)
@@ -256,13 +272,14 @@ Module Contents
    Fits x,y data with a Dynes model for a superconducting gap: 'G_N * abs((e*x - i*gamma*e)/(sqrt((e*x - i*gamma*e)**2 - (delta*e)**2)))'
 
    Args:
-       xdata: x data to fit
-       ydata: y data to fit
-       p0 (opt.): initial guesses for the parameters. Should be a list of floats.
+       * xdata: x data to fit
+       * ydata: y data to fit
+       * p0 (opt.): initial guesses for the parameters. Should be a list of floats.
            Format should be: [G_N, gamma, delta]
-       inputinfo: not used.
+       * inputinfo: not used.
+
    Returns:
-       result: lmfit result object.
+       * result: lmfit result object.
 
 
 .. py:function:: ramsey_fit(xdata, ydata, p0, inputinfo)
@@ -270,13 +287,14 @@ Module Contents
    Fits x,y data with a Ramsey model for T2 of a qubit: 'A*cos(2*pi*f*x + phi)*exp(-x/T2) + B + C*x'
 
    Args:
-       xdata: x data to fit
-       ydata: y data to fit
-       p0 (opt.): initial guesses for the parameters. Should be a list of floats.
+       * xdata: x data to fit
+       * ydata: y data to fit
+       * p0 (opt.): initial guesses for the parameters. Should be a list of floats.
            Format should be: [A, B, C, f, phi, T2]
-       inputinfo: not used.
+       * inputinfo: not used.
+
    Returns:
-       result: lmfit result object.
+       * result: lmfit result object.
 
 
 .. py:function:: RCSJfit(xdata, ydata, p0=None, inputinfo=None)
@@ -299,15 +317,30 @@ Module Contents
    See e.g. https://www.science.org/doi/suppl/10.1126/sciadv.aav1235/suppl_file/aav1235_sm.pdf, page 14 onwards.
 
    Args:
-       xdata: x data to fit (Vdc)
-       ydata: y data to fit (dI/dV)
-       p0 (opt.): Initial guesses for jc, Rj, Rc, Vdc_0 and c (the constant offset).
+       * xdata: x data to fit (Vdc)
+       * ydata: y data to fit (dI/dV)
+       * p0 (opt.): Initial guesses for jc, Rj, Rc, Vdc_0 and c (the constant offset).
            Format should be: [jc, Rj, Rc, Vdc_0, c]
-       inputinfo: A list containing the temperature in Kelvin. If not provided, defaults to 0.02 K.
+       * inputinfo: A list containing the temperature in Kelvin. If not provided, defaults to 0.02 K.
            Format should be: [T]
 
 
 .. py:function:: statistics(xdata, ydata, p0, inputinfo)
+
+   Return various statists from the data
+
+   Args:
+       * xdata: x data to use for statistics
+       * ydata: y data to use for statistics
+       * p0 (opt.): Either percentiles to return or weights of the weighted average.
+       * inputinfo: A string containing the statistics to return. Options are:
+           'mean', 'average', 'std', 'var', 'median', 'min', 'max', 'range', 'sum', 'skew', 'percentile', 'autocorrelation', 'autocorrelation_norm',
+           'all' (all except percentiles and autocorrelation), 'all1d' (all except percentiles, autocorrelation and skew).
+
+   Returns:
+       * result: A dictionary containing the requested statistics. If percentiles are requested,
+       they are also included in the dictionary under the key 'percentiles'.
+
 
 .. py:data:: functions
 
