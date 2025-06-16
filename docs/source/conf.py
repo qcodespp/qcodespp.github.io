@@ -31,7 +31,14 @@ extensions = [
 # autoapi_keep_files = True
 
 exclude_patterns = ['_build', '_templates', "**.ipynb_checkpoints"]
-
+# autosummary_generate = True
+# autodoc_default_options = {
+#     'members': True,
+#     'undoc-members': True,
+#     'show-inheritance': True,
+#     'show-module-summary': True,
+#     'special-members': '__init__'
+# }
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
