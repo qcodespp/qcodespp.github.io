@@ -44,4 +44,4 @@ coincidentally we have always named our plotting windows pp, e.g. pp = qc.live_p
    measure
    advanced
    differences_from_qcodes
-   api/index
+   autoapi/index
