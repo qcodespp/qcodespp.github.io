@@ -10,3 +10,5 @@ sphinx-build -M html source build
 Comment out again all the autoapi-related lines in the conf file.
 
 Commit and push.
+
+Everything except the commit and push is now done automatically by running automake.bat
