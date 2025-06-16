@@ -22,23 +22,8 @@ extensions = [
     'sphinx.ext.doctest',
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary']
-#     'autoapi.extension',
-# ]
-
-# autoapi_dirs=['C:/git/qcodespp/qcodespp']
-# autoapi_options=[ 'members', 'undoc-members','show-inheritance', 'show-module-summary', 'special-members', 'imported-members']
-# templates_path = ['_templates']
-# autoapi_keep_files = True
 
 exclude_patterns = ['_build', '_templates', "**.ipynb_checkpoints"]
-autosummary_generate = False
-# autodoc_default_options = {
-#     'members': True,
-#     'undoc-members': True,
-#     'show-inheritance': True,
-#     'show-module-summary': True,
-#     'special-members': '__init__'
-# }
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
