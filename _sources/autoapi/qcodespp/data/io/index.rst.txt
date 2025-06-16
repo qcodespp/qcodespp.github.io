@@ -51,7 +51,7 @@ qcodespp.data.io
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.data.io.ALLOWED_OPEN_MODES
 
@@ -59,7 +59,7 @@ Attributes
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.data.io.DiskIO
 

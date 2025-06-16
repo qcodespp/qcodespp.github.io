@@ -7,7 +7,7 @@ qcodespp.instrument_drivers.tektronix.Keithley_2450
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.tektronix.Keithley_2450.Keithley_2450
 

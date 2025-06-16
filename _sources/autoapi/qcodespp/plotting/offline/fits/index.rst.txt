@@ -7,7 +7,7 @@ qcodespp.plotting.offline.fits
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.offline.fits.functions
    qcodespp.plotting.offline.fits.multipeak_description
@@ -22,7 +22,7 @@ Attributes
 Functions
 ---------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.offline.fits.linear
    qcodespp.plotting.offline.fits.polynomial

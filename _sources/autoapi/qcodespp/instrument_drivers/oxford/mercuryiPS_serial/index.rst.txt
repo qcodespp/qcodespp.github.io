@@ -7,7 +7,7 @@ qcodespp.instrument_drivers.oxford.mercuryiPS_serial
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.oxford.mercuryiPS_serial.MercuryiPSArray
    qcodespp.instrument_drivers.oxford.mercuryiPS_serial.MercuryiPS_120

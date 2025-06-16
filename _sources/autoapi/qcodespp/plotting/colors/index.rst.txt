@@ -7,7 +7,7 @@ qcodespp.plotting.colors
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.colors.color_cycle
    qcodespp.plotting.colors.colorscales_raw
@@ -17,7 +17,7 @@ Attributes
 Functions
 ---------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.colors.make_rgba
    qcodespp.plotting.colors.one_rgba

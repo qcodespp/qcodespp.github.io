@@ -7,7 +7,7 @@ qcodespp.version
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.version.__version__
 

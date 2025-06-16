@@ -7,7 +7,7 @@ qcodespp.utils.helpers
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.utils.helpers.log
 
@@ -15,7 +15,7 @@ Attributes
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.utils.helpers.NumpyJSONEncoder
    qcodespp.utils.helpers.LogCapture
@@ -25,7 +25,7 @@ Classes
 Functions
 ---------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.utils.helpers.tprint
    qcodespp.utils.helpers.is_sequence

@@ -7,7 +7,7 @@ qcodespp.instrument_drivers.tektronix.Keithley_2000_Scan
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.tektronix.Keithley_2000_Scan.Keithley_2000_Scan_Channel
 

@@ -7,7 +7,7 @@ qcodespp.instrument_drivers.oxford.triton
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.oxford.triton.Triton
 

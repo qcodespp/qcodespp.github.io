@@ -12,7 +12,7 @@ qcodespp.plotting.RemotePlotClient
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.RemotePlotClient.qtapp
    qcodespp.plotting.RemotePlotClient.app_icon
@@ -22,7 +22,7 @@ Attributes
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.RemotePlotClient.DataSet
    qcodespp.plotting.RemotePlotClient.ZeroMQ_Listener

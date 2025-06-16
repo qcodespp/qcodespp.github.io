@@ -7,7 +7,7 @@ qcodespp.plotting.offline.helpers
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.offline.helpers.cmaps
    qcodespp.plotting.offline.helpers.DARK_COLOR
@@ -18,7 +18,7 @@ Attributes
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.offline.helpers.MidpointNormalize
    qcodespp.plotting.offline.helpers.NavigationToolbarMod
@@ -29,7 +29,7 @@ Classes
 Functions
 ---------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.offline.helpers.rcParams_to_dark_theme
    qcodespp.plotting.offline.helpers.rcParams_to_light_theme

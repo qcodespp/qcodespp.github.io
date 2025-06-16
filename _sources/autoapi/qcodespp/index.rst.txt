@@ -25,7 +25,7 @@ Submodules
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.config
    qcodespp.__version__
@@ -34,7 +34,7 @@ Attributes
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.Station
    qcodespp.Loop
@@ -50,7 +50,7 @@ Classes
 Functions
 ---------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.loop1d
    qcodespp.loop2d

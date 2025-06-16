@@ -7,7 +7,7 @@ qcodespp.instrument_drivers.QDevil.QDAC2
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.QDevil.QDAC2.error_ambiguous_wave
    qcodespp.instrument_drivers.QDevil.QDAC2.ExternalInput
@@ -16,7 +16,7 @@ Attributes
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Trigger_Context
    qcodespp.instrument_drivers.QDevil.QDAC2.QDac2ExternalTrigger
@@ -38,7 +38,7 @@ Classes
 Functions
 ---------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.QDevil.QDAC2.ints_to_comma_separated_list
    qcodespp.instrument_drivers.QDevil.QDAC2.floats_to_comma_separated_list

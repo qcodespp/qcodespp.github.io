@@ -12,7 +12,7 @@ qcodespp.data.data_set
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.data.data_set.log
 
@@ -20,7 +20,7 @@ Attributes
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.data.data_set.DataSetPP
 
@@ -28,7 +28,7 @@ Classes
 Functions
 ---------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.data.data_set.new_data
    qcodespp.data.data_set.load_data

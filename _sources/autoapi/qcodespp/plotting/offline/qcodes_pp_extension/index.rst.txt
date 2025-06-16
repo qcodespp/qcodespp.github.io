@@ -7,7 +7,7 @@ qcodespp.plotting.offline.qcodes_pp_extension
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.offline.qcodes_pp_extension.qcodesppData
 

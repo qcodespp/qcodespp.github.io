@@ -7,7 +7,7 @@ qcodespp.instrument_drivers.Lakeshore.Model_340
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.Lakeshore.Model_340.Model_340_Curve
    qcodespp.instrument_drivers.Lakeshore.Model_340.Model_340_Sensor

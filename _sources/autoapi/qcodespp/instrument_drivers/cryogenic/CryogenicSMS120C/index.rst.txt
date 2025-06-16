@@ -18,7 +18,7 @@ qcodespp.instrument_drivers.cryogenic.CryogenicSMS120C
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.cryogenic.CryogenicSMS120C.log
 
@@ -26,7 +26,7 @@ Attributes
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.cryogenic.CryogenicSMS120C.CryogenicSMS120C
 

@@ -7,7 +7,7 @@ qcodespp.instrument_drivers.ZI.ZIUHFLI
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.ZI.ZIUHFLI.log
 
@@ -15,7 +15,7 @@ Attributes
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.ZI.ZIUHFLI.AUXOutputChannel
    qcodespp.instrument_drivers.ZI.ZIUHFLI.Sweep

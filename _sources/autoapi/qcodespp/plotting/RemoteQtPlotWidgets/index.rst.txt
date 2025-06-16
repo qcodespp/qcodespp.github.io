@@ -12,7 +12,7 @@ qcodespp.plotting.RemoteQtPlotWidgets
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.RemoteQtPlotWidgets.qtapp
    qcodespp.plotting.RemoteQtPlotWidgets.plot
@@ -21,7 +21,7 @@ Attributes
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.RemoteQtPlotWidgets.PlotTrace
    qcodespp.plotting.RemoteQtPlotWidgets.PlotLinecuts
@@ -33,7 +33,7 @@ Classes
 Functions
 ---------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.RemoteQtPlotWidgets.make_rgba
    qcodespp.plotting.RemoteQtPlotWidgets.one_rgba

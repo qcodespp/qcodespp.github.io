@@ -7,7 +7,7 @@ qcodespp.instrument_drivers.yokogawa.GS200
 Exceptions
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.yokogawa.GS200.GS200Exception
 
@@ -15,7 +15,7 @@ Exceptions
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.yokogawa.GS200.GS200_Monitor
    qcodespp.instrument_drivers.yokogawa.GS200.GS200
@@ -24,7 +24,7 @@ Classes
 Functions
 ---------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.yokogawa.GS200.float_round
 

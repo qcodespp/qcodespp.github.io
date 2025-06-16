@@ -7,7 +7,7 @@ qcodespp.instrument_drivers.tektronix.Keithley_6500
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.tektronix.Keithley_6500.Keithley_Sense
    qcodespp.instrument_drivers.tektronix.Keithley_6500.Keithley_6500

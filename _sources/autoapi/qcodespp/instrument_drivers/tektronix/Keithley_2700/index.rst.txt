@@ -7,7 +7,7 @@ qcodespp.instrument_drivers.tektronix.Keithley_2700
 Exceptions
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.tektronix.Keithley_2700.K2700Exception
 
@@ -15,7 +15,7 @@ Exceptions
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.tektronix.Keithley_2700.Keithley_2700
 
@@ -23,7 +23,7 @@ Classes
 Functions
 ---------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.tektronix.Keithley_2700.bool_to_str
    qcodespp.instrument_drivers.tektronix.Keithley_2700.parseint

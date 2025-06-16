@@ -7,7 +7,7 @@ qcodespp.instrument_drivers.ZI.ZIMFLI
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.ZI.ZIMFLI.ZIMFLI
 

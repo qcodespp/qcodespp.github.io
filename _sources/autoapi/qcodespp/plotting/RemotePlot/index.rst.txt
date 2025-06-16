@@ -7,7 +7,7 @@ qcodespp.plotting.RemotePlot
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.RemotePlot.ControlListener
    qcodespp.plotting.RemotePlot.Plot
@@ -16,7 +16,7 @@ Classes
 Functions
 ---------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.RemotePlot.live_plot
 

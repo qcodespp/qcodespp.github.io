@@ -7,7 +7,7 @@ qcodespp.data.hdf5_format
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.data.hdf5_format.HDF5Format
    qcodespp.data.hdf5_format.HDF5FormatMetadata
@@ -16,7 +16,7 @@ Classes
 Functions
 ---------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.data.hdf5_format.str_to_bool
 

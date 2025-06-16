@@ -7,7 +7,7 @@ qcodespp.instrument_drivers.Keysight.Keysight_34450A
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.instrument_drivers.Keysight.Keysight_34450A.Keysight_34450A
 

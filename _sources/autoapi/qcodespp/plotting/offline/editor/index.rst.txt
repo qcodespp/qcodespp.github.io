@@ -16,7 +16,7 @@ qcodespp.plotting.offline.editor
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.offline.editor.qdarkstyle_imported
    qcodespp.plotting.offline.editor.DARK_THEME
@@ -32,7 +32,7 @@ Attributes
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.offline.editor.Editor
 

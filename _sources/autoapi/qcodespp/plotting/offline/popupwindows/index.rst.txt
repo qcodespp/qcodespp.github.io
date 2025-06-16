@@ -7,7 +7,7 @@ qcodespp.plotting.offline.popupwindows
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.offline.popupwindows.qdarkstyle_imported
    qcodespp.plotting.offline.popupwindows.DARK_THEME
@@ -16,7 +16,7 @@ Attributes
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.plotting.offline.popupwindows.LineCutWindow
    qcodespp.plotting.offline.popupwindows.StatsWindow

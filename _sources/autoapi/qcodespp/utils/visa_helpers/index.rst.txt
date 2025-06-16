@@ -7,7 +7,7 @@ qcodespp.utils.visa_helpers
 Functions
 ---------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.utils.visa_helpers.listVISAinstruments
 

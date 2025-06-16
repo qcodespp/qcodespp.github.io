@@ -7,7 +7,7 @@ qcodespp.data.gnuplot_format
 Attributes
 ----------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.data.gnuplot_format.log
 
@@ -15,7 +15,7 @@ Attributes
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.data.gnuplot_format.GNUPlotFormat
 

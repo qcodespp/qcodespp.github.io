@@ -12,7 +12,7 @@ qcodespp.data.location
 Classes
 -------
 
-.. autoapisummary::
+.. autosummary::
 
    qcodespp.data.location.SafeFormatter
    qcodespp.data.location.FormatLocation
