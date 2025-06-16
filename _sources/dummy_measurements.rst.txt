@@ -20,13 +20,13 @@ This will open a Jupyter lab window in your browser. In the Jupyter lab, create 
     import qcodespp as qc   
     from qcodespp.instrument_drivers.dummy import DummyMeasurementInstrument
 
-This code imports the top level of the qcodes++ package, and the ``DummyMeasurementInstrument`` driver. In general the instrument drivers are python classes which can be used to create a specific connection with a specific instrument. In this case, we 'connect' to our Instrument by running:
+This code imports the top level of the qcodes++ package, and the ``DummyMeasurementInstrument`` driver. In general the instrument drivers are python classes which can be used to create a specific connection with a specific instrument. In this case, we 'connect' to our ``Instrument`` by running:
 
 .. code-block:: python
 
     instrument = DummyMeasurementInstrument(name='instrument')
 
-As discussed in the `background <background.html>`_ section, qcodes has a virtual ``Station`` which contains all the instruments and parameters. We can initialise the ``Station`` and add our instrument to it by running:
+As discussed in the `background <background.html>`_ section, qcodes has a virtual ``Station`` which contains all the ``Instrument`` s and ``Parameter`` s. We can initialise the ``Station`` and add our ```Instrument`` to it by running:
 
 .. code-block:: python
 
@@ -91,7 +91,7 @@ So far no data has been collected; we've just communicated with the instrument. 
                     device_info='dummy', instrument_info='ACdiv=1e5 DCdiv=1e3 freq=123 Hz',
                     measure=[instrument.input1, instrument.input2])
 
-Here, we have created the object ``loop``. Inside of it, is a DataSetPP object, which will hold the measurements. The details of the DataSetPP are printed. You will see it will be saved in the 'data' folder we specified earlier, and the name of the data includes a counter with a unique number as well as the date and time of the measurement. The rest of the name is generated from the independent parameter settings and the text provided in ``device_info`` and ``instrument_info``.
+Here, we have created the object ``loop``. Inside of it, is a ``DataSetPP`` object, which will hold the measurements. The details of the ``DataSetPP are printed.`` You will see it will be saved in the 'data' folder we specified earlier, and the name of the data includes a counter with a unique number as well as the date and time of the measurement. The rest of the name is generated from the independent parameter settings and the text provided in ``device_info`` and ``instrument_info``.
 
 To run the measurement, we can invoke the ``run()`` method of the loop object, and tell it which parameters to plot:
 
@@ -99,7 +99,7 @@ To run the measurement, we can invoke the ``run()`` method of the loop object, a
 
     data=loop.run([instrument.input1, instrument.input2])
 
-A live plot window will be opened, showing measurements of the two parameters. The ``run()`` method returns the DataSetPP object, `which can also be reloaded later <data_analysis.html>`__.
+A live plot window will be opened, showing measurements of the two parameters. The ``run()`` method returns the ``DataSetPP`` object, `which can also be reloaded later <data_analysis.html>`__.
 
 **That really is how easy it is to collect data with qcodes++!**
 
