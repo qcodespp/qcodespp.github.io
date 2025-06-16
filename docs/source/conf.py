@@ -31,7 +31,7 @@ extensions = [
 # autoapi_keep_files = True
 
 exclude_patterns = ['_build', '_templates', "**.ipynb_checkpoints"]
-# autosummary_generate = True
+autosummary_generate = False
 # autodoc_default_options = {
 #     'members': True,
 #     'undoc-members': True,
