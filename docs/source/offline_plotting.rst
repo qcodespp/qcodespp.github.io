@@ -188,6 +188,7 @@ Linecuts
     :alt: InSpectra Gadget linecut window
 
 - To make a horizontal(vertical) linecut, left-click(middle-click) at the desired location on the plot.
+- Alternatively, right click on the plot area and select the relevant option.
 - You can change the index at which the cut is made, the offset on the y-axis, and the colour of the line.
 - You can add further cuts by clicking again, or manually adding them in the linecut window.
 - To generate a series of linecuts, specify (the indices) start, end, step and y-axis offset. Use -1 as end index to call the last index. It's probably not a smart idea to plot every line if you have hundreds of lines; it will use a lot of memory.
