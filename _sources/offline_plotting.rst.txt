@@ -179,7 +179,7 @@ Since it is extremely non-obvious how various filters may affect uncertainties i
 
 **Filters and irregular or non-monotonic x/y**
 
-Even though it's totally possible to plot any old irregular and non-monotonic x/y/z data (as long as the arrays are of the correct shape), the way that filters are applied often assume at least monotonic x and y. For example, Crop X and Crop Y are based on the *array indices* not the absolute value on the x or y axis. Similarly, the derivative is only calculated correctly if X (or Y) are regular. If you apply a filter to irregular data, it is worth to peek into the code to see what the filter is actually doing. As time goes on we will try to make the filters more friendly to irregular data.
+Even though it's totally possible to plot any old irregular and non-monotonic x/y/z data (as long as the arrays are of the correct shape), the way that filters are applied often assume at least monotonic x and y. For example, Crop X and Crop Y are based on the *array indices* not the absolute value on the x or y axis. Similarly, the integral is only calculated correctly if X (or Y) are regular. Conversely, the derivative *is* calculated correctly for irregular X (or Y). If you apply a filter to irregular data, it is worth to peek into the code to see what the filter is actually doing. As time goes on we will try to make the filters more friendly to irregular data.
 
 Linecuts
 --------
