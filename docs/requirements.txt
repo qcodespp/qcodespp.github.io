@@ -1,4 +1,4 @@
 furo==2024.8.6
 sphinx-rtd-theme==3.0.2
-qcodespp==0.1.1
+qcodespp
 #sphinx-autoapi==3.6.0
