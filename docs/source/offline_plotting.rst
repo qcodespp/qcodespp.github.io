@@ -70,12 +70,12 @@ Each available filter has up to two options (which, since they aren't listed in 
     * - `Integrate <https://numpy.org/doc/2.2/reference/generated/numpy.cumsum.html>`__
       - Order in x
       - Order in y
-      - Numerically integrate (i.e. perform the cumulative sum) n times in x and/or y
+      - Numerically integrate (i.e. perform the cumulative sum) n times in x and/or y. Only works for regular x and y data.
     * - `Smoothen <https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.gaussian_filter.html>`__
       - smoothing window in x
       - smoothing window in y
-      - `Gaussian <https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.gaussian_filter.html>`__ or `Link median <https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter>`__ filtering
-    * - `Link Savitzy-Golay <https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.savgol_filter.html>`__
+      - `Gaussian <https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.gaussian_filter.html>`__ or `median <https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter>`__ filtering
+    * - `Savitzy-Golay <https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.savgol_filter.html>`__
       - smoothing window
       - polynomial order
       - Savitzy-Golay smoothing/filtering applied along one axis
@@ -179,7 +179,7 @@ Since it is extremely non-obvious how various filters may affect uncertainties i
 
 **Filters and irregular or non-monotonic x/y**
 
-Even though it's totally possible to plot any old irregular and non-monotonic x/y/z data (as long as the arrays are of the correct shape), the way that filters are applied often assume at least monotonic x and y. For example, Crop X and Crop Y are based on the *array indices* not the absolute value on the x or y axis. Similarly, the integral is only calculated correctly if X (or Y) are regular. Conversely, the derivative *is* calculated correctly for irregular X (or Y). If you apply a filter to irregular data, it is worth to peek into the code to see what the filter is actually doing. As time goes on we will try to make the filters more friendly to irregular data.
+Even though it's possible to plot irregular and non-monotonic x/y/z data (as long as the arrays are of the correct shape), the way that filters are applied often assume at least monotonic x and y. For example, Crop X and Crop Y are based on the *array indices* not the absolute value on the x or y axis. Similarly, the integral is only calculated correctly if X (or Y) are regular. Conversely, the derivative *is* calculated correctly for irregular X (or Y). If you apply a filter to irregular data, it is worth to peek into the code to see what the filter is actually doing. As time goes on we will try to make the filters more friendly to irregular data.
 
 Linecuts
 --------
@@ -305,23 +305,24 @@ Fitting real data to the ideal of an analytical expression is fraught with dange
 
 Finally, and very importantly!!: The ability to *constrain* fit parameters is (currently) unavailable in this software, but can be extremely important in fits with lots of parameters. If you have more than 5 fit parameters, I strongly suggest you do NOT use this software to fit your data. Fitting such complicated data is non-trivial, and you should really spend the time to carefully construct a custom fitting procedure using lmfit, sherpa or miniut.
 
-TO DO:
-------
-- MixedInternalData: don't update view settings when applying filters to 1D data
-- Saving/loading: Check like everything... like axis limits, scaling, font sizes, linewidths, all that.
-- Make scrolling through diagonal linecuts faster
-- Loading of data files... try to get better at getting the orientation right. There must be a pattern.
-- Work out good estimates for the fourth and fifth parameters in peak fitting.
-- Click to estimate peak height/position.
-- Include specialised fits. Could also allow other kind of backgrounds for peak fitting. Damped oscillator, i.e. Qubit relevant: Rabi, Ramsey, T_echo.
-- Do not populate 2D-exclusive filters and properties for 1D data.
-- Enable .json imports; basically will be baseclassdata but just redefine the functions that work out the data dimension and make the data_dict.
-- Option to plot X data as average of each line, if need be. Useful for fitting series.
-- Single-axis scrolling as in pyqtplot
-- More advanced preset import/export; user can choose what they want to save/load
-- Fix circular linecuts
-- diagonal linecuts should be moveable easily. Can work out equation of line between the points obviously, so no reason can't click and drag it.
-- duplicate for diagonal linecuts would be quite useful.
-- Make it so that if a user edits the default labels they become fixed, and don't change when changing plot_type. Or, if they edit the label, it gets transferred as a new default label that doesn't change. Maybe. I'm not sure.
-- Make cropX and cropY work for non-regular X/Y. perhaps go through *everything* and make sure it's all working nicely with non-regular X/Y
-- Icon
+.. TO DO:
+.. ------
+.. - Plotting of non-monotonic data... Should reorder the arrays so they are plotted properly. Or at least add this as a filter.
+.. - MixedInternalData: don't update view settings when applying filters to 1D data
+.. - Saving/loading: Check like everything... like axis limits, scaling, font sizes, linewidths, all that.
+.. - Make scrolling through diagonal linecuts faster
+.. - Loading of data files... try to get better at getting the orientation right. There must be a pattern.
+.. - Work out good estimates for the fourth and fifth parameters in peak fitting.
+.. - Click to estimate peak height/position.
+.. - Include specialised fits. Could also allow other kind of backgrounds for peak fitting. Damped oscillator, i.e. Qubit relevant: Rabi, Ramsey, T_echo.
+.. - Do not populate 2D-exclusive filters and properties for 1D data.
+.. - Enable .json imports; basically will be baseclassdata but just redefine the functions that work out the data dimension and make the data_dict.
+.. - Option to plot X data as average of each line, if need be. Useful for fitting series.
+.. - Single-axis scrolling as in pyqtplot
+.. - More advanced preset import/export; user can choose what they want to save/load
+.. - Fix circular linecuts
+.. - diagonal linecuts should be moveable easily. Can work out equation of line between the points obviously, so no reason can't click and drag it.
+.. - duplicate for diagonal linecuts would be quite useful.
+.. - Make it so that if a user edits the default labels they become fixed, and don't change when changing plot_type. Or, if they edit the label, it gets transferred as a new default label that doesn't change. Maybe. I'm not sure.
+.. - Make cropX and cropY work for non-regular X/Y. perhaps go through *everything* and make sure it's all working nicely with non-regular X/Y
+.. - Icon
