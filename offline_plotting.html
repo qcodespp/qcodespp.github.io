@@ -78,7 +78,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#background">Background</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#a-note-about-fitting">A note about fitting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#to-do">TO DO:</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="measure.html">The Measure class</a></li>
@@ -190,14 +189,14 @@
 <tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/2.2/reference/generated/numpy.cumsum.html">Integrate</a></p></td>
 <td><p>Order in x</p></td>
 <td><p>Order in y</p></td>
-<td><p>Numerically integrate (i.e. perform the cumulative sum) n times in x and/or y</p></td>
+<td><p>Numerically integrate (i.e. perform the cumulative sum) n times in x and/or y. Only works for regular x and y data.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.gaussian_filter.html">Smoothen</a></p></td>
 <td><p>smoothing window in x</p></td>
 <td><p>smoothing window in y</p></td>
-<td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.gaussian_filter.html">Gaussian</a> or <a class="reference external" href="https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter">Link median</a> filtering</p></td>
+<td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.gaussian_filter.html">Gaussian</a> or <a class="reference external" href="https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter">median</a> filtering</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.savgol_filter.html">Link Savitzy-Golay</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.savgol_filter.html">Savitzy-Golay</a></p></td>
 <td><p>smoothing window</p></td>
 <td><p>polynomial order</p></td>
 <td><p>Savitzy-Golay smoothing/filtering applied along one axis</p></td>
@@ -322,7 +321,7 @@
 <p><strong>Filters and uncertainties</strong></p>
 <p>Since it is extremely non-obvious how various filters may affect uncertainties in different situations, only scalar multiplication and division filters are applied to uncertainties (basically to facilitate unit scaling, e.g. from volt to millivolt). In general, if you are performing any of the above operations, you should re-calculate your uncertainties manually.</p>
 <p><strong>Filters and irregular or non-monotonic x/y</strong></p>
-<p>Even though it’s totally possible to plot any old irregular and non-monotonic x/y/z data (as long as the arrays are of the correct shape), the way that filters are applied often assume at least monotonic x and y. For example, Crop X and Crop Y are based on the <em>array indices</em> not the absolute value on the x or y axis. Similarly, the integral is only calculated correctly if X (or Y) are regular. Conversely, the derivative <em>is</em> calculated correctly for irregular X (or Y). If you apply a filter to irregular data, it is worth to peek into the code to see what the filter is actually doing. As time goes on we will try to make the filters more friendly to irregular data.</p>
+<p>Even though it’s possible to plot irregular and non-monotonic x/y/z data (as long as the arrays are of the correct shape), the way that filters are applied often assume at least monotonic x and y. For example, Crop X and Crop Y are based on the <em>array indices</em> not the absolute value on the x or y axis. Similarly, the integral is only calculated correctly if X (or Y) are regular. Conversely, the derivative <em>is</em> calculated correctly for irregular X (or Y). If you apply a filter to irregular data, it is worth to peek into the code to see what the filter is actually doing. As time goes on we will try to make the filters more friendly to irregular data.</p>
 </section>
 </section>
 <section id="linecuts">
@@ -447,29 +446,6 @@
 <h2>A note about fitting<a class="headerlink" href="#a-note-about-fitting" title="Permalink to this heading"></a></h2>
 <p>Fitting real data to the ideal of an analytical expression is fraught with danger. Curve fitting works by minimising the difference between the values in the real data, and the values produced by an analytical equation. For functions with many parameters, there can be many points in the parameter space where a good fit can be made. That is, local minima exist and can potentially be found by the sitting software, meaning <em>the fit may return non-physical values</em>. This is especially true to the least-squares method of fitting, which is used by lmfit (and this software) by default. This is why providing a good, physical initial guess is very important; it increases the chance of finding the ‘right’ local minima. For simple analytical functions it’s usually reasonably obvious what the parameters might be. Therefore, if you don’t provide an initial guess, an initial guess is provided either by the built-in lmfit estimates or by estimates that I (Damon) made up. Usually they’re pretty good guesses but <em>do not trust them</em>. You must check to see if the fitted values are sensible and adjust the initial guesses if not.</p>
 <p>Finally, and very importantly!!: The ability to <em>constrain</em> fit parameters is (currently) unavailable in this software, but can be extremely important in fits with lots of parameters. If you have more than 5 fit parameters, I strongly suggest you do NOT use this software to fit your data. Fitting such complicated data is non-trivial, and you should really spend the time to carefully construct a custom fitting procedure using lmfit, sherpa or miniut.</p>
-</section>
-<section id="to-do">
-<h2>TO DO:<a class="headerlink" href="#to-do" title="Permalink to this heading"></a></h2>
-<ul class="simple">
-<li><p>MixedInternalData: don’t update view settings when applying filters to 1D data</p></li>
-<li><p>Saving/loading: Check like everything… like axis limits, scaling, font sizes, linewidths, all that.</p></li>
-<li><p>Make scrolling through diagonal linecuts faster</p></li>
-<li><p>Loading of data files… try to get better at getting the orientation right. There must be a pattern.</p></li>
-<li><p>Work out good estimates for the fourth and fifth parameters in peak fitting.</p></li>
-<li><p>Click to estimate peak height/position.</p></li>
-<li><p>Include specialised fits. Could also allow other kind of backgrounds for peak fitting. Damped oscillator, i.e. Qubit relevant: Rabi, Ramsey, T_echo.</p></li>
-<li><p>Do not populate 2D-exclusive filters and properties for 1D data.</p></li>
-<li><p>Enable .json imports; basically will be baseclassdata but just redefine the functions that work out the data dimension and make the data_dict.</p></li>
-<li><p>Option to plot X data as average of each line, if need be. Useful for fitting series.</p></li>
-<li><p>Single-axis scrolling as in pyqtplot</p></li>
-<li><p>More advanced preset import/export; user can choose what they want to save/load</p></li>
-<li><p>Fix circular linecuts</p></li>
-<li><p>diagonal linecuts should be moveable easily. Can work out equation of line between the points obviously, so no reason can’t click and drag it.</p></li>
-<li><p>duplicate for diagonal linecuts would be quite useful.</p></li>
-<li><p>Make it so that if a user edits the default labels they become fixed, and don’t change when changing plot_type. Or, if they edit the label, it gets transferred as a new default label that doesn’t change. Maybe. I’m not sure.</p></li>
-<li><p>Make cropX and cropY work for non-regular X/Y. perhaps go through <em>everything</em> and make sure it’s all working nicely with non-regular X/Y</p></li>
-<li><p>Icon</p></li>
-</ul>
 </section>
 </section>
 
