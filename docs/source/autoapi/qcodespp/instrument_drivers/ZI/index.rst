@@ -13,6 +13,5 @@ Submodules
    /autoapi/qcodespp/instrument_drivers/ZI/ZIHF2LI/index
    /autoapi/qcodespp/instrument_drivers/ZI/ZIMFLI/index
    /autoapi/qcodespp/instrument_drivers/ZI/ZIMFLI_sync/index
-   /autoapi/qcodespp/instrument_drivers/ZI/ZIUHFLI/index
 
 

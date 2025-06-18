@@ -3,6 +3,13 @@ qcodespp.instrument_drivers.oxford.mercuryiPS_serial
 
 .. py:module:: qcodespp.instrument_drivers.oxford.mercuryiPS_serial
 
+.. autoapi-nested-parse::
+
+   Driver that supports very old mercuryiPS instruments still communicating via serial.
+
+   Most newer iPS's will use the standard QCoDeS driver
+
+
 
 Classes
 -------
@@ -53,7 +60,7 @@ Module Contents
 
 .. py:class:: MercuryiPS_120(name, address, **kwargs)
 
-   Bases: :py:obj:`qcodes.VisaInstrument`
+   Bases: :py:obj:`qcodespp.instrument_drivers.oxford.serial.SerialInstrument`
 
 
    This is the qcodes driver for the Oxford MercuryiPS magnet power supply.
