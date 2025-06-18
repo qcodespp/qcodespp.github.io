@@ -51,6 +51,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#getting-and-setting-parameters">Getting and setting parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#running-a-measurement">Running a measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#two-dimensions">Two dimensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#higher-dimensions">Higher dimensions</a></li>
 </ul>
 </li>
@@ -167,8 +168,8 @@
 <p>A live plot window will be opened, showing measurements of the two parameters. The <code class="docutils literal notranslate"><span class="pre">run()</span></code> method returns the <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> object, <a class="reference external" href="data_analysis.html">which can also be reloaded later</a>.</p>
 <p><strong>That really is how easy it is to collect data with qcodes++!</strong></p>
 </section>
-<section id="higher-dimensions">
-<h2>Higher dimensions<a class="headerlink" href="#higher-dimensions" title="Permalink to this heading"></a></h2>
+<section id="two-dimensions">
+<h2>Two dimensions<a class="headerlink" href="#two-dimensions" title="Permalink to this heading"></a></h2>
 <p>If you want to measure two independent parameters, you can use the <code class="docutils literal notranslate"><span class="pre">loop2D</span></code> function. For example, if we want to vary both output1 and output2, we can do:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">loop</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">loop2d</span><span class="p">(</span><span class="n">sweep_parameter</span><span class="o">=</span><span class="n">instrument</span><span class="o">.</span><span class="n">output1</span><span class="p">,</span>
                 <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">stop</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
@@ -222,6 +223,10 @@
                 <span class="n">measure</span><span class="o">=</span><span class="p">[</span><span class="n">instrument</span><span class="o">.</span><span class="n">input1</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">input2</span><span class="p">])</span>
 </pre></div>
 </div>
+</section>
+<section id="higher-dimensions">
+<h2>Higher dimensions<a class="headerlink" href="#higher-dimensions" title="Permalink to this heading"></a></h2>
+<p>If you have three or more independent parameters, <a class="reference external" href="https://qcodespp.github.io/advanced.html">you will need to manually construct your loop, by explicitly using the Loop class, and/or with the help of python loops</a>.</p>
 </section>
 </section>
 
