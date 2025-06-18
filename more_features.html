@@ -50,6 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="dummy_measurements.html">Getting started</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Commonly used features</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#station-set-measurement">station.set_measurement()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#looping-over-time">Looping over time</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#other-kinds-of-actions">Other kinds of actions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#tasks">Tasks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#breakif">BreakIf</a></li>
@@ -102,6 +103,10 @@
 </pre></div>
 </div>
 <p>Now you do not need to specify <code class="docutils literal notranslate"><span class="pre">measure</span></code> in <code class="docutils literal notranslate"><span class="pre">loop1d</span></code>, <code class="docutils literal notranslate"><span class="pre">loop2d</span></code>, <code class="docutils literal notranslate"><span class="pre">loop2dUD</span></code>.</p>
+</section>
+<section id="looping-over-time">
+<h2>Looping over time<a class="headerlink" href="#looping-over-time" title="Permalink to this heading"></a></h2>
+<p>Often, you will want to monitor your parameters’ evolution over time. To do this, make a custom ‘stepper’ <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> to loop over, <a href="#id1"><span class="problematic" id="id2">`as outlined here &lt;https://qcodespp.github.io/parameters.html#stepper-parameter.`__</span></a></p>
 </section>
 <section id="other-kinds-of-actions">
 <h2>Other kinds of actions<a class="headerlink" href="#other-kinds-of-actions" title="Permalink to this heading"></a></h2>
