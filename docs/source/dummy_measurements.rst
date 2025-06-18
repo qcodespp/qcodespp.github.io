@@ -91,7 +91,7 @@ So far no data has been collected; we've just communicated with the instrument. 
                     device_info='dummy', instrument_info='ACdiv=1e5 DCdiv=1e3 freq=123 Hz',
                     measure=[instrument.input1, instrument.input2])
 
-Here, we have created the object ``loop``. Inside of it, is a ``DataSetPP`` object, which will hold the measurements. The details of the ``DataSetPP are printed.`` You will see it will be saved in the 'data' folder we specified earlier, and the name of the data includes a counter with a unique number as well as the date and time of the measurement. The rest of the name is generated from the independent parameter settings and the text provided in ``device_info`` and ``instrument_info``.
+Here, we have created the object ``loop``. Inside of it, is a ``DataSetPP`` object (accessed via ``loop.data_set``), which will hold the measurements. The details of the ``DataSetPP`` are printed. You will see the data will be saved in the 'data' folder we specified earlier, and the name of the data includes a counter with a unique number as well as the date and time of the measurement. The rest of the name is generated from the independent parameter settings and the text provided in ``device_info`` and ``instrument_info``.
 
 To run the measurement, we can invoke the ``run()`` method of the loop object, and tell it which parameters to plot:
 
