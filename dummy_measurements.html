@@ -170,7 +170,7 @@
 </section>
 <section id="two-dimensions">
 <h2>Two dimensions<a class="headerlink" href="#two-dimensions" title="Permalink to this heading"></a></h2>
-<p>If you want to measure two independent parameters, you can use the <code class="docutils literal notranslate"><span class="pre">loop2D</span></code> function. For example, if we want to vary both output1 and output2, we can do:</p>
+<p>If you need to loop over two independent parameters, you can use the <code class="docutils literal notranslate"><span class="pre">loop2D</span></code> function. For example, if we want to vary both output1 and output2, we can do:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">loop</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">loop2d</span><span class="p">(</span><span class="n">sweep_parameter</span><span class="o">=</span><span class="n">instrument</span><span class="o">.</span><span class="n">output1</span><span class="p">,</span>
                 <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">stop</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
                 <span class="n">step_parameter</span><span class="o">=</span><span class="n">instrument</span><span class="o">.</span><span class="n">output2</span><span class="p">,</span>

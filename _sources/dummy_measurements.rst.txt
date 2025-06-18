@@ -105,7 +105,7 @@ A live plot window will be opened, showing measurements of the two parameters. T
 
 Two dimensions
 --------------
-If you want to measure two independent parameters, you can use the ``loop2D`` function. For example, if we want to vary both output1 and output2, we can do:
+If you need to loop over two independent parameters, you can use the ``loop2D`` function. For example, if we want to vary both output1 and output2, we can do:
 
 .. code-block:: python
 
