@@ -14,7 +14,7 @@ Now you do not need to specify ``measure`` in ``loop1d``, ``loop2d``, ``loop2dUD
 
 Looping over time
 -----------------
-Often, you will want to monitor your parameters' evolution over time. To do this, make a custom 'stepper' ``Parameter`` to loop over, `as outlined here <https://qcodespp.github.io/parameters.html#stepper-parameter.`__
+Often, you will want to monitor your parameters' evolution over time. To do this, make a custom 'stepper' ``Parameter`` to loop over, `as outlined here <https://qcodespp.github.io/parameters.html#stepper-parameter>`__.
 
 Other kinds of actions
 ----------------------
