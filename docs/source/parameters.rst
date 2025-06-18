@@ -57,6 +57,29 @@ Defining a custom ``get_cmd`` enables e.g. averaging, filtering, or any other op
     feedparam = qc.Parameter('feedparam', unit='V', label='Voltage',
                               get_cmd=get_feed, set_cmd=set_feed)
 
+
+Stepper Parameter
+-----------------
+
+To loop over time, where you simply measure your parameters at a regular interval, you can just create a parameter that does nothing, i.e.
+
+.. code-block:: python
+
+    stepper = qc.Parameter('stepper', unit='', label='Step', set_cmd=lambda: pass)
+
+In a loop, simply increment the stepper from e.g. 0 to 100 in 101 steps, and choose a suitable ``delay`` to define the measurement interval. If you want to measure as fast as possible, set the ``delay`` to e.g. 0.001; setting it to 0 can sometimes cause problems.
+
+.. code-block:: python
+
+    loop=qc.loop1d(sweep_param=stepper,
+                    start=0,stop=100,num=101,delay=0.1,
+                    name='example')
+
+By default, the time since the start of the ``Loop`` is included in each ``DataSetPP`` as ``timer``, meaning you can always plot any parameter against time.
+
+Scaling Parameters
+------------------
+
 For the special case of a scaling a parameter, there is ``qc.ScaledParameter``, which accepts a ``Parameter`` to scale and a scaling factor:
 
 .. code-block:: python
