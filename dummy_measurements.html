@@ -208,7 +208,9 @@
 </pre></div>
 </div>
 <p>Here is a visualisation of the three types of 2D loops:</p>
-<img alt="Types of 2D loops" class="align-center" src="_images/loop2d.png" />
+<figure class="align-center">
+<img alt="Types of 2D loops" src="_images/loop2d.png" />
+</figure>
 <p>The <code class="docutils literal notranslate"><span class="pre">loop2dUD</span></code> function has the option to sweep the <code class="docutils literal notranslate"><span class="pre">sweep_parameter</span></code> with a fewer number of increments on the return sweep. To set this scaling factor, provide an integer to the <code class="docutils literal notranslate"><span class="pre">fast_down</span></code> attribute. For example, if you want to sweep the <code class="docutils literal notranslate"><span class="pre">sweep_parameter</span></code> with 101 increments on the up-sweep, and only 20 increments on the down-sweep, you can do:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">loop</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">loop2dUD</span><span class="p">(</span><span class="n">sweep_parameter</span><span class="o">=</span><span class="n">instrument</span><span class="o">.</span><span class="n">output1</span><span class="p">,</span>
                 <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">stop</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span><span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
