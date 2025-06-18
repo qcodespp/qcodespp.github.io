@@ -20,6 +20,7 @@ Submodules
    /autoapi/qcodespp/instrument_drivers/national_instruments/index
    /autoapi/qcodespp/instrument_drivers/oxford/index
    /autoapi/qcodespp/instrument_drivers/tektronix/index
+   /autoapi/qcodespp/instrument_drivers/wir/index
    /autoapi/qcodespp/instrument_drivers/yokogawa/index
 
 
