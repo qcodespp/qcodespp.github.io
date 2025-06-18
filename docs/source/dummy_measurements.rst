@@ -103,8 +103,8 @@ A live plot window will be opened, showing measurements of the two parameters. T
 
 **That really is how easy it is to collect data with qcodes++!**
 
-Higher dimensions
------------------
+Two dimensions
+--------------
 If you want to measure two independent parameters, you can use the ``loop2D`` function. For example, if we want to vary both output1 and output2, we can do:
 
 .. code-block:: python
@@ -173,3 +173,7 @@ The ``loop2dUD`` function has the option to sweep the ``sweep_parameter`` with a
                     instrument_info='ACdiv=1e5 DCdiv=1e3 freq=123 Hz',
                     fast_down=5,
                     measure=[instrument.input1, instrument.input2])
+
+Higher dimensions
+-----------------
+If you have three or more independent parameters, `you will need to manually construct your loop, by explicitly using the Loop class, and/or with the help of python loops <https://qcodespp.github.io/advanced.html>`__.
