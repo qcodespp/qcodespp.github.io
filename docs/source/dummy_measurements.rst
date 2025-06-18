@@ -157,7 +157,7 @@ The other option you have is to turn on the ``snake`` behaviour in ``loop2d``. T
 
 Here is a visualisation of the three types of 2D loops:
 
-.. image:: loop2d.png
+.. figure:: loop2d.png
     :alt: Types of 2D loops
     :align: center
 
