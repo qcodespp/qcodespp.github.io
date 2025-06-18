@@ -11,6 +11,7 @@ Submodules
    :maxdepth: 1
 
    /autoapi/qcodespp/instrument_drivers/oxford/mercuryiPS_serial/index
+   /autoapi/qcodespp/instrument_drivers/oxford/serial/index
    /autoapi/qcodespp/instrument_drivers/oxford/triton/index
 
 

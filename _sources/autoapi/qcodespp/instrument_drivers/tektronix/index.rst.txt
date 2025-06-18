@@ -12,9 +12,7 @@ Submodules
 
    /autoapi/qcodespp/instrument_drivers/tektronix/Keithley_2000_Scan/index
    /autoapi/qcodespp/instrument_drivers/tektronix/Keithley_2182a/index
-   /autoapi/qcodespp/instrument_drivers/tektronix/Keithley_2400/index
    /autoapi/qcodespp/instrument_drivers/tektronix/Keithley_2450/index
    /autoapi/qcodespp/instrument_drivers/tektronix/Keithley_2700/index
-   /autoapi/qcodespp/instrument_drivers/tektronix/Keithley_6500/index
 
 

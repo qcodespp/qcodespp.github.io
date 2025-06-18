@@ -7,6 +7,21 @@ qcodespp.station
 
    Station objects - collect all the equipment you use to do an experiment.
 
+   The Station class contained herein wraps the QCoDeS Station class and adds some functionality to it.
+   It allows for the automatic addition of instruments and parameters to the station,
+   and underlies the data acquisition. In qcodesplusplus there is no separate measurement
+   context, since all measurements should be done in the context of a station anyway.
+   Doing it like this forces the user to only measure parameters in the station,
+   without the need for a separate measurement context.
+
+
+
+Attributes
+----------
+
+.. autosummary::
+
+   qcodespp.station.log
 
 
 Classes
@@ -19,6 +34,8 @@ Classes
 
 Module Contents
 ---------------
+
+.. py:data:: log
 
 .. py:class:: Station(*components: qcodes.metadatable.MetadatableWithName, add_variables: Any = None, config_file: str | Sequence[str] | None = None, use_monitor: bool | None = None, default: bool = True, update_snapshot: bool = True, inc_timer: bool = True, **kwargs: Any)
 

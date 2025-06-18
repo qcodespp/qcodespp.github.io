@@ -20,7 +20,7 @@ Module Contents
    Bases: :py:obj:`qcodes.VisaInstrument`
 
 
-   QCoDeS driver for the Keithley 2450 voltage source.
+   qcodes++ driver for the Keithley 2450 voltage source. Behaves similarly to the K2400 series driver.
 
 
    .. py:method:: reset()

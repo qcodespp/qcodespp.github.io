@@ -59,6 +59,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../advanced.html">Advanced use of Loop</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../Kepco/index.html">Kepco</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">qcodespp</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../../../index.html#submodules">Submodules</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../../actions/index.html">qcodespp.actions</a></li>
@@ -161,13 +162,6 @@ It has the most important functions for configuring outputs and reading off inpu
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="qcodespp.instrument_drivers.ZI.ZIMFLI.ZIMFLI.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.ZI.ZIMFLI.ZIMFLI.name" title="Permalink to this definition"></a></dt>
-<dd><p>Full name of the instrument</p>
-<p>This is equivalent to <code class="xref py py-meth docutils literal notranslate"><span class="pre">full_name()</span></code> for backwards compatibility.</p>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.ZI.ZIMFLI.ZIMFLI.serial">
 <span class="sig-name descname"><span class="pre">serial</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.ZI.ZIMFLI.ZIMFLI.serial" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
@@ -186,6 +180,24 @@ It has the most important functions for configuring outputs and reading off inpu
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.ZI.ZIMFLI.ZIMFLI.fwrevision">
 <span class="sig-name descname"><span class="pre">fwrevision</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.ZI.ZIMFLI.ZIMFLI.fwrevision" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.ZI.ZIMFLI.ZIMFLI.get_idn">
+<span class="sig-name descname"><span class="pre">get_idn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.ZI.ZIMFLI.ZIMFLI.get_idn" title="Permalink to this definition"></a></dt>
+<dd><p>Parse a standard VISA <code class="docutils literal notranslate"><span class="pre">*IDN?</span></code> response into an ID dict.</p>
+<p>Even though this is the VISA standard, it applies to various other
+types as well, such as IPInstruments, so it is included here in the
+Instrument base class.</p>
+<p>Override this if your instrument does not support <code class="docutils literal notranslate"><span class="pre">*IDN?</span></code> or
+returns a nonstandard IDN string. This string is supposed to be a
+comma-separated list of vendor, model, serial, and firmware, but
+semicolon and colon are also common separators so we accept them here
+as well.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>A dict containing vendor, model, serial, and firmware.</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

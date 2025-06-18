@@ -49,14 +49,6 @@ Module Contents
 
 
 
-   .. py:attribute:: name
-
-      Full name of the instrument
-
-      This is equivalent to :meth:`full_name` for backwards compatibility.
-
-
-
    .. py:attribute:: serial
 
 
@@ -69,5 +61,25 @@ Module Contents
 
 
    .. py:attribute:: fwrevision
+
+
+   .. py:method:: get_idn()
+
+      Parse a standard VISA ``*IDN?`` response into an ID dict.
+
+      Even though this is the VISA standard, it applies to various other
+      types as well, such as IPInstruments, so it is included here in the
+      Instrument base class.
+
+      Override this if your instrument does not support ``*IDN?`` or
+      returns a nonstandard IDN string. This string is supposed to be a
+      comma-separated list of vendor, model, serial, and firmware, but
+      semicolon and colon are also common separators so we accept them here
+      as well.
+
+      Returns:
+          A dict containing vendor, model, serial, and firmware.
+
+
 
 
