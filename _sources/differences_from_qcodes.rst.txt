@@ -70,6 +70,4 @@ Small differences in existing classes
 
 * ``.arbsweep()`` accepts a list of a values, rather than a start and end value, and sweeps the parameter through these values.
 
-**``MultiParameterWrapper`` makes it easy to create a ``MultiParameter`` from existing Parameters,** and importantly, it allows you to ``set``, ``sweep`` and ``move``.
-
-See the `MultiParameterWrapper documentation <https://qcodespp.github.io/parameters.html#multiparameter-and-multiparameterwrapper>`__ for more details.
+**``MultiParameterWrapper`` makes it easy to create a ``MultiParameter`` from existing Parameters,** and importantly, it allows you to ``set``, ``sweep`` and ``move``. See the `MultiParameterWrapper documentation <https://qcodespp.github.io/parameters.html#multiparameter-and-multiparameterwrapper>`__ for more details.
