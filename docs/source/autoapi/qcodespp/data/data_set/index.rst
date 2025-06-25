@@ -248,6 +248,11 @@ Module Contents
    .. py:attribute:: location_provider
 
 
+   .. py:attribute:: default_folder
+      :value: None
+
+
+
    .. py:attribute:: background_functions
       :type:  Dict[str, Callable]
 

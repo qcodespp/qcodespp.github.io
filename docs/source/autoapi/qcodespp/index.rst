@@ -1261,32 +1261,69 @@ Package Contents
 
 
 
+   .. py:attribute:: unit
+      :value: ''
+
+
+
    .. py:method:: get_raw()
 
-      ``get_raw`` is called to perform the actual data acquisition from the
-      instrument. This method should either be overwritten to perform the
-      desired operation or alternatively for :class:`.Parameter` a
-      suitable method is automatically generated if ``get_cmd`` is supplied
-      to the parameter constructor. The method is automatically wrapped to
-      provide a ``get`` method on the parameter instance.
+      Method to get the values of all parameters in the MultiParameter.
+
+      Returns:
+          tuple: A tuple containing the values of all parameters in the MultiParameter.
 
 
 
    .. py:method:: set_raw(values)
 
-      ``set_raw`` is called to perform the actual setting of a parameter on
-      the instrument. This method should either be overwritten to perform the
-      desired operation or alternatively for :class:`.Parameter` a
-      suitable method is automatically generated if ``set_cmd`` is supplied
-      to the parameter constructor. The method is automatically wrapped to
-      provide a ``set`` method on the parameter instance.
+      Method to set the values of all parameters in the MultiParameter.
+
+      Args:
+          values (list, tuple, int, float): The values to set for the parameters.
+              If a single value is provided, it will be set for all parameters.
+              If a list or tuple is provided, it must match the number of parameters.
 
 
 
    .. py:method:: move(end_values, steps=101, step_time=0.03)
 
+      Move all parameters to new values in a number of steps without taking data.
 
-   .. py:method:: sweep(start_vals, stop_vals, num)
+      Args:
+          end_values (list, tuple, int, float): The values to move to.
+              If a single value is provided, it will be moved for all parameters.
+              If a list or tuple is provided, it must match the number of parameters.
+          steps (int, optional): Number of steps to take. Defaults to 101.
+          step_time (float, optional): Time in seconds between each step. Defaults to 0.03.
+
+
+
+   .. py:method:: sweep(start_vals, stop_vals, num, print_warning=True)
+
+      Create a collection of parameter values to be iterated over for all parameters in the MultiParameter.
+
+      Args:
+          start_vals (list, tuple, int, float): The starting values of the sequence.
+              If a single value is provided, it will be used for all parameters.
+              If a list or tuple is provided, it must match the number of parameters.
+
+          stop_vals (list, tuple, int, float): The end values of the sequence.
+              If a single value is provided, it will be used for all parameters.
+              If a list or tuple is provided, it must match the number of parameters.
+
+          num (int): Number of values to generate.
+
+          print_warning (bool): Whether to print a warning if the start value is different from the 
+              current value. Defaults to True.
+
+      Returns:
+          SweepFixedValues or SweepMultiValues: A collection of parameter values to be iterated over which can be passed to a Loop.
+
+      Raises:
+          ValueError: If the number of start_vals or stop_vals does not match the number of parameters, 
+          or if they are not a single value.
+
 
 
 .. py:class:: ArrayParameterWrapper(name=None, label=None, unit=None, instrument=None, shape=None, get_cmd=None)
