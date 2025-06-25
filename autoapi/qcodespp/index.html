@@ -1451,37 +1451,77 @@ each parameter gets measured at each setpoint.</p>
 <span class="sig-name descname"><span class="pre">units</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#qcodespp.MultiParameterWrapper.units" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.MultiParameterWrapper.unit">
+<span class="sig-name descname"><span class="pre">unit</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#qcodespp.MultiParameterWrapper.unit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.MultiParameterWrapper.get_raw">
 <span class="sig-name descname"><span class="pre">get_raw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.MultiParameterWrapper.get_raw" title="Permalink to this definition"></a></dt>
-<dd><p><code class="docutils literal notranslate"><span class="pre">get_raw</span></code> is called to perform the actual data acquisition from the
-instrument. This method should either be overwritten to perform the
-desired operation or alternatively for <code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code> a
-suitable method is automatically generated if <code class="docutils literal notranslate"><span class="pre">get_cmd</span></code> is supplied
-to the parameter constructor. The method is automatically wrapped to
-provide a <code class="docutils literal notranslate"><span class="pre">get</span></code> method on the parameter instance.</p>
+<dd><p>Method to get the values of all parameters in the MultiParameter.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>tuple: A tuple containing the values of all parameters in the MultiParameter.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.MultiParameterWrapper.set_raw">
 <span class="sig-name descname"><span class="pre">set_raw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.MultiParameterWrapper.set_raw" title="Permalink to this definition"></a></dt>
-<dd><p><code class="docutils literal notranslate"><span class="pre">set_raw</span></code> is called to perform the actual setting of a parameter on
-the instrument. This method should either be overwritten to perform the
-desired operation or alternatively for <code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code> a
-suitable method is automatically generated if <code class="docutils literal notranslate"><span class="pre">set_cmd</span></code> is supplied
-to the parameter constructor. The method is automatically wrapped to
-provide a <code class="docutils literal notranslate"><span class="pre">set</span></code> method on the parameter instance.</p>
+<dd><p>Method to set the values of all parameters in the MultiParameter.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>values (list, tuple, int, float): The values to set for the parameters.</dt><dd><p>If a single value is provided, it will be set for all parameters.
+If a list or tuple is provided, it must match the number of parameters.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.MultiParameterWrapper.move">
 <span class="sig-name descname"><span class="pre">move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">end_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">101</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.03</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.MultiParameterWrapper.move" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Move all parameters to new values in a number of steps without taking data.</p>
+<dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>end_values (list, tuple, int, float): The values to move to.</dt><dd><p>If a single value is provided, it will be moved for all parameters.
+If a list or tuple is provided, it must match the number of parameters.</p>
+</dd>
+</dl>
+<p>steps (int, optional): Number of steps to take. Defaults to 101.
+step_time (float, optional): Time in seconds between each step. Defaults to 0.03.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.MultiParameterWrapper.sweep">
-<span class="sig-name descname"><span class="pre">sweep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_vals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_vals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.MultiParameterWrapper.sweep" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">sweep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_vals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_vals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_warning</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.MultiParameterWrapper.sweep" title="Permalink to this definition"></a></dt>
+<dd><p>Create a collection of parameter values to be iterated over for all parameters in the MultiParameter.</p>
+<dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>start_vals (list, tuple, int, float): The starting values of the sequence.</dt><dd><p>If a single value is provided, it will be used for all parameters.
+If a list or tuple is provided, it must match the number of parameters.</p>
+</dd>
+<dt>stop_vals (list, tuple, int, float): The end values of the sequence.</dt><dd><p>If a single value is provided, it will be used for all parameters.
+If a list or tuple is provided, it must match the number of parameters.</p>
+</dd>
+</dl>
+<p>num (int): Number of values to generate.</p>
+<dl class="simple">
+<dt>print_warning (bool): Whether to print a warning if the start value is different from the</dt><dd><p>current value. Defaults to True.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>SweepFixedValues or SweepMultiValues: A collection of parameter values to be iterated over which can be passed to a Loop.</p>
+</dd>
+<dt>Raises:</dt><dd><p>ValueError: If the number of start_vals or stop_vals does not match the number of parameters,
+or if they are not a single value.</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
