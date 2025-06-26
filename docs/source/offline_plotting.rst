@@ -241,9 +241,11 @@ Exporting data and filters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 If you need to do further analysis in another program/notebook, you can export the data in the 'Export processed data' menu. You can save in .dat, .csv or .json format. Note that for 1D data the .dat format is quite limiting, since numpy dat files do not support arrays of different lengths. Therefore fit lines are not exported, and in general combined 1D data files will not work. However, both features are supported by .csv and .json. For python, I recommend a json, because it can be easily loaded as a python dictionary:
 
->>> import json
->>> with open('filename.json') as f:
->>>     data=json.load(f)
+.. code-block:: python
+
+  import json
+  with open('filename.json') as f:
+      data=json.load(f)
 
 Saving and loading appearance presets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
