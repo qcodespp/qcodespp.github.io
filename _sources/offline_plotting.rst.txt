@@ -143,6 +143,10 @@ Each available filter has up to two options (which, since they aren't listed in 
       - number of data points in x
       - number of data points in y
       - Interpolates the data to the given number of points in x and/or y
+    * - Sort
+      - n/a
+      - n/a
+      - Rearranges the data such that X or Y is sorted in ascending order.
     * - `Roll X <https://numpy.org/doc/2.2/reference/generated/numpy.roll.html>`__
       - position
       - amount
@@ -205,7 +209,7 @@ Working with multiple files
 - To open another data file, just click 'Open File' again. Data from the new file will be plotted.
 - To see data from both files side-by-side, activate the checkbox next to the original file. You now have two plots!
 - To change the spacing between the plots and the whitespace above and below, use the middle mouse scrolling when hovering over the relevant region.
-- IMPORTANT: To set values such as labels, tick parameters, axis ranges, first either click on the filename corresponding to the plot you want to edit (not the checkbox) or somewhere on the plot area, to bring the correct file/plot/data into focus.
+- IMPORTANT: To set values such as labels, z tick parameters, axis ranges, first either click on the filename corresponding to the plot you want to edit (not the checkbox) or somewhere on the plot area, to bring the correct file/plot/data into focus.
 - To change the order of the plots, you change the order of the files in the list using 'move up' and 'move down'.
 - To add a new plot with different sets of parameters from the *same* dataset, use the X,Y,(Z) boxes above the plot window and click 'Add new plot'. This duplicates the file in the file list. You can do this manually by right-clicking on the file and choosing 'Duplicate', or with Ctrl+D.
 - Duplicating a file will *not* carry over any linecuts or fits. It is quite hard to implement. If it *really* becomes relevant I can look into it.

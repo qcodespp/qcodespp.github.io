@@ -281,37 +281,42 @@
 <td><p>number of data points in y</p></td>
 <td><p>Interpolates the data to the given number of points in x and/or y</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/2.2/reference/generated/numpy.roll.html">Roll X</a></p></td>
+<tr class="row-even"><td><p>Sort</p></td>
+<td><p>n/a</p></td>
+<td><p>n/a</p></td>
+<td><p>Rearranges the data such that X or Y is sorted in ascending order.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/2.2/reference/generated/numpy.roll.html">Roll X</a></p></td>
 <td><p>position</p></td>
 <td><p>amount</p></td>
 <td><p>Rolls the data in x by the given amount, starting at the given position</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/2.2/reference/generated/numpy.roll.html">Roll Y</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/2.2/reference/generated/numpy.roll.html">Roll Y</a></p></td>
 <td><p>position</p></td>
 <td><p>amount</p></td>
 <td><p>Rolls the data in y by the given amount, starting at the given position</p></td>
 </tr>
-<tr class="row-even"><td><p>Crop X</p></td>
+<tr class="row-odd"><td><p>Crop X</p></td>
 <td><p>Minimum X</p></td>
 <td><p>Maximum X</p></td>
 <td><p>Not just zooming; relevant if e.g. you want to apply a filter only to a section of the data. Available also by right-clicking on the plot window</p></td>
 </tr>
-<tr class="row-odd"><td><p>Crop Y</p></td>
+<tr class="row-even"><td><p>Crop Y</p></td>
 <td><p>Minimum Y</p></td>
 <td><p>Maximum Y</p></td>
 <td><p>(2D data only) As above</p></td>
 </tr>
-<tr class="row-even"><td><p>Cut X</p></td>
+<tr class="row-odd"><td><p>Cut X</p></td>
 <td><p>left</p></td>
 <td><p>width</p></td>
 <td><p>Cuts the data in x, starting at the given position and with the given width</p></td>
 </tr>
-<tr class="row-odd"><td><p>Cut Y</p></td>
+<tr class="row-even"><td><p>Cut Y</p></td>
 <td><p>bottom</p></td>
 <td><p>width</p></td>
 <td><p>Cuts the data in y, starting at the given position and with the given width</p></td>
 </tr>
-<tr class="row-even"><td><p>Swap X/Y</p></td>
+<tr class="row-odd"><td><p>Swap X/Y</p></td>
 <td><p>n/a</p></td>
 <td><p>n/a</p></td>
 <td><p>Swaps the x and y axes of the data, i.e. plots y as a function of x and vice versa</p></td>
@@ -352,7 +357,7 @@
 <li><p>To open another data file, just click ‘Open File’ again. Data from the new file will be plotted.</p></li>
 <li><p>To see data from both files side-by-side, activate the checkbox next to the original file. You now have two plots!</p></li>
 <li><p>To change the spacing between the plots and the whitespace above and below, use the middle mouse scrolling when hovering over the relevant region.</p></li>
-<li><p>IMPORTANT: To set values such as labels, tick parameters, axis ranges, first either click on the filename corresponding to the plot you want to edit (not the checkbox) or somewhere on the plot area, to bring the correct file/plot/data into focus.</p></li>
+<li><p>IMPORTANT: To set values such as labels, z tick parameters, axis ranges, first either click on the filename corresponding to the plot you want to edit (not the checkbox) or somewhere on the plot area, to bring the correct file/plot/data into focus.</p></li>
 <li><p>To change the order of the plots, you change the order of the files in the list using ‘move up’ and ‘move down’.</p></li>
 <li><p>To add a new plot with different sets of parameters from the <em>same</em> dataset, use the X,Y,(Z) boxes above the plot window and click ‘Add new plot’. This duplicates the file in the file list. You can do this manually by right-clicking on the file and choosing ‘Duplicate’, or with Ctrl+D.</p></li>
 <li><p>Duplicating a file will <em>not</em> carry over any linecuts or fits. It is quite hard to implement. If it <em>really</em> becomes relevant I can look into it.</p></li>
