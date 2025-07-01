@@ -186,137 +186,142 @@
 <td><p>Order in y</p></td>
 <td><p>n-th derivative in x and/or y</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/2.2/reference/generated/numpy.cumsum.html">Integrate</a></p></td>
+<tr class="row-odd"><td><p>Integrate</p></td>
 <td><p>Order in x</p></td>
 <td><p>Order in y</p></td>
-<td><p>Numerically integrate (i.e. perform the cumulative sum) n times in x and/or y. Only works for regular x and y data.</p></td>
+<td><p>Numerically integrate the z data (for 2D) or y data (for 1D) n times along the x or y axis. Choice between the trapezoidal rule, Simpson’s rule and a rectangular approximation.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.gaussian_filter.html">Smoothen</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/2.2/reference/generated/numpy.cumsum.html">Cumulative sum</a></p></td>
+<td><p>Order in x</p></td>
+<td><p>Order in y</p></td>
+<td><p>Perform the cumulative sum n times along the array axis. Similar to integrating if the grid is regular.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.gaussian_filter.html">Smoothen</a></p></td>
 <td><p>smoothing window in x</p></td>
 <td><p>smoothing window in y</p></td>
 <td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.gaussian_filter.html">Gaussian</a> or <a class="reference external" href="https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter">median</a> filtering</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.savgol_filter.html">Savitzy-Golay</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.savgol_filter.html">Savitzy-Golay</a></p></td>
 <td><p>smoothing window</p></td>
 <td><p>polynomial order</p></td>
 <td><p>Savitzy-Golay smoothing/filtering applied along one axis</p></td>
 </tr>
-<tr class="row-even"><td><p>Add/Subtract</p></td>
+<tr class="row-odd"><td><p>Add/Subtract</p></td>
 <td><p>value</p></td>
 <td><p>n/a</p></td>
 <td><p>Add/subtract a fixed value to any axis. Also available by right-clicking on plot area as ‘Offset &lt;axis&gt; by X’. To add/subtract another parameter from the same dataset, right click on the offset value. To subtract, place a ‘-’ in front of the parameter name.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Multiply</p></td>
+<tr class="row-even"><td><p>Multiply</p></td>
 <td><p>multiplication factor</p></td>
 <td><p>n/a</p></td>
 <td><p>X*factor; useful to convert e.g. V to mV. To multiply by another parameter from the same dataset, right click on the value to choose.</p></td>
 </tr>
-<tr class="row-even"><td><p>Divide</p></td>
+<tr class="row-odd"><td><p>Divide</p></td>
 <td><p>division factor</p></td>
 <td><p>n/a</p></td>
 <td><p>X/factor. To divide by another parameter from the same dataset, right click on the value to choose.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Add slope</p></td>
+<tr class="row-even"><td><p>Add slope</p></td>
 <td><p>value of slope in x</p></td>
 <td><p>value of slope in y</p></td>
 <td><p>Slope is multiplied to x and/or y. Useful to e.g. subtract series resistance</p></td>
 </tr>
-<tr class="row-even"><td><p>Invert</p></td>
+<tr class="row-odd"><td><p>Invert</p></td>
 <td><p>n/a</p></td>
 <td><p>n/a</p></td>
 <td><p>perform 1/x, 1/y or 1/z</p></td>
 </tr>
-<tr class="row-odd"><td><p>Normalize</p></td>
+<tr class="row-even"><td><p>Normalize</p></td>
 <td><p>x-coordinate of point</p></td>
 <td><p>y-coordinate of point</p></td>
 <td><p>Normalise z-data (or y-data if 1D) to min, max, or specified point</p></td>
 </tr>
-<tr class="row-even"><td><p>Subtract average</p></td>
+<tr class="row-odd"><td><p>Subtract average</p></td>
 <td><p>n/a</p></td>
 <td><p>n/a</p></td>
 <td><p>Subtract average of data from data</p></td>
 </tr>
-<tr class="row-odd"><td><p>Offset line by line</p></td>
+<tr class="row-even"><td><p>Offset line by line</p></td>
 <td><p>index</p></td>
 <td><p>n/a</p></td>
 <td><p>For each line in a 2D dataset, subtract the value at the given index, within that line. Used if you know that the n-th index of each line should be zero.</p></td>
 </tr>
-<tr class="row-even"><td><p>Subtract average line by line</p></td>
+<tr class="row-odd"><td><p>Subtract average line by line</p></td>
 <td><p>n/a</p></td>
 <td><p>n/a</p></td>
 <td><p>For each line in a 2D dataset, subtract the average of values in that line.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Subtract trace</p></td>
+<tr class="row-even"><td><p>Subtract trace</p></td>
 <td><p>index</p></td>
 <td><p>n/a</p></td>
 <td><p>2D data only. Subtract the linetrace at the given index from all other lines in the data.</p></td>
 </tr>
-<tr class="row-even"><td><p>Logarithm</p></td>
+<tr class="row-odd"><td><p>Logarithm</p></td>
 <td><p>base</p></td>
 <td><p>n/a</p></td>
 <td><p>logarithm to base 10, 2 or e (default 10). The Mask, Offset and Abs options deals with negative values. ‘Mask’ ignores them, ‘Offset’ offsets all data by the minimum value in the data, and ‘Abs’ takes the absolute value of the data. Only for z data; for x,y use axis scaling below plot window</p></td>
 </tr>
-<tr class="row-odd"><td><p>Power</p></td>
+<tr class="row-even"><td><p>Power</p></td>
 <td><p>exponent</p></td>
 <td><p>n/a</p></td>
 <td><p>performs x^exponent</p></td>
 </tr>
-<tr class="row-even"><td><p>Root</p></td>
+<tr class="row-odd"><td><p>Root</p></td>
 <td><p>exponent of the root</p></td>
 <td><p>n/a</p></td>
 <td><p>performs abs(x)^(1/exponent) if exponent&gt;0</p></td>
 </tr>
-<tr class="row-odd"><td><p>Absolute</p></td>
+<tr class="row-even"><td><p>Absolute</p></td>
 <td><p>n/a</p></td>
 <td><p>n/a</p></td>
 <td><p>Absolute value of data</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/2.2/reference/generated/numpy.flip.html">Flip</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/2.2/reference/generated/numpy.flip.html">Flip</a></p></td>
 <td><p>n/a</p></td>
 <td><p>n/a</p></td>
 <td><p>Flips the data along the x-axis (1D) or y-axis (2D)</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/interpolate.html">Interpolate</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/interpolate.html">Interpolate</a></p></td>
 <td><p>number of data points in x</p></td>
 <td><p>number of data points in y</p></td>
 <td><p>Interpolates the data to the given number of points in x and/or y</p></td>
 </tr>
-<tr class="row-even"><td><p>Sort</p></td>
+<tr class="row-odd"><td><p>Sort</p></td>
 <td><p>n/a</p></td>
 <td><p>n/a</p></td>
 <td><p>Rearranges the data such that X or Y is sorted in ascending order.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/2.2/reference/generated/numpy.roll.html">Roll X</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/2.2/reference/generated/numpy.roll.html">Roll X</a></p></td>
 <td><p>position</p></td>
 <td><p>amount</p></td>
 <td><p>Rolls the data in x by the given amount, starting at the given position</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/2.2/reference/generated/numpy.roll.html">Roll Y</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/2.2/reference/generated/numpy.roll.html">Roll Y</a></p></td>
 <td><p>position</p></td>
 <td><p>amount</p></td>
 <td><p>Rolls the data in y by the given amount, starting at the given position</p></td>
 </tr>
-<tr class="row-odd"><td><p>Crop X</p></td>
+<tr class="row-even"><td><p>Crop X</p></td>
 <td><p>Minimum X</p></td>
 <td><p>Maximum X</p></td>
 <td><p>Not just zooming; relevant if e.g. you want to apply a filter only to a section of the data. Available also by right-clicking on the plot window</p></td>
 </tr>
-<tr class="row-even"><td><p>Crop Y</p></td>
+<tr class="row-odd"><td><p>Crop Y</p></td>
 <td><p>Minimum Y</p></td>
 <td><p>Maximum Y</p></td>
 <td><p>(2D data only) As above</p></td>
 </tr>
-<tr class="row-odd"><td><p>Cut X</p></td>
+<tr class="row-even"><td><p>Cut X</p></td>
 <td><p>left</p></td>
 <td><p>width</p></td>
 <td><p>Cuts the data in x, starting at the given position and with the given width</p></td>
 </tr>
-<tr class="row-even"><td><p>Cut Y</p></td>
+<tr class="row-odd"><td><p>Cut Y</p></td>
 <td><p>bottom</p></td>
 <td><p>width</p></td>
 <td><p>Cuts the data in y, starting at the given position and with the given width</p></td>
 </tr>
-<tr class="row-odd"><td><p>Swap X/Y</p></td>
+<tr class="row-even"><td><p>Swap X/Y</p></td>
 <td><p>n/a</p></td>
 <td><p>n/a</p></td>
 <td><p>Swaps the x and y axes of the data, i.e. plots y as a function of x and vice versa</p></td>
