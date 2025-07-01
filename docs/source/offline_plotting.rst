@@ -62,6 +62,7 @@ Each available filter has up to two options (hover over the relevant box in the 
     * - Filter type
       - Option 1
       - Option 2
+        jkl
       - Info
     * - `Derivative <https://numpy.org/doc/stable/reference/generated/numpy.gradient.html>`__
       - Order in x
