@@ -67,10 +67,14 @@ Each available filter has up to two options (which, since they aren't listed in 
       - Order in x
       - Order in y
       - n-th derivative in x and/or y
-    * - `Integrate <https://numpy.org/doc/2.2/reference/generated/numpy.cumsum.html>`__
+    * - Integrate
       - Order in x
       - Order in y
-      - Numerically integrate (i.e. perform the cumulative sum) n times in x and/or y. Only works for regular x and y data.
+      - Numerically integrate the z data (for 2D) or y data (for 1D) n times along the x or y axis. Choice between the trapezoidal rule, Simpson's rule and a rectangular approximation.
+    * - `Cumulative sum <https://numpy.org/doc/2.2/reference/generated/numpy.cumsum.html>`__
+      - Order in x
+      - Order in y
+      - Perform the cumulative sum n times along the array axis. Similar to integrating if the grid is regular.
     * - `Smoothen <https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.gaussian_filter.html>`__
       - smoothing window in x
       - smoothing window in y
