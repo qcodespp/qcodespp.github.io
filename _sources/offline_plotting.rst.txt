@@ -58,9 +58,15 @@ Each available filter has up to two options (hover over the relevant box in the 
 +---------------------------+---------------------+---------------------+
 | Filter type               | Option 1            | Option 2            |
 +===========================+=====================+=====================+
-| `Derivative <https://numpy.org/doc/stable/reference/generated/numpy.gradient.html>`__ | Order in x          | Order in y          |
+| Derivative                | Order in x          | Order in y          |
 +---------------------------+---------------------+---------------------+
-| `Integrate <https://numpy.org/doc/stable/reference/generated/numpy.trapz.html>`__ | Order in x          | Order in y          |
+| n-th derivative in x and/or y                                         |
++---------------------------+---------------------+---------------------+
+| Integrate                 | Order in x          | Order in y          |
++---------------------------+---------------------+---------------------+
+| Numerically integrate the z data (for 2D) or y data (for 1D) n  times |
+| along the x or y axis. Choice between the trapezoidal rule, Simpson's |
+| rule and a rectangular approximation.                                 |
 +---------------------------+---------------------+---------------------+
 
 .. list-table::
