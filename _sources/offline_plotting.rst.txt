@@ -57,7 +57,6 @@ Each available filter has up to two options (hover over the relevant box in the 
 
 
 .. list-table::
-    :widths: 10 10 10 40
     :header-rows: 1
 
     * - Filter type
@@ -185,6 +184,14 @@ Each available filter has up to two options (hover over the relevant box in the 
 **Filters and uncertainties**
 
 Since it is extremely non-obvious how various filters may affect uncertainties in different situations, only scalar multiplication and division filters are applied to uncertainties (basically to facilitate unit scaling, e.g. from volt to millivolt). In general, if you are performing any of the above operations, you should re-calculate your uncertainties manually.
+
+.. csv-table::
+  :header: "Filter type", "Option 1", "Option 2", "Info"
+
+  "Derivative", "Order in x", "Order in y", "n-th derivative in x and/or y
+  "Integrate", "Order in x", "Order in y", "Numerically integrate the z data (for 2D) or y data (for 1D) n times along the x or y axis. Choice between the trapezoidal rule, Simpson's rule and a rectangular approximation."
+  "Cumulative sum", "Order in x", "Order in y", "Perform the cumulative sum n times along the array axis. Similar to integrating if the grid is regular."
+
 
 
 **Filters and irregular or non-monotonic x/y**
