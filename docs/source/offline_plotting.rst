@@ -57,7 +57,7 @@ Each available filter has up to two options (hover over the relevant box in the 
 
 
 .. list-table::
-    :widths: 'auto'
+    :widths: 10 10 10 40
     :header-rows: 1
 
     * - Filter type
