@@ -56,7 +56,7 @@ Filters
 Each available filter has up to two options (hover over the relevant box in the app to see what they are):
 
 .. list-table::
-    :widths: 10 5 5 40
+    :widths: 'auto'
     :header-rows: 1
 
     * - Filter type
