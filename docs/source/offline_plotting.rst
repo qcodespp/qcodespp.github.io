@@ -53,10 +53,10 @@ Filters
 - You can also export the filters/settings, and load them later on other datasets. 
 - Finally, and importantly, you can 'send' the filtered data to the current dataset, to plot it on another axis, or simply use it later.
 
-Each available filter has up to two options (which, since they aren't listed in the app itself, here they are):
+Each available filter has up to two options (hover over the relevant box in the app to see what they are):
 
 .. list-table::
-    :widths: 20 20 20 40
+    :widths: 10 5 5 40
     :header-rows: 1
 
     * - Filter type
