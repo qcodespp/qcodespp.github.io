@@ -187,30 +187,6 @@ Each available filter has up to two options (hover over the relevant box in the 
 Since it is extremely non-obvious how various filters may affect uncertainties in different situations, only scalar multiplication and division filters are applied to uncertainties (basically to facilitate unit scaling, e.g. from volt to millivolt). In general, if you are performing any of the above operations, you should re-calculate your uncertainties manually.
 
 
-.. csv-table::
-  :header: "Filter type", "Option 1", "Option 2", "Info"
-  :widths: auto
-
-  "Derivative", "Order in x", "Order in y", "n-th derivative in x and/or y
-  "Integrate", "Order in x", "Order in y", "Numerically integrate the z data (for 2D) or y data (for 1D) n times along the x or y axis. Choice between the trapezoidal rule, Simpson's rule and a rectangular approximation."
-  "Cumulative sum", "Order in x", "Order in y", "Perform the cumulative sum n times along the array axis. Similar to integrating if the grid is regular."
-  "Smoothen", "smoothing window in x", "smoothing window in y", "`Gaussian <https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.gaussian_filter.html>`__ or `median <https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter>`__ filtering"
-  "Savitzy-Golay", "smoothing window", "polynomial order", "Savitzy-Golay smoothing/filtering applied along one axis"
-  "Add/Subtract", "value", "n/a", "Add/subtract a fixed value to any axis. Also available by right-clicking on plot area as 'Offset <axis> by X'. To add/subtract another parameter from the same dataset, right click on the offset value. To subtract, place a '-' in front of the parameter name."
-  "Multiply", "multiplication factor", "n/a", "X*factor; useful to convert e.g. V to mV. To multiply by another parameter from the same dataset, right click on the value to choose."
-  "Divide", "division factor", "n/a", "X/factor. To divide by another parameter from the same dataset, right click on the value to choose."
-  "Add slope", "value of slope in x", "value of slope in y", "Slope is multiplied to x and/or y. Useful to e.g. subtract series resistance"
-  "Invert", "n/a", "n/a", "perform 1/x, 1/y or 1/z"
-  "Normalize", "x-coordinate of point", "y-coordinate of point", "Normalise z-data (or y-data if 1D) to min, max, or specified point"
-  "Subtract average", "n/a", "n/a", "Subtract average of data from data"
-  "Offset line by line", "index", "n/a", "For each line in  a 2D dataset, subtract the value at the given index, within that line. Used if you know that the n-th index of each line should be zero."
-  "Subtract average line by line", "n/a", "n/a", "For each line in a 2D dataset, subtract the average of values in that line."
-  "Subtract trace", "index", "n/a", "2D data only. Subtract the linetrace at the given index from all other lines in the data."
-  "Logarithm", "base", "n/a", "logarithm to base 10, 2 or e (default 10). The Mask, Offset and Abs options deals with negative values. 'Mask' ignores them, 'Offset' offsets all data by the minimum value in the data, and 'Abs' takes the absolute value of the data. Only for z data; for x,y use axis scaling below plot window"
-  "Power", "exponent", "n/a", "performs x^exponent"
-  "Root", "exponent of the root", "n/a", "performs abs(x)^(1/exponent) if exponent>0"
-  "Absolute", "n/a", "n/a", "Absolute value of data"
-
 **Filters and irregular or non-monotonic x/y**
 
 Even though it's possible to plot irregular and non-monotonic x/y/z data (as long as the arrays are of the correct shape), the way that filters are applied often assume at least monotonic x and y. For example, Crop X and Crop Y are based on the *array indices* not the absolute value on the x or y axis. Similarly, the integral is only calculated correctly if X (or Y) are regular. Conversely, the derivative *is* calculated correctly for irregular X (or Y). If you apply a filter to irregular data, it is worth to peek into the code to see what the filter is actually doing. As time goes on we will try to make the filters more friendly to irregular data.
