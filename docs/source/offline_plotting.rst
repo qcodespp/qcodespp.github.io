@@ -55,6 +55,13 @@ Filters
 
 Each available filter has up to two options (hover over the relevant box in the app to see what they are):
 
++---------------------------+---------------------+---------------------+
+| Filter type               | Option 1            | Option 2            |
++===========================+=====================+=====================+
+| `Derivative <https://numpy.org/doc/stable/reference/generated/numpy.gradient.html>`__ | Order in x          | Order in y          |
++---------------------------+---------------------+---------------------+
+| `Integrate <https://numpy.org/doc/stable/reference/generated/numpy.trapz.html>`__ | Order in x          | Order in y          |
++---------------------------+---------------------+---------------------+
 
 .. list-table::
     :header-rows: 1
