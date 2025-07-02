@@ -75,13 +75,13 @@ Each available filter has up to two options (hover over the relevant box in the 
       - Order in y
       - Perform the cumulative sum n times along the array axis. Similar to integrating if the grid is regular.
     * - `Smoothen <https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.gaussian_filter.html>`__
-      - smoothing window in x
-      - smoothing window in y
+      - window in x
+      - window in y
       - `Gaussian <https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.gaussian_filter.html>`__ or `median <https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter>`__ filtering
     * - `Savitzy-Golay <https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.savgol_filter.html>`__
       - smoothing window
       - polynomial order
-      - Savitzy-Golay smoothing/filtering applied along one axis
+      - Savitzy-Golay smoothing/filtering applied along the selected axis
     * - Add/Subtract
       - value
       - n/a
@@ -103,8 +103,8 @@ Each available filter has up to two options (hover over the relevant box in the 
       - n/a
       - perform 1/x, 1/y or 1/z 
     * - Normalize
-      - x-coordinate of point
-      - y-coordinate of point
+      - x-coordinate
+      - y-coordinate
       - Normalise z-data (or y-data if 1D) to min, max, or specified point
     * - Subtract average
       - n/a
@@ -131,7 +131,7 @@ Each available filter has up to two options (hover over the relevant box in the 
       - n/a
       - performs x^exponent
     * - Root
-      - exponent of the root
+      - root exponent
       - n/a
       - performs abs(x)^(1/exponent) if exponent>0
     * - Absolute
@@ -143,8 +143,8 @@ Each available filter has up to two options (hover over the relevant box in the 
       - n/a
       - Flips the data along the x-axis (1D) or y-axis (2D)
     * - `Interpolate <https://docs.scipy.org/doc/scipy/reference/interpolate.html>`__
-      - number of data points in x
-      - number of data points in y
+      - # of points in x
+      - # of points in y
       - Interpolate onto a regular grid with the given number of points. 1D uses `scipy.interpolate.make_interp_spline <https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.make_interp_spline.html>`__, 2D uses `scipy.interpolate.griddata <https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html>`__.
     * - Sort
       - n/a
