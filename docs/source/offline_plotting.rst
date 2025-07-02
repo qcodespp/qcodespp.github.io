@@ -169,11 +169,11 @@ Each available filter has up to two options (hover over the relevant box in the 
     * - Cut X
       - left
       - width
-      - Cuts the data in x, starting at the given position and with the given width
+      - Similar to Crop, but uses array index, and uses min and width rather than min and max.
     * - Cut Y
       - bottom
       - width
-      - Cuts the data in y, starting at the given position and with the given width
+      - Similar to Crop, but uses array index, and uses min and width rather than min and max.
     * - Swap X/Y
       - n/a
       - n/a
