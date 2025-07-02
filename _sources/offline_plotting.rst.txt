@@ -79,7 +79,7 @@ Each available filter has up to two options (hover over the relevant box in the 
       - window in y
       - `Gaussian <https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.gaussian_filter.html>`__ or `median <https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter>`__ filtering
     * - `Savitzy-Golay <https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.savgol_filter.html>`__
-      - smoothing window
+      - window
       - polynomial order
       - Savitzy-Golay smoothing/filtering applied along the selected axis
     * - Add/Subtract
