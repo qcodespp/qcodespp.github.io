@@ -145,7 +145,7 @@ Each available filter has up to two options (hover over the relevant box in the 
     * - `Interpolate <https://docs.scipy.org/doc/scipy/reference/interpolate.html>`__
       - number of data points in x
       - number of data points in y
-      - Interpolates the data to the given number of points in x and/or y
+      - Interpolate onto a regular grid with the given number of points. 1D uses `scipy.interpolate.make_interp_spline <https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.make_interp_spline.html>`__, 2D uses `scipy.interpolate.griddata <https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html>`__.
     * - Sort
       - n/a
       - n/a
