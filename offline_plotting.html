@@ -191,14 +191,14 @@
 <td><p>Perform the cumulative sum n times along the array axis. Similar to integrating if the grid is regular.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.gaussian_filter.html">Smoothen</a></p></td>
-<td><p>smoothing window in x</p></td>
-<td><p>smoothing window in y</p></td>
+<td><p>window in x</p></td>
+<td><p>window in y</p></td>
 <td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.gaussian_filter.html">Gaussian</a> or <a class="reference external" href="https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter">median</a> filtering</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.savgol_filter.html">Savitzy-Golay</a></p></td>
 <td><p>smoothing window</p></td>
 <td><p>polynomial order</p></td>
-<td><p>Savitzy-Golay smoothing/filtering applied along one axis</p></td>
+<td><p>Savitzy-Golay smoothing/filtering applied along the selected axis</p></td>
 </tr>
 <tr class="row-odd"><td><p>Add/Subtract</p></td>
 <td><p>value</p></td>
@@ -226,8 +226,8 @@
 <td><p>perform 1/x, 1/y or 1/z</p></td>
 </tr>
 <tr class="row-even"><td><p>Normalize</p></td>
-<td><p>x-coordinate of point</p></td>
-<td><p>y-coordinate of point</p></td>
+<td><p>x-coordinate</p></td>
+<td><p>y-coordinate</p></td>
 <td><p>Normalise z-data (or y-data if 1D) to min, max, or specified point</p></td>
 </tr>
 <tr class="row-odd"><td><p>Subtract average</p></td>
@@ -261,7 +261,7 @@
 <td><p>performs x^exponent</p></td>
 </tr>
 <tr class="row-odd"><td><p>Root</p></td>
-<td><p>exponent of the root</p></td>
+<td><p>root exponent</p></td>
 <td><p>n/a</p></td>
 <td><p>performs abs(x)^(1/exponent) if exponent&gt;0</p></td>
 </tr>
@@ -276,8 +276,8 @@
 <td><p>Flips the data along the x-axis (1D) or y-axis (2D)</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/interpolate.html">Interpolate</a></p></td>
-<td><p>number of data points in x</p></td>
-<td><p>number of data points in y</p></td>
+<td><p># of points in x</p></td>
+<td><p># of points in y</p></td>
 <td><p>Interpolate onto a regular grid with the given number of points. 1D uses <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.make_interp_spline.html">scipy.interpolate.make_interp_spline</a>, 2D uses <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html">scipy.interpolate.griddata</a>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Sort</p></td>
