@@ -87,16 +87,16 @@ Each available filter has up to two options (hover over the relevant box in the 
       - n/a
       - Add/subtract a fixed value to any axis. Also available by right-clicking on plot area as 'Offset <axis> by X'. To add/subtract another parameter from the same dataset, right click on the offset value. To subtract, place a '-' in front of the parameter name.
     * - Multiply
-      - multiplication factor
+      - factor
       - n/a
       - X*factor; useful to convert e.g. V to mV. To multiply by another parameter from the same dataset, right click on the value to choose.
     * - Divide
-      - division factor
+      - factor
       - n/a
       - X/factor. To divide by another parameter from the same dataset, right click on the value to choose.
     * - Add slope
-      - value of slope in x
-      - value of slope in y
+      - slope in x
+      - slope in y
       - Slope is multiplied to x and/or y. Useful to e.g. subtract series resistance
     * - Invert
       - n/a
@@ -114,7 +114,7 @@ Each available filter has up to two options (hover over the relevant box in the 
       - index
       - n/a
       - For each line in a 2D dataset, subtract the value at the given index, within that line. Used if you know that the n-th index of each line should be zero.
-    * - Subtract average line by line
+    * - Sub. ave. line by line
       - n/a
       - n/a
       - For each line in a 2D dataset, subtract the average of values in that line.
@@ -159,12 +159,12 @@ Each available filter has up to two options (hover over the relevant box in the 
       - amount
       - Rolls the data in y by the given amount, starting at the given position
     * - Crop X
-      - Minimum X
-      - Maximum X
+      - minimum x
+      - maximum x
       - Not just zooming; relevant if e.g. you want to apply a filter only to a section of the data. Available also by right-clicking on the plot window
     * - Crop Y
-      - Minimum Y
-      - Maximum Y
+      - minimum y
+      - maximum y
       - (2D data only) As above
     * - Cut X
       - left
