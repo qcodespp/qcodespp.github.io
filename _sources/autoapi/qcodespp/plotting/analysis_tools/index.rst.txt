@@ -22,7 +22,7 @@ Functions
 Module Contents
 ---------------
 
-.. py:function:: colorplot(x, y, z, figsize=0, cmap=0, labels=0, xlim=0, ylim=0, zlim=0, xmajor=0, xminor=0, ymajor=0, yminor=0, font_size=0, label_size=0)
+.. py:function:: colorplot(x, y, z, figsize=0, cmap=0, labels=0, xlim=0, ylim=0, zlim=0, xmajor=0, xminor=0, ymajor=0, yminor=0, font_size=0, label_size=0, check_shapes=True)
 
    Make a nice colourplot from a three-dimensional data array using matplotlib. 
 
@@ -58,6 +58,7 @@ Module Contents
        
        label_size (int, optional): Font size for the tick labels. Default is 12.
 
+       check_shapes (bool, optional): If True, checks the shapes of x, y, and z arrays and transposes if necessary. Default is True.
 
    Returns:
        tuple: A tuple containing the figure, axis, and colorbar axis objects.

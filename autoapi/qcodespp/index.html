@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>qcodespp &mdash; qcodes++ 0.1.3 documentation</title>
+  <title>qcodespp &mdash; qcodes++ 0.1.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
 
@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="../../_static/qcppfavicon.svg"/>
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=14711e05"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=dff88ec8"></script>
       <script src="../../_static/doctools.js?v=888ff710"></script>
       <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -91,6 +91,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.Plot"><code class="docutils literal notranslate"><span class="pre">Plot</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.live_plot"><code class="docutils literal notranslate"><span class="pre">live_plot()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.offline_plotting"><code class="docutils literal notranslate"><span class="pre">offline_plotting()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.colorplot"><code class="docutils literal notranslate"><span class="pre">colorplot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.colored_traces"><code class="docutils literal notranslate"><span class="pre">colored_traces()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.new_data"><code class="docutils literal notranslate"><span class="pre">new_data()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.load_data"><code class="docutils literal notranslate"><span class="pre">load_data()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.load_data_num"><code class="docutils literal notranslate"><span class="pre">load_data_num()</span></code></a></li>
@@ -322,7 +324,7 @@ whose keys should be treated as attributes of <code class="docutils literal notr
 
 <dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.__version__">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">__version__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'0.1.2'</span></em><a class="headerlink" href="#qcodespp.__version__" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">__version__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'0.1.4'</span></em><a class="headerlink" href="#qcodespp.__version__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
@@ -1237,6 +1239,59 @@ link_to_default (bool): Link to the qcodespp default folder specified by qc.set_
 <dt>use_thread (bool): Runs the application in a separate thread or not. Default is True.</dt><dd><p>Threading may cause problems on some systems, e.g. macOS.</p>
 </dd>
 </dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="qcodespp.colorplot">
+<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">colorplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmajor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xminor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymajor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yminor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_shapes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.colorplot" title="Permalink to this definition"></a></dt>
+<dd><p>Make a nice colourplot from a three-dimensional data array using matplotlib.</p>
+<p>Args:</p>
+<blockquote>
+<div><p>x: 1D or 2D array of x-coordinates</p>
+<p>y: 1D or 2D array of y-coordinates</p>
+<p>z: 2D array of z-values corresponding to the x and y coordinates.</p>
+<p>figsize (tuple, optional): Size of the figure in inches. Default is (8, 8).</p>
+<p>cmap (str, optional): Colormap to use for the plot. Default is ‘hot’.</p>
+<p>labels (list, optional): Labels for the x, y, and z axes. Default is [‘x’, ‘y’, ‘z’].</p>
+<p>xlim (tuple, optional): Limits for the x-axis. Default is None.</p>
+<p>ylim (tuple, optional): Limits for the y-axis. Default is None.</p>
+<p>zlim (tuple, optional): Limits for the z-axis (color scale). Default is None.</p>
+<p>xmajor (float, optional): Major tick interval for the x-axis. Default is None.</p>
+<p>xminor (float, optional): Minor tick interval for the x-axis. Default is None.</p>
+<p>ymajor (float, optional): Major tick interval for the y-axis. Default is None.</p>
+<p>yminor (float, optional): Minor tick interval for the y-axis. Default is None.</p>
+<p>font_size (int, optional): Font size for the axis labels. Default is 12.</p>
+<p>label_size (int, optional): Font size for the tick labels. Default is 12.</p>
+<p>check_shapes (bool, optional): If True, checks the shapes of x, y, and z arrays and transposes if necessary. Default is True.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>tuple: A tuple containing the figure, axis, and colorbar axis objects.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="qcodespp.colored_traces">
+<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">colored_traces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmajor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xminor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymajor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yminor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.colored_traces" title="Permalink to this definition"></a></dt>
+<dd><p>Plot a series of 1D traces where the lines are colored according to a matplotlib colormap.</p>
+<p>Args:</p>
+<blockquote>
+<div><p>x: 1D or 2D array of x-coordinates</p>
+<p>y: 2D array of y-coordinates</p>
+<p>figsize (tuple, optional): Size of the figure in inches. Default is (8, 8).</p>
+<p>cmap (str, optional): Colormap to use for the plot. Default is ‘hot’.</p>
+<p>labels (list, optional): Labels for the x, y, and z axes. Default is [‘x’, ‘y’, ‘z’].</p>
+<p>xlim (tuple, optional): Limits for the x-axis. Default is None.</p>
+<p>ylim (tuple, optional): Limits for the y-axis. Default is None.</p>
+<p>xmajor (float, optional): Major tick interval for the x-axis. Default is None.</p>
+<p>xminor (float, optional): Minor tick interval for the x-axis. Default is None.</p>
+<p>font_size (int, optional): Font size for the axis labels. Default is 12.</p>
+<p>label_size (int, optional): Font size for the tick labels. Default is 12.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>tuple: A tuple containing the figure and axis objects.</p>
 </dd>
 </dl>
 </dd></dl>
