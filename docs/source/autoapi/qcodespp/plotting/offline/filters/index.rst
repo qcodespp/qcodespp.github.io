@@ -25,6 +25,10 @@ Functions
 .. autosummary::
 
    qcodespp.plotting.offline.filters.derivative
+   qcodespp.plotting.offline.filters.cumulative_sum
+   qcodespp.plotting.offline.filters.integrate_rectangle
+   qcodespp.plotting.offline.filters.integrate_trapezoid
+   qcodespp.plotting.offline.filters.integrate_simpson
    qcodespp.plotting.offline.filters.integrate
    qcodespp.plotting.offline.filters.smooth
    qcodespp.plotting.offline.filters.sav_gol
@@ -47,7 +51,9 @@ Functions
    qcodespp.plotting.offline.filters.logarithm
    qcodespp.plotting.offline.filters.power
    qcodespp.plotting.offline.filters.root
+   qcodespp.plotting.offline.filters.interp2d
    qcodespp.plotting.offline.filters.interpolate
+   qcodespp.plotting.offline.filters.sort
    qcodespp.plotting.offline.filters.add_slope
    qcodespp.plotting.offline.filters.subtract_trace
    qcodespp.plotting.offline.filters.invert
@@ -57,6 +63,23 @@ Module Contents
 ---------------
 
 .. py:function:: derivative(data, method, times_x, times_y)
+
+.. py:function:: cumulative_sum(data, method, times_x, times_y)
+
+.. py:function:: integrate_rectangle(x, y)
+
+   Numerically integrate y with respect to x. Should be the same as cumulative sum for regularly spaced x.
+
+
+.. py:function:: integrate_trapezoid(x, y)
+
+   Numerically integrate y with respect to x using the trapezoidal rule.
+
+
+.. py:function:: integrate_simpson(x, y)
+
+   Numerically integrate y with respect to x using Simpson's rule.
+
 
 .. py:function:: integrate(data, method, times_x, times_y)
 
@@ -102,7 +125,14 @@ Module Contents
 
 .. py:function:: root(data, method, setting1, setting2)
 
+.. py:function:: interp2d(x, y, z, kind='linear')
+
+   Re-do the job that scipy used to do
+
+
 .. py:function:: interpolate(data, method, n_x, n_y)
+
+.. py:function:: sort(data, method, setting1, setting2)
 
 .. py:function:: add_slope(data, method, a_x, a_y)
 
@@ -110,7 +140,7 @@ Module Contents
 
 .. py:function:: invert(data, method, setting1, setting2)
 
-.. py:class:: Filter(name, method=None, settings=None, checkstate=None)
+.. py:class:: Filter(name, method=None, settings=None, checkstate=None, dimension=2)
 
    .. py:attribute:: DEFAULT_SETTINGS
 
