@@ -140,7 +140,7 @@ Note that in a ``loop2d``, the ``sweep_parameter`` jumps from the stop value bac
                     instrument_info='ACdiv=1e5 DCdiv=1e3 freq=123 Hz',
                     measure=[instrument.input1, instrument.input2])
 
-However, you will now see that the dataset contains two lots of data for each parameter, representing the two directions of the sweep parameter's journey.
+You will now see that the dataset contains two lots of data for each parameter, representing the two directions of the sweep parameter's journey.
 
 The other option you have is to turn on the ``snake`` behaviour in ``loop2d``. This alters the direction of the ``sweep_parameter`` every alternate step of the step_parameter. This is done by setting the ``snake`` attribute to True:
 
