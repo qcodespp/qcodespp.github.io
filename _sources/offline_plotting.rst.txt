@@ -5,10 +5,13 @@ Offline plotting, a.k.a. InSpectra Gadget
 .. figure:: IGmain.png
     :alt: InSpectra Gadget main window
 
-Offline plotting is opened by running
-``qcodespp.offline_plotting()`` 
+Offline plotting can be opened from the Anaconda prompt with
+``qcodespp offline_plotting``
 
-If you have declared ``qcodespp.set_data_folder('foldername')``, data from that folder will automatically be opened. Alternatively, you can write ``qcodespp.offline_plotting(folder=path_to_folder)`` to open a different folder. Otherwise, the initial state is blank.
+or from Jupyter notebooks with
+``qcodespp.offline_plotting()``
+
+If you have declared ``qcodespp.set_data_folder('foldername')`` in the same notebook, data from that folder will automatically be opened. Alternatively, you can write ``qcodespp.offline_plotting(folder=path_to_folder)`` to open a different folder. Otherwise, the initial state is blank.
 
 Basic plotting
 --------------
