@@ -15,17 +15,18 @@ If you have declared ``qcodespp.set_data_folder('foldername')`` in the same note
 
 Basic plotting
 --------------
-- Load data by clicking the 'Open File' button in the top left corner, or by opening/linking a folder (see below).
-- If the data is 1D, a line trace will be plotted, and if it is 2D, it will plot a color plot.
-- Below the 'Opened files' box is a table of 'Settings for Selected File'. For colourplots, the plotted parameters are changed by right-clicking on the relevant value. You can change other appearance settings, with preset values accessible by right-clicking.
+- Load data by clicking 'Open File', or by opening/linking a folder `(see below) <https://qcodespp.github.io/offline_plotting.html#working-with-an-entire-folder>__`.
+- 1D data is plotted as lines, and 2D data as a `color plot <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pcolormesh.html>__`.
+- To change the plotted parameters, right click on the parameter name under 'Settings for Selected File' (for 2D data) or '1D traces' (for 1D data).
 - Immediately above the plot windows are the usual matplotlib tools for panning and zooming. Reset the view with the 'home' button.
 - You can also zoom using the mousewheel. Zooming while holding ctrl(shift) zooms only on the x(y) axis.
-- Underneath the plot are settings related to the axes, including the colourbar. You can choose the colourmap type, the range, etc.
+- 'Settings for Selected File' changes the plot appearance. Right click to choose from preset values.
+- Axes settings (inc. for the colorbar) are underneath the plots.
 - The colorbar is accompanied by a histogram. To adjust the range of the colorbar, change the limits of the blue shaded region by clicking and dragging.
-- For 1D data, extra options will appear when the file name is clicked. You can add multiple lines from the same dataset to the same plot; change the parameters by right-clicking on the parameter name(s).
+- For 1D data, extra options will appear when the file name is clicked. You can add multiple lines from the same dataset to the same plot.
 - Linestyle and colour can also be changed by rightclicking.
 - Basic uncertainty plotting is supported for 1D data. For fixed values, enter the value, and for a percentage error enter e.g. '10%'. The uncertainties can also be loaded from another column in the dataset by right-clicking on the relevant cell in the table. (see below for how filters (do not) affect uncertainties).
-- You can also perform fits to 1D data (see below)
+- You can also perform `fits to 1D data <https://qcodespp.github.io/offline_plotting.html#fitting>`__.
 - When you are done, you can click 'Save' or 'Copy' in the top right corner to save or copy the plot as an image. The saved pdfs work very well in Adobe Illustrator.
 
 Plot types
@@ -38,12 +39,12 @@ Plot types
 Fitting
 ^^^^^^^
 - The fitting is basically a GUI for `lmfit <a href=https://lmfit.github.io/lmfit-py/>`__, with almost all built-in models implemented. See `here for a description of each model/function <a href=https://lmfit.github.io/lmfit-py/builtin_models.html>`__.
-- To limit the fitting range, fill out the Xmin and Xmax fields, OR, click twice on the plot area. Lower limit first, upper limit second.
+- To limit the fitting range, fill out the Xmin and Xmax fields, OR, click twice on the plot area. Lower limit first, upper limit second. Further clicks will move the closest limit to the click position.
 - You almost always need to provide some 'Input info'; might be the polynomial order, or the number of peaks to fit. The info is given in the box at the bottom of the window.
-- Optionally, you can provide an initial guess for the fit parameters; see the info box for how to format your inputs correctly. See note about initial guesses and fitting below*
+- Optionally, you can provide an initial guess for the fit parameters; see the info box for how to format your inputs correctly. `The initial guess can be very important <https://qcodespp.github.io/offline_plotting.html#a-note-about-fitting>`__.
 - If there is not a model suited to your needs, use 'User input'/'Expression'. `You can input anything you want and fit it! <a href=https://lmfit.github.io/lmfit-py/builtin_models.html#lmfit.models.ExpressionModel>`__
-- The 'custom' models include some fits relevant for electron transport, using the basic lmfit Model. If you have a working lmfit Model for a function not included here, send me the code and I'll implement it.
-- 'Save fit result' saves the fit result using ``lmfit.model.save_modelresult`` `(docs) <https://lmfit.github.io/lmfit-py/model.html#lmfit.model.save_modelresult>`__. You can use lmfit.model.load_modelresult('file_location') `(docs) <https://lmfit.github.io/lmfit-py/model.html#lmfit.model.load_modelresult>`__ to load the fit result into a notebook for further analysis.
+- The 'custom' models include some fits relevant for electron transport, using ``lmfit.Model`` `(docs) <https://lmfit.github.io/lmfit-py/model.html>__`. If you have a working ``Model`` for a function not included here, feel free to `contact me via github or email <https://github.com/qcodespp/qcodespp>__` (or even better, make a pull request!) and I will include it.
+- 'Save fit result' saves the fit result using ``lmfit.model.save_modelresult`` `(docs) <https://lmfit.github.io/lmfit-py/model.html#lmfit.model.save_modelresult>`__. You can use ``lmfit.model.load_modelresult('file_location')`` `(docs) <https://lmfit.github.io/lmfit-py/model.html#lmfit.model.load_modelresult>`__ to load the fit result into a notebook for further analysis.
 - You can fit all of the checked lines using the same fitting options using the 'Fit checked' button. You can save all the results as lmfit model results (I suggest making a new folder before saving!!).
 - Finally, you can also calculate statistics under 'fitting'. This isn't really fitting of course, it just calculates the listed values using the relevant numpy function (i.e. no lmfit involved). The statistics are saved as a .json file.
 
@@ -52,8 +53,8 @@ Filters
 'Filters' in InSpectra Gadget are simply mathematical operations that can be performed on the data. The filters thus handle everything from applying offsets to any of the axes, to doing numerical differentiation. 
 
 - You can add multiple instances of the same filter type, change the order they are applied in and turn them off and on. 
-- You can export the data if you need to work with the results in another program/notebook (see below for more). 
-- You can also export the filters/settings, and load them later on other datasets. 
+- You can export the data if you need to work with the results in another program/notebook. 
+- You can also `export the filters/settings <https://qcodespp.github.io/offline_plotting.html#exporting-data-and-filters>__`, and load them later on other datasets. 
 - Finally, and importantly, you can 'send' the filtered data to the current dataset, to plot it on another axis, or simply use it later.
 
 Each available filter has up to two options (hover over the relevant box in the app to see what they are):
