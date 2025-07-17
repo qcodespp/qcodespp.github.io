@@ -255,17 +255,21 @@ The combined datasets are by default not saved to disk! Remember to either save 
 
 Saving and loading
 ------------------
-The entire state of the program can be saved in .igs format. Including linecuts, fits, etc etc.
+You can 'Save Session' and 'Restore Session' in the '.igs' format from the 'File' menu. The raw data is *not* saved, rather the filepath is saved, and the data reloaded upon Restore. If the filepath changes (e.g. you moved the data, or are loading the session on a different computer), you will be prompted to find the new data location. The program will then try to load *all* the data by looking at the new relative filepath, so even if you have 1000 files, you should only have to manually relocate one of them.
 
 Exporting data and filters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-If you need to do further analysis in another program/notebook, you can export the data in the 'Export processed data' menu. You can save in .dat, .csv or .json format. Note that for 1D data the .dat format is quite limiting, since numpy dat files do not support arrays of different lengths. Therefore fit lines are not exported, and in general combined 1D data files will not work. However, both features are supported by .csv and .json. For python, I recommend a json, because it can be easily loaded as a python dictionary:
+If you need to do further analysis in another program/notebook, export the data using the 'Export processed data' menu. You can save in .dat, .csv or .json format. For python, .json is likely the best choice, because it does not have the limitations of numpy .dat files, and is easily loaded as a `python <https://docs.python.org/3/tutorial/datastructures.html#dictionaries>__` `dictionary <https://www.w3schools.com/python/python_dictionaries.asp>__` using
 
 .. code-block:: python
 
   import json
   with open('filename.json') as f:
       data=json.load(f)
+
+2D data exported as .json can be loaded into a notebook using ``data=qcodespp.load_2d_json(filename)``. This returns a dictionary with the data reshaped correctly.
+
+Limitations in the numpy .dat formatter places limitations on what 1D data can be exported to .dat. Fits will *not* exported, and combined 1D files cannot be exported unless all arrays are of the same length. These limitations do not exist for .csv and .json.
 
 Saving and loading appearance presets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -315,7 +319,7 @@ To automatically name the columns, you can use a numpy header, i.e. start the fi
 
 The default delimiter is any white space. If necessary, specify the delimiter under 'Settings for Selected File' to reload the data with the appropriate delimiter.
 
-It's really hard (impossible) to ensure that all data can be loaded well. All 1D and 2D qcodes++ data, as well as any files produced by the offline plotting should load correctly; unfortunately I can't really guarantee anything else but can perhaps help a little if you reach out.
+It's really hard (impossible) to ensure that all data can be loaded well. All 1D and 2D qcodes++ data, as well as any files produced by offline_plotting itself should load correctly.
 
 Background
 ----------
