@@ -277,9 +277,9 @@ You can save the current state of the appearance settings from the 'Presets' men
 
 Loading non-qcodes++ data.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-To load data that wasn't taken by qcodes++, you will need to make sure it has the right shape, and is saved in numpy .dat format. For 1D data, this is a series of columns of equal length. The first column should contain the independent variable. Numpy genfromtxt is a bit funny; sometimes it will interpret the data to be transposed to your intention. If this is the case, and e.g. you get 300 columns and 4 rows when you should have 4 columns and 300 rows, set 'transpose' to True under 'Settings for Selected File'. The program will re-import the data and swap the meaning of rows and columns.
+To load data that wasn't taken by qcodes++, you will need to make sure it has the right shape, and is saved in as a .dat file compatible with `numpy genfromtxt <https://numpy.org/doc/stable/reference/generated/numpy.genfromtxt.html>__`. For 1D data, this is a series of columns of equal length. If the data was loaded with rows and columns swapped, e.g. you get 300 columns and 4 rows when you should have 4 columns and 300 rows, set 'transpose' to True under 'Settings for Selected File'. The program will re-import the data and swap the meaning of rows and columns.
 
-For 2D data, again the data should be numpy .dat, with the number of columns being the number of parameters. The independent parameters should be in the first and second columns. A basic example::
+For 2D data,data should again be numpy .dat, with the number of columns being the number of parameters. The independent parameters should be in the first and second columns. A basic example::
 
     0   0.1     1.2
     0   0.2     1.3
@@ -318,8 +318,6 @@ To automatically name the columns, you can use a numpy header, i.e. start the fi
 ``# Voltage Temperature Conductance``
 
 The default delimiter is any white space. If necessary, specify the delimiter under 'Settings for Selected File' to reload the data with the appropriate delimiter.
-
-It's really hard (impossible) to ensure that all data can be loaded well. All 1D and 2D qcodes++ data, as well as any files produced by offline_plotting itself should load correctly.
 
 Background
 ----------
