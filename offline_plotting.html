@@ -391,15 +391,17 @@
 </section>
 <section id="saving-and-loading">
 <h2>Saving and loading<a class="headerlink" href="#saving-and-loading" title="Permalink to this heading"></a></h2>
-<p>The entire state of the program can be saved in .igs format. Including linecuts, fits, etc etc.</p>
+<p>You can ‘Save Session’ and ‘Restore Session’ in the ‘.igs’ format from the ‘File’ menu. The raw data is <em>not</em> saved, rather the filepath is saved, and the data reloaded upon Restore. If the filepath changes (e.g. you moved the data, or are loading the session on a different computer), you will be prompted to find the new data location. The program will then try to load <em>all</em> the data by looking at the new relative filepath, so even if you have 1000 files, you should only have to manually relocate one of them.</p>
 <section id="exporting-data-and-filters">
 <h3>Exporting data and filters<a class="headerlink" href="#exporting-data-and-filters" title="Permalink to this heading"></a></h3>
-<p>If you need to do further analysis in another program/notebook, you can export the data in the ‘Export processed data’ menu. You can save in .dat, .csv or .json format. Note that for 1D data the .dat format is quite limiting, since numpy dat files do not support arrays of different lengths. Therefore fit lines are not exported, and in general combined 1D data files will not work. However, both features are supported by .csv and .json. For python, I recommend a json, because it can be easily loaded as a python dictionary:</p>
+<p>If you need to do further analysis in another program/notebook, export the data using the ‘Export processed data’ menu. You can save in .dat, .csv or .json format. For python, .json is likely the best choice, because it does not have the limitations of numpy .dat files, and is easily loaded as a <cite>python &lt;https://docs.python.org/3/tutorial/datastructures.html#dictionaries&gt;__</cite> <cite>dictionary &lt;https://www.w3schools.com/python/python_dictionaries.asp&gt;__</cite> using</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;filename.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>2D data exported as .json can be loaded into a notebook using <code class="docutils literal notranslate"><span class="pre">data=qcodespp.load_2d_json(filename)</span></code>. This returns a dictionary with the data reshaped correctly.</p>
+<p>Limitations in the numpy .dat formatter places limitations on what 1D data can be exported to .dat. Fits will <em>not</em> exported, and combined 1D files cannot be exported unless all arrays are of the same length. These limitations do not exist for .csv and .json.</p>
 </section>
 <section id="saving-and-loading-appearance-presets">
 <h3>Saving and loading appearance presets<a class="headerlink" href="#saving-and-loading-appearance-presets" title="Permalink to this heading"></a></h3>
@@ -442,7 +444,7 @@
 <p>To automatically name the columns, you can use a numpy header, i.e. start the first line with ‘#’ and list the parameters:</p>
 <p><code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Voltage</span> <span class="pre">Temperature</span> <span class="pre">Conductance</span></code></p>
 <p>The default delimiter is any white space. If necessary, specify the delimiter under ‘Settings for Selected File’ to reload the data with the appropriate delimiter.</p>
-<p>It’s really hard (impossible) to ensure that all data can be loaded well. All 1D and 2D qcodes++ data, as well as any files produced by the offline plotting should load correctly; unfortunately I can’t really guarantee anything else but can perhaps help a little if you reach out.</p>
+<p>It’s really hard (impossible) to ensure that all data can be loaded well. All 1D and 2D qcodes++ data, as well as any files produced by offline_plotting itself should load correctly.</p>
 </section>
 </section>
 <section id="background">
