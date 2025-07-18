@@ -208,17 +208,18 @@ Linecuts
     :alt: InSpectra Gadget linecut window
 
 - To make a horizontal(vertical) linecut, left-click(middle-click) at the desired location on the plot.
-- Alternatively, right click on the plot area and select the relevant option.
+- Alternatively, right click on the plot area and choose from the menu; diagonal linecuts are also available.
 - You can change the index at which the cut is made, the offset on the y-axis, and the colour of the line.
 - You can add further cuts by clicking again, or manually adding them in the linecut window.
 - To generate a series of linecuts, specify (the indices) start, end, step and y-axis offset. Use -1 as end index to call the last index. It's probably not a smart idea to plot every line if you have hundreds of lines; it will use a lot of memory.
 - Once you have your linecuts, you can also apply a colourmap to their linecolors by selecting which colormap to use, how to apply it, and clicking 'Apply'
-- You can also access the linecuts by right-clicking on the plot area. Here you also have the option to plot 'diagonal' linecuts, i.e. cuts along an arbitrary direction in the x-y plane, and circular linecuts.
+- You can (re-)access the linecut windows from the 'Plot Actions' menu, by right-clicking on the plot area, or by the shortcuts Ctrl+Shift+H, Ctrl+Shift+G, Ctrl+Shift+D for horizontal, vertical, and diagonal linecuts, respectively.
+- You can copy and paste linecuts ('Plot Actions' menu); horizontal and vertical linecuts are copy/pasted according to their *index*, while diagonal linecuts are copy/pasted according to their two data co-ordinates.
 
 Fitting linecuts
 ^^^^^^^^^^^^^^^^
-- The fitting is almost the same as in the 1D plotting case.
-- An important difference is that you can now Generate a parameter dependency. This file has the value of the parent axis as one column, and all parameters from the lmfit result(s) as the other columns. The file is automatically added to the file list in the main window. You can then plot each fit parameter as a function of the parent parameter.
+- Fitting linecuts is almost the same as in the 1D plotting case except...
+- You can 'Generate a parameter dependency'; i.e. create a file which has the value of the parent axis as one column, and all fit parameters as the other columns. The file is automatically added to the file list in the main window. You can then plot each fit parameter as a function of the parent axis' variable.
 
 Working with multiple files
 ---------------------------
