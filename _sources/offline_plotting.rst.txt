@@ -188,15 +188,6 @@ Each available filter has up to two options (hover over the relevant box in the 
 
 Since it is extremely non-obvious how various filters may affect uncertainties in different situations, only scalar multiplication and division filters are applied to uncertainties (basically to facilitate unit scaling, e.g. from volt to millivolt). In general, if you are performing any of the above operations, you should re-calculate your uncertainties manually.
 
-.. csv-table::
-    :header: "Filter type", "Option 1", "Option 2", "Info"
-
-    "Derivative", "Order in x", "Order in y", "n-th derivative in x and/or y
-    "Integrate", "Order in x", "Order in y", "Numerically integrate the z data (for 2D) or y data (for 1D) n  times along the x or y axis. Choice between the trapezoidal rule, Simpson's rule and a rectangular   approximation."
-    "Cumulative sum", "Order in x", "Order in y", "Perform the cumulative sum n times along the array axis.   Similar to integrating if the grid is regular."
-
-
-
 **Filters and irregular or non-monotonic x/y**
 
 Even though it's possible to plot irregular and non-monotonic x/y/z data (as long as the arrays are of the correct shape), the way that filters are applied often assume at least monotonic x and y. For example, Crop X and Crop Y are based on the *array indices* not the absolute value on the x or y axis. Similarly, the integral is only calculated correctly if X (or Y) are regular. Conversely, the derivative *is* calculated correctly for irregular X (or Y). If you apply a filter to irregular data, it is worth to peek into the code to see what the filter is actually doing. As time goes on we will try to make the filters more friendly to irregular data.
