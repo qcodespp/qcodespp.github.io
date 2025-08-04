@@ -15,8 +15,8 @@ If you have declared ``qcodespp.set_data_folder('foldername')`` in the same note
 
 Basic plotting
 --------------
-- Load data by clicking 'Open File', or by opening/linking a folder `(see below) <https://qcodespp.github.io/offline_plotting.html#working-with-an-entire-folder>__`.
-- 1D data is plotted as lines, and 2D data as a `color plot <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pcolormesh.html>__`.
+- Load data by clicking 'Open File', or by `opening/linking a folder <https://qcodespp.github.io/offline_plotting.html#working-with-an-entire-folder>`__.
+- 1D data is plotted as lines, and 2D data as a `color plot <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pcolormesh.html>`__.
 - To change the plotted parameters, right click on the parameter name under 'Settings for Selected File' (for 2D data) or '1D traces' (for 1D data).
 - Immediately above the plot windows are the usual matplotlib tools for panning and zooming. Reset the view with the 'home' button.
 - You can also zoom using the mousewheel. Zooming while holding ctrl(shift) zooms only on the x(y) axis.
@@ -26,8 +26,9 @@ Basic plotting
 - For 1D data, extra options will appear when the file name is clicked. You can add multiple lines from the same dataset to the same plot.
 - Linestyle and colour can also be changed by rightclicking.
 - Basic uncertainty plotting is supported for 1D data. For fixed values, enter the value, and for a percentage error enter e.g. '10%'. The uncertainties can also be loaded from another column in the dataset by right-clicking on the relevant cell in the table. (see below for how filters (do not) affect uncertainties).
+- A legend can be added for 1D data using the checkbox above the plot window.
 - You can also perform `fits to 1D data <https://qcodespp.github.io/offline_plotting.html#fitting>`__.
-- When you are done, you can click 'Save' or 'Copy' in the top right corner to save or copy the plot as an image. The saved pdfs work very well in Adobe Illustrator.
+- You can save or copy the plot using the buttons in the top right corner or the shortcuts Ctrl+Shift+S, Ctrl+Shift+C. The saved pdfs work very well in Adobe Illustrator.
 
 Plot types
 ^^^^^^^^^^
@@ -43,7 +44,7 @@ Fitting
 - You almost always need to provide some 'Input info'; might be the polynomial order, or the number of peaks to fit. The info is given in the box at the bottom of the window.
 - Optionally, you can provide an initial guess for the fit parameters; see the info box for how to format your inputs correctly. `The initial guess can be very important <https://qcodespp.github.io/offline_plotting.html#a-note-about-fitting>`__.
 - If there is not a model suited to your needs, use 'User input'/'Expression'. `You can input anything you want and fit it! <a href=https://lmfit.github.io/lmfit-py/builtin_models.html#lmfit.models.ExpressionModel>`__
-- The 'custom' models include some fits relevant for electron transport, using ``lmfit.Model`` `(docs) <https://lmfit.github.io/lmfit-py/model.html>__`. If you have a working ``Model`` for a function not included here, feel free to `contact me via github or email <https://github.com/qcodespp/qcodespp>__` (or even better, make a pull request!) and I will include it.
+- The 'custom' models include some fits relevant for electron transport, using ``lmfit.Model`` `(docs) <https://lmfit.github.io/lmfit-py/model.html>`__. If you have a working ``Model`` for a function not included here, feel free to `contact me via github or email <https://github.com/qcodespp/qcodespp>`__ (or even better, make a pull request!) and I will include it.
 - 'Save fit result' saves the fit result using ``lmfit.model.save_modelresult`` `(docs) <https://lmfit.github.io/lmfit-py/model.html#lmfit.model.save_modelresult>`__. You can use ``lmfit.model.load_modelresult('file_location')`` `(docs) <https://lmfit.github.io/lmfit-py/model.html#lmfit.model.load_modelresult>`__ to load the fit result into a notebook for further analysis.
 - You can fit all of the checked lines using the same fitting options using the 'Fit checked' button. You can save all the results as lmfit model results (I suggest making a new folder before saving!!).
 - Finally, you can also calculate statistics under 'fitting'. This isn't really fitting of course, it just calculates the listed values using the relevant numpy function (i.e. no lmfit involved). The statistics are saved as a .json file.
@@ -54,7 +55,7 @@ Filters
 
 - You can add multiple instances of the same filter type, change the order they are applied in and turn them off and on. 
 - You can export the data if you need to work with the results in another program/notebook. 
-- You can also `export the filters/settings <https://qcodespp.github.io/offline_plotting.html#exporting-data-and-filters>__`, and load them later on other datasets. 
+- You can also `export the filters/settings <https://qcodespp.github.io/offline_plotting.html#exporting-data-and-filters>`__, and load them later on other datasets. 
 - Finally, and importantly, you can 'send' the filtered data to the current dataset, to plot it on another axis, or simply use it later.
 
 Each available filter has up to two options (hover over the relevant box in the app to see what they are):
@@ -202,10 +203,10 @@ Linecuts
 - Alternatively, right click on the plot area and choose from the menu; diagonal linecuts are also available.
 - You can change the index at which the cut is made, the offset on the y-axis, and the colour of the line.
 - You can add further cuts by clicking again, or manually adding them in the linecut window.
-- To generate a series of linecuts, specify (the indices) start, end, step and y-axis offset. Use -1 as end index to call the last index. It's probably not a smart idea to plot every line if you have hundreds of lines; it will use a lot of memory.
+- To generate a series of linecuts, specify (the indices) start, end, step and y-axis offset. Use -1 as end index to call the last index. It's probably not a smart idea to plot every line if you have hundreds of lines; it will use a lot of memory and won't look good anyway.
 - Once you have your linecuts, you can also apply a colourmap to their linecolors by selecting which colormap to use, how to apply it, and clicking 'Apply'
 - You can (re-)access the linecut windows from the 'Plot Actions' menu, by right-clicking on the plot area, or by the shortcuts Ctrl+Shift+H, Ctrl+Shift+G, Ctrl+Shift+D for horizontal, vertical, and diagonal linecuts, respectively.
-- You can copy and paste linecuts ('Plot Actions' menu); horizontal and vertical linecuts are copy/pasted according to their *index*, while diagonal linecuts are copy/pasted according to their two data co-ordinates.
+- You can copy and paste linecuts ('Plot Actions' menu or Alt+C, Alt+V); horizontal and vertical linecuts are copy/pasted according to their *index*, while diagonal linecuts are copy/pasted according to their two data co-ordinates.
 
 Fitting linecuts
 ^^^^^^^^^^^^^^^^
@@ -251,7 +252,7 @@ You can 'Save Session' and 'Restore Session' in the '.igs' format from the 'File
 
 Exporting data and filters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-If you need to do further analysis in another program/notebook, export the data using the 'Export processed data' menu. You can save in .dat, .csv or .json format. For python, .json is likely the best choice, because it does not have the limitations of numpy .dat files, and is easily loaded as a `python <https://docs.python.org/3/tutorial/datastructures.html#dictionaries>__` `dictionary <https://www.w3schools.com/python/python_dictionaries.asp>__` using
+If you need to do further analysis in another program/notebook, export the data using the 'Export processed data' menu. You can save in .dat, .csv or .json format. For python, .json is likely the best choice, because it does not have the limitations of numpy .dat files, and is easily loaded as a `python <https://docs.python.org/3/tutorial/datastructures.html#dictionaries>`__ `dictionary <https://www.w3schools.com/python/python_dictionaries.asp>`__ using
 
 .. code-block:: python
 
@@ -269,7 +270,7 @@ You can save the current state of the appearance settings from the 'Presets' men
 
 Loading non-qcodes++ data.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-To load data that wasn't taken by qcodes++, you will need to make sure it has the right shape, and is saved in as a .dat file compatible with `numpy genfromtxt <https://numpy.org/doc/stable/reference/generated/numpy.genfromtxt.html>__`. For 1D data, this is a series of columns of equal length. If the data was loaded with rows and columns swapped, e.g. you get 300 columns and 4 rows when you should have 4 columns and 300 rows, set 'transpose' to True under 'Settings for Selected File'. The program will re-import the data and swap the meaning of rows and columns.
+To load data that wasn't taken by qcodes++, you will need to make sure it has the right shape, and is saved in as a .dat file compatible with `numpy genfromtxt <https://numpy.org/doc/stable/reference/generated/numpy.genfromtxt.html>`__. For 1D data, this is a series of columns of equal length. If the data was loaded with rows and columns swapped, e.g. you get 300 columns and 4 rows when you should have 4 columns and 300 rows, set 'transpose' to True under 'Settings for Selected File'. The program will re-import the data and swap the meaning of rows and columns.
 
 For 2D data,data should again be numpy .dat, with the number of columns being the number of parameters. The independent parameters should be in the first and second columns. A basic example::
 
@@ -331,14 +332,12 @@ Finally, and very importantly!!: The ability to *constrain* fit parameters is (c
 .. - Work out good estimates for the fourth and fifth parameters in peak fitting.
 .. - Click to estimate peak height/position.
 .. - Include specialised fits. Could also allow other kind of backgrounds for peak fitting. Damped oscillator, i.e. Qubit relevant: Rabi, Ramsey, T_echo.
-.. - Do not populate 2D-exclusive filters and properties for 1D data.
 .. - Enable .json imports; basically will be baseclassdata but just redefine the functions that work out the data dimension and make the data_dict.
 .. - Option to plot X data as average of each line, if need be. Useful for fitting series.
 .. - Single-axis scrolling as in pyqtplot
 .. - More advanced preset import/export; user can choose what they want to save/load
 .. - Fix circular linecuts
 .. - diagonal linecuts should be moveable easily. Can work out equation of line between the points obviously, so no reason can't click and drag it.
-.. - duplicate for diagonal linecuts would be quite useful.
 .. - Make it so that if a user edits the default labels they become fixed, and don't change when changing plot_type. Or, if they edit the label, it gets transferred as a new default label that doesn't change. Maybe. I'm not sure.
 .. - Make cropX and cropY work for non-regular X/Y. perhaps go through *everything* and make sure it's all working nicely with non-regular X/Y
 .. - Icon
