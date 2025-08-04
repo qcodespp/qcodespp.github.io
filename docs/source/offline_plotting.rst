@@ -32,18 +32,18 @@ Basic plotting
 
 Plot types
 ^^^^^^^^^^
-`Histograms <https://numpy.org/doc/stable/reference/generated/numpy.histogram.html>`__ and `Fast Fourier Transforms (FFTs) <a href=https://numpy.org/doc/stable/reference/generated/numpy.fft.rfft.htm>`__ of the data can be plotted by selecting the appropriate 'Plot type' at the top of the window. 
+`Histograms <https://numpy.org/doc/stable/reference/generated/numpy.histogram.html>`__ and `Fast Fourier Transforms (FFTs) <https://numpy.org/doc/stable/reference/generated/numpy.fft.rfft.htm>`__ of the data can be plotted by selecting the appropriate 'Plot type' at the top of the window. 
 
 - For histograms, you can choose the number of bins either next to the 'plot type' menu (for 2D data) or line-by-line in the Traces table (for 1D data). 
-- FFTs are plotted against the `calculated frequencies <a href=https://numpy.org/doc/stable/reference/generated/numpy.fft.fftfreq.html>`__. For this to be meaningful, the original data must be on an evenly-sampled grid. At current, you will have to interpolate your data to resample it onto an evenly-spaced grid. This may become automatic in future.
+- FFTs are plotted against the `calculated frequencies <https://numpy.org/doc/stable/reference/generated/numpy.fft.fftfreq.html>`__. For this to be meaningful, the original data must be on an evenly-sampled grid. At current, you will have to interpolate your data to resample it onto an evenly-spaced grid. This may become automatic in future.
 
 Fitting
 ^^^^^^^
-- The fitting is basically a GUI for `lmfit <a href=https://lmfit.github.io/lmfit-py/>`__, with almost all built-in models implemented. See `here for a description of each model/function <a href=https://lmfit.github.io/lmfit-py/builtin_models.html>`__.
+- The fitting is basically a GUI for `lmfit <https://lmfit.github.io/lmfit-py/>`__, with almost all built-in models implemented. See `here for a description of each model/function <https://lmfit.github.io/lmfit-py/builtin_models.html>`__.
 - To limit the fitting range, fill out the Xmin and Xmax fields, OR, click twice on the plot area. Lower limit first, upper limit second. Further clicks will move the closest limit to the click position.
 - You almost always need to provide some 'Input info'; might be the polynomial order, or the number of peaks to fit. The info is given in the box at the bottom of the window.
 - Optionally, you can provide an initial guess for the fit parameters; see the info box for how to format your inputs correctly. `The initial guess can be very important <https://qcodespp.github.io/offline_plotting.html#a-note-about-fitting>`__.
-- If there is not a model suited to your needs, use 'User input'/'Expression'. `You can input anything you want and fit it! <a href=https://lmfit.github.io/lmfit-py/builtin_models.html#lmfit.models.ExpressionModel>`__
+- If there is not a model suited to your needs, use 'User input'/'Expression'. `You can input anything you want and fit it! <https://lmfit.github.io/lmfit-py/builtin_models.html#lmfit.models.ExpressionModel>`__
 - The 'custom' models include some fits relevant for electron transport, using ``lmfit.Model`` `(docs) <https://lmfit.github.io/lmfit-py/model.html>`__. If you have a working ``Model`` for a function not included here, feel free to `contact me via github or email <https://github.com/qcodespp/qcodespp>`__ (or even better, make a pull request!) and I will include it.
 - 'Save fit result' saves the fit result using ``lmfit.model.save_modelresult`` `(docs) <https://lmfit.github.io/lmfit-py/model.html#lmfit.model.save_modelresult>`__. You can use ``lmfit.model.load_modelresult('file_location')`` `(docs) <https://lmfit.github.io/lmfit-py/model.html#lmfit.model.load_modelresult>`__ to load the fit result into a notebook for further analysis.
 - You can fit all of the checked lines using the same fitting options using the 'Fit checked' button. You can save all the results as lmfit model results (I suggest making a new folder before saving!!).
