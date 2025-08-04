@@ -123,8 +123,8 @@
 <section id="basic-plotting">
 <h2>Basic plotting<a class="headerlink" href="#basic-plotting" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p>Load data by clicking ‘Open File’, or by opening/linking a folder <cite>(see below) &lt;https://qcodespp.github.io/offline_plotting.html#working-with-an-entire-folder&gt;__</cite>.</p></li>
-<li><p>1D data is plotted as lines, and 2D data as a <cite>color plot &lt;https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pcolormesh.html&gt;__</cite>.</p></li>
+<li><p>Load data by clicking ‘Open File’, or by <a class="reference external" href="https://qcodespp.github.io/offline_plotting.html#working-with-an-entire-folder">opening/linking a folder</a>.</p></li>
+<li><p>1D data is plotted as lines, and 2D data as a <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pcolormesh.html">color plot</a>.</p></li>
 <li><p>To change the plotted parameters, right click on the parameter name under ‘Settings for Selected File’ (for 2D data) or ‘1D traces’ (for 1D data).</p></li>
 <li><p>Immediately above the plot windows are the usual matplotlib tools for panning and zooming. Reset the view with the ‘home’ button.</p></li>
 <li><p>You can also zoom using the mousewheel. Zooming while holding ctrl(shift) zooms only on the x(y) axis.</p></li>
@@ -134,8 +134,9 @@
 <li><p>For 1D data, extra options will appear when the file name is clicked. You can add multiple lines from the same dataset to the same plot.</p></li>
 <li><p>Linestyle and colour can also be changed by rightclicking.</p></li>
 <li><p>Basic uncertainty plotting is supported for 1D data. For fixed values, enter the value, and for a percentage error enter e.g. ‘10%’. The uncertainties can also be loaded from another column in the dataset by right-clicking on the relevant cell in the table. (see below for how filters (do not) affect uncertainties).</p></li>
+<li><p>A legend can be added for 1D data using the checkbox above the plot window.</p></li>
 <li><p>You can also perform <a class="reference external" href="https://qcodespp.github.io/offline_plotting.html#fitting">fits to 1D data</a>.</p></li>
-<li><p>When you are done, you can click ‘Save’ or ‘Copy’ in the top right corner to save or copy the plot as an image. The saved pdfs work very well in Adobe Illustrator.</p></li>
+<li><p>You can save or copy the plot using the buttons in the top right corner or the shortcuts Ctrl+Shift+S, Ctrl+Shift+C. The saved pdfs work very well in Adobe Illustrator.</p></li>
 </ul>
 <section id="plot-types">
 <h3>Plot types<a class="headerlink" href="#plot-types" title="Permalink to this heading"></a></h3>
@@ -153,7 +154,7 @@
 <li><p>You almost always need to provide some ‘Input info’; might be the polynomial order, or the number of peaks to fit. The info is given in the box at the bottom of the window.</p></li>
 <li><p>Optionally, you can provide an initial guess for the fit parameters; see the info box for how to format your inputs correctly. <a class="reference external" href="https://qcodespp.github.io/offline_plotting.html#a-note-about-fitting">The initial guess can be very important</a>.</p></li>
 <li><p>If there is not a model suited to your needs, use ‘User input’/’Expression’. <a class="reference external" href="ahref=https://lmfit.github.io/lmfit-py/builtin_models.html#lmfit.models.ExpressionModel">You can input anything you want and fit it!</a></p></li>
-<li><p>The ‘custom’ models include some fits relevant for electron transport, using <code class="docutils literal notranslate"><span class="pre">lmfit.Model</span></code> <cite>(docs) &lt;https://lmfit.github.io/lmfit-py/model.html&gt;__</cite>. If you have a working <code class="docutils literal notranslate"><span class="pre">Model</span></code> for a function not included here, feel free to <cite>contact me via github or email &lt;https://github.com/qcodespp/qcodespp&gt;__</cite> (or even better, make a pull request!) and I will include it.</p></li>
+<li><p>The ‘custom’ models include some fits relevant for electron transport, using <code class="docutils literal notranslate"><span class="pre">lmfit.Model</span></code> <a class="reference external" href="https://lmfit.github.io/lmfit-py/model.html">(docs)</a>. If you have a working <code class="docutils literal notranslate"><span class="pre">Model</span></code> for a function not included here, feel free to <a class="reference external" href="https://github.com/qcodespp/qcodespp">contact me via github or email</a> (or even better, make a pull request!) and I will include it.</p></li>
 <li><p>‘Save fit result’ saves the fit result using <code class="docutils literal notranslate"><span class="pre">lmfit.model.save_modelresult</span></code> <a class="reference external" href="https://lmfit.github.io/lmfit-py/model.html#lmfit.model.save_modelresult">(docs)</a>. You can use <code class="docutils literal notranslate"><span class="pre">lmfit.model.load_modelresult('file_location')</span></code> <a class="reference external" href="https://lmfit.github.io/lmfit-py/model.html#lmfit.model.load_modelresult">(docs)</a> to load the fit result into a notebook for further analysis.</p></li>
 <li><p>You can fit all of the checked lines using the same fitting options using the ‘Fit checked’ button. You can save all the results as lmfit model results (I suggest making a new folder before saving!!).</p></li>
 <li><p>Finally, you can also calculate statistics under ‘fitting’. This isn’t really fitting of course, it just calculates the listed values using the relevant numpy function (i.e. no lmfit involved). The statistics are saved as a .json file.</p></li>
@@ -165,7 +166,7 @@
 <ul class="simple">
 <li><p>You can add multiple instances of the same filter type, change the order they are applied in and turn them off and on.</p></li>
 <li><p>You can export the data if you need to work with the results in another program/notebook.</p></li>
-<li><p>You can also <cite>export the filters/settings &lt;https://qcodespp.github.io/offline_plotting.html#exporting-data-and-filters&gt;__</cite>, and load them later on other datasets.</p></li>
+<li><p>You can also <a class="reference external" href="https://qcodespp.github.io/offline_plotting.html#exporting-data-and-filters">export the filters/settings</a>, and load them later on other datasets.</p></li>
 <li><p>Finally, and importantly, you can ‘send’ the filtered data to the current dataset, to plot it on another axis, or simply use it later.</p></li>
 </ul>
 <p>Each available filter has up to two options (hover over the relevant box in the app to see what they are):</p>
@@ -341,10 +342,10 @@
 <li><p>Alternatively, right click on the plot area and choose from the menu; diagonal linecuts are also available.</p></li>
 <li><p>You can change the index at which the cut is made, the offset on the y-axis, and the colour of the line.</p></li>
 <li><p>You can add further cuts by clicking again, or manually adding them in the linecut window.</p></li>
-<li><p>To generate a series of linecuts, specify (the indices) start, end, step and y-axis offset. Use -1 as end index to call the last index. It’s probably not a smart idea to plot every line if you have hundreds of lines; it will use a lot of memory.</p></li>
+<li><p>To generate a series of linecuts, specify (the indices) start, end, step and y-axis offset. Use -1 as end index to call the last index. It’s probably not a smart idea to plot every line if you have hundreds of lines; it will use a lot of memory and won’t look good anyway.</p></li>
 <li><p>Once you have your linecuts, you can also apply a colourmap to their linecolors by selecting which colormap to use, how to apply it, and clicking ‘Apply’</p></li>
 <li><p>You can (re-)access the linecut windows from the ‘Plot Actions’ menu, by right-clicking on the plot area, or by the shortcuts Ctrl+Shift+H, Ctrl+Shift+G, Ctrl+Shift+D for horizontal, vertical, and diagonal linecuts, respectively.</p></li>
-<li><p>You can copy and paste linecuts (‘Plot Actions’ menu); horizontal and vertical linecuts are copy/pasted according to their <em>index</em>, while diagonal linecuts are copy/pasted according to their two data co-ordinates.</p></li>
+<li><p>You can copy and paste linecuts (‘Plot Actions’ menu or Alt+C, Alt+V); horizontal and vertical linecuts are copy/pasted according to their <em>index</em>, while diagonal linecuts are copy/pasted according to their two data co-ordinates.</p></li>
 </ul>
 <section id="fitting-linecuts">
 <h3>Fitting linecuts<a class="headerlink" href="#fitting-linecuts" title="Permalink to this heading"></a></h3>
@@ -395,7 +396,7 @@
 <p>You can ‘Save Session’ and ‘Restore Session’ in the ‘.igs’ format from the ‘File’ menu. The raw data is <em>not</em> saved, rather the filepath is saved, and the data reloaded upon Restore. If the filepath changes (e.g. you moved the data, or are loading the session on a different computer), you will be prompted to find the new data location. The program will then try to load <em>all</em> the data by looking at the new relative filepath, so even if you have 1000 files, you should only have to manually relocate one of them.</p>
 <section id="exporting-data-and-filters">
 <h3>Exporting data and filters<a class="headerlink" href="#exporting-data-and-filters" title="Permalink to this heading"></a></h3>
-<p>If you need to do further analysis in another program/notebook, export the data using the ‘Export processed data’ menu. You can save in .dat, .csv or .json format. For python, .json is likely the best choice, because it does not have the limitations of numpy .dat files, and is easily loaded as a <cite>python &lt;https://docs.python.org/3/tutorial/datastructures.html#dictionaries&gt;__</cite> <cite>dictionary &lt;https://www.w3schools.com/python/python_dictionaries.asp&gt;__</cite> using</p>
+<p>If you need to do further analysis in another program/notebook, export the data using the ‘Export processed data’ menu. You can save in .dat, .csv or .json format. For python, .json is likely the best choice, because it does not have the limitations of numpy .dat files, and is easily loaded as a <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">python</a> <a class="reference external" href="https://www.w3schools.com/python/python_dictionaries.asp">dictionary</a> using</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;filename.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
@@ -410,7 +411,7 @@
 </section>
 <section id="loading-non-qcodes-data">
 <h3>Loading non-qcodes++ data.<a class="headerlink" href="#loading-non-qcodes-data" title="Permalink to this heading"></a></h3>
-<p>To load data that wasn’t taken by qcodes++, you will need to make sure it has the right shape, and is saved in as a .dat file compatible with <cite>numpy genfromtxt &lt;https://numpy.org/doc/stable/reference/generated/numpy.genfromtxt.html&gt;__</cite>. For 1D data, this is a series of columns of equal length. If the data was loaded with rows and columns swapped, e.g. you get 300 columns and 4 rows when you should have 4 columns and 300 rows, set ‘transpose’ to True under ‘Settings for Selected File’. The program will re-import the data and swap the meaning of rows and columns.</p>
+<p>To load data that wasn’t taken by qcodes++, you will need to make sure it has the right shape, and is saved in as a .dat file compatible with <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.genfromtxt.html">numpy genfromtxt</a>. For 1D data, this is a series of columns of equal length. If the data was loaded with rows and columns swapped, e.g. you get 300 columns and 4 rows when you should have 4 columns and 300 rows, set ‘transpose’ to True under ‘Settings for Selected File’. The program will re-import the data and swap the meaning of rows and columns.</p>
 <p>For 2D data,data should again be numpy .dat, with the number of columns being the number of parameters. The independent parameters should be in the first and second columns. A basic example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>   <span class="mf">0.1</span>     <span class="mf">1.2</span>
 <span class="mi">0</span>   <span class="mf">0.2</span>     <span class="mf">1.3</span>
