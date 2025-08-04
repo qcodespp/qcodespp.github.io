@@ -32,7 +32,7 @@ Basic plotting
 
 Plot types
 ^^^^^^^^^^
-`Histograms <https://numpy.org/doc/stable/reference/generated/numpy.histogram.html>`__ and `Fast Fourier Transforms (FFTs) <https://numpy.org/doc/stable/reference/generated/numpy.fft.rfft.htm>`__ of the data can be plotted by selecting the appropriate 'Plot type' at the top of the window. 
+`Histograms <https://numpy.org/doc/stable/reference/generated/numpy.histogram.html>`__ and `Fast Fourier Transforms (FFTs) <https://numpy.org/doc/stable/reference/generated/numpy.fft.rfft.html>`__ of the data can be plotted by selecting the appropriate 'Plot type' at the top of the window. 
 
 - For histograms, you can choose the number of bins either next to the 'plot type' menu (for 2D data) or line-by-line in the Traces table (for 1D data). 
 - FFTs are plotted against the `calculated frequencies <https://numpy.org/doc/stable/reference/generated/numpy.fft.fftfreq.html>`__. For this to be meaningful, the original data must be on an evenly-sampled grid. At current, you will have to interpolate your data to resample it onto an evenly-spaced grid. This may become automatic in future.
@@ -75,14 +75,14 @@ Each available filter has up to two options (hover over the relevant box in the 
       - Order in x
       - Order in y
       - Numerically integrate the z data (for 2D) or y data (for 1D) n times along the x or y axis. Choice between the trapezoidal rule, Simpson's rule and a rectangular approximation.
-    * - `Cumulative sum <https://numpy.org/doc/2.2/reference/generated/numpy.cumsum.html>`__
+    * - `Cumulative sum <https://numpy.org/doc/stable/reference/generated/numpy.cumsum.html>`__
       - Order in x
       - Order in y
       - Perform the cumulative sum n times along the array axis. Similar to integrating if the grid is regular.
-    * - `Smoothen <https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.gaussian_filter.html>`__
+    * - `Smoothen <https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.gaussian_filter.html>`__
       - window in x
       - window in y
-      - `Gaussian <https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.gaussian_filter.html>`__ or `median <https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter>`__ filtering
+      - `Gaussian <https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.gaussian_filter.html>`__ or `median <https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter>`__ filtering
     * - `Savitzy-Golay <https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.savgol_filter.html>`__
       - window
       - polynomial order
@@ -143,7 +143,7 @@ Each available filter has up to two options (hover over the relevant box in the 
       - n/a
       - n/a
       - Absolute value of data 
-    * - `Flip <https://numpy.org/doc/2.2/reference/generated/numpy.flip.html>`__
+    * - `Flip <https://numpy.org/doc/stable/reference/generated/numpy.flip.html>`__
       - n/a
       - n/a
       - Flips the data along the x-axis (1D) or y-axis (2D)
@@ -155,11 +155,11 @@ Each available filter has up to two options (hover over the relevant box in the 
       - n/a
       - n/a
       - Rearranges the data such that X or Y is sorted in ascending order.
-    * - `Roll X <https://numpy.org/doc/2.2/reference/generated/numpy.roll.html>`__
+    * - `Roll X <https://numpy.org/doc/stable/reference/generated/numpy.roll.html>`__
       - position
       - amount
       - Rolls the data in x by the given amount, starting at the given position
-    * - `Roll Y <https://numpy.org/doc/2.2/reference/generated/numpy.roll.html>`__
+    * - `Roll Y <https://numpy.org/doc/stable/reference/generated/numpy.roll.html>`__
       - position
       - amount
       - Rolls the data in y by the given amount, starting at the given position
