@@ -140,7 +140,7 @@
 </ul>
 <section id="plot-types">
 <h3>Plot types<a class="headerlink" href="#plot-types" title="Permalink to this heading"></a></h3>
-<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.histogram.html">Histograms</a> and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.fft.rfft.htm">Fast Fourier Transforms (FFTs)</a> of the data can be plotted by selecting the appropriate ‘Plot type’ at the top of the window.</p>
+<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.histogram.html">Histograms</a> and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.fft.rfft.html">Fast Fourier Transforms (FFTs)</a> of the data can be plotted by selecting the appropriate ‘Plot type’ at the top of the window.</p>
 <ul class="simple">
 <li><p>For histograms, you can choose the number of bins either next to the ‘plot type’ menu (for 2D data) or line-by-line in the Traces table (for 1D data).</p></li>
 <li><p>FFTs are plotted against the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.fft.fftfreq.html">calculated frequencies</a>. For this to be meaningful, the original data must be on an evenly-sampled grid. At current, you will have to interpolate your data to resample it onto an evenly-spaced grid. This may become automatic in future.</p></li>
@@ -189,15 +189,15 @@
 <td><p>Order in y</p></td>
 <td><p>Numerically integrate the z data (for 2D) or y data (for 1D) n times along the x or y axis. Choice between the trapezoidal rule, Simpson’s rule and a rectangular approximation.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/2.2/reference/generated/numpy.cumsum.html">Cumulative sum</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.cumsum.html">Cumulative sum</a></p></td>
 <td><p>Order in x</p></td>
 <td><p>Order in y</p></td>
 <td><p>Perform the cumulative sum n times along the array axis. Similar to integrating if the grid is regular.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.gaussian_filter.html">Smoothen</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.gaussian_filter.html">Smoothen</a></p></td>
 <td><p>window in x</p></td>
 <td><p>window in y</p></td>
-<td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.gaussian_filter.html">Gaussian</a> or <a class="reference external" href="https://docs.scipy.org/doc/scipy-1.15.2/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter">median</a> filtering</p></td>
+<td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.gaussian_filter.html">Gaussian</a> or <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter">median</a> filtering</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.savgol_filter.html">Savitzy-Golay</a></p></td>
 <td><p>window</p></td>
@@ -274,7 +274,7 @@
 <td><p>n/a</p></td>
 <td><p>Absolute value of data</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/2.2/reference/generated/numpy.flip.html">Flip</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.flip.html">Flip</a></p></td>
 <td><p>n/a</p></td>
 <td><p>n/a</p></td>
 <td><p>Flips the data along the x-axis (1D) or y-axis (2D)</p></td>
@@ -289,12 +289,12 @@
 <td><p>n/a</p></td>
 <td><p>Rearranges the data such that X or Y is sorted in ascending order.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/2.2/reference/generated/numpy.roll.html">Roll X</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.roll.html">Roll X</a></p></td>
 <td><p>position</p></td>
 <td><p>amount</p></td>
 <td><p>Rolls the data in x by the given amount, starting at the given position</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/2.2/reference/generated/numpy.roll.html">Roll Y</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.roll.html">Roll Y</a></p></td>
 <td><p>position</p></td>
 <td><p>amount</p></td>
 <td><p>Rolls the data in y by the given amount, starting at the given position</p></td>
