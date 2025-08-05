@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>qcodespp.loops &mdash; qcodes++ 0.1.5 documentation</title>
+  <title>qcodespp.loops &mdash; qcodes++ 0.1.6 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
 
@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="../../../_static/qcppfavicon.svg"/>
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=7b800ad1"></script>
+      <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=4c7880bb"></script>
       <script src="../../../_static/doctools.js?v=888ff710"></script>
       <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -62,6 +62,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">qcodespp</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../actions/index.html">qcodespp.actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cli/index.html">qcodespp.cli</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../data/index.html">qcodespp.data</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../instrument_drivers/index.html">qcodespp.instrument_drivers</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">qcodespp.loops</a></li>
@@ -264,7 +265,7 @@ in two directions: up and down. Create also a data set, and optionally, live plo
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.loops.Loop">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.loops.</span></span><span class="sig-name descname"><span class="pre">Loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sweep_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snake</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.loops.Loop" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.utils.metadata.Metadatable</span></code></p>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.metadatable.Metadatable</span></code></p>
 <p>Create a measurement loop to sweep over a parameter and store measured data from other
 parameters. The results are stored in a qcodespp.data.data_set.DataSetPP container.</p>
 <dl class="simple">
@@ -486,7 +487,7 @@ memory.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.loops.ActiveLoop">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.loops.</span></span><span class="sig-name descname"><span class="pre">ActiveLoop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sweep_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">actions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">then_actions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bg_task</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bg_final_task</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bg_min_delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snake</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.loops.ActiveLoop" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.utils.metadata.Metadatable</span></code></p>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.metadatable.Metadatable</span></code></p>
 <p>Automatically generated object returned when attaching <code class="docutils literal notranslate"><span class="pre">actions</span></code> to a <code class="docutils literal notranslate"><span class="pre">Loop</span></code> using e.g. <cite>.each()</cite>.</p>
 <p>When calling ActiveLoop.get_data_set(), the ActiveLoop will determine which <code class="docutils literal notranslate"><span class="pre">DataArrays</span></code> it
 will need to hold the  data it collects, and it creates a <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> holding these <code class="docutils literal notranslate"><span class="pre">DataArrays</span></code>.

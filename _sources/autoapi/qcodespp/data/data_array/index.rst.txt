@@ -15,9 +15,9 @@ Classes
 Module Contents
 ---------------
 
-.. py:class:: DataArray(parameter=None, name=None, full_name=None, label=None, snapshot=None, array_id=None, set_arrays=(), shape=None, action_indices=(), unit=None, units=None, is_setpoint=False, preset_data=None, data_type=None)
+.. py:class:: DataArray(parameter=None, name=None, full_name=None, label=None, snapshot=None, array_id=None, set_arrays=(), shape=None, action_indices=(), unit=None, is_setpoint=False, preset_data=None, data_type=None)
 
-   Bases: :py:obj:`qcodes.utils.helpers.DelegateAttributes`
+   Bases: :py:obj:`qcodes.utils.DelegateAttributes`
 
 
    A container for one parameter in a qcodespp DataSetPP
@@ -390,6 +390,19 @@ Module Contents
 
 
 
-   .. py:property:: units
+   .. py:method:: return_subset(indices)
+
+      Return a subset of this DataArray.
+
+      Args:
+          indices (sequence): Indices to select from the array.
+              If this is a single index, it will return a scalar.
+              If this is a sequence, it will return a new DataArray
+              with the same metadata as this one, but with the
+              selected data.
+
+      Returns:
+          DataArray or scalar: The selected data.
+
 
 

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>qcodespp.plotting.offline.popupwindows &mdash; qcodes++ 0.1.5 documentation</title>
+  <title>qcodespp.plotting.offline.popupwindows &mdash; qcodes++ 0.1.6 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
 
@@ -14,13 +14,13 @@
     <link rel="shortcut icon" href="../../../../../_static/qcppfavicon.svg"/>
       <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=7b800ad1"></script>
+      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=4c7880bb"></script>
       <script src="../../../../../_static/doctools.js?v=888ff710"></script>
       <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="qcodespp.plotting.offline.qcodes_pp_extension" href="../qcodes_pp_extension/index.html" />
+    <link rel="next" title="qcodespp.plotting.offline.qcodespp_extension" href="../qcodespp_extension/index.html" />
     <link rel="prev" title="qcodespp.plotting.offline.main" href="../main/index.html" /> 
 </head>
 
@@ -62,6 +62,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">qcodespp</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../../../index.html#submodules">Submodules</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../../actions/index.html">qcodespp.actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cli/index.html">qcodespp.cli</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../data/index.html">qcodespp.data</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../instrument_drivers/index.html">qcodespp.instrument_drivers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../loops/index.html">qcodespp.loops</a></li>
@@ -199,6 +200,16 @@
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.LineCutWindow.copy_cuts">
+<span class="sig-name descname"><span class="pre">copy_cuts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">which</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.LineCutWindow.copy_cuts" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.LineCutWindow.paste_cuts">
+<span class="sig-name descname"><span class="pre">paste_cuts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.LineCutWindow.paste_cuts" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.LineCutWindow.item_clicked">
 <span class="sig-name descname"><span class="pre">item_clicked</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.LineCutWindow.item_clicked" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
@@ -221,6 +232,11 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.LineCutWindow.cuts_table_edited">
 <span class="sig-name descname"><span class="pre">cuts_table_edited</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.LineCutWindow.cuts_table_edited" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.LineCutWindow.style_changed">
+<span class="sig-name descname"><span class="pre">style_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">option</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.LineCutWindow.style_changed" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -294,6 +310,16 @@
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.LineCutWindow.update_axscale">
+<span class="sig-name descname"><span class="pre">update_axscale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">which</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.LineCutWindow.update_axscale" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.LineCutWindow.update_legend">
+<span class="sig-name descname"><span class="pre">update_legend</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.LineCutWindow.update_legend" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.LineCutWindow.update">
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.LineCutWindow.update" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
@@ -344,8 +370,13 @@
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.LineCutWindow.draw_lines">
+<span class="sig-name descname"><span class="pre">draw_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.LineCutWindow.draw_lines" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.LineCutWindow.draw_plot">
-<span class="sig-name descname"><span class="pre">draw_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_marker</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.LineCutWindow.draw_plot" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">draw_plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.LineCutWindow.draw_plot" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -401,6 +432,11 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.LineCutWindow.copy_image">
 <span class="sig-name descname"><span class="pre">copy_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.LineCutWindow.copy_image" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.LineCutWindow.copy_cuts_table_to_clipboard">
+<span class="sig-name descname"><span class="pre">copy_cuts_table_to_clipboard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.LineCutWindow.copy_cuts_table_to_clipboard" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -489,6 +525,83 @@
 
 </dd></dl>
 
+<dl class="py class">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.ErrorWindow">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.popupwindows.</span></span><span class="sig-name descname"><span class="pre">ErrorWindow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.ErrorWindow" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">PyQt5.QtWidgets.QDialog</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.ErrorWindow.layout">
+<span class="sig-name descname"><span class="pre">layout</span></span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.ErrorWindow.layout" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.ErrorWindow.text_edit">
+<span class="sig-name descname"><span class="pre">text_edit</span></span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.ErrorWindow.text_edit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.ErrorWindow.button_layout">
+<span class="sig-name descname"><span class="pre">button_layout</span></span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.ErrorWindow.button_layout" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.ErrorWindow.copy_button">
+<span class="sig-name descname"><span class="pre">copy_button</span></span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.ErrorWindow.copy_button" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.ErrorWindow.close_button">
+<span class="sig-name descname"><span class="pre">close_button</span></span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.ErrorWindow.close_button" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.ErrorWindow.copy_text">
+<span class="sig-name descname"><span class="pre">copy_text</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.ErrorWindow.copy_text" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.ErrorLogWindow">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.popupwindows.</span></span><span class="sig-name descname"><span class="pre">ErrorLogWindow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_log</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.ErrorLogWindow" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">PyQt5.QtWidgets.QDialog</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.ErrorLogWindow.error_log">
+<span class="sig-name descname"><span class="pre">error_log</span></span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.ErrorLogWindow.error_log" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.ErrorLogWindow.layout">
+<span class="sig-name descname"><span class="pre">layout</span></span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.ErrorLogWindow.layout" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.ErrorLogWindow.tree_widget">
+<span class="sig-name descname"><span class="pre">tree_widget</span></span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.ErrorLogWindow.tree_widget" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.ErrorLogWindow.close_button">
+<span class="sig-name descname"><span class="pre">close_button</span></span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.ErrorLogWindow.close_button" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.ErrorLogWindow.save_button">
+<span class="sig-name descname"><span class="pre">save_button</span></span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.ErrorLogWindow.save_button" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.ErrorLogWindow.populate_tree">
+<span class="sig-name descname"><span class="pre">populate_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_log</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.ErrorLogWindow.populate_tree" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.popupwindows.ErrorLogWindow.save_log">
+<span class="sig-name descname"><span class="pre">save_log</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.popupwindows.ErrorLogWindow.save_log" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 
@@ -497,7 +610,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../main/index.html" class="btn btn-neutral float-left" title="qcodespp.plotting.offline.main" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../qcodes_pp_extension/index.html" class="btn btn-neutral float-right" title="qcodespp.plotting.offline.qcodes_pp_extension" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../qcodespp_extension/index.html" class="btn btn-neutral float-right" title="qcodespp.plotting.offline.qcodespp_extension" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

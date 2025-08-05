@@ -11,6 +11,7 @@ Submodules
    :maxdepth: 1
 
    /autoapi/qcodespp/actions/index
+   /autoapi/qcodespp/cli/index
    /autoapi/qcodespp/data/index
    /autoapi/qcodespp/instrument_drivers/index
    /autoapi/qcodespp/loops/index
@@ -59,6 +60,7 @@ Functions
    qcodespp.offline_plotting
    qcodespp.colorplot
    qcodespp.colored_traces
+   qcodespp.load_2d_json
    qcodespp.new_data
    qcodespp.load_data
    qcodespp.load_data_num
@@ -217,12 +219,12 @@ Package Contents
 
 
 .. py:data:: __version__
-   :value: '0.1.4'
+   :value: '0.1.6'
 
 
 .. py:class:: Loop(sweep_values, delay=0, snake=False, station=None, progress_interval=None, progress_bar=True)
 
-   Bases: :py:obj:`qcodes.utils.metadata.Metadatable`
+   Bases: :py:obj:`qcodes.metadatable.Metadatable`
 
 
    Create a measurement loop to sweep over a parameter and store measured data from other
@@ -946,7 +948,7 @@ Package Contents
 
 
 
-   .. py:method:: add(*args, x=None, y=None, z=None, subplot=0, name=None, title=None, position=None, relativeto=None, xlabel=None, ylabel=None, zlabel=None, xunit=None, yunit=None, zunit=None, silent=True, linecuts=False, symbol=None, size=None, **kwargs)
+   .. py:method:: add(*args, x=None, y=None, z=None, subplot=0, name=None, title=None, position=None, relativeto=None, xlabel=None, ylabel=None, zlabel=None, xunit=None, yunit=None, zunit=None, silent=True, symbol=None, size=None, **kwargs)
 
       Add a trace to the plot.
 
@@ -970,7 +972,6 @@ Package Contents
           yunit (str, optional): Unit for the y-axis. If not provided, the unit of the DataArray will be used.
           zunit (str, optional): Unit for the z-axis. If not provided, the unit of the DataArray will be used.
           silent (bool, optional): If True, do not wait for the client to be ready. Defaults to True.
-          linecuts (bool, optional): If True, plot line cuts instead of a 2D image. Defaults to False.
           symbol (str, optional): Symbol to use for the trace. Defaults to None.
           size (int, optional): Size of the symbol. Defaults to None.
 
@@ -1053,7 +1054,7 @@ Package Contents
 
 .. py:function:: offline_plotting(folder=None, link_to_default=True, use_thread=True)
 
-   Entry point for qcodespp offline plotting. Call qcodespp.offline_plotting() to start the application.
+   Entry point for qcodespp offline plotting. From CLI: qcodespp offline_plotting. From notebooks: qcodespp.offline_plotting().
 
    Args:
        folder (str): Path (inc relative) to a folder containing the data files to be plotted.
@@ -1063,7 +1064,7 @@ Package Contents
            Threading may cause problems on some systems, e.g. macOS.
 
 
-.. py:function:: colorplot(x, y, z, figsize=0, cmap=0, labels=0, xlim=0, ylim=0, zlim=0, xmajor=0, xminor=0, ymajor=0, yminor=0, font_size=0, label_size=0, check_shapes=True)
+.. py:function:: colorplot(x, y, z, figsize=0, cmap=0, labels=0, xlim=0, ylim=0, zlim=0, xmajor=0, xminor=0, ymajor=0, yminor=0, font_size=0, label_size=0, check_shapes=False)
 
    Make a nice colourplot from a three-dimensional data array using matplotlib. 
 
@@ -1099,7 +1100,7 @@ Package Contents
        
        label_size (int, optional): Font size for the tick labels. Default is 12.
 
-       check_shapes (bool, optional): If True, checks the shapes of x, y, and z arrays and transposes if necessary. Default is True.
+       check_shapes (bool, optional): If True, checks the shapes of x, y, and z arrays and transposes if necessary. Default is False.
 
    Returns:
        tuple: A tuple containing the figure, axis, and colorbar axis objects.
@@ -1138,6 +1139,17 @@ Package Contents
    Returns:
        tuple: A tuple containing the figure and axis objects.
 
+
+
+.. py:function:: load_2d_json(filename)
+
+   Load reshaped 2D data exported from offline_plotting as a JSON file.
+
+   Args:
+       filename (str): Path to the JSON file.
+
+   Returns:
+       dict: A dictionary containing the reshaped data.
 
 
 .. py:function:: new_data(location=None, loc_record=None, name=None, overwrite=False, io=None, backup_location=None, force_write=False, **kwargs)
@@ -1185,7 +1197,7 @@ Package Contents
        A new ``DataSetPP`` object ready for storing new data in.
 
 
-.. py:function:: load_data(location=None, formatter=None, io=None, include_metadata=True)
+.. py:function:: load_data(location=None, formatter=None, io=None, include_metadata=True, remove_incomplete=True)
 
    Load an existing DataSetPP.
 
@@ -1209,7 +1221,7 @@ Package Contents
        A new ``DataSetPP`` object loaded with pre-existing data.
 
 
-.. py:function:: load_data_num(number, datafolder='data', delimiter='_', leadingzeros=3, include_metadata=True)
+.. py:function:: load_data_num(number, datafolder='data', delimiter='_', leadingzeros=3, include_metadata=True, remove_incomplete=True)
 
    Load a qcodespp DataSetPP using the counter as identifier.
 
@@ -1231,7 +1243,7 @@ Package Contents
        A new ``DataSetPP`` object loaded with pre-existing data.
 
 
-.. py:function:: load_data_nums(listofnumbers, datafolder='data', delimiter='_', leadingzeros=3, include_metadata=True)
+.. py:function:: load_data_nums(listofnumbers, datafolder='data', delimiter='_', leadingzeros=3, include_metadata=True, remove_incomplete=True)
 
    Loads numerous DataSetPPs from the specified folder by counter number.
 
@@ -1251,10 +1263,11 @@ Package Contents
 
 .. py:function:: set_data_format(fmt='data/#{counter}_{name}_{date}_{time}')
 
-   Set the default format for storing DataSetPPs. It is not recommended to alter this: instead use set_data_folder.
+   Set the default format for storing DataSetPPs. See qcodespp.data.location for more information.
 
    Args:
        fmt (str): A format string for the location of the data, with wildcards determined by the FormatLocation class.
+           Another useful format may be 'data/{date}/#{counter}_{name}_{time}'.
 
 
 .. py:function:: set_data_folder(folder='data')

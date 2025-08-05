@@ -101,9 +101,13 @@ Module Contents
 
 
    .. py:attribute:: default_fmt
+      :value: 'data/#{counter}_{name}_{date}_{time}'
+
 
 
    .. py:attribute:: fmt
+      :value: 'data/#{counter}_{name}_{date}_{time}'
+
 
 
    .. py:attribute:: fmt_date

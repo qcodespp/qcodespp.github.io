@@ -48,6 +48,7 @@ Functions
    qcodespp.plotting.offline.fits.get_parameters
    qcodespp.plotting.offline.fits.get_description
    qcodespp.plotting.offline.fits.fit_data
+   qcodespp.plotting.offline.fits.load_lmfit_modelresult_s
 
 
 Module Contents
@@ -479,13 +480,97 @@ Module Contents
 
 .. py:function:: get_class_names()
 
+   Get the names of the function classes available for fitting.
+
+   Returns:
+       list: A list of function class names.
+
+
 .. py:function:: get_function(function_class, function_name)
+
+   Get the function object for a given function class and name.
+
+   Args:
+       function_class (str): The class of the function, e.g. 'Polynomials and powers'.
+       function_name (str): The name of the function, e.g. 'Linear'.
+   Returns:
+       function: The function object corresponding to the class and name.
+
 
 .. py:function:: get_names(fitclass='Polynomials and powers')
 
+   Get the names of the functions available in a given class.
+
+   Args:
+       fitclass (str): The class of the function, e.g. 'Polynomials and powers'.
+   Returns:
+       list: A list of function names available in the specified class.
+
+
 .. py:function:: get_parameters(function_class, function_name)
+
+   Get the parameters required for a given function class and name.
+
+   Args:
+       function_class (str): The class of the function, e.g. 'Polynomials and powers'.
+       function_name (str): The name of the function, e.g. 'Linear'.
+   Returns:
+       list: A list of parameter names required for the specified function.
+
 
 .. py:function:: get_description(function_class, function_name)
 
+   Get the description of a given function class and name.
+
+   Args:
+       function_class (str): The class of the function, e.g. 'Polynomials and powers'.
+       function_name (str): The name of the function, e.g. 'Linear'.
+   Returns:
+       str: A description of the specified function, including how to format initial guesses and input information.
+
+
 .. py:function:: fit_data(function_class, function_name, xdata, ydata, p0=None, inputinfo=None)
+
+   Entry point for fitting data.
+
+   Pass the function class and name, along with the x and y data, initial guesses, and any additional input information.
+   Available classes, names and descriptions can be found either in the ``functions`` dictionary or by using 
+   ``get_class_names()``, ``get_names(function_class)`` and ``get_description(function_class, function_name)``.
+   The description contains how to format initial guesses and input information.
+
+   Args:
+       function_class : str
+           The class of the function to fit, e.g. 'Polynomials and powers'.
+       function_name : str
+           The name of the function to fit, e.g. 'Linear'.
+       xdata : 1D array-like
+           The x data to fit.
+       ydata : 1D array-like
+           The y data to fit.
+       p0 : list, optional
+           Initial guesses for the parameters of the fit function.
+       inputinfo : str, optional
+           Additional input information required by the fit function.
+           
+   Returns:
+       result : lmfit ModelResult or Exception. Latter is raised if any problems occur during function execution.
+
+
+.. py:function:: load_lmfit_modelresult_s(string, funcdefs=None)
+
+   Load a saved ModelResult from a from a string
+
+   Arguments
+   ----------
+   string : str
+       JSON string containing saved ModelResult.
+   funcdefs : dict, optional
+       Dictionary of custom function names and definitions.
+
+   Returns
+   -------
+   ModelResult
+       ModelResult object loaded from string.
+
+
 

@@ -32,7 +32,7 @@ Module Contents
 
    HDF5 formatter for saving qcodespp datasets.
 
-   Capable of storing (write) and recovering (read) qcodes datasets.
+   Capable of storing (write) and recovering (read) qcodespp datasets.
 
 
 

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>qcodespp.data.data_set &mdash; qcodes++ 0.1.5 documentation</title>
+  <title>qcodespp.data.data_set &mdash; qcodes++ 0.1.6 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
 
@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="../../../../_static/qcppfavicon.svg"/>
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=7b800ad1"></script>
+      <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=4c7880bb"></script>
       <script src="../../../../_static/doctools.js?v=888ff710"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../../_static/js/theme.js"></script>
@@ -62,6 +62,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html">qcodespp</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../../index.html#submodules">Submodules</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../actions/index.html">qcodespp.actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/index.html">qcodespp.cli</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="../index.html">qcodespp.data</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../instrument_drivers/index.html">qcodespp.instrument_drivers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../loops/index.html">qcodespp.loops</a></li>
@@ -186,7 +187,7 @@ is initially <code class="docutils literal notranslate"><span class="pre">GNUPlo
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.data.data_set.load_data">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.data.data_set.</span></span><span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">io</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.load_data" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.data.data_set.</span></span><span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">io</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_incomplete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.load_data" title="Permalink to this definition"></a></dt>
 <dd><p>Load an existing DataSetPP.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><dl class="simple">
@@ -211,7 +212,7 @@ where you started the python session.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.data.data_set.load_data_num">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.data.data_set.</span></span><span class="sig-name descname"><span class="pre">load_data_num</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datafolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leadingzeros</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.load_data_num" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.data.data_set.</span></span><span class="sig-name descname"><span class="pre">load_data_num</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datafolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leadingzeros</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_incomplete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.load_data_num" title="Permalink to this definition"></a></dt>
 <dd><p>Load a qcodespp DataSetPP using the counter as identifier.</p>
 <p>Typically qcodespp DataSetPPs are forced to use the format counter_name_date_time,
 where the counter is a zero-padded integer. This function will search for
@@ -237,7 +238,7 @@ directory, which this location is a relative path inside.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.data.data_set.load_data_nums">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.data.data_set.</span></span><span class="sig-name descname"><span class="pre">load_data_nums</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listofnumbers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datafolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leadingzeros</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.load_data_nums" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.data.data_set.</span></span><span class="sig-name descname"><span class="pre">load_data_nums</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listofnumbers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datafolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leadingzeros</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_incomplete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.load_data_nums" title="Permalink to this definition"></a></dt>
 <dd><p>Loads numerous DataSetPPs from the specified folder by counter number.</p>
 <dl>
 <dt>Args:</dt><dd><p>litsofnumbers (list of strings or ints): list of desired dataset numbers.
@@ -261,9 +262,12 @@ directory, which this location is a relative path inside.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="qcodespp.data.data_set.set_data_format">
 <span class="sig-prename descclassname"><span class="pre">qcodespp.data.data_set.</span></span><span class="sig-name descname"><span class="pre">set_data_format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data/#{counter}_{name}_{date}_{time}'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.set_data_format" title="Permalink to this definition"></a></dt>
-<dd><p>Set the default format for storing DataSetPPs. It is not recommended to alter this: instead use set_data_folder.</p>
+<dd><p>Set the default format for storing DataSetPPs. See qcodespp.data.location for more information.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>fmt (str): A format string for the location of the data, with wildcards determined by the FormatLocation class.</p>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>fmt (str): A format string for the location of the data, with wildcards determined by the FormatLocation class.</dt><dd><p>Another useful format may be ‘data/{date}/#{counter}_{name}_{time}’.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -284,7 +288,7 @@ directory, which this location is a relative path inside.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.data.data_set.</span></span><span class="sig-name descname"><span class="pre">DataSetPP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arrays</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">io</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backup_location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_write</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.utils.helpers.DelegateAttributes</span></code></p>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.utils.DelegateAttributes</span></code></p>
 <p>A container for one complete measurement from qcodespp.Measure or qcodespp.Loop.</p>
 <p>A DataSetPP consists of multiple DataArrays with potentially different
 sizes and dimensionalities. It is accompanied by metadata containing snapshots
@@ -458,6 +462,20 @@ If not, reads the entire DataSetPP from disk.</p>
 array sizes. If there are no measured arrays, returns zero.</p>
 </dd>
 </dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_set.DataSetPP.remove_incomplete">
+<span class="sig-name descname"><span class="pre">remove_incomplete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_set.DataSetPP.remove_incomplete" title="Permalink to this definition"></a></dt>
+<dd><p>”
+Returns a DataSetPP minus any incomplete columns.</p>
+<p>DataArrays are initialized with a set shape and filled with NaNs.
+The NaNs get replaced during the measurements, but if the measurement is
+stopped prematurely, the existence of NaNs can cause problems when plotting.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>DataSetPP: a new DataSetPP with all incomplete columns removed.</p>
 </dd>
 </dl>
 </dd></dl>

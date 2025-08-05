@@ -119,7 +119,7 @@ Module Contents
    .. py:method:: read()
 
 
-   .. py:method:: read_until()
+   .. py:method:: read_until(retry=True)
 
 
    .. py:method:: ask(cmd)

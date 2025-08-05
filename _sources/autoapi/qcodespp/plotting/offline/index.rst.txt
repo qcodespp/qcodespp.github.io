@@ -18,7 +18,7 @@ Submodules
    /autoapi/qcodespp/plotting/offline/helpers/index
    /autoapi/qcodespp/plotting/offline/main/index
    /autoapi/qcodespp/plotting/offline/popupwindows/index
-   /autoapi/qcodespp/plotting/offline/qcodes_pp_extension/index
+   /autoapi/qcodespp/plotting/offline/qcodespp_extension/index
    /autoapi/qcodespp/plotting/offline/sidebars/index
 
 

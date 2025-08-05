@@ -24,7 +24,6 @@ Classes
 .. autosummary::
 
    qcodespp.plotting.RemoteQtPlotWidgets.PlotTrace
-   qcodespp.plotting.RemoteQtPlotWidgets.PlotLinecuts
    qcodespp.plotting.RemoteQtPlotWidgets.PlotImage
    qcodespp.plotting.RemoteQtPlotWidgets.PlotDock
    qcodespp.plotting.RemoteQtPlotWidgets.QtPlot
@@ -55,32 +54,6 @@ Module Contents
 .. py:data:: qtapp
 
 .. py:class:: PlotTrace(*args, **kargs)
-
-   Bases: :py:obj:`pyqtgraph.PlotDataItem`
-
-
-   PlotDataItem with benefits
-
-   delete()
-   update()
-   - check if data has been updated
-   - call set_data() with the updated data
-
-
-
-
-
-   .. py:method:: setData(*args, **kwargs)
-
-      Clear any data displayed by this item and display new data.
-      See :func:`__init__() <pyqtgraph.PlotDataItem.__init__>` for details; it accepts the same arguments.
-
-
-
-   .. py:method:: update_data()
-
-
-.. py:class:: PlotLinecuts(*args, **kargs)
 
    Bases: :py:obj:`pyqtgraph.PlotDataItem`
 

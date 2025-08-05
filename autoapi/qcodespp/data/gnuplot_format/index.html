@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>qcodespp.data.gnuplot_format &mdash; qcodes++ 0.1.5 documentation</title>
+  <title>qcodespp.data.gnuplot_format &mdash; qcodes++ 0.1.6 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
 
@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="../../../../_static/qcppfavicon.svg"/>
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=7b800ad1"></script>
+      <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=4c7880bb"></script>
       <script src="../../../../_static/doctools.js?v=888ff710"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../../_static/js/theme.js"></script>
@@ -62,6 +62,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html">qcodespp</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../../index.html#submodules">Submodules</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../actions/index.html">qcodespp.actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/index.html">qcodespp.cli</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="../index.html">qcodespp.data</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../instrument_drivers/index.html">qcodespp.instrument_drivers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../loops/index.html">qcodespp.loops</a></li>
@@ -226,10 +227,10 @@ of corresponds to our situation.)</p>
 <dt class="sig sig-object py" id="qcodespp.data.gnuplot_format.GNUPlotFormat.read_one_file">
 <span class="sig-name descname"><span class="pre">read_one_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids_read</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.gnuplot_format.GNUPlotFormat.read_one_file" title="Permalink to this definition"></a></dt>
 <dd><p>Called by Formatter.read to bring one data file into
-a DataSet. Setpoint data may be duplicated across multiple files,
+a DataSetPP. Setpoint data may be duplicated across multiple files,
 but each measured DataArray must only map to one file.</p>
 <dl>
-<dt>args:</dt><dd><p>data_set: the DataSet we are reading into
+<dt>args:</dt><dd><p>data_set: the DataSetPP we are reading into
 f: a file-like object to read from
 ids_read: a <cite>set</cite> of array_ids that we have already read.</p>
 <blockquote>
@@ -244,17 +245,17 @@ then add it to the set so other files know not to read it again</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.data.gnuplot_format.GNUPlotFormat.write">
 <span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">io_manager</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_write</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_complete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_rewrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.gnuplot_format.GNUPlotFormat.write" title="Permalink to this definition"></a></dt>
-<dd><p>Write updates in this DataSet to storage.</p>
+<dd><p>Write updates in this DataSetPP to storage.</p>
 <p>Will choose append if possible, overwrite if not.</p>
 <dl>
-<dt>Args:</dt><dd><p>data_set (DataSet): the data we’re storing
+<dt>Args:</dt><dd><p>data_set (DataSetPP): the data we’re storing
 io_manager (io_manager): the base location to write to
 location (str): the file location within io_manager
 only_complete (bool): passed to match_save_range, answers the</p>
 <blockquote>
 <div><p>following question: Should we write all available new data,
 or only complete rows? Is used to make sure that everything
-gets written when the DataSet is finalised, even if some
+gets written when the DataSetPP is finalised, even if some
 dataarrays are strange (like, full of nans)</p>
 </div></blockquote>
 <dl class="simple">
@@ -269,9 +270,9 @@ use with care. The file will be saved in the normal location.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.data.gnuplot_format.GNUPlotFormat.write_metadata">
 <span class="sig-name descname"><span class="pre">write_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">io_manager</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.gnuplot_format.GNUPlotFormat.write_metadata" title="Permalink to this definition"></a></dt>
-<dd><p>Write all metadata in this DataSet to storage.</p>
+<dd><p>Write all metadata in this DataSetPP to storage.</p>
 <dl>
-<dt>Args:</dt><dd><p>data_set (DataSet): the data we’re storing</p>
+<dt>Args:</dt><dd><p>data_set (DataSetPP): the data we’re storing</p>
 <p>io_manager (io_manager): the base location to write to</p>
 <p>location (str): the file location within io_manager</p>
 <dl class="simple">

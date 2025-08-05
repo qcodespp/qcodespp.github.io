@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>qcodespp.instrument_drivers.instrument_mocks &mdash; qcodes++ 0.1.5 documentation</title>
+  <title>qcodespp.instrument_drivers.instrument_mocks &mdash; qcodes++ 0.1.6 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
 
@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="../../../../_static/qcppfavicon.svg"/>
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=7b800ad1"></script>
+      <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=4c7880bb"></script>
       <script src="../../../../_static/doctools.js?v=888ff710"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../../_static/js/theme.js"></script>
@@ -62,6 +62,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html">qcodespp</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../../index.html#submodules">Submodules</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../actions/index.html">qcodespp.actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/index.html">qcodespp.cli</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../data/index.html">qcodespp.data</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="../index.html">qcodespp.instrument_drivers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../loops/index.html">qcodespp.loops</a></li>
@@ -235,7 +236,7 @@ hardware communication should instead override <code class="docutils literal not
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.instrument_mocks.DummyChannel">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.instrument_mocks.</span></span><span class="sig-name descname"><span class="pre">DummyChannel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.instrument_mocks.DummyChannel" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.instrument.channel.InstrumentChannel</span></code></p>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.instrument.InstrumentChannel</span></code></p>
 <p>A single dummy channel implementation</p>
 </dd></dl>
 
@@ -249,7 +250,7 @@ hardware communication should instead override <code class="docutils literal not
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.instrument_mocks.MultiGetter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.instrument_mocks.</span></span><span class="sig-name descname"><span class="pre">MultiGetter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.instrument_mocks.MultiGetter" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.instrument.parameter.MultiParameter</span></code></p>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.parameters.MultiParameter</span></code></p>
 <p>Test parameters with complicated return values
 instantiate with kwargs:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MultiGetter</span><span class="p">(</span><span class="n">name1</span><span class="o">=</span><span class="n">return_val1</span><span class="p">,</span> <span class="n">name2</span><span class="o">=</span><span class="n">return_val2</span><span class="p">)</span>
@@ -278,7 +279,7 @@ provide a <code class="docutils literal notranslate"><span class="pre">get</span
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.instrument_mocks.MultiSetPointParam">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.instrument_mocks.</span></span><span class="sig-name descname"><span class="pre">MultiSetPointParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instrument</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'testparameter'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.instrument_mocks.MultiSetPointParam" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.instrument.parameter.MultiParameter</span></code></p>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.parameters.MultiParameter</span></code></p>
 <p>Multiparameter which only purpose it to test that units, setpoints
 and so on are copied correctly to the individual arrays in the datarray.</p>
 <dl class="py method">
@@ -297,7 +298,7 @@ provide a <code class="docutils literal notranslate"><span class="pre">get</span
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.instrument_mocks.Multi2DSetPointParam">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.instrument_mocks.</span></span><span class="sig-name descname"><span class="pre">Multi2DSetPointParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instrument</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'testparameter'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.instrument_mocks.Multi2DSetPointParam" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.instrument.parameter.MultiParameter</span></code></p>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.parameters.MultiParameter</span></code></p>
 <p>Multiparameter which only purpose it to test that units, setpoints
 and so on are copied correctly to the individual arrays in the datarray.</p>
 <dl class="py method">
@@ -316,7 +317,7 @@ provide a <code class="docutils literal notranslate"><span class="pre">get</span
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.instrument_mocks.MultiScalarParam">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.instrument_mocks.</span></span><span class="sig-name descname"><span class="pre">MultiScalarParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instrument</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'multiscalarparameter'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.instrument_mocks.MultiScalarParam" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.instrument.parameter.MultiParameter</span></code></p>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.parameters.MultiParameter</span></code></p>
 <p>Multiparameter whos elements are scalars i.e. similar to
 Parameter with no setpoints etc.</p>
 <dl class="py method">
@@ -335,7 +336,7 @@ provide a <code class="docutils literal notranslate"><span class="pre">get</span
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.instrument_mocks.ArraySetPointParam">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.instrument_mocks.</span></span><span class="sig-name descname"><span class="pre">ArraySetPointParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instrument</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'testparameter'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.instrument_mocks.ArraySetPointParam" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.instrument.parameter.ArrayParameter</span></code></p>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.parameters.ArrayParameter</span></code></p>
 <p>Arrayparameter which only purpose it to test that units, setpoints
 and so on are copied correctly to the individual arrays in the datarray.</p>
 <dl class="py method">
