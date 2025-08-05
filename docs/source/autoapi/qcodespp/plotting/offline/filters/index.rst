@@ -154,3 +154,6 @@ Module Contents
    .. py:attribute:: function
 
 
+   .. py:attribute:: description
+
+

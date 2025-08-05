@@ -237,7 +237,7 @@ Module Contents
 
 .. py:class:: Loop(sweep_values, delay=0, snake=False, station=None, progress_interval=None, progress_bar=True)
 
-   Bases: :py:obj:`qcodes.utils.metadata.Metadatable`
+   Bases: :py:obj:`qcodes.metadatable.Metadatable`
 
 
    Create a measurement loop to sweep over a parameter and store measured data from other
@@ -457,7 +457,7 @@ Module Contents
 
 .. py:class:: ActiveLoop(sweep_values, delay, *actions, then_actions=(), station=None, progress_interval=None, bg_task=None, bg_final_task=None, bg_min_delay=None, progress_bar=True, snake=False)
 
-   Bases: :py:obj:`qcodes.utils.metadata.Metadatable`
+   Bases: :py:obj:`qcodes.metadatable.Metadatable`
 
 
    Automatically generated object returned when attaching ``actions`` to a ``Loop`` using e.g. `.each()`.

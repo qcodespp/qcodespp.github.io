@@ -134,7 +134,7 @@ Module Contents
 
 .. py:class:: DummyChannel(parent, name, channel)
 
-   Bases: :py:obj:`qcodes.instrument.channel.InstrumentChannel`
+   Bases: :py:obj:`qcodes.instrument.InstrumentChannel`
 
 
    A single dummy channel implementation
@@ -150,7 +150,7 @@ Module Contents
 
 .. py:class:: MultiGetter(**kwargs)
 
-   Bases: :py:obj:`qcodes.instrument.parameter.MultiParameter`
+   Bases: :py:obj:`qcodes.parameters.MultiParameter`
 
 
    Test parameters with complicated return values
@@ -180,7 +180,7 @@ Module Contents
 
 .. py:class:: MultiSetPointParam(instrument=None, name='testparameter')
 
-   Bases: :py:obj:`qcodes.instrument.parameter.MultiParameter`
+   Bases: :py:obj:`qcodes.parameters.MultiParameter`
 
 
    Multiparameter which only purpose it to test that units, setpoints
@@ -200,7 +200,7 @@ Module Contents
 
 .. py:class:: Multi2DSetPointParam(instrument=None, name='testparameter')
 
-   Bases: :py:obj:`qcodes.instrument.parameter.MultiParameter`
+   Bases: :py:obj:`qcodes.parameters.MultiParameter`
 
 
    Multiparameter which only purpose it to test that units, setpoints
@@ -220,7 +220,7 @@ Module Contents
 
 .. py:class:: MultiScalarParam(instrument=None, name='multiscalarparameter')
 
-   Bases: :py:obj:`qcodes.instrument.parameter.MultiParameter`
+   Bases: :py:obj:`qcodes.parameters.MultiParameter`
 
 
    Multiparameter whos elements are scalars i.e. similar to
@@ -240,7 +240,7 @@ Module Contents
 
 .. py:class:: ArraySetPointParam(instrument=None, name='testparameter')
 
-   Bases: :py:obj:`qcodes.instrument.parameter.ArrayParameter`
+   Bases: :py:obj:`qcodes.parameters.ArrayParameter`
 
 
    Arrayparameter which only purpose it to test that units, setpoints

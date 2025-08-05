@@ -76,10 +76,12 @@ Module Contents
 
 
 
+   .. py:attribute:: legend
+      :value: False
+
+
+
    .. py:method:: prepare_dataset()
-
-
-   .. py:method:: add_array_to_data_dict(array, name)
 
 
    .. py:method:: get_column_data(line=None)
@@ -92,6 +94,9 @@ Module Contents
 
 
    .. py:method:: shape_single_array(array)
+
+
+   .. py:method:: add_array_to_data_dict(array, name)
 
 
    .. py:method:: filttocol(axis)
@@ -133,7 +138,7 @@ Module Contents
    .. py:method:: add_cbar_hist()
 
 
-   .. py:method:: add_plot(editor_window=None)
+   .. py:method:: add_plot(editor_window)
 
 
    .. py:method:: apply_default_lables()
@@ -344,7 +349,7 @@ Module Contents
    .. py:method:: reset_view_settings()
 
 
-   .. py:method:: add_plot(editor_window=None)
+   .. py:method:: add_plot(editor_window)
 
 
    .. py:method:: apply_all_filters(update_color_limits=True, filter_box_index=None)

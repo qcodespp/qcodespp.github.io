@@ -31,7 +31,7 @@ Module Contents
 
    HDF5 formatter for saving qcodespp datasets.
 
-   Capable of storing (write) and recovering (read) qcodes datasets.
+   Capable of storing (write) and recovering (read) qcodespp datasets.
 
 
 
@@ -63,10 +63,10 @@ Module Contents
 
    .. py:method:: write(data_set, io_manager=None, location=None, force_write=False, flush=True, write_metadata=True, only_complete=False)
 
-      Writes a data_set to an hdf5 file.
+      Writes a DataSetPP to an hdf5 file.
 
       Args:
-          data_set: qcodes data_set to write to hdf5 file
+          data_set: qcodespp DataSetPP to write to hdf5 file
           io_manager: io_manger used for providing path
           location: location can be used to specify custom location
           force_write (bool): if True creates a new file to write to
@@ -79,7 +79,7 @@ Module Contents
 
       N.B. It is recommended to close the file after writing, this can be
       done by calling ``HDF5Format.close_file(data_set)`` or
-      ``data_set.finalize()`` if the data_set formatter is set to an
+      ``data_set.finalize()`` if the DataSetPP formatter is set to an
       hdf5 formatter.  Note that this is not required if the dataset
       is created from a Loop as this includes a data_set.finalize()
       statement.
@@ -99,7 +99,7 @@ Module Contents
 
    .. py:method:: write_metadata(data_set, io_manager=None, location=None, read_first=True)
 
-      Writes metadata of dataset to file using write_dict_to_hdf5 method
+      Writes metadata of DataSetPP to file using write_dict_to_hdf5 method
 
       Note that io and location are arguments that are only here because
       of backwards compatibility with the loop.
@@ -134,7 +134,7 @@ Module Contents
       Read a dictionary from HDF5 
 
       Args:
-          data_dict (dict): Dataset to read from
+          data_dict (dict): DataSetPP to read from
           h5_group (object): HDF5 object to read from
 
 
@@ -148,7 +148,7 @@ Module Contents
 
    HDF5 formatter for saving qcodespp datasets.
 
-   Capable of storing (write) and recovering (read) qcodes datasets.
+   Capable of storing (write) and recovering (read) qcodespp datasets.
 
 
 

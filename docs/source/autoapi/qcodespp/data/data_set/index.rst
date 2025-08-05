@@ -88,7 +88,7 @@ Module Contents
        A new ``DataSetPP`` object ready for storing new data in.
 
 
-.. py:function:: load_data(location=None, formatter=None, io=None, include_metadata=True)
+.. py:function:: load_data(location=None, formatter=None, io=None, include_metadata=True, remove_incomplete=True)
 
    Load an existing DataSetPP.
 
@@ -112,7 +112,7 @@ Module Contents
        A new ``DataSetPP`` object loaded with pre-existing data.
 
 
-.. py:function:: load_data_num(number, datafolder='data', delimiter='_', leadingzeros=3, include_metadata=True)
+.. py:function:: load_data_num(number, datafolder='data', delimiter='_', leadingzeros=3, include_metadata=True, remove_incomplete=True)
 
    Load a qcodespp DataSetPP using the counter as identifier.
 
@@ -134,7 +134,7 @@ Module Contents
        A new ``DataSetPP`` object loaded with pre-existing data.
 
 
-.. py:function:: load_data_nums(listofnumbers, datafolder='data', delimiter='_', leadingzeros=3, include_metadata=True)
+.. py:function:: load_data_nums(listofnumbers, datafolder='data', delimiter='_', leadingzeros=3, include_metadata=True, remove_incomplete=True)
 
    Loads numerous DataSetPPs from the specified folder by counter number.
 
@@ -154,10 +154,11 @@ Module Contents
 
 .. py:function:: set_data_format(fmt='data/#{counter}_{name}_{date}_{time}')
 
-   Set the default format for storing DataSetPPs. It is not recommended to alter this: instead use set_data_folder.
+   Set the default format for storing DataSetPPs. See qcodespp.data.location for more information.
 
    Args:
        fmt (str): A format string for the location of the data, with wildcards determined by the FormatLocation class.
+           Another useful format may be 'data/{date}/#{counter}_{name}_{time}'.
 
 
 .. py:function:: set_data_folder(folder='data')
@@ -171,7 +172,7 @@ Module Contents
 
 .. py:class:: DataSetPP(location=None, arrays=None, formatter=None, io=None, write_period=5, backup_location=None, force_write=False, name=None)
 
-   Bases: :py:obj:`qcodes.utils.helpers.DelegateAttributes`
+   Bases: :py:obj:`qcodes.utils.DelegateAttributes`
 
 
    A container for one complete measurement from qcodespp.Measure or qcodespp.Loop.
@@ -339,6 +340,20 @@ Module Contents
           float: the average of all measured (not setpoint) arrays'
               ``fraction_complete()`` values, independent of the individual
               array sizes. If there are no measured arrays, returns zero.
+
+
+
+   .. py:method:: remove_incomplete()
+
+      "
+      Returns a DataSetPP minus any incomplete columns.
+
+      DataArrays are initialized with a set shape and filled with NaNs. 
+      The NaNs get replaced during the measurements, but if the measurement is
+      stopped prematurely, the existence of NaNs can cause problems when plotting.
+
+      Returns:
+          DataSetPP: a new DataSetPP with all incomplete columns removed.
 
 
 

@@ -17,12 +17,13 @@ Functions
    qcodespp.plotting.analysis_tools.colorplot
    qcodespp.plotting.analysis_tools.colored_traces
    qcodespp.plotting.analysis_tools.sort_lists
+   qcodespp.plotting.analysis_tools.load_2d_json
 
 
 Module Contents
 ---------------
 
-.. py:function:: colorplot(x, y, z, figsize=0, cmap=0, labels=0, xlim=0, ylim=0, zlim=0, xmajor=0, xminor=0, ymajor=0, yminor=0, font_size=0, label_size=0, check_shapes=True)
+.. py:function:: colorplot(x, y, z, figsize=0, cmap=0, labels=0, xlim=0, ylim=0, zlim=0, xmajor=0, xminor=0, ymajor=0, yminor=0, font_size=0, label_size=0, check_shapes=False)
 
    Make a nice colourplot from a three-dimensional data array using matplotlib. 
 
@@ -58,7 +59,7 @@ Module Contents
        
        label_size (int, optional): Font size for the tick labels. Default is 12.
 
-       check_shapes (bool, optional): If True, checks the shapes of x, y, and z arrays and transposes if necessary. Default is True.
+       check_shapes (bool, optional): If True, checks the shapes of x, y, and z arrays and transposes if necessary. Default is False.
 
    Returns:
        tuple: A tuple containing the figure, axis, and colorbar axis objects.
@@ -109,5 +110,16 @@ Module Contents
 
    Returns
        (X,Y): The sorted lists
+
+
+.. py:function:: load_2d_json(filename)
+
+   Load reshaped 2D data exported from offline_plotting as a JSON file.
+
+   Args:
+       filename (str): Path to the JSON file.
+
+   Returns:
+       dict: A dictionary containing the reshaped data.
 
 

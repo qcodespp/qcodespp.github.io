@@ -77,11 +77,6 @@ Module Contents
    Bases: :py:obj:`PyQt5.QtWidgets.QMainWindow`, :py:obj:`qcodespp.plotting.offline.design.Ui_MainWindow`
 
 
-   .. py:attribute:: window_title
-      :value: 'Inspectra Gadget'
-
-
-
    .. py:attribute:: window_title_auto_refresh
       :value: ''
 
@@ -102,6 +97,9 @@ Module Contents
 
 
 
+   .. py:attribute:: error_log
+
+
    .. py:method:: init_plot_settings()
 
 
@@ -120,16 +118,19 @@ Module Contents
    .. py:method:: init_canvas()
 
 
-   .. py:method:: load_data_item(filepath, load_the_data=True)
+   .. py:method:: set_window_title()
 
 
-   .. py:method:: open_files(filepaths=None, load_the_data=True, attr_dicts=None, dirpath=None, overrideautocheck=False)
+   .. py:method:: load_data_item(filepath)
 
 
-   .. py:method:: reload_plotted_lines(data, dirpath, item)
+   .. py:method:: open_files(filepaths=None, attr_dicts=None, overrideautocheck=False)
 
 
-   .. py:method:: reload_linecuts(data, dirpath, item_checkState)
+   .. py:method:: reload_plotted_lines(data, item)
+
+
+   .. py:method:: reload_linecuts(data, item_checkState)
 
 
    .. py:method:: add_internal_data(item, check_item=True, uncheck_others=True)
@@ -138,7 +139,10 @@ Module Contents
    .. py:method:: remove_files(which='current')
 
 
-   .. py:method:: open_files_from_folder()
+   .. py:method:: move_file(direction)
+
+
+   .. py:method:: open_files_from_folder(rootdir=None)
 
 
    .. py:method:: check_already_loaded(subdir, filepaths)
@@ -150,19 +154,37 @@ Module Contents
    .. py:method:: unlink_folder()
 
 
-   .. py:method:: save_session(which='current')
+   .. py:method:: refresh_files()
 
 
-   .. py:method:: remove_linecutwindows_and_fits(d, dirpath, exclude_key='linecut_window', exclude_key2='fit_result', exclude_key3='draggable_points')
+   .. py:method:: save_session(save_as=False)
 
 
-   .. py:method:: load_session()
+   .. py:method:: remove_linecutwindows_and_fits(d, exclude_key='linecut_window', exclude_key2='fit_result', exclude_key3='draggable_points')
+
+
+   .. py:method:: remove_temp_files(dirpath, attempts=5)
+
+
+   .. py:method:: single_remove_attempt(dirpath)
+
+
+   .. py:method:: load_session(filepath=None)
+
+
+   .. py:method:: resolve_missing_files(filenames)
 
 
    .. py:method:: export_processed_data(which='current')
 
 
    .. py:method:: file_checked(item)
+
+
+   .. py:method:: file_double_clicked(item)
+
+
+   .. py:method:: file_clicked()
 
 
    .. py:method:: plot_type_changed()
@@ -174,28 +196,19 @@ Module Contents
    .. py:method:: show_2d_data_checkbox_changed()
 
 
+   .. py:method:: legend_checkbox_changed()
+
+
    .. py:method:: show_or_hide_view_settings()
-
-
-   .. py:method:: file_clicked()
 
 
    .. py:method:: show_or_hide_mixeddata_widgets()
 
 
-   .. py:method:: file_double_clicked(item)
-
-
-   .. py:method:: reinstate_markers(item, orientation)
-
-
    .. py:method:: clear_sidebar1D()
 
 
-   .. py:method:: update_plots(item=None, update_data=True, clear_figure=True, update_color_limits=False)
-
-
-   .. py:method:: refresh_files()
+   .. py:method:: update_plots(item=None, update_data=True, update_color_limits=False)
 
 
    .. py:method:: get_checked_items(return_indices=False)
@@ -225,9 +238,6 @@ Module Contents
    .. py:method:: stop_auto_refresh()
 
 
-   .. py:method:: move_file(direction)
-
-
    .. py:method:: show_current_all()
 
 
@@ -247,9 +257,6 @@ Module Contents
 
 
    .. py:method:: show_current_axscale_settings()
-
-
-   .. py:method:: which_filters(item, filters=None, filt=None)
 
 
    .. py:method:: show_current_filters()
@@ -282,7 +289,7 @@ Module Contents
    .. py:method:: colormap_edited()
 
 
-   .. py:method:: filters_table_edited(item)
+   .. py:method:: reset_color_limits()
 
 
    .. py:method:: copy_plot_settings()
@@ -327,6 +334,12 @@ Module Contents
    .. py:method:: replace_plot_setting(signal)
 
 
+   .. py:method:: which_filters(item, filters=None, filt=None)
+
+
+   .. py:method:: filters_table_edited(item)
+
+
    .. py:method:: open_filter_settings_menu()
 
 
@@ -336,28 +349,22 @@ Module Contents
    .. py:method:: check_all_filters(signal, manual_signal=None)
 
 
-   .. py:method:: reset_color_limits()
-
-
    .. py:method:: filters_box_changed()
 
 
+   .. py:method:: mixeddata_filterbox_changed()
+
+
+   .. py:method:: reset_filters_combobox(dim=None)
+
+
    .. py:method:: append_filter_to_table()
-
-
-   .. py:method:: remove_single_filter(filter_row, filters)
 
 
    .. py:method:: remove_filters(which='current')
 
 
    .. py:method:: move_filter(to)
-
-
-   .. py:method:: save_image()
-
-
-   .. py:method:: save_images_as(extension='.png')
 
 
    .. py:method:: save_filters()
@@ -367,6 +374,27 @@ Module Contents
 
 
    .. py:method:: filttocol_clicked(axis)
+
+
+   .. py:method:: init_linecuts(data)
+
+
+   .. py:method:: make_linecut_window(orientation, data=None, show=True)
+
+
+   .. py:method:: show_linecut_window(orientation, data)
+
+
+   .. py:method:: copy_linecuts(orientation, item=None, lines=None)
+
+
+   .. py:method:: paste_single_linecut_orientation(orientation, data, lines)
+
+
+   .. py:method:: paste_linecuts(item=None)
+
+
+   .. py:method:: reinstate_markers(item, orientation)
 
 
    .. py:method:: draggable_point_selected(x, y, data)
@@ -387,7 +415,22 @@ Module Contents
    .. py:method:: popup_canvas(signal)
 
 
-   .. py:method:: copy_canvas_to_clipboard()
+   .. py:method:: enter_move_tester(urls)
+
+
+   .. py:method:: drop_files_tester(urls)
+
+
+   .. py:method:: drop_folders_tester(urls)
+
+
+   .. py:method:: dragEnterEvent(event)
+
+
+   .. py:method:: dragMoveEvent(event)
+
+
+   .. py:method:: dropEvent(event)
 
 
    .. py:method:: show_metadata()
@@ -408,6 +451,24 @@ Module Contents
    .. py:method:: load_preset()
 
 
+   .. py:method:: copy_canvas_to_clipboard()
+
+
+   .. py:method:: save_image()
+
+
+   .. py:method:: save_images_as(extension='.png')
+
+
    .. py:method:: tight_layout()
+
+
+   .. py:method:: log_error(error_message, show_popup=False)
+
+
+   .. py:method:: open_error_log()
+
+
+   .. py:method:: closeEvent(event)
 
 

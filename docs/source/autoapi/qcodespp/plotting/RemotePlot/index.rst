@@ -170,7 +170,7 @@ Module Contents
 
 
 
-   .. py:method:: add(*args, x=None, y=None, z=None, subplot=0, name=None, title=None, position=None, relativeto=None, xlabel=None, ylabel=None, zlabel=None, xunit=None, yunit=None, zunit=None, silent=True, linecuts=False, symbol=None, size=None, **kwargs)
+   .. py:method:: add(*args, x=None, y=None, z=None, subplot=0, name=None, title=None, position=None, relativeto=None, xlabel=None, ylabel=None, zlabel=None, xunit=None, yunit=None, zunit=None, silent=True, symbol=None, size=None, **kwargs)
 
       Add a trace to the plot.
 
@@ -194,7 +194,6 @@ Module Contents
           yunit (str, optional): Unit for the y-axis. If not provided, the unit of the DataArray will be used.
           zunit (str, optional): Unit for the z-axis. If not provided, the unit of the DataArray will be used.
           silent (bool, optional): If True, do not wait for the client to be ready. Defaults to True.
-          linecuts (bool, optional): If True, plot line cuts instead of a 2D image. Defaults to False.
           symbol (str, optional): Symbol to use for the trace. Defaults to None.
           size (int, optional): Size of the symbol. Defaults to None.
 
