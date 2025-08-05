@@ -48,9 +48,9 @@ To load a filepath directly,
 
     data=qc.load_data('path/to/datafile')
 
-When imported into the notebook, you can use data.*param_name* to load the values of a specific parameter. These are actually all stored in a dictionary under data.arrays, which means you can easily pull the names, units, etc using the standard `python dictionary <https://docs.python.org/3/tutorial/datastructures.html#dictionaries>`__ tools.
+When imported into the notebook, you can use ``data.param_name`` to access the data from a specific parameter. Other information about the ``Parameter``, e.g. name, unit, etc is available using e.g. ``data.Voltage.unit``. The data are also stored in a dictionary under ``data.arrays``, which means you can address arrays via strings, e.g. ``data.arrays['Voltage']``, which is useful for programattically addressing them (e.g. in a loop).
 
-``data.metadata`` contains the metadata saved by station. **This is extremely useful, and basically the entire point of defining a station in the first place**. It contains, among other things, *the value of every single parameter of every single instrument declared in station when the measurement started*. Did you forget which lock-in frequency you were using? Did you make a mistake in the filename and write the wrong sweep range? Don't worry! data.metadata contains ALL this information and more. Go have a look! Again it’s a dictionary, which you can dive into and pull out the parameters regarding the instruments, loop information, etc.
+``data.metadata`` is a `python dictionary <https://docs.python.org/3/tutorial/datastructures.html#dictionaries>`__ containing the metadata saved by the ``Station``. It contains, among other things, *the value of every single parameter of every single instrument declared in ``station`` when the measurement started*. Did you forget which lock-in frequency you were using? Did you make a mistake in the filename and write the wrong sweep range? Don't worry! ``data.metadata`` contains ALL this information and more. This is the entire point of creating the ``Station`` and ensuring that you keep it updated. The `offline_plotting <https://qcodespp.github.io/offline_plotting.html>`__ also offers an easy-to-use tool for metadata exploration.
 
 Incomplete DataSets
 ^^^^^^^^^^^^^^^^^^^
