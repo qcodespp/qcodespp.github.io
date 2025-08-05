@@ -54,7 +54,10 @@
 <li class="toctree-l1"><a class="reference internal" href="live_plot.html">Live plotting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="template.html">Example template</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Data loading and analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#loading-data">Loading data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loading-data">Loading data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#incomplete-datasets">Incomplete DataSets</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#plotting-and-analysis">Plotting and analysis</a></li>
 </ul>
 </li>
@@ -115,11 +118,19 @@
 </pre></div>
 </div>
 <p>or even</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datafiles</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">load_data_nums</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">12</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datafiles</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">load_data_nums</span><span class="p">([</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">12</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p>To load a filepath directly,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="n">qc</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="s1">&#39;path/to/datafile&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>When imported into the notebook, you can use data.*param_name* to load the values of a specific parameter. These are actually all stored in a dictionary under data.arrays, which means you can easily pull the names, units, etc using the standard <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">python dictionary</a> tools.</p>
-<p>data.metadata contains the metadata saved by station. <strong>This is extremely useful, and basically the entire point of defining a station in the first place</strong>. It contains, among other things, <em>the value of every single parameter of every single instrument declared in station when the measurement started</em>. Did you forget which lock-in frequency you were using? Did you make a mistake in the filename and write the wrong sweep range? Don’t worry! data.metadata contains ALL this information and more. Go have a look! Again it’s a dictionary, which you can dive into and pull out the parameters regarding the instruments, loop information, etc.</p>
+<p><code class="docutils literal notranslate"><span class="pre">data.metadata</span></code> contains the metadata saved by station. <strong>This is extremely useful, and basically the entire point of defining a station in the first place</strong>. It contains, among other things, <em>the value of every single parameter of every single instrument declared in station when the measurement started</em>. Did you forget which lock-in frequency you were using? Did you make a mistake in the filename and write the wrong sweep range? Don’t worry! data.metadata contains ALL this information and more. Go have a look! Again it’s a dictionary, which you can dive into and pull out the parameters regarding the instruments, loop information, etc.</p>
+<section id="incomplete-datasets">
+<h3>Incomplete DataSets<a class="headerlink" href="#incomplete-datasets" title="Permalink to this heading"></a></h3>
+<p>If you terminate a <code class="docutils literal notranslate"><span class="pre">Loop</span></code> before it finishes, the remaining data will be <a class="reference external" href="https://numpy.org/doc/stable/reference/constants.html#numpy.nan">NaNs</a>. Upon load, NaNs are ‘removed’ from the arrays by finding the first NaN index, N, in the innermost independent parameter. Columns with an index larger than N-1 will be stripped from the arrays. If the measurement was stopped mid-column, this column will _not_ be loaded to ensure the data behaves nicely for e.g. <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pcolormesh.html">matplotlib pcolormesh</a>. If this is not the desired behaviour, use <code class="docutils literal notranslate"><span class="pre">remove_incomplete=False</span></code> in any of the above load functions. Data on disk is not affected.</p>
+</section>
 </section>
 <section id="plotting-and-analysis">
 <h2>Plotting and analysis<a class="headerlink" href="#plotting-and-analysis" title="Permalink to this heading"></a></h2>
