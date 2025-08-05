@@ -55,7 +55,7 @@ When imported into the notebook, you can use data.*param_name* to load the value
 Incomplete DataSets
 ^^^^^^^^^^^^^^^^^^^
 
-If you terminate a ``Loop`` before it finishes, the remaining data will be `NaNs <https://numpy.org/doc/stable/reference/constants.html#numpy.nan>`__. Upon load, NaNs are 'removed' from the arrays by finding the first NaN index, N, in the innermost independent parameter. Columns with an index larger than N-1 will be stripped from the arrays. If the measurement was stopped mid-column, this column will _not_ be loaded to ensure the data behaves nicely for e.g. `matplotlib pcolormesh <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pcolormesh.html>`__. If this is not the desired behaviour, use ``remove_incomplete=False`` in any of the above load functions. Data on disk is not affected.
+If you terminate a ``Loop`` before it finishes, the remaining data will be `NaNs <https://numpy.org/doc/stable/reference/constants.html#numpy.nan>`__. Upon load, NaNs are 'removed' from the arrays by finding the first NaN index, N, in the innermost independent parameter. Columns with an index larger than N-1 will be stripped from the arrays. If the measurement was stopped mid-column, this column will **not** be loaded to ensure the data behaves nicely for e.g. `matplotlib pcolormesh <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pcolormesh.html>`__. If this is not the desired behaviour, use ``remove_incomplete=False`` in any of the above load functions. Data on disk is not affected.
 
 Plotting and analysis
 ---------------------
