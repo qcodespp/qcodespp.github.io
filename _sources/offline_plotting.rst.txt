@@ -51,14 +51,14 @@ Fitting
 
 Filters
 ^^^^^^^
-'Filters' in InSpectra Gadget are simply mathematical operations that can be performed on the data. The filters thus handle everything from applying offsets to any of the axes, to doing numerical differentiation. 
+Filters in InSpectra Gadget are simply mathematical operations that can be performed on the data. The filters thus handle everything from applying offsets to any of the axes, to doing numerical differentiation, smoothing and interpolation. 
 
 - You can add multiple instances of the same filter type, change the order they are applied in and turn them off and on. 
 - You can export the data if you need to work with the results in another program/notebook. 
 - You can also `export the filters/settings <https://qcodespp.github.io/offline_plotting.html#exporting-data-and-filters>`__, and load them later on other datasets. 
 - Finally, and importantly, you can 'send' the filtered data to the current dataset, to plot it on another axis, or simply use it later.
 
-Each available filter has up to two options (hover over the relevant box in the app to see what they are):
+Each available filter has up to two options. Hover over the relevant box in the app to see a description of the filter and its options, or consult the table below.
 
 .. list-table::
     :header-rows: 1
@@ -187,11 +187,11 @@ Each available filter has up to two options (hover over the relevant box in the 
 
 **Filters and uncertainties**
 
-Since it is extremely non-obvious how various filters may affect uncertainties in different situations, only scalar multiplication and division filters are applied to uncertainties (basically to facilitate unit scaling, e.g. from volt to millivolt). In general, if you are performing any of the above operations, you should re-calculate your uncertainties manually.
+Since it is extremely non-obvious how various filters may affect uncertainties in different situations, only Multiply and Divide filters are applied to uncertainties (basically to facilitate unit scaling). In general, if you are performing any of the above operations, you should re-calculate your uncertainties manually. If the filter *can* be applied to the uncertainties, and the uncertainties are another parameter in the dataset, plot the parameter, copy over the filters, and then use 'Send Y to data' button to make the processed data available for plotting as an uncertainty. Otherwise, process the uncertainties as required, `open them as a new dataset <https://qcodespp.github.io/offline_plotting.html#loading-non-qcodes-data>`__, and `combine the two datasets <https://qcodespp.github.io/offline_plotting.html#combining-datasets-plots>`__.
 
-**Filters and irregular or non-monotonic x/y**
+.. **Filters and irregular or non-monotonic x/y** As far as I can tell this is _only_ relevant for Crop X and Y functions. In which case it's a little verbose,
 
-Even though it's possible to plot irregular and non-monotonic x/y/z data (as long as the arrays are of the correct shape), the way that filters are applied often assume at least monotonic x and y. For example, Crop X and Crop Y are based on the *array indices* not the absolute value on the x or y axis. Similarly, the integral is only calculated correctly if X (or Y) are regular. Conversely, the derivative *is* calculated correctly for irregular X (or Y). If you apply a filter to irregular data, it is worth to peek into the code to see what the filter is actually doing. As time goes on we will try to make the filters more friendly to irregular data.
+.. Even though it's possible to plot irregular and non-monotonic x/y/z data (as long as the arrays are of the correct shape), the way that filters are applied often assume at least monotonic x and y. For example, Crop X and Crop Y are based on the *array indices* not the absolute value on the x or y axis. Similarly, the integral is only calculated correctly if X (or Y) are regular. Conversely, the derivative *is* calculated correctly for irregular X (or Y). If you apply a filter to irregular data, it is worth to peek into the code to see what the filter is actually doing. As time goes on we will try to make the filters more friendly to irregular data.
 
 Linecuts
 --------
@@ -318,13 +318,13 @@ The offline plotting interface was largely developed by Joeri de Bruijckere with
 
 A note about fitting
 --------------------
-Fitting real data to the ideal of an analytical expression is fraught with danger. Curve fitting works by minimising the difference between the values in the real data, and the values produced by an analytical equation. For functions with many parameters, there can be many points in the parameter space where a good fit can be made. That is, local minima exist and can potentially be found by the sitting software, meaning *the fit may return non-physical values*. This is especially true to the least-squares method of fitting, which is used by lmfit (and this software) by default. This is why providing a good, physical initial guess is very important; it increases the chance of finding the 'right' local minima. For simple analytical functions it's usually reasonably obvious what the parameters might be. Therefore, if you don't provide an initial guess, an initial guess is provided either by the built-in lmfit estimates or by estimates that I (Damon) made up. Usually they're pretty good guesses but *do not trust them*. You must check to see if the fitted values are sensible and adjust the initial guesses if not. 
+Fitting real data an analytical expression is nowhere near as trivial as it first looks. Curve fitting works by minimising the difference between the values in the real data, and the values produced by an analytical equation. For functions with many parameters, there can be many points in the parameter space where a local minima in the difference between data and function can be found. This means *the fit may return non-physical values* if the 'wrong' minima is found. Therefore, providing a good initial guess is very important; it increases the chance of finding the 'right' local minima. If you don't provide an initial guess, an initial guess is provided either by the built-in lmfit estimates or by InSpectra Gadget. Usually they're pretty good guesses (since good initial guesses are almost always related directly to the data limits) but *do not trust them*. You must check to see if the fitted values are sensible and adjust the initial guesses if not.
 
-Finally, and very importantly!!: The ability to *constrain* fit parameters is (currently) unavailable in this software, but can be extremely important in fits with lots of parameters. If you have more than 5 fit parameters, I strongly suggest you do NOT use this software to fit your data. Fitting such complicated data is non-trivial, and you should really spend the time to carefully construct a custom fitting procedure using lmfit, sherpa or miniut.
+Finally, and very importantly!!: The ability to *constrain* fit parameters is (currently) unavailable in this software, but can be extremely important in fits with lots of parameters. If you have more than 5 fit parameters, I strongly suggest you do NOT use this software to fit your data. Fitting such complicated data is non-trivial, and you should really spend the time to carefully construct a custom fitting procedure using `lmfit <https://lmfit.github.io/lmfit-py/>`__, `sherpa <https://sherpa.readthedocs.io/>`__ or `miniut <https://scikit-hep.org/iminuit/>`__.
 
 .. TO DO:
 .. ------
-.. - Plotting of non-monotonic data... Should reorder the arrays so they are plotted properly. Or at least add this as a filter.
+.. - Plotting of non-monotonic data... Should reorder the arrays so they are plotted properly. Then alter Crop X and Crop Y to truly crop to the given x/y values, not just the array indices.
 .. - MixedInternalData: don't update view settings when applying filters to 1D data
 .. - Saving/loading: Check like everything... like axis limits, scaling, font sizes, linewidths, all that.
 .. - Make scrolling through diagonal linecuts faster
@@ -338,6 +338,3 @@ Finally, and very importantly!!: The ability to *constrain* fit parameters is (c
 .. - More advanced preset import/export; user can choose what they want to save/load
 .. - Fix circular linecuts
 .. - diagonal linecuts should be moveable easily. Can work out equation of line between the points obviously, so no reason can't click and drag it.
-.. - Make it so that if a user edits the default labels they become fixed, and don't change when changing plot_type. Or, if they edit the label, it gets transferred as a new default label that doesn't change. Maybe. I'm not sure.
-.. - Make cropX and cropY work for non-regular X/Y. perhaps go through *everything* and make sure it's all working nicely with non-regular X/Y
-.. - Icon

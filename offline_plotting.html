@@ -162,14 +162,14 @@
 </section>
 <section id="filters">
 <h3>Filters<a class="headerlink" href="#filters" title="Permalink to this heading"></a></h3>
-<p>‘Filters’ in InSpectra Gadget are simply mathematical operations that can be performed on the data. The filters thus handle everything from applying offsets to any of the axes, to doing numerical differentiation.</p>
+<p>Filters in InSpectra Gadget are simply mathematical operations that can be performed on the data. The filters thus handle everything from applying offsets to any of the axes, to doing numerical differentiation, smoothing and interpolation.</p>
 <ul class="simple">
 <li><p>You can add multiple instances of the same filter type, change the order they are applied in and turn them off and on.</p></li>
 <li><p>You can export the data if you need to work with the results in another program/notebook.</p></li>
 <li><p>You can also <a class="reference external" href="https://qcodespp.github.io/offline_plotting.html#exporting-data-and-filters">export the filters/settings</a>, and load them later on other datasets.</p></li>
 <li><p>Finally, and importantly, you can ‘send’ the filtered data to the current dataset, to plot it on another axis, or simply use it later.</p></li>
 </ul>
-<p>Each available filter has up to two options (hover over the relevant box in the app to see what they are):</p>
+<p>Each available filter has up to two options. Hover over the relevant box in the app to see a description of the filter and its options, or consult the table below.</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Filter type</p></th>
@@ -327,9 +327,7 @@
 </tbody>
 </table>
 <p><strong>Filters and uncertainties</strong></p>
-<p>Since it is extremely non-obvious how various filters may affect uncertainties in different situations, only scalar multiplication and division filters are applied to uncertainties (basically to facilitate unit scaling, e.g. from volt to millivolt). In general, if you are performing any of the above operations, you should re-calculate your uncertainties manually.</p>
-<p><strong>Filters and irregular or non-monotonic x/y</strong></p>
-<p>Even though it’s possible to plot irregular and non-monotonic x/y/z data (as long as the arrays are of the correct shape), the way that filters are applied often assume at least monotonic x and y. For example, Crop X and Crop Y are based on the <em>array indices</em> not the absolute value on the x or y axis. Similarly, the integral is only calculated correctly if X (or Y) are regular. Conversely, the derivative <em>is</em> calculated correctly for irregular X (or Y). If you apply a filter to irregular data, it is worth to peek into the code to see what the filter is actually doing. As time goes on we will try to make the filters more friendly to irregular data.</p>
+<p>Since it is extremely non-obvious how various filters may affect uncertainties in different situations, only Multiply and Divide filters are applied to uncertainties (basically to facilitate unit scaling). In general, if you are performing any of the above operations, you should re-calculate your uncertainties manually. If the filter <em>can</em> be applied to the uncertainties, and the uncertainties are another parameter in the dataset, plot the parameter, copy over the filters, and then use ‘Send Y to data’ button to make the processed data available for plotting as an uncertainty. Otherwise, process the uncertainties as required, <a class="reference external" href="https://qcodespp.github.io/offline_plotting.html#loading-non-qcodes-data">open them as a new dataset</a>, and <a class="reference external" href="https://qcodespp.github.io/offline_plotting.html#combining-datasets-plots">combine the two datasets</a>.</p>
 </section>
 </section>
 <section id="linecuts">
@@ -454,8 +452,8 @@
 </section>
 <section id="a-note-about-fitting">
 <h2>A note about fitting<a class="headerlink" href="#a-note-about-fitting" title="Permalink to this heading"></a></h2>
-<p>Fitting real data to the ideal of an analytical expression is fraught with danger. Curve fitting works by minimising the difference between the values in the real data, and the values produced by an analytical equation. For functions with many parameters, there can be many points in the parameter space where a good fit can be made. That is, local minima exist and can potentially be found by the sitting software, meaning <em>the fit may return non-physical values</em>. This is especially true to the least-squares method of fitting, which is used by lmfit (and this software) by default. This is why providing a good, physical initial guess is very important; it increases the chance of finding the ‘right’ local minima. For simple analytical functions it’s usually reasonably obvious what the parameters might be. Therefore, if you don’t provide an initial guess, an initial guess is provided either by the built-in lmfit estimates or by estimates that I (Damon) made up. Usually they’re pretty good guesses but <em>do not trust them</em>. You must check to see if the fitted values are sensible and adjust the initial guesses if not.</p>
-<p>Finally, and very importantly!!: The ability to <em>constrain</em> fit parameters is (currently) unavailable in this software, but can be extremely important in fits with lots of parameters. If you have more than 5 fit parameters, I strongly suggest you do NOT use this software to fit your data. Fitting such complicated data is non-trivial, and you should really spend the time to carefully construct a custom fitting procedure using lmfit, sherpa or miniut.</p>
+<p>Fitting real data an analytical expression is nowhere near as trivial as it first looks. Curve fitting works by minimising the difference between the values in the real data, and the values produced by an analytical equation. For functions with many parameters, there can be many points in the parameter space where a local minima in the difference between data and function can be found. This means <em>the fit may return non-physical values</em> if the ‘wrong’ minima is found. Therefore, providing a good initial guess is very important; it increases the chance of finding the ‘right’ local minima. If you don’t provide an initial guess, an initial guess is provided either by the built-in lmfit estimates or by InSpectra Gadget. Usually they’re pretty good guesses (since good initial guesses are almost always related directly to the data limits) but <em>do not trust them</em>. You must check to see if the fitted values are sensible and adjust the initial guesses if not.</p>
+<p>Finally, and very importantly!!: The ability to <em>constrain</em> fit parameters is (currently) unavailable in this software, but can be extremely important in fits with lots of parameters. If you have more than 5 fit parameters, I strongly suggest you do NOT use this software to fit your data. Fitting such complicated data is non-trivial, and you should really spend the time to carefully construct a custom fitting procedure using <a class="reference external" href="https://lmfit.github.io/lmfit-py/">lmfit</a>, <a class="reference external" href="https://sherpa.readthedocs.io/">sherpa</a> or <a class="reference external" href="https://scikit-hep.org/iminuit/">miniut</a>.</p>
 </section>
 </section>
 
