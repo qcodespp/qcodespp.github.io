@@ -24,15 +24,15 @@ The above graphic gives a rough conceptualisation of qcodes++ structure.
 * Running a Loop collects measurements of the desired dependent parameters. 
 * Station also sends important metadata to the DataSet including the value of every Parameter from every Instrument at the start of the Loop, whether that Parameter was measured at each setpoint of the Loop or not.
 
-In addition to the Loop, qcodes++ also has a Measure function, which simply measures a set of parameters at a single point in time, without looping.
+In addition to the ``Loop``, qcodes++ also has ``Measure``, which simply measures a set of parameters at a single point in time, without looping.
 
-Two options for plotting are available: live plotting, which is very fast and allows you to see the data as it is being collected, and offline plotting, in which more complex analysis is possible; e.g. curve fitting, linecuts of 2D data, taking derivatives, etc.
+Two options for plotting are available: `live plotting <https://qcodespp.github.io/live_plot.html>`__, which is so lightweight and fast that it can likely refresh as fast as you can measure without affecting performance, and `offline plotting <https://qcodespp.github.io/offline_plotting.html>`__, in which more complex analysis is possible; e.g. curve fitting, linecuts of 2D data, taking derivatives, etc.
 
 The features of qcodes++ are mostly either directly inherited from the latest version of QCoDeS, or are 
 improved versions of features that were present in QCoDeS prior to version 0.11. In particular, qcodes++
 uses the text-based ``DataSetPP``, which although much less flexible than the QCoDeS ``DataSet``, is much more
 user-friendly, especially when combined with the ``Loop`` and ``Measure`` classes. And indeed the limitations
-imposed by the ``DataSetPP`` enables the plotting capabilities developed by Merlin von Soosten, Joeri de Bruijckere, Dags Olsteins and others.
+imposed by the ``DataSetPP`` enables the plotting capabilities, which far outstrip those of QCoDeS.
 
 In short; if you want a user-friendly way to collect and plot data, use qcodes++. If you need something
 highly customisable, use QCoDeS. The good news; installing qcodes++ does not interfere with a QCoDeS
