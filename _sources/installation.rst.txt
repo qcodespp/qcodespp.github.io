@@ -22,14 +22,20 @@ You can now run qcodes++ in a Jupyter notebook by starting Jupyter lab:
 
 ``jupyter lab``
 
+Windows shortcuts
+-----------------
+On Windows, you can add desktop and start menu shortcuts for both Jupyter lab and `offline plotting <https://qcodespp.github.io/offline_plotting.html>`__. Make sure you are in the qcodespp environment and run:
+
+``qcodespp install_shortcuts``
+
+Usually you just want to select option 1.
 
 Additionally...
 ---------------
-
 - If you will use drivers from `qcodes_contrib_drivers <https://qcodespp.github.io/visa.html#where-are-the-drivers>`__ you can install them with ``pip install qcodes_contrib_drivers``.
 
 - If you will use Zurich Instruments instruments, you need to install the ZI python API with ``pip install zhinst zhinst-qcodes``.
 
-- If you will use VISA instruments (e.g. ones that communicate via GPIB, USB, RS232) you should install the NI VISA and GPIB(488.2) backends from the National Instruments website `here <https://www.ni.com/en/support/downloads/drivers/download.ni-visa.html>`__ and `here <https://www.ni.com/en/support/downloads/drivers/download.ni-488-2.html>`__.
+- If you will use VISA instruments (e.g. ones that communicate via GPIB, USB, RS232) you should install the NI VISA and GPIB(488.2) backends from the National Instruments website `here <https://www.ni.com/en/support/downloads/drivers/download.ni-visa.html>`__ and `here <https://www.ni.com/en/support/downloads/drivers/download.ni-488-2.html>`__. Keysight also offers a VISA backend, available `here <https://www.keysight.com/zz/en/lib/software-detail/computer-software/io-libraries-suite-downloads-2175637.html?jmpid=zzfindiosuite>`__.
 
 - If the qcodes++ install fails, you may need to install `Visual Studio C++ build tools. <https://visualstudio.microsoft.com/downloads/>`__. After following the link, go to *Tools for Visual Studio* and then *Build Tools for Visual Studio*.
