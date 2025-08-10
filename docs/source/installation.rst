@@ -26,7 +26,7 @@ Windows shortcuts
 -----------------
 On Windows, you can add desktop and start menu shortcuts for both Jupyter lab and `offline plotting <https://qcodespp.github.io/offline_plotting.html>`__. Make sure you are in the qcodespp environment and run:
 
-``qcodespp install_shortcuts``
+``qcodespp create_shortcuts``
 
 Usually you just want to select option 1.
 
