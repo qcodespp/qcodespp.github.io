@@ -18,6 +18,7 @@ Submodules
    /autoapi/qcodespp/measure/index
    /autoapi/qcodespp/parameters/index
    /autoapi/qcodespp/plotting/index
+   /autoapi/qcodespp/scripts/index
    /autoapi/qcodespp/station/index
    /autoapi/qcodespp/utils/index
    /autoapi/qcodespp/version/index
@@ -219,7 +220,7 @@ Package Contents
 
 
 .. py:data:: __version__
-   :value: '0.1.6'
+   :value: '0.1.7'
 
 
 .. py:class:: Loop(sweep_values, delay=0, snake=False, station=None, progress_interval=None, progress_bar=True)

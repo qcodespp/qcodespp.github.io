@@ -12,6 +12,6 @@ Submodules
 
    /autoapi/qcodespp/instrument_drivers/QDevil/QDAC2/index
    /autoapi/qcodespp/instrument_drivers/QDevil/QDAC2_Array/index
-   /autoapi/qcodespp/instrument_drivers/QDevil/QSwitch_elab/index
+   /autoapi/qcodespp/instrument_drivers/QDevil/QSwitch/index
 
 

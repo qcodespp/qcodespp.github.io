@@ -103,7 +103,7 @@ Module Contents
    .. py:attribute:: amps_per_tesla
 
 
-   .. py:method:: reset()
+   .. py:method:: clear_buffer()
 
 
    .. py:method:: hold()
