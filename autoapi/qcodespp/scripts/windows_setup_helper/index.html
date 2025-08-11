@@ -1,0 +1,196 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qcodespp.scripts.windows_setup_helper &mdash; qcodes++ 0.1.7 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+    <link rel="shortcut icon" href="../../../../_static/qcppfavicon.svg"/>
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=e80004a2"></script>
+      <script src="../../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="qcodespp.station" href="../../station/index.html" />
+    <link rel="prev" title="qcodespp.scripts.setup_windows" href="../setup_windows/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            qcodes++
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../parameters.html">Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../visa.html">Instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../live_plot.html">Live plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../template.html">Example template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">qcodespp</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../actions/index.html">qcodespp.actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/index.html">qcodespp.cli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data/index.html">qcodespp.data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../instrument_drivers/index.html">qcodespp.instrument_drivers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../loops/index.html">qcodespp.loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../measure/index.html">qcodespp.measure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../parameters/index.html">qcodespp.parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../plotting/index.html">qcodespp.plotting</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">qcodespp.scripts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../station/index.html">qcodespp.station</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../utils/index.html">qcodespp.utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../version/index.html">qcodespp.version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">qcodes++</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">qcodespp</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">qcodespp.scripts</a></li>
+      <li class="breadcrumb-item active">qcodespp.scripts.windows_setup_helper</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/qcodespp/scripts/windows_setup_helper/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-qcodespp.scripts.windows_setup_helper">
+<span id="qcodespp-scripts-windows-setup-helper"></span><h1>qcodespp.scripts.windows_setup_helper<a class="headerlink" href="#module-qcodespp.scripts.windows_setup_helper" title="Permalink to this heading"></a></h1>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="qcodespp.scripts.windows_setup_helper.check_windows">
+<span class="sig-prename descclassname"><span class="pre">qcodespp.scripts.windows_setup_helper.</span></span><span class="sig-name descname"><span class="pre">check_windows</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.scripts.windows_setup_helper.check_windows" title="Permalink to this definition"></a></dt>
+<dd><p>Check if running on Windows.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="qcodespp.scripts.windows_setup_helper.install_dependencies">
+<span class="sig-prename descclassname"><span class="pre">qcodespp.scripts.windows_setup_helper.</span></span><span class="sig-name descname"><span class="pre">install_dependencies</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.scripts.windows_setup_helper.install_dependencies" title="Permalink to this definition"></a></dt>
+<dd><p>Install required dependencies for Windows integration.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="qcodespp.scripts.windows_setup_helper.create_shortcuts">
+<span class="sig-prename descclassname"><span class="pre">qcodespp.scripts.windows_setup_helper.</span></span><span class="sig-name descname"><span class="pre">create_shortcuts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.scripts.windows_setup_helper.create_shortcuts" title="Permalink to this definition"></a></dt>
+<dd><p>Create desktop and start menu shortcuts.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="qcodespp.scripts.windows_setup_helper.test_installation">
+<span class="sig-prename descclassname"><span class="pre">qcodespp.scripts.windows_setup_helper.</span></span><span class="sig-name descname"><span class="pre">test_installation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.scripts.windows_setup_helper.test_installation" title="Permalink to this definition"></a></dt>
+<dd><p>Test that qcodespp can be imported and the CLI works.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="qcodespp.scripts.windows_setup_helper.copy_scripts_to_desktop">
+<span class="sig-prename descclassname"><span class="pre">qcodespp.scripts.windows_setup_helper.</span></span><span class="sig-name descname"><span class="pre">copy_scripts_to_desktop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.scripts.windows_setup_helper.copy_scripts_to_desktop" title="Permalink to this definition"></a></dt>
+<dd><p>Copy useful scripts to the desktop.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="qcodespp.scripts.windows_setup_helper.main">
+<span class="sig-prename descclassname"><span class="pre">qcodespp.scripts.windows_setup_helper.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.scripts.windows_setup_helper.main" title="Permalink to this definition"></a></dt>
+<dd><p>Main setup function.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../setup_windows/index.html" class="btn btn-neutral float-left" title="qcodespp.scripts.setup_windows" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../station/index.html" class="btn btn-neutral float-right" title="qcodespp.station" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, qcodes++.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
