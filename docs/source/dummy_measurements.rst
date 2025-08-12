@@ -18,7 +18,7 @@ This will open a Jupyter lab window in your browser. In the Jupyter lab, create 
 .. code-block:: python
 
     import qcodespp as qc   
-    from qcodespp.instrument_drivers.dummy import DummyMeasurementInstrument
+    from qcodespp.instrument_drivers.instrument_mocks import DummyMeasurementInstrument
 
 This code imports the top level of the qcodes++ package, and the ``DummyMeasurementInstrument`` driver. In general the instrument drivers are python classes which can be used to create a specific connection with a specific instrument. In this case, we 'connect' to our ``Instrument`` by running:
 
