@@ -107,7 +107,7 @@
 </div>
 <p>This will open a Jupyter lab window in your browser. In the Jupyter lab, create a new Python 3 notebook and run</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">qcodespp</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qc</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">qcodespp.instrument_drivers.dummy</span><span class="w"> </span><span class="kn">import</span> <span class="n">DummyMeasurementInstrument</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">qcodespp.instrument_drivers.instrument_mocks</span><span class="w"> </span><span class="kn">import</span> <span class="n">DummyMeasurementInstrument</span>
 </pre></div>
 </div>
 <p>This code imports the top level of the qcodes++ package, and the <code class="docutils literal notranslate"><span class="pre">DummyMeasurementInstrument</span></code> driver. In general the instrument drivers are python classes which can be used to create a specific connection with a specific instrument. In this case, we ‘connect’ to our <code class="docutils literal notranslate"><span class="pre">Instrument</span></code> by running:</p>
