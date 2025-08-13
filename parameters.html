@@ -55,6 +55,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#scaling-parameters">Scaling Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#moving-parameters">‘Moving’ Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#multiparameter-and-multiparameterwrapper">MultiParameter and MultiParameterWrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#non-numerical-parameters">Non-numerical Parameters</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="visa.html">Instruments</a></li>
@@ -206,6 +207,11 @@
 </pre></div>
 </div>
 <p>If you provide a single value, all parameters will be moved to that single value. The parameters move sequentially, not simultaneously (in contrast to sweep where they move ‘simultaneously’)</p>
+</section>
+<section id="non-numerical-parameters">
+<h2>Non-numerical Parameters<a class="headerlink" href="#non-numerical-parameters" title="Permalink to this heading"></a></h2>
+<p>If your parameter returns floats, integers or booleans, or arrays of any of these, the <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> will store them just fine. However, if your parameter returns a string, you need to set a the <code class="docutils literal notranslate"><span class="pre">data_type</span></code> attribute of the parameter to <code class="docutils literal notranslate"><span class="pre">str</span></code>. e.g. <code class="docutils literal notranslate"><span class="pre">my_parameter.data_type</span> <span class="pre">=</span> <span class="pre">str</span></code>.</p>
+<p>Storing of more complex objects such as dictionaries in the <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> is not supported and probably never will be. If your instrument driver is returning such objects, make a custom <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> (or <code class="docutils literal notranslate"><span class="pre">MultiParameter</span></code>) to return arrays or tuples of floats and/or strings.</p>
 </section>
 </section>
 

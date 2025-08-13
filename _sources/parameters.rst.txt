@@ -145,3 +145,9 @@ One can also move the parameters
     multi.move(0)
 
 If you provide a single value, all parameters will be moved to that single value. The parameters move sequentially, not simultaneously (in contrast to sweep where they move 'simultaneously')
+
+Non-numerical Parameters
+------------------------
+If your parameter returns floats, integers or booleans, or arrays of any of these, the ``DataSetPP`` will store them just fine. However, if your parameter returns a string, you need to set a the ``data_type`` attribute of the parameter to ``str``. e.g. ``my_parameter.data_type = str``.
+
+Storing of more complex objects such as dictionaries in the ``DataSetPP`` is not supported and probably never will be. If your instrument driver is returning such objects, make a custom ``Parameter`` (or ``MultiParameter``) to return arrays or tuples of floats and/or strings.

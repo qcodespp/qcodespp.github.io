@@ -112,7 +112,7 @@ If you need to loop over two independent parameters, you can use the ``loop2D`` 
     loop=qc.loop2d(sweep_parameter=instrument.output1,
                     start=0,stop=10,num=11,delay=0.1,
                     step_parameter=instrument.output2,
-                    step_start=0,step_stop=10,step_num=11,step_delay=0.1
+                    step_start=0,step_stop=10,step_num=11,step_delay=0.1,
                     device_info='dummy',
                     instrument_info='ACdiv=1e5 DCdiv=1e3 freq=123 Hz',
                     measure=[instrument.input1, instrument.input2])
@@ -135,7 +135,7 @@ Note that in a ``loop2d``, the ``sweep_parameter`` jumps from the stop value bac
     loop=qc.loop2dUD(sweep_parameter=instrument.output1,
                     start=0,stop=10,num=11,delay=0.1,
                     step_parameter=instrument.output2,
-                    step_start=0,step_stop=10,step_num=11,step_delay=0.1
+                    step_start=0,step_stop=10,step_num=11,step_delay=0.1,
                     device_info='dummy',
                     instrument_info='ACdiv=1e5 DCdiv=1e3 freq=123 Hz',
                     measure=[instrument.input1, instrument.input2])
@@ -149,7 +149,7 @@ The other option you have is to turn on the ``snake`` behaviour in ``loop2d``. T
     loop=qc.loop2d(sweep_parameter=instrument.output1,
                     start=0,stop=10,num=11,delay=0.1,
                     step_parameter=instrument.output2,
-                    step_start=0,step_stop=10,step_num=11,step_delay=0.1
+                    step_start=0,step_stop=10,step_num=11,step_delay=0.1,
                     device_info='dummy',
                     instrument_info='ACdiv=1e5 DCdiv=1e3 freq=123 Hz',
                     snake=True,
@@ -168,7 +168,7 @@ The ``loop2dUD`` function has the option to sweep the ``sweep_parameter`` with a
     loop=qc.loop2dUD(sweep_parameter=instrument.output1,
                     start=0,stop=10,num=101,delay=0.1,
                     step_parameter=instrument.output2,
-                    step_start=0,step_stop=10,step_num=11,step_delay=0.1
+                    step_start=0,step_stop=10,step_num=11,step_delay=0.1,
                     device_info='dummy',
                     instrument_info='ACdiv=1e5 DCdiv=1e3 freq=123 Hz',
                     fast_down=5,
