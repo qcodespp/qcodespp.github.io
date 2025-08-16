@@ -9,8 +9,8 @@
 project = 'qcodes++'
 copyright = '2025, qcodes++'
 author = 'qcodes++'
-release = '0.1.8'
-version = '0.1.8'
+release = '0.1.9'
+version = '0.1.9'
 
 html_favicon = 'qcppfavicon.svg'
 
