@@ -44,6 +44,8 @@ Defining a custom ``get_cmd`` enables e.g. averaging, filtering, or any other op
 
 ``Parameter`` s also accept a ``set_cmd`` argument, which defines how to set the value of the ``Parameter``, if relevant.
 
+`You can fully subclass <https://microsoft.github.io/Qcodes/examples/Parameters/Parameters.html>`__ the ``Parameter`` class, especially if you want to add more complex functionality, store information within the ``Parameter``, etc. If you create an attribute in your subclass, e.g. ``my_parameter.my_attribute = 'my_value'`` that you want to be saved in the ``DataSetPP`` metadata, extend ``my_parameter._meta_attrs`` with the attribute name, e.g. ``my_parameter._meta_attrs.append('my_attribute')``, ``my_parameter._meta_attrs.extend(['my_attribute1','my_attribute2','my_attribute3'])``.
+
 .. code-block:: python
 
     def set_feed(value):
@@ -80,7 +82,7 @@ By default, the time since the start of the ``Loop`` is included in each ``DataS
 Scaling Parameters
 ------------------
 
-For the special case of a scaling a parameter, there is ``qc.ScaledParameter``, which accepts a ``Parameter`` to scale and a scaling factor:
+For the special case of a scaling a parameter, there is ``qc.ScaledParameter``, which accepts a ``Parameter`` to scale and a scaling factor, which can be a scalar or a ``Parameter`` (`QCoDes docs <https://microsoft.github.io/Qcodes/api/parameters/index.html#qcodes.parameters.ScaledParameter>`__):
 
 .. code-block:: python
 
