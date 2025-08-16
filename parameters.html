@@ -51,7 +51,7 @@
 <li class="toctree-l1"><a class="reference internal" href="more_features.html">Commonly used features</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Parameters</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#custom-parameters">Custom parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#stepper-parameter">Stepper Parameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stepper-parameter-sweeping-time">Stepper Parameter: Sweeping time</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#scaling-parameters">Scaling Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#moving-parameters">‘Moving’ Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#multiparameter-and-multiparameterwrapper">MultiParameter and MultiParameterWrapper</a></li>
@@ -129,7 +129,6 @@
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">Parameter</span></code> s also accept a <code class="docutils literal notranslate"><span class="pre">set_cmd</span></code> argument, which defines how to set the value of the <code class="docutils literal notranslate"><span class="pre">Parameter</span></code>, if relevant.</p>
-<p><a class="reference external" href="https://microsoft.github.io/Qcodes/examples/Parameters/Parameters.html">You can fully subclass</a> the <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> class, especially if you want to add more complex functionality, store information within the <code class="docutils literal notranslate"><span class="pre">Parameter</span></code>, etc. If you create an attribute in your subclass, e.g. <code class="docutils literal notranslate"><span class="pre">my_parameter.my_attribute</span> <span class="pre">=</span> <span class="pre">'my_value'</span></code> that you want to be saved in the <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> metadata, extend <code class="docutils literal notranslate"><span class="pre">my_parameter._meta_attrs</span></code> with the attribute name, e.g. <code class="docutils literal notranslate"><span class="pre">my_parameter._meta_attrs.append('my_attribute')</span></code>, <code class="docutils literal notranslate"><span class="pre">my_parameter._meta_attrs.extend(['my_attribute1','my_attribute2','my_attribute3'])</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_feed</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
     <span class="c1"># Set the instrument output to a value scaled by the value at its input</span>
     <span class="n">intrument</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">value</span> <span class="o">*</span> <span class="n">instrument</span><span class="o">.</span><span class="n">input</span><span class="p">())</span>
@@ -142,10 +141,11 @@
                           <span class="n">get_cmd</span><span class="o">=</span><span class="n">get_feed</span><span class="p">,</span> <span class="n">set_cmd</span><span class="o">=</span><span class="n">set_feed</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><a class="reference external" href="https://microsoft.github.io/Qcodes/examples/Parameters/Parameters.html">You can fully subclass</a> the <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> class, especially if you want to add more complex functionality, store information within the <code class="docutils literal notranslate"><span class="pre">Parameter</span></code>, etc. If you create an attribute in your subclass, e.g. <code class="docutils literal notranslate"><span class="pre">my_parameter.my_attribute</span> <span class="pre">=</span> <span class="pre">'my_value'</span></code> that you want to be saved in the <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> metadata, extend <code class="docutils literal notranslate"><span class="pre">my_parameter._meta_attrs</span></code> with the attribute name, e.g. <code class="docutils literal notranslate"><span class="pre">my_parameter._meta_attrs.append('my_attribute')</span></code>, <code class="docutils literal notranslate"><span class="pre">my_parameter._meta_attrs.extend(['my_attribute1','my_attribute2','my_attribute3'])</span></code>.</p>
 </section>
-<section id="stepper-parameter">
-<h2>Stepper Parameter<a class="headerlink" href="#stepper-parameter" title="Permalink to this heading"></a></h2>
-<p>To loop over time, where you simply measure your parameters at a regular interval, you can just create a parameter that does nothing, i.e.</p>
+<section id="stepper-parameter-sweeping-time">
+<h2>Stepper Parameter: Sweeping time<a class="headerlink" href="#stepper-parameter-sweeping-time" title="Permalink to this heading"></a></h2>
+<p>To loop over time, i.e. measure parameters at a regular interval without another independent parameter, you can just create a parameter that does nothing, i.e.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">stepper</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;stepper&#39;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Step&#39;</span><span class="p">,</span> <span class="n">set_cmd</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="k">pass</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -155,7 +155,7 @@
                 <span class="n">name</span><span class="o">=</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>By default, the time since the start of the <code class="docutils literal notranslate"><span class="pre">Loop</span></code> is included in each <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> as <code class="docutils literal notranslate"><span class="pre">timer</span></code>, meaning you can always plot any parameter against time.</p>
+<p>By default, the time since the start of the <code class="docutils literal notranslate"><span class="pre">Loop</span></code> is included in each <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> as <code class="docutils literal notranslate"><span class="pre">timer</span></code>, meaning you can always plot any parameter against time, including in <a class="reference external" href="https://qcodespp.github.io/live_plot.html">live plotting</a>.</p>
 </section>
 <section id="scaling-parameters">
 <h2>Scaling Parameters<a class="headerlink" href="#scaling-parameters" title="Permalink to this heading"></a></h2>

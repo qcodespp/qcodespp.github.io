@@ -57,16 +57,16 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Offline plotting, a.k.a. InSpectra Gadget</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#basic-plotting">Basic plotting</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#plot-types">Plot types</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#fitting">Fitting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#filters">Filters</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#fitting">Fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#filters">Filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#linecuts">Linecuts</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#fitting-linecuts">Fitting linecuts</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#working-with-multiple-files">Working with multiple files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#working-with-an-entire-folder">Working with an entire folder</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-multiple-files">Working with multiple files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#working-with-an-entire-folder">Working with an entire folder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#combining-datasets-plots">Combining datasets/plots</a></li>
 </ul>
 </li>
@@ -146,8 +146,9 @@
 <li><p>FFTs are plotted against the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.fft.fftfreq.html">calculated frequencies</a>. For this to be meaningful, the original data must be on an evenly-sampled grid. At current, you will have to interpolate your data to resample it onto an evenly-spaced grid. This may become automatic in future.</p></li>
 </ul>
 </section>
+</section>
 <section id="fitting">
-<h3>Fitting<a class="headerlink" href="#fitting" title="Permalink to this heading"></a></h3>
+<h2>Fitting<a class="headerlink" href="#fitting" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>The fitting is basically a GUI for <a class="reference external" href="https://lmfit.github.io/lmfit-py/">lmfit</a>, with almost all built-in models implemented. See <a class="reference external" href="https://lmfit.github.io/lmfit-py/builtin_models.html">here for a description of each model/function</a>.</p></li>
 <li><p>To limit the fitting range, fill out the Xmin and Xmax fields, OR, click twice on the plot area. Lower limit first, upper limit second. Further clicks will move the closest limit to the click position.</p></li>
@@ -161,7 +162,7 @@
 </ul>
 </section>
 <section id="filters">
-<h3>Filters<a class="headerlink" href="#filters" title="Permalink to this heading"></a></h3>
+<h2>Filters<a class="headerlink" href="#filters" title="Permalink to this heading"></a></h2>
 <p>Filters in InSpectra Gadget are simply mathematical operations that can be performed on the data. The filters thus handle everything from applying offsets to any of the axes, to doing numerical differentiation, smoothing and interpolation.</p>
 <ul class="simple">
 <li><p>You can add multiple instances of the same filter type, change the order they are applied in and turn them off and on.</p></li>
@@ -329,7 +330,6 @@
 <p><strong>Filters and uncertainties</strong></p>
 <p>Since it is extremely non-obvious how various filters may affect uncertainties in different situations, only Multiply and Divide filters are applied to uncertainties (basically to facilitate unit scaling). In general, if you are performing any of the above operations, you should re-calculate your uncertainties manually. If the filter <em>can</em> be applied to the uncertainties, and the uncertainties are another parameter in the dataset, plot the parameter, copy over the filters, and then use ‘Send Y to data’ button to make the processed data available for plotting as an uncertainty. Otherwise, process the uncertainties as required, <a class="reference external" href="https://qcodespp.github.io/offline_plotting.html#loading-non-qcodes-data">open them as a new dataset</a>, and <a class="reference external" href="https://qcodespp.github.io/offline_plotting.html#combining-datasets-plots">combine the two datasets</a>.</p>
 </section>
-</section>
 <section id="linecuts">
 <h2>Linecuts<a class="headerlink" href="#linecuts" title="Permalink to this heading"></a></h2>
 <figure class="align-default">
@@ -366,14 +366,14 @@
 <li><p>To add a new plot with different sets of parameters from the <em>same</em> dataset, use the X,Y,(Z) boxes above the plot window and click ‘Add new plot’. This duplicates the file in the file list. You can do this manually by right-clicking on the file and choosing ‘Duplicate’, or with Ctrl+D.</p></li>
 <li><p>Duplicating a file will <em>not</em> carry over any linecuts or fits. It is quite hard to implement. If it <em>really</em> becomes relevant I can look into it.</p></li>
 </ul>
-</section>
 <section id="working-with-an-entire-folder">
-<h2>Working with an entire folder<a class="headerlink" href="#working-with-an-entire-folder" title="Permalink to this heading"></a></h2>
+<h3>Working with an entire folder<a class="headerlink" href="#working-with-an-entire-folder" title="Permalink to this heading"></a></h3>
 <p>You can open data from an entire folder in two ways.</p>
 <ul class="simple">
 <li><p>You can select ‘Open Folder’ and choose the relevant folder. This will load the list of all the datasets found in that folder <em>and all sub-folders</em>. The data itself will not be loaded until you click the checkbox to plot it. This is because the data gets loaded into memory, which <em>might</em> start to affect your computer’s performance. However, unchecking a file does <em>not</em> free up memory. ‘Remove file’ and ‘Clear list’ <em>should</em> do it, but this is hard to troubleshoot. Certainly refreshing the kernel works.</p></li>
 <li><p>You can also ‘link’ to a folder with ongoing measurements by clicking ‘Link Folder’. Initially this will perform the same action as ‘Open Folder’, but now when you click ‘Refresh’, any new data will be added automatically to the list of Opened Files. (If you enable ‘Track data’ for the linked folder, on-going measurements will be tracked, with an update period of 30s. However, it’s really not recommended because the data has to be read from disk, which can be disruptive, and will inevitably eat up all your memory. It is much better to rely on <code class="docutils literal notranslate"><span class="pre">qcodespp.live_plot()</span></code> for live plotting, which goes to great pains to avoid these pitfalls.)</p></li>
 </ul>
+</section>
 <section id="combining-datasets-plots">
 <h3>Combining datasets/plots<a class="headerlink" href="#combining-datasets-plots" title="Permalink to this heading"></a></h3>
 <p>There are three ways to combine datasets:</p>
@@ -443,7 +443,7 @@
 <span class="mf">0.1</span>     <span class="mf">0.4</span>     <span class="mf">1.7</span>
 </pre></div>
 </div>
-<p>To automatically name the columns, you can use a numpy header, i.e. start the first line with ‘#’ and list the parameters:</p>
+<p>To automatically name the columns, you can use a header. Start the first line with ‘#’ and list the parameters:</p>
 <p><code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Voltage</span> <span class="pre">Temperature</span> <span class="pre">Conductance</span></code></p>
 <p>The default delimiter is any white space. If necessary, specify the delimiter under ‘Settings for Selected File’ to reload the data with the appropriate delimiter.</p>
 </section>

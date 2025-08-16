@@ -38,7 +38,7 @@ Plot types
 - FFTs are plotted against the `calculated frequencies <https://numpy.org/doc/stable/reference/generated/numpy.fft.fftfreq.html>`__. For this to be meaningful, the original data must be on an evenly-sampled grid. At current, you will have to interpolate your data to resample it onto an evenly-spaced grid. This may become automatic in future.
 
 Fitting
-^^^^^^^
+-------
 - The fitting is basically a GUI for `lmfit <https://lmfit.github.io/lmfit-py/>`__, with almost all built-in models implemented. See `here for a description of each model/function <https://lmfit.github.io/lmfit-py/builtin_models.html>`__.
 - To limit the fitting range, fill out the Xmin and Xmax fields, OR, click twice on the plot area. Lower limit first, upper limit second. Further clicks will move the closest limit to the click position.
 - You almost always need to provide some 'Input info'; might be the polynomial order, or the number of peaks to fit. The info is given in the box at the bottom of the window.
@@ -50,7 +50,7 @@ Fitting
 - Finally, you can also calculate statistics under 'fitting'. This isn't really fitting of course, it just calculates the listed values using the relevant numpy function (i.e. no lmfit involved). The statistics are saved as a .json file.
 
 Filters
-^^^^^^^
+-------
 Filters in InSpectra Gadget are simply mathematical operations that can be performed on the data. The filters thus handle everything from applying offsets to any of the axes, to doing numerical differentiation, smoothing and interpolation. 
 
 - You can add multiple instances of the same filter type, change the order they are applied in and turn them off and on. 
@@ -226,8 +226,8 @@ Working with multiple files
 - Duplicating a file will *not* carry over any linecuts or fits. It is quite hard to implement. If it *really* becomes relevant I can look into it.
 
 Working with an entire folder
------------------------------
-You can open data from an entire folder in two ways. 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+You can open data from an entire folder in two ways.
 
 - You can select 'Open Folder' and choose the relevant folder. This will load the list of all the datasets found in that folder *and all sub-folders*. The data itself will not be loaded until you click the checkbox to plot it. This is because the data gets loaded into memory, which *might* start to affect your computer's performance. However, unchecking a file does *not* free up memory. 'Remove file' and 'Clear list' *should* do it, but this is hard to troubleshoot. Certainly refreshing the kernel works.
 
@@ -308,7 +308,7 @@ By contrast, the below is interpreted as 1D data since the first two values in t
     0.1     0.4     1.7
 
 
-To automatically name the columns, you can use a numpy header, i.e. start the first line with '#' and list the parameters:
+To automatically name the columns, you can use a header. Start the first line with '#' and list the parameters:
 
 ``# Voltage Temperature Conductance``
 
@@ -329,7 +329,6 @@ Finally, and very importantly!!: The ability to *constrain* fit parameters is (c
 .. - Plotting of non-monotonic data... Should reorder the arrays so they are plotted properly. Then alter Crop X and Crop Y to truly crop to the given x/y values, not just the array indices.
 .. - MixedInternalData: don't update view settings when applying filters to 1D data
 .. - Saving/loading: Check like everything... like axis limits, scaling, font sizes, linewidths, all that.
-.. - Make scrolling through diagonal linecuts faster
 .. - Loading of data files... try to get better at getting the orientation right. There must be a pattern.
 .. - Work out good estimates for the fourth and fifth parameters in peak fitting.
 .. - Click to estimate peak height/position.
@@ -339,4 +338,3 @@ Finally, and very importantly!!: The ability to *constrain* fit parameters is (c
 .. - Single-axis scrolling as in pyqtplot
 .. - More advanced preset import/export; user can choose what they want to save/load
 .. - Fix circular linecuts
-.. - diagonal linecuts should be moveable easily. Can work out equation of line between the points obviously, so no reason can't click and drag it.
