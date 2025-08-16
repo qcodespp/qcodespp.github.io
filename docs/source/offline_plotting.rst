@@ -203,6 +203,8 @@ Linecuts
 - Alternatively, right click on the plot area and choose from the menu; diagonal linecuts are also available.
 - You can change the index at which the cut is made, the offset on the y-axis, and the colour of the line.
 - You can add further cuts by clicking again, or manually adding them in the linecut window.
+- For diagonal linecuts, add further cuts from the right-click menu or the linecut window.
+- The endpoints of diagonal linecuts can be moved by clicking and dragging. Hold Ctrl to move the endpoints together.
 - To generate a series of linecuts, specify (the indices) start, end, step and y-axis offset. Use -1 as end index to call the last index. It's probably not a smart idea to plot every line if you have hundreds of lines; it will use a lot of memory and won't look good anyway.
 - Once you have your linecuts, you can also apply a colourmap to their linecolors by selecting which colormap to use, how to apply it, and clicking 'Apply'
 - You can (re-)access the linecut windows from the 'Plot Actions' menu, by right-clicking on the plot area, or by the shortcuts Ctrl+Shift+H, Ctrl+Shift+G, Ctrl+Shift+D for horizontal, vertical, and diagonal linecuts, respectively.
