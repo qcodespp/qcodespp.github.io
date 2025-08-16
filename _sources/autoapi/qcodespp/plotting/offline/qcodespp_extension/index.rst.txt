@@ -46,6 +46,12 @@ Module Contents
    .. py:method:: prepare_dataset()
 
 
+   .. py:method:: remove_string_arrays(data_dict)
+
+      Removes arrays that have str as data_type, since these cannot be plotted.
+
+
+
    .. py:method:: load_and_reshape_data(reload_data=False, reload_from_file=True, linefrompopup=None)
 
 
@@ -65,5 +71,8 @@ Module Contents
 
 
    .. py:method:: filttocol(axis)
+
+
+   .. py:method:: file_finished()
 
 

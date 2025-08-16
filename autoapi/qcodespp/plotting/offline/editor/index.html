@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>qcodespp.plotting.offline.editor &mdash; qcodes++ 0.1.7 documentation</title>
+  <title>qcodespp.plotting.offline.editor &mdash; qcodes++ 0.1.8 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
 
@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="../../../../../_static/qcppfavicon.svg"/>
       <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=e80004a2"></script>
+      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=001aa760"></script>
       <script src="../../../../../_static/doctools.js?v=888ff710"></script>
       <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../../../_static/js/theme.js"></script>
@@ -142,16 +142,6 @@
 <dd></dd></dl>
 
 <dl class="py data">
-<dt class="sig sig-object py" id="qcodespp.plotting.offline.editor.AUTO_REFRESH_INTERVAL_2D">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.editor.</span></span><span class="sig-name descname"><span class="pre">AUTO_REFRESH_INTERVAL_2D</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#qcodespp.plotting.offline.editor.AUTO_REFRESH_INTERVAL_2D" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="qcodespp.plotting.offline.editor.AUTO_REFRESH_INTERVAL_3D">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.editor.</span></span><span class="sig-name descname"><span class="pre">AUTO_REFRESH_INTERVAL_3D</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">30</span></em><a class="headerlink" href="#qcodespp.plotting.offline.editor.AUTO_REFRESH_INTERVAL_3D" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.editor.PRESETS">
 <span class="sig-prename descclassname"><span class="pre">qcodespp.plotting.offline.editor.</span></span><span class="sig-name descname"><span class="pre">PRESETS</span></span><a class="headerlink" href="#qcodespp.plotting.offline.editor.PRESETS" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
@@ -193,6 +183,21 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.editor.Editor.linked_files">
 <span class="sig-name descname"><span class="pre">linked_files</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#qcodespp.plotting.offline.editor.Editor.linked_files" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.editor.Editor.refresh_2d">
+<span class="sig-name descname"><span class="pre">refresh_2d</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">30</span></em><a class="headerlink" href="#qcodespp.plotting.offline.editor.Editor.refresh_2d" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.editor.Editor.refresh_1d">
+<span class="sig-name descname"><span class="pre">refresh_1d</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#qcodespp.plotting.offline.editor.Editor.refresh_1d" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.editor.Editor.ask_autorefresh">
+<span class="sig-name descname"><span class="pre">ask_autorefresh</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#qcodespp.plotting.offline.editor.Editor.ask_autorefresh" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -406,8 +411,8 @@
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="qcodespp.plotting.offline.editor.Editor.refresh_interval_changed">
-<span class="sig-name descname"><span class="pre">refresh_interval_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interval</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.editor.Editor.refresh_interval_changed" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.editor.Editor.set_refresh_intervals">
+<span class="sig-name descname"><span class="pre">set_refresh_intervals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_dropdown</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.editor.Editor.set_refresh_intervals" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">

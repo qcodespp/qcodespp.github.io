@@ -220,7 +220,7 @@ Package Contents
 
 
 .. py:data:: __version__
-   :value: '0.1.7'
+   :value: '0.1.8'
 
 
 .. py:class:: Loop(sweep_values, delay=0, snake=False, station=None, progress_interval=None, progress_bar=True)
@@ -443,7 +443,7 @@ Package Contents
 
 
 
-.. py:function:: loop1d(sweep_parameter, start, stop, num, delay, device_info='', instrument_info='', measure=None, plot=None, run=False)
+.. py:function:: loop1d(sweep_parameter, start, stop, num, delay, sweep_type='linear', device_info='', instrument_info='', measure=None, plot=None, run=False)
 
    Create a 1D loop, the associated data set, and optionally, live plotting.
 
@@ -483,7 +483,7 @@ Package Contents
            for plotting, if necessary, e.g. pp=qc.live_plot(loop.data_set,params_to_plot)
 
 
-.. py:function:: loop2d(sweep_parameter, start, stop, num, delay, step_parameter, step_start, step_stop, step_num, step_delay, snake=False, step_action=None, device_info='', instrument_info='', measure=None, plot=None, run=False)
+.. py:function:: loop2d(sweep_parameter, start, stop, num, delay, step_parameter, step_start, step_stop, step_num, step_delay, sweep_type='linear', step_type='linear', snake=False, step_action=None, device_info='', instrument_info='', measure=None, plot=None, run=False)
 
    Create a 2D loop, the associated data set, and optionally, live plotting.
 
@@ -536,7 +536,7 @@ Package Contents
            for plotting, if necessary, e.g. pp=qc.live_plot(loop.data_set,params_to_plot)
 
 
-.. py:function:: loop2dUD(sweep_parameter, start, stop, num, delay, step_parameter, step_start, step_stop, step_num, step_delay, step_action=None, fast_down=False, device_info='', instrument_info='', measure=None, plot=None, run=False)
+.. py:function:: loop2dUD(sweep_parameter, start, stop, num, delay, step_parameter, step_start, step_stop, step_num, step_delay, sweep_type='linear', step_type='linear', step_action=None, fast_down=False, device_info='', instrument_info='', measure=None, plot=None, run=False)
 
    Create a 2D loop where at each point in the step parameter, the sweep parameter performs a loop
    in two directions: up and down. Create also a data set, and optionally, live plotting.

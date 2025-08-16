@@ -20,8 +20,6 @@ Attributes
 
    qcodespp.plotting.offline.editor.qdarkstyle_imported
    qcodespp.plotting.offline.editor.DARK_THEME
-   qcodespp.plotting.offline.editor.AUTO_REFRESH_INTERVAL_2D
-   qcodespp.plotting.offline.editor.AUTO_REFRESH_INTERVAL_3D
    qcodespp.plotting.offline.editor.PRESETS
    qcodespp.plotting.offline.editor.DARK_COLOR
    qcodespp.plotting.offline.editor.FONT_SIZES
@@ -46,14 +44,6 @@ Module Contents
 
 .. py:data:: DARK_THEME
    :value: True
-
-
-.. py:data:: AUTO_REFRESH_INTERVAL_2D
-   :value: 1
-
-
-.. py:data:: AUTO_REFRESH_INTERVAL_3D
-   :value: 30
 
 
 .. py:data:: PRESETS
@@ -89,6 +79,21 @@ Module Contents
 
    .. py:attribute:: linked_files
       :value: []
+
+
+
+   .. py:attribute:: refresh_2d
+      :value: 30
+
+
+
+   .. py:attribute:: refresh_1d
+      :value: 5
+
+
+
+   .. py:attribute:: ask_autorefresh
+      :value: True
 
 
 
@@ -220,7 +225,7 @@ Module Contents
    .. py:method:: get_all_items(return_indices=False)
 
 
-   .. py:method:: refresh_interval_changed(interval)
+   .. py:method:: set_refresh_intervals(from_dropdown=False)
 
 
    .. py:method:: track_button_clicked()

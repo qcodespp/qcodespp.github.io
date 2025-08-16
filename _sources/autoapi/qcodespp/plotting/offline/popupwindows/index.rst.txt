@@ -23,6 +23,7 @@ Classes
    qcodespp.plotting.offline.popupwindows.MetadataWindow
    qcodespp.plotting.offline.popupwindows.ErrorWindow
    qcodespp.plotting.offline.popupwindows.ErrorLogWindow
+   qcodespp.plotting.offline.popupwindows.AutoRefreshPopup
 
 
 Module Contents
@@ -333,5 +334,33 @@ Module Contents
 
 
    .. py:method:: save_log()
+
+
+.. py:class:: AutoRefreshPopup(editor_window, from_dropdown=False)
+
+   Bases: :py:obj:`PyQt5.QtWidgets.QDialog`
+
+
+   .. py:attribute:: editor_window
+
+
+   .. py:attribute:: from_dropdown
+      :value: False
+
+
+
+   .. py:attribute:: prev_2d
+
+
+   .. py:attribute:: prev_1d
+
+
+   .. py:attribute:: lineedit_2d
+
+
+   .. py:attribute:: lineedit_1d
+
+
+   .. py:method:: accept()
 
 

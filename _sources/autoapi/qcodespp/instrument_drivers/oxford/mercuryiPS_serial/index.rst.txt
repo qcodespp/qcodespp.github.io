@@ -106,6 +106,47 @@ Module Contents
    .. py:method:: clear_buffer()
 
 
+   .. py:method:: ask(cmd)
+
+      Write a command string to the hardware and return a response.
+
+      Subclasses that transform ``cmd`` should override this method, and in
+      it call ``super().ask(new_cmd)``. Subclasses that define a new
+      hardware communication should instead override ``ask_raw``.
+
+      Args:
+          cmd: The string to send to the instrument.
+
+      Returns:
+          response
+
+      Raises:
+          Exception: Wraps any underlying exception with extra context,
+              including the command and the instrument.
+
+
+
+
+   .. py:method:: read()
+
+
+   .. py:method:: write(cmd)
+
+      Write a command string with NO response to the hardware.
+
+      Subclasses that transform ``cmd`` should override this method, and in
+      it call ``super().write(new_cmd)``. Subclasses that define a new
+      hardware communication should instead override ``write_raw``.
+
+      Args:
+          cmd (str): the string to send to the instrument
+
+      Raises:
+          Exception: wraps any underlying exception with extra context,
+              including the command and the instrument.
+
+
+
    .. py:method:: hold()
 
 

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>qcodespp.instrument_drivers.oxford.mercuryiPS_serial &mdash; qcodes++ 0.1.7 documentation</title>
+  <title>qcodespp.instrument_drivers.oxford.mercuryiPS_serial &mdash; qcodes++ 0.1.8 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
 
@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="../../../../../_static/qcppfavicon.svg"/>
       <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=e80004a2"></script>
+      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=001aa760"></script>
       <script src="../../../../../_static/doctools.js?v=888ff710"></script>
       <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../../../_static/js/theme.js"></script>
@@ -202,6 +202,49 @@ instrument what axes it supports.</p>
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.oxford.mercuryiPS_serial.MercuryiPS_120.clear_buffer">
 <span class="sig-name descname"><span class="pre">clear_buffer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.oxford.mercuryiPS_serial.MercuryiPS_120.clear_buffer" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.oxford.mercuryiPS_serial.MercuryiPS_120.ask">
+<span class="sig-name descname"><span class="pre">ask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.oxford.mercuryiPS_serial.MercuryiPS_120.ask" title="Permalink to this definition"></a></dt>
+<dd><p>Write a command string to the hardware and return a response.</p>
+<p>Subclasses that transform <code class="docutils literal notranslate"><span class="pre">cmd</span></code> should override this method, and in
+it call <code class="docutils literal notranslate"><span class="pre">super().ask(new_cmd)</span></code>. Subclasses that define a new
+hardware communication should instead override <code class="docutils literal notranslate"><span class="pre">ask_raw</span></code>.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>cmd: The string to send to the instrument.</p>
+</dd>
+<dt>Returns:</dt><dd><p>response</p>
+</dd>
+<dt>Raises:</dt><dd><dl class="simple">
+<dt>Exception: Wraps any underlying exception with extra context,</dt><dd><p>including the command and the instrument.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.oxford.mercuryiPS_serial.MercuryiPS_120.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.oxford.mercuryiPS_serial.MercuryiPS_120.read" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.oxford.mercuryiPS_serial.MercuryiPS_120.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.oxford.mercuryiPS_serial.MercuryiPS_120.write" title="Permalink to this definition"></a></dt>
+<dd><p>Write a command string with NO response to the hardware.</p>
+<p>Subclasses that transform <code class="docutils literal notranslate"><span class="pre">cmd</span></code> should override this method, and in
+it call <code class="docutils literal notranslate"><span class="pre">super().write(new_cmd)</span></code>. Subclasses that define a new
+hardware communication should instead override <code class="docutils literal notranslate"><span class="pre">write_raw</span></code>.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>cmd (str): the string to send to the instrument</p>
+</dd>
+<dt>Raises:</dt><dd><dl class="simple">
+<dt>Exception: wraps any underlying exception with extra context,</dt><dd><p>including the command and the instrument.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.oxford.mercuryiPS_serial.MercuryiPS_120.hold">
