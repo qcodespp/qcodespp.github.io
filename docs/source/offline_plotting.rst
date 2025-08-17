@@ -324,69 +324,69 @@ Cheat sheet
 
 .. list-table::
     :header-rows: 1
-  * - Mouse actions
-    -  
-  * - Zoom
-    - Mouse scroll. Hold Ctrl(Shift) to zoom only x(y) axis.
-  * - Change plot spacing
-    - Mouse scroll in the whitespace surrounding the plots.
-  * - Horizontal linecut
-    - Left click on 2D data or Ctrl+Shift+H
-  * - Vertical linecut
-    - Middle click on 2D data or Ctrl+Shift+V
-  * - Diagonal linecut
-    - Right click on 2D data and choose 'Diagonal linecut' or Ctrl+Shift+D
-  * - Move diagonal linecut endpoints
-    - Click and drag. Hold Ctrl to move both endpoints together.
-  * - Set fit limits
-    - Click twice on 1D data. Lower limit first, upper limit second.
-  * - Change fit limits
-    - Click again; the closest limit will be moved to the click position.
-  * - Change plotted parameters
-    - Right click on the parameter name under 'Settings for Selected File' (for 2D data) or '1D traces' (for 1D data).
-  * - Use preset values
-    - Right click on the relevant cell in the relevant table.
-  * - Duplicate a file
-    - Right click on the filename, or use Ctrl+D, or use 'Add new plot' above the plot window.'
+
+    * - Mouse actions
+    * - Zoom
+      - Scroll. Hold Ctrl(Shift) to zoom only x(y) axis.
+    * - Change plot spacing
+      - Scroll in the whitespace surrounding the plots.
+    * - Horizontal linecut
+      - Left click on 2D data or Ctrl+Shift+H
+    * - Vertical linecut
+      - Middle click on 2D data or Ctrl+Shift+V
+    * - Diagonal linecut
+      - Right click on 2D data and choose 'Diagonal linecut' or Ctrl+Shift+D
+    * - Move diagonal linecut endpoints
+      - Click and drag. Hold Ctrl to move both endpoints together.
+    * - Set fit limits
+      - Click twice on 1D data. Lower limit first, upper limit second.
+    * - Change fit limits
+      - Click again; the closest limit will be moved to the click position.
+    * - Change plotted parameters
+      - Right click on the parameter name under 'Settings for Selected File' (for 2D data) or '1D traces' (for 1D data).
+    * - Use preset values
+      - Right click on the relevant cell in the relevant table.
+    * - Duplicate a file
+      - Right click on the filename, or use Ctrl+D, or use 'Add new plot' above the plot window.'
 
 
 .. list-table::
     :header-rows: 1
 
-  * - Keyboard shortcuts
-    -  
-  * - Open file
-    - Ctrl+O
-  * - Open folder
-    - Ctrl+Shift+O
-  * - Link folder
-    - Ctrl+L
-  * - Unlink folder
-    - Ctrl+Shift+L
-  * - Refresh data from linked folder
-    - Ctrl+Shift+R
-  * - Track data from linked folder
-    - Ctrl+T
-  * - Save session
-    - Ctrl+S
-  * - Restore session
-    - Ctrl+R
-  * - Save plot
-    - Ctrl+Shift+S
-  * - Copy plot
-    - Ctrl+Shift+C
-  * - Duplicate file/plot
-    - Ctrl+D
-  * - Open horizontal linecut window
-    - Ctrl+Shift+H
-  * - Open vertical linecut window
-    - Ctrl+Shift+V
-  * - Open diagonal linecut window
-    - Ctrl+Shift+D
-  * - Copy all linecuts
-    - Alt+C
-  * - Paste linecuts
-    - Alt+V
+    * - Keyboard shortcuts
+      -  
+    * - Open file
+      - Ctrl+O
+    * - Open folder
+      - Ctrl+Shift+O
+    * - Link folder
+      - Ctrl+L
+    * - Unlink folder
+      - Ctrl+Shift+L
+    * - Refresh data from linked folder
+      - Ctrl+Shift+R
+    * - Track data from linked folder
+      - Ctrl+T
+    * - Save session
+      - Ctrl+S
+    * - Restore session
+      - Ctrl+R
+    * - Save plot
+      - Ctrl+Shift+S
+    * - Copy plot
+      - Ctrl+Shift+C
+    * - Duplicate file/plot
+      - Ctrl+D
+    * - Open horizontal linecut window
+      - Ctrl+Shift+H
+    * - Open vertical linecut window
+      - Ctrl+Shift+V
+    * - Open diagonal linecut window
+      - Ctrl+Shift+D
+    * - Copy all linecuts
+      - Alt+C
+    * - Paste linecuts
+      - Alt+V
 
 Background
 ----------
