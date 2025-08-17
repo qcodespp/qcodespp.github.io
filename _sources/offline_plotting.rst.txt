@@ -326,6 +326,7 @@ Cheat sheet
     :header-rows: 1
 
     * - Mouse actions
+      -  
     * - Zoom
       - Scroll. Hold Ctrl(Shift) to zoom only x(y) axis.
     * - Change plot spacing
