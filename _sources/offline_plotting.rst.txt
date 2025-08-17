@@ -321,7 +321,9 @@ The default delimiter is any white space. If necessary, specify the delimiter un
 
 Cheat sheet
 -----------
+
 **Mouse actions**
+
 - Zoom: Mouse scroll. Hold Ctrl(Shift) to zoom only x(y) axis.
 - Change plot spacing: Mouse scroll in the whitespace surrounding the plots.
 - Horizontal linecut: Left click on 2D data or Ctrl+Shift+H
@@ -336,22 +338,23 @@ Cheat sheet
 - Duplicate a file: Right click on the filename, or use Ctrl+D, or use 'Add new plot' above the plot window.'
 
 **Keyboard shortcuts**
-- Open file (Ctrl+O)
-- Open folder (Ctrl+Shift+O)
-- Link folder (Ctrl+L)
-- Unlink folder (Ctrl+Shift+L)
-- Refresh data from linked folder (Ctrl+Shift+R)
-- Track data from linked folder (Ctrl+T)
-- Save session (Ctrl+S)
-- Restore session (Ctrl+R)
-- Save plot (Ctrl+Shift+S)
-- Copy plot (Ctrl+Shift+C)
-- Duplicate file (Ctrl+D)
-- Open horizontal linecut window (Ctrl+Shift+H)
-- Open vertical linecut window (Ctrl+Shift+V)
-- Open diagonal linecut window (Ctrl+Shift+D)
-- Copy all linecuts (Alt+C)
-- Paste linecuts (Alt+V)
+
+- Open file: Ctrl+O
+- Open folder: Ctrl+Shift+O
+- Link folder: Ctrl+L
+- Unlink folder: Ctrl+Shift+L
+- Refresh data from linked folder: Ctrl+Shift+R
+- Track data from linked folder: Ctrl+T
+- Save session: Ctrl+S
+- Restore session: Ctrl+R
+- Save plot: Ctrl+Shift+S
+- Copy plot: Ctrl+Shift+C
+- Duplicate file: Ctrl+D
+- Open horizontal linecut window: Ctrl+Shift+H
+- Open vertical linecut window: Ctrl+Shift+V
+- Open diagonal linecut window: Ctrl+Shift+D
+- Copy all linecuts: Alt+C
+- Paste linecuts: Alt+V
 
 Background
 ----------
