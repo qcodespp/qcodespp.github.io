@@ -246,8 +246,6 @@ There are three ways to combine datasets:
 - 2D data: an arbitrary number of datasets can be stacked along the x-axis. The number of parameters and their names must be the same, and the y-axis dimension must be the same for all datasets. Any other situation would require interpolating along the y-axis; you should do this manually and then load the file (see below for how to prepare non-qcodes++ data)
 - One 2D dataset and one 1D dataset: Makes it possible to plot lines/points ontop of the 2D dataset. No restriction on dimensions, but only supports one dataset of each type. If you need to add more than one dataset of a particular type, first combine those using one of the previous two options.
 
-The combined datasets are by default not saved to disk! Remember to either save your work or export the data. Similarly to duplicated data, linecuts, fits and (for 1D datasets) the properties of the 1D traces are not carried into the combined data.
-
 .. figure:: IGcombined.png
     :alt: InSpectra Gadget combined dataset
 
