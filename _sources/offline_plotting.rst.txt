@@ -191,6 +191,9 @@ Each available filter has up to two options. Hover over the relevant box in the 
 
 Since it is extremely non-obvious how various filters may affect uncertainties in different situations, only Multiply and Divide filters are applied to uncertainties (basically to facilitate unit scaling). In general, if you are performing any of the above operations, you should re-calculate your uncertainties manually. If the filter *can* be applied to the uncertainties, and the uncertainties are another parameter in the dataset, plot the parameter, copy over the filters, and then use 'Send Y to data' button to make the processed data available for plotting as an uncertainty. Otherwise, process the uncertainties as required, `open them as a new dataset <https://qcodespp.github.io/offline_plotting.html#loading-non-qcodes-data>`__, and `combine the two datasets <https://qcodespp.github.io/offline_plotting.html#combining-datasets-plots>`__.
 
+**Filters and plot types**
+Plot type is applied *before* the filters. If you want to plot the histogram or FFT of filtered data, use the appropriate 'Send X/Y/Z to data' button(s), plot the filtered data, and then choose the plot type.
+
 .. **Filters and irregular or non-monotonic x/y** As far as I can tell this is _only_ relevant for Crop X and Y functions. In which case it's a little verbose,
 
 .. Even though it's possible to plot irregular and non-monotonic x/y/z data (as long as the arrays are of the correct shape), the way that filters are applied often assume at least monotonic x and y. For example, Crop X and Crop Y are based on the *array indices* not the absolute value on the x or y axis. Similarly, the integral is only calculated correctly if X (or Y) are regular. Conversely, the derivative *is* calculated correctly for irregular X (or Y). If you apply a filter to irregular data, it is worth to peek into the code to see what the filter is actually doing. As time goes on we will try to make the filters more friendly to irregular data.
@@ -318,18 +321,18 @@ The default delimiter is any white space. If necessary, specify the delimiter un
 
 Cheat sheet
 -----------
-Zoom: Mouse scroll. Hold Ctrl(Shift) to zoom only x(y) axis.
-Change plot spacing: Mouse scroll in the whitespace surrounding the plots.
-Horizontal linecut: Left click on 2D data.
-Vertical linecut: Middle click on 2D data.
-Diagonal linecut: Right click on 2D data and choose 'Diagonal linecut'.
-Move diagonal linecut endpoints: Click and drag. Hold Ctrl to move both endpoints together.
-Set fit limits: Click twice on 1D data. Lower limit first, upper limit second.
-Change fit limits: Click again; the closest limit will be moved to the click position.
-Change plotted parameters: Right click on the parameter name under 'Settings for Selected File' (for 2D data) or '1D traces' (for 1D data).
-Add/Subtract, Multiply or Divide by another parameter: Right click on the value in the filters table.
-Use preset values for plot appearance and filters: Right click on the relevant cell in the relevant table.
-Duplicate a file: Right click on the filename, or use Ctrl+D, or use 'Add new plot' above the plot window.'
+- Zoom: Mouse scroll. Hold Ctrl(Shift) to zoom only x(y) axis.
+- Change plot spacing: Mouse scroll in the whitespace surrounding the plots.
+- Horizontal linecut: Left click on 2D data.
+- Vertical linecut: Middle click on 2D data.
+- Diagonal linecut: Right click on 2D data and choose 'Diagonal linecut'.
+- Move diagonal linecut endpoints: Click and drag. Hold Ctrl to move both endpoints together.
+- Set fit limits: Click twice on 1D data. Lower limit first, upper limit second.
+- Change fit limits: Click again; the closest limit will be moved to the click position.
+- Change plotted parameters: Right click on the parameter name under 'Settings for Selected File' (for 2D data) or '1D traces' (for 1D data).
+- Add/Subtract, Multiply or Divide by another parameter: Right click on the value in the filters table.
+- Use preset values for plot appearance and filters: Right click on the relevant cell in the relevant table.
+- Duplicate a file: Right click on the filename, or use Ctrl+D, or use 'Add new plot' above the plot window.'
 
 Background
 ----------

@@ -331,6 +331,8 @@
 </table>
 <p><strong>Filters and uncertainties</strong></p>
 <p>Since it is extremely non-obvious how various filters may affect uncertainties in different situations, only Multiply and Divide filters are applied to uncertainties (basically to facilitate unit scaling). In general, if you are performing any of the above operations, you should re-calculate your uncertainties manually. If the filter <em>can</em> be applied to the uncertainties, and the uncertainties are another parameter in the dataset, plot the parameter, copy over the filters, and then use ‘Send Y to data’ button to make the processed data available for plotting as an uncertainty. Otherwise, process the uncertainties as required, <a class="reference external" href="https://qcodespp.github.io/offline_plotting.html#loading-non-qcodes-data">open them as a new dataset</a>, and <a class="reference external" href="https://qcodespp.github.io/offline_plotting.html#combining-datasets-plots">combine the two datasets</a>.</p>
+<p><strong>Filters and plot types</strong>
+Plot type is applied <em>before</em> the filters. If you want to plot the histogram or FFT of filtered data, use the appropriate ‘Send X/Y/Z to data’ button(s), plot the filtered data, and then choose the plot type.</p>
 </section>
 <section id="linecuts">
 <h2>Linecuts<a class="headerlink" href="#linecuts" title="Permalink to this heading"></a></h2>
@@ -452,18 +454,20 @@
 </section>
 <section id="cheat-sheet">
 <h2>Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permalink to this heading"></a></h2>
-<p>Zoom: Mouse scroll. Hold Ctrl(Shift) to zoom only x(y) axis.
-Change plot spacing: Mouse scroll in the whitespace surrounding the plots.
-Horizontal linecut: Left click on 2D data.
-Vertical linecut: Middle click on 2D data.
-Diagonal linecut: Right click on 2D data and choose ‘Diagonal linecut’.
-Move diagonal linecut endpoints: Click and drag. Hold Ctrl to move both endpoints together.
-Set fit limits: Click twice on 1D data. Lower limit first, upper limit second.
-Change fit limits: Click again; the closest limit will be moved to the click position.
-Change plotted parameters: Right click on the parameter name under ‘Settings for Selected File’ (for 2D data) or ‘1D traces’ (for 1D data).
-Add/Subtract, Multiply or Divide by another parameter: Right click on the value in the filters table.
-Use preset values for plot appearance and filters: Right click on the relevant cell in the relevant table.
-Duplicate a file: Right click on the filename, or use Ctrl+D, or use ‘Add new plot’ above the plot window.’</p>
+<ul class="simple">
+<li><p>Zoom: Mouse scroll. Hold Ctrl(Shift) to zoom only x(y) axis.</p></li>
+<li><p>Change plot spacing: Mouse scroll in the whitespace surrounding the plots.</p></li>
+<li><p>Horizontal linecut: Left click on 2D data.</p></li>
+<li><p>Vertical linecut: Middle click on 2D data.</p></li>
+<li><p>Diagonal linecut: Right click on 2D data and choose ‘Diagonal linecut’.</p></li>
+<li><p>Move diagonal linecut endpoints: Click and drag. Hold Ctrl to move both endpoints together.</p></li>
+<li><p>Set fit limits: Click twice on 1D data. Lower limit first, upper limit second.</p></li>
+<li><p>Change fit limits: Click again; the closest limit will be moved to the click position.</p></li>
+<li><p>Change plotted parameters: Right click on the parameter name under ‘Settings for Selected File’ (for 2D data) or ‘1D traces’ (for 1D data).</p></li>
+<li><p>Add/Subtract, Multiply or Divide by another parameter: Right click on the value in the filters table.</p></li>
+<li><p>Use preset values for plot appearance and filters: Right click on the relevant cell in the relevant table.</p></li>
+<li><p>Duplicate a file: Right click on the filename, or use Ctrl+D, or use ‘Add new plot’ above the plot window.’</p></li>
+</ul>
 </section>
 <section id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this heading"></a></h2>
