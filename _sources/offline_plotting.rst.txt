@@ -13,7 +13,7 @@ or from Jupyter notebooks with
 
 If you have declared ``qcodespp.set_data_folder('foldername')`` in the same notebook, data from that folder will automatically be opened. Alternatively, you can write ``qcodespp.offline_plotting(folder=path_to_folder)`` to open a different folder. Otherwise, the initial state is blank.
 
-`Looking for what mouse actions do? <https://qcodespp.github.io/offline_plotting.html#cheat-sheet>`__
+`Looking for a summary of mouse actions? <https://qcodespp.github.io/offline_plotting.html#cheat-sheet>`__
 
 Basic plotting
 --------------
@@ -213,7 +213,7 @@ Linecuts
 - To generate a series of linecuts, specify (the indices) start, end, step and y-axis offset. Use -1 as end index to call the last index. It's probably not a smart idea to plot every line if you have hundreds of lines; it will use a lot of memory and won't look good anyway.
 - Once you have your linecuts, you can also apply a colourmap to their linecolors by selecting which colormap to use, how to apply it, and clicking 'Apply'
 - You can (re-)access the linecut windows from the 'Plot Actions' menu, by right-clicking on the plot area, or by the shortcuts Ctrl+Shift+H, Ctrl+Shift+G, Ctrl+Shift+D for horizontal, vertical, and diagonal linecuts, respectively.
-- You can copy and paste linecuts ('Plot Actions' menu or Alt+C, Alt+V); horizontal and vertical linecuts are copy/pasted according to their *index*, while diagonal linecuts are copy/pasted according to their two data co-ordinates.
+- You can copy and paste linecuts ('Plot Actions' menu or Alt+C, Alt+V); horizontal and vertical linecuts are copy/pasted according to their *index*, while diagonal linecuts are copy/pasted according to their coordinates.
 
 Fitting linecuts
 ^^^^^^^^^^^^^^^^
@@ -321,11 +321,12 @@ The default delimiter is any white space. If necessary, specify the delimiter un
 
 Cheat sheet
 -----------
+**Mouse actions**
 - Zoom: Mouse scroll. Hold Ctrl(Shift) to zoom only x(y) axis.
 - Change plot spacing: Mouse scroll in the whitespace surrounding the plots.
-- Horizontal linecut: Left click on 2D data.
-- Vertical linecut: Middle click on 2D data.
-- Diagonal linecut: Right click on 2D data and choose 'Diagonal linecut'.
+- Horizontal linecut: Left click on 2D data or Ctrl+Shift+H
+- Vertical linecut: Middle click on 2D data or Ctrl+Shift+V
+- Diagonal linecut: Right click on 2D data and choose 'Diagonal linecut' or Ctrl+Shift+D
 - Move diagonal linecut endpoints: Click and drag. Hold Ctrl to move both endpoints together.
 - Set fit limits: Click twice on 1D data. Lower limit first, upper limit second.
 - Change fit limits: Click again; the closest limit will be moved to the click position.
@@ -333,6 +334,24 @@ Cheat sheet
 - Add/Subtract, Multiply or Divide by another parameter: Right click on the value in the filters table.
 - Use preset values for plot appearance and filters: Right click on the relevant cell in the relevant table.
 - Duplicate a file: Right click on the filename, or use Ctrl+D, or use 'Add new plot' above the plot window.'
+
+**Keyboard shortcuts**
+- Open file (Ctrl+O)
+- Open folder (Ctrl+Shift+O)
+- Link folder (Ctrl+L)
+- Unlink folder (Ctrl+Shift+L)
+- Refresh data from linked folder (Ctrl+Shift+R)
+- Track data from linked folder (Ctrl+T)
+- Save session (Ctrl+S)
+- Restore session (Ctrl+R)
+- Save plot (Ctrl+Shift+S)
+- Copy plot (Ctrl+Shift+C)
+- Duplicate file (Ctrl+D)
+- Open horizontal linecut window (Ctrl+Shift+H)
+- Open vertical linecut window (Ctrl+Shift+V)
+- Open diagonal linecut window (Ctrl+Shift+D)
+- Copy all linecuts (Alt+C)
+- Paste linecuts (Alt+V)
 
 Background
 ----------

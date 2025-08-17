@@ -121,7 +121,7 @@
 <p>or from Jupyter notebooks with
 <code class="docutils literal notranslate"><span class="pre">qcodespp.offline_plotting()</span></code></p>
 <p>If you have declared <code class="docutils literal notranslate"><span class="pre">qcodespp.set_data_folder('foldername')</span></code> in the same notebook, data from that folder will automatically be opened. Alternatively, you can write <code class="docutils literal notranslate"><span class="pre">qcodespp.offline_plotting(folder=path_to_folder)</span></code> to open a different folder. Otherwise, the initial state is blank.</p>
-<p><a class="reference external" href="https://qcodespp.github.io/offline_plotting.html#cheat-sheet">Looking for what mouse actions do?</a></p>
+<p><a class="reference external" href="https://qcodespp.github.io/offline_plotting.html#cheat-sheet">Looking for a summary of mouse actions?</a></p>
 <section id="basic-plotting">
 <h2>Basic plotting<a class="headerlink" href="#basic-plotting" title="Permalink to this heading"></a></h2>
 <ul class="simple">
@@ -349,7 +349,7 @@ Plot type is applied <em>before</em> the filters. If you want to plot the histog
 <li><p>To generate a series of linecuts, specify (the indices) start, end, step and y-axis offset. Use -1 as end index to call the last index. It’s probably not a smart idea to plot every line if you have hundreds of lines; it will use a lot of memory and won’t look good anyway.</p></li>
 <li><p>Once you have your linecuts, you can also apply a colourmap to their linecolors by selecting which colormap to use, how to apply it, and clicking ‘Apply’</p></li>
 <li><p>You can (re-)access the linecut windows from the ‘Plot Actions’ menu, by right-clicking on the plot area, or by the shortcuts Ctrl+Shift+H, Ctrl+Shift+G, Ctrl+Shift+D for horizontal, vertical, and diagonal linecuts, respectively.</p></li>
-<li><p>You can copy and paste linecuts (‘Plot Actions’ menu or Alt+C, Alt+V); horizontal and vertical linecuts are copy/pasted according to their <em>index</em>, while diagonal linecuts are copy/pasted according to their two data co-ordinates.</p></li>
+<li><p>You can copy and paste linecuts (‘Plot Actions’ menu or Alt+C, Alt+V); horizontal and vertical linecuts are copy/pasted according to their <em>index</em>, while diagonal linecuts are copy/pasted according to their coordinates.</p></li>
 </ul>
 <section id="fitting-linecuts">
 <h3>Fitting linecuts<a class="headerlink" href="#fitting-linecuts" title="Permalink to this heading"></a></h3>
@@ -454,20 +454,36 @@ Plot type is applied <em>before</em> the filters. If you want to plot the histog
 </section>
 <section id="cheat-sheet">
 <h2>Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permalink to this heading"></a></h2>
-<ul class="simple">
-<li><p>Zoom: Mouse scroll. Hold Ctrl(Shift) to zoom only x(y) axis.</p></li>
-<li><p>Change plot spacing: Mouse scroll in the whitespace surrounding the plots.</p></li>
-<li><p>Horizontal linecut: Left click on 2D data.</p></li>
-<li><p>Vertical linecut: Middle click on 2D data.</p></li>
-<li><p>Diagonal linecut: Right click on 2D data and choose ‘Diagonal linecut’.</p></li>
-<li><p>Move diagonal linecut endpoints: Click and drag. Hold Ctrl to move both endpoints together.</p></li>
-<li><p>Set fit limits: Click twice on 1D data. Lower limit first, upper limit second.</p></li>
-<li><p>Change fit limits: Click again; the closest limit will be moved to the click position.</p></li>
-<li><p>Change plotted parameters: Right click on the parameter name under ‘Settings for Selected File’ (for 2D data) or ‘1D traces’ (for 1D data).</p></li>
-<li><p>Add/Subtract, Multiply or Divide by another parameter: Right click on the value in the filters table.</p></li>
-<li><p>Use preset values for plot appearance and filters: Right click on the relevant cell in the relevant table.</p></li>
-<li><p>Duplicate a file: Right click on the filename, or use Ctrl+D, or use ‘Add new plot’ above the plot window.’</p></li>
-</ul>
+<p><strong>Mouse actions</strong>
+- Zoom: Mouse scroll. Hold Ctrl(Shift) to zoom only x(y) axis.
+- Change plot spacing: Mouse scroll in the whitespace surrounding the plots.
+- Horizontal linecut: Left click on 2D data or Ctrl+Shift+H
+- Vertical linecut: Middle click on 2D data or Ctrl+Shift+V
+- Diagonal linecut: Right click on 2D data and choose ‘Diagonal linecut’ or Ctrl+Shift+D
+- Move diagonal linecut endpoints: Click and drag. Hold Ctrl to move both endpoints together.
+- Set fit limits: Click twice on 1D data. Lower limit first, upper limit second.
+- Change fit limits: Click again; the closest limit will be moved to the click position.
+- Change plotted parameters: Right click on the parameter name under ‘Settings for Selected File’ (for 2D data) or ‘1D traces’ (for 1D data).
+- Add/Subtract, Multiply or Divide by another parameter: Right click on the value in the filters table.
+- Use preset values for plot appearance and filters: Right click on the relevant cell in the relevant table.
+- Duplicate a file: Right click on the filename, or use Ctrl+D, or use ‘Add new plot’ above the plot window.’</p>
+<p><strong>Keyboard shortcuts</strong>
+- Open file (Ctrl+O)
+- Open folder (Ctrl+Shift+O)
+- Link folder (Ctrl+L)
+- Unlink folder (Ctrl+Shift+L)
+- Refresh data from linked folder (Ctrl+Shift+R)
+- Track data from linked folder (Ctrl+T)
+- Save session (Ctrl+S)
+- Restore session (Ctrl+R)
+- Save plot (Ctrl+Shift+S)
+- Copy plot (Ctrl+Shift+C)
+- Duplicate file (Ctrl+D)
+- Open horizontal linecut window (Ctrl+Shift+H)
+- Open vertical linecut window (Ctrl+Shift+V)
+- Open diagonal linecut window (Ctrl+Shift+D)
+- Copy all linecuts (Alt+C)
+- Paste linecuts (Alt+V)</p>
 </section>
 <section id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this heading"></a></h2>
