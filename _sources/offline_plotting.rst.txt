@@ -322,11 +322,10 @@ The default delimiter is any white space. If necessary, specify the delimiter un
 Cheat sheet
 -----------
 
-**Mouse actions**
-
 .. list-table::
-    :header-rows: 0
-
+    :header-rows: 1
+  * - Mouse actions
+    -  
   * - Zoom
     - Mouse scroll. Hold Ctrl(Shift) to zoom only x(y) axis.
   * - Change plot spacing
@@ -350,11 +349,12 @@ Cheat sheet
   * - Duplicate a file
     - Right click on the filename, or use Ctrl+D, or use 'Add new plot' above the plot window.'
 
-**Keyboard shortcuts**
 
 .. list-table::
-    :header-rows: 0
+    :header-rows: 1
 
+  * - Keyboard shortcuts
+    -  
   * - Open file
     - Ctrl+O
   * - Open folder
