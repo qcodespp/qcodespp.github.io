@@ -76,6 +76,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#loading-non-qcodes-data">Loading non-qcodes++ data.</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#cheat-sheet">Cheat sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#background">Background</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#a-note-about-fitting">A note about fitting</a></li>
 </ul>
@@ -120,6 +121,7 @@
 <p>or from Jupyter notebooks with
 <code class="docutils literal notranslate"><span class="pre">qcodespp.offline_plotting()</span></code></p>
 <p>If you have declared <code class="docutils literal notranslate"><span class="pre">qcodespp.set_data_folder('foldername')</span></code> in the same notebook, data from that folder will automatically be opened. Alternatively, you can write <code class="docutils literal notranslate"><span class="pre">qcodespp.offline_plotting(folder=path_to_folder)</span></code> to open a different folder. Otherwise, the initial state is blank.</p>
+<p><a class="reference external" href="https://qcodespp.github.io/offline_plotting.html#cheat-sheet">Looking for what mouse actions do?</a></p>
 <section id="basic-plotting">
 <h2>Basic plotting<a class="headerlink" href="#basic-plotting" title="Permalink to this heading"></a></h2>
 <ul class="simple">
@@ -143,7 +145,7 @@
 <p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.histogram.html">Histograms</a> and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.fft.rfft.html">Fast Fourier Transforms (FFTs)</a> of the data can be plotted by selecting the appropriate ‘Plot type’ at the top of the window.</p>
 <ul class="simple">
 <li><p>For histograms, you can choose the number of bins either next to the ‘plot type’ menu (for 2D data) or line-by-line in the Traces table (for 1D data).</p></li>
-<li><p>FFTs are plotted against the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.fft.fftfreq.html">calculated frequencies</a>. For this to be meaningful, the original data must be on an evenly-sampled grid. At current, you will have to interpolate your data to resample it onto an evenly-spaced grid. This may become automatic in future.</p></li>
+<li><p>FFTs are plotted against the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.fft.fftfreq.html">calculated frequencies</a>. For this to be meaningful, the original data must be on an evenly-sampled grid. If this is not the case, apply an ‘Interpolate’ filter to the data, and click each of ‘Send X/Y/Z to data’ (not Z for 1D data). Then plot these filtered parameters and choose FFT as the plot type.</p></li>
 </ul>
 </section>
 </section>
@@ -447,6 +449,21 @@
 <p><code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Voltage</span> <span class="pre">Temperature</span> <span class="pre">Conductance</span></code></p>
 <p>The default delimiter is any white space. If necessary, specify the delimiter under ‘Settings for Selected File’ to reload the data with the appropriate delimiter.</p>
 </section>
+</section>
+<section id="cheat-sheet">
+<h2>Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permalink to this heading"></a></h2>
+<p>Zoom: Mouse scroll. Hold Ctrl(Shift) to zoom only x(y) axis.
+Change plot spacing: Mouse scroll in the whitespace surrounding the plots.
+Horizontal linecut: Left click on 2D data.
+Vertical linecut: Middle click on 2D data.
+Diagonal linecut: Right click on 2D data and choose ‘Diagonal linecut’.
+Move diagonal linecut endpoints: Click and drag. Hold Ctrl to move both endpoints together.
+Set fit limits: Click twice on 1D data. Lower limit first, upper limit second.
+Change fit limits: Click again; the closest limit will be moved to the click position.
+Change plotted parameters: Right click on the parameter name under ‘Settings for Selected File’ (for 2D data) or ‘1D traces’ (for 1D data).
+Add/Subtract, Multiply or Divide by another parameter: Right click on the value in the filters table.
+Use preset values for plot appearance and filters: Right click on the relevant cell in the relevant table.
+Duplicate a file: Right click on the filename, or use Ctrl+D, or use ‘Add new plot’ above the plot window.’</p>
 </section>
 <section id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this heading"></a></h2>
