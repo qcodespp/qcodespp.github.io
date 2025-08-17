@@ -13,6 +13,8 @@ or from Jupyter notebooks with
 
 If you have declared ``qcodespp.set_data_folder('foldername')`` in the same notebook, data from that folder will automatically be opened. Alternatively, you can write ``qcodespp.offline_plotting(folder=path_to_folder)`` to open a different folder. Otherwise, the initial state is blank.
 
+`Looking for what mouse actions do? <https://qcodespp.github.io/offline_plotting.html#cheat-sheet>`__
+
 Basic plotting
 --------------
 - Load data by clicking 'Open File', or by `opening/linking a folder <https://qcodespp.github.io/offline_plotting.html#working-with-an-entire-folder>`__.
@@ -35,7 +37,7 @@ Plot types
 `Histograms <https://numpy.org/doc/stable/reference/generated/numpy.histogram.html>`__ and `Fast Fourier Transforms (FFTs) <https://numpy.org/doc/stable/reference/generated/numpy.fft.rfft.html>`__ of the data can be plotted by selecting the appropriate 'Plot type' at the top of the window. 
 
 - For histograms, you can choose the number of bins either next to the 'plot type' menu (for 2D data) or line-by-line in the Traces table (for 1D data). 
-- FFTs are plotted against the `calculated frequencies <https://numpy.org/doc/stable/reference/generated/numpy.fft.fftfreq.html>`__. For this to be meaningful, the original data must be on an evenly-sampled grid. At current, you will have to interpolate your data to resample it onto an evenly-spaced grid. This may become automatic in future.
+- FFTs are plotted against the `calculated frequencies <https://numpy.org/doc/stable/reference/generated/numpy.fft.fftfreq.html>`__. For this to be meaningful, the original data must be on an evenly-sampled grid. If this is not the case, apply an 'Interpolate' filter to the data, and click each of 'Send X/Y/Z to data' (not Z for 1D data). Then plot these filtered parameters and choose FFT as the plot type.
 
 Fitting
 -------
@@ -313,6 +315,21 @@ To automatically name the columns, you can use a header. Start the first line wi
 ``# Voltage Temperature Conductance``
 
 The default delimiter is any white space. If necessary, specify the delimiter under 'Settings for Selected File' to reload the data with the appropriate delimiter.
+
+Cheat sheet
+-----------
+Zoom: Mouse scroll. Hold Ctrl(Shift) to zoom only x(y) axis.
+Change plot spacing: Mouse scroll in the whitespace surrounding the plots.
+Horizontal linecut: Left click on 2D data.
+Vertical linecut: Middle click on 2D data.
+Diagonal linecut: Right click on 2D data and choose 'Diagonal linecut'.
+Move diagonal linecut endpoints: Click and drag. Hold Ctrl to move both endpoints together.
+Set fit limits: Click twice on 1D data. Lower limit first, upper limit second.
+Change fit limits: Click again; the closest limit will be moved to the click position.
+Change plotted parameters: Right click on the parameter name under 'Settings for Selected File' (for 2D data) or '1D traces' (for 1D data).
+Add/Subtract, Multiply or Divide by another parameter: Right click on the value in the filters table.
+Use preset values for plot appearance and filters: Right click on the relevant cell in the relevant table.
+Duplicate a file: Right click on the filename, or use Ctrl+D, or use 'Add new plot' above the plot window.'
 
 Background
 ----------
