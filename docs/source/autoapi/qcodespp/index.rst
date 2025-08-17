@@ -220,7 +220,7 @@ Package Contents
 
 
 .. py:data:: __version__
-   :value: '0.1.8'
+   :value: '0.1.10'
 
 
 .. py:class:: Loop(sweep_values, delay=0, snake=False, station=None, progress_interval=None, progress_bar=True)
