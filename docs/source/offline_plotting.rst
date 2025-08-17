@@ -337,13 +337,13 @@ Cheat sheet
       - Middle click on 2D data or Ctrl+Shift+V
     * - Diagonal linecut
       - Right click on 2D data and choose 'Diagonal linecut' or Ctrl+Shift+D
-    * - Move diagonal linecut endpoints
-      - Click and drag. Hold Ctrl to move both endpoints together.
+    * - Move diagonal linecut
+      - Click and drag endpoints. Hold Ctrl to move endpoints together.
     * - Set fit limits
       - Click twice on 1D data. Lower limit first, upper limit second.
     * - Change fit limits
       - Click again; the closest limit will be moved to the click position.
-    * - Change plotted parameters
+    * - Change plotted params
       - Right click on the parameter name under 'Settings for Selected File' (for 2D data) or '1D traces' (for 1D data).
     * - Use preset values
       - Right click on the relevant cell in the relevant table.
