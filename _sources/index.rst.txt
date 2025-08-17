@@ -14,15 +14,15 @@ frontend to the solid backend of QCoDeS. If you have always wanted to run
 your measurements using python but found QCoDeS too daunting, qcodes++ is 
 the package for you. qcodes++ features
 
-* A simple yet powerful method for taking data and running measurements and loops
-* True live plotting with sub-second, point-by-point updates without performance impact
+* Simple yet powerful methods for taking data and running measurements
+* True live plotting featuring sub-second, point-by-point updates without performance impact
 * A feature-rich offline plotting/analysis tool for publication-quality figures
-* Text-based data (i.e. readable by e.g. notepad, excel, origin pro, etc)
+* Text-based data
 * Improvements to core QCoDeS functionalities (e.g. Station, Parameters) to streamline data acquisition, protect (meta)data integrity and minimise user error
 * Improved drivers for certain instruments
 * and other user-friendliness improvements
 
-The source code is available `on GitHub <https://github.com/qcodespp/qcodespp>`__, and the following documentation will guide you on how to quickly and easily start running measurements. Issue reporting, feedback and contributions are more than welcome through the above GitHub repository.
+The source code is available `on GitHub <https://github.com/qcodespp/qcodespp>`__, and the following documentation will guide you on how to quickly and easily start running measurements. Issue reporting, feedback and contributions are more than welcome through the GitHub repository.
 
 The name: In addition to being a really stupid pun on q(c++), it reflects the fact that really we just want 
 to add some nice features to the main package, and also it makes me happy because in our lab we have, totally 
