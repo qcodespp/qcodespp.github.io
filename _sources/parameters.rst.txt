@@ -149,6 +149,24 @@ If you provide a single value, all parameters will be moved to that single value
 
 Non-numerical Parameters
 ------------------------
-If your parameter returns floats, integers or booleans, or arrays of any of these, the ``DataSetPP`` will store them just fine. However, if your parameter returns a string, you need to set a the ``data_type`` attribute of the parameter to ``str``. e.g. ``my_parameter.data_type = str``.
+If your parameter returns floats, integers or booleans, or arrays of any of these, everything is going to work just fine. Strings are slightly different: ``get`` and ``set`` work just fine, and the values will be stored to ``DataSetPP`` metadata. However, the data itself in ``DataSetPP`` is stored in numpy ndarrays, which are expecting float as the data type. Therefore, you need to set the ``data_type`` attribute of the parameter to ``str``. e.g. ``my_parameter.data_type = str`` if you want to measure strings as part of a ``Loop``. 
 
-Storing of more complex objects such as dictionaries in the ``DataSetPP`` is not supported and probably never will be. If your instrument driver is returning such objects, make a custom ``Parameter`` (or ``MultiParameter``) to return arrays or tuples of floats and/or strings.
+Further, although you can measure string-typed ``Parameter``s by doing the above, you cannot use them as a ``sweep_parameter``. You can only sweep over floats. The simplest way to get around this is to create a ``Parameter`` that returns the index of the string in a list of strings, e.g.
+
+.. code-block:: python
+
+    my_strings = ['string1', 'string2', 'string3']
+    
+    def set_string_index(val):
+        some_instrument.some_parameter(my_strings[val])
+
+    string_index = qc.Parameter('string_index', unit='', label='String Index',
+                                      set_cmd=set_string_index)
+
+    loop=qc.loop1d(sweep_param=string_index,
+                    start=0, stop=len(my_strings)-1, num=len(my_strings), delay=0.1,
+                    measure=[some_instrument.some_parameter,other_parameter])
+
+Remember to include ``some_instrument.some_parameter`` in ``measure``, so the actual value of the string is stored in the data!
+
+Storing of more complex objects such as dictionaries in the ``DataSetPP`` is not supported. If your instrument driver is returning such objects, make a custom ``Parameter`` (or ``MultiParameter``) to return arrays or tuples of floats and/or strings. 
