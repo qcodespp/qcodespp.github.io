@@ -62,13 +62,13 @@ Defining a custom ``get_cmd`` enables e.g. averaging, filtering, or any other op
 Stepper Parameter: Sweeping time
 --------------------------------
 
-To loop over time, i.e. measure parameters at a regular interval without another independent parameter, you can just create a parameter that does nothing, i.e.
+To loop over time, i.e. measure parameters at a regular interval without another independent parameter, qcodes++ provides a ``stepper`` parameter.
 
 .. code-block:: python
 
-    stepper = qc.Parameter('stepper', unit='', label='Step', set_cmd=lambda: pass)
+    from qcodespp.parameters import stepper
 
-In a loop, simply increment the stepper from e.g. 0 to 100 in 101 steps, and choose a suitable ``delay`` to define the measurement interval. If you want to measure as fast as possible, set the ``delay`` to e.g. 0.001; setting it to 0 can sometimes cause problems.
+In a loop, simply use ``stepper`` as the ``sweep_parameter`` and increment from e.g. 0 to 100 in 101 steps, and choose a suitable ``delay`` to define the measurement interval. If you want to measure as fast as possible, set the ``delay`` to e.g. 0.001; setting it to 0 can sometimes cause problems.
 
 .. code-block:: python
 
