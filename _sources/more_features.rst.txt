@@ -36,7 +36,7 @@ Within loops, you can also perform a ``qc.Task``, which is a method for introduc
 
 The loop will wait at each point for the measured temperature to be within 10 mK of the setpoint.
 
-If the function requires arguments, pass them with e.g. ``qc.Task(waitfortemp,0.02)``, not ``qc.Task(waitfortemp(0.02))``. Note however that the function is only evaluated once, at loop definition, and is not evaluated at each point of the loop.
+If the function requires arguments, pass them with e.g. ``qc.Task(function_name,0.02)``, not ``qc.Task(function_name(0.02))``. Note however that the function is only evaluated once, at loop definition, and is not evaluated at each point of the loop.
 
 In ``loop2d`` and ``loop2dUD``, you can also to perform actions at each step of the step_parameter by using the ``step_action`` argument. For example, if you want to wait for the temperature to stabilise at each step of the step_parameter, you can do:
 
