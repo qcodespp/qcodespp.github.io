@@ -123,13 +123,12 @@
 </pre></div>
 </div>
 <p>Finally, the <code class="docutils literal notranslate"><span class="pre">add_multiple()</span></code> method takes a list of <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> elements and plots them in different subplots.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">loop</span><span class="o">.</span><span class="n">data_set</span>
-<span class="n">pp</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">live_plot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">pp</span><span class="o">.</span><span class="n">add_multiple</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">param1</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">param2</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">param3</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pp</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">live_plot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">pp</span><span class="o">.</span><span class="n">add_multiple</span><span class="p">(</span><span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="p">,</span> <span class="n">param3</span><span class="p">)</span>
 <span class="n">loop</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>The above behaviour is excatly the same as <code class="docutils literal notranslate"><span class="pre">pp</span> <span class="pre">=</span> <span class="pre">qc.live_plot(data,</span> <span class="pre">[data.param1,</span> <span class="pre">data.param2,</span> <span class="pre">data.param3])</span></code>, but <code class="docutils literal notranslate"><span class="pre">add_multiple()</span></code> is useful if you want to add more elements to the plot later. Note that <code class="docutils literal notranslate"><span class="pre">add_multiple()</span></code> also accepts only <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> elements, not <code class="docutils literal notranslate"><span class="pre">Parameters</span></code>.</p>
+<p>The above behaviour is excatly the same as <code class="docutils literal notranslate"><span class="pre">pp</span> <span class="pre">=</span> <span class="pre">qc.live_plot(data.param1,</span> <span class="pre">data.param2,</span> <span class="pre">data.param3)</span></code>, but <code class="docutils literal notranslate"><span class="pre">add_multiple()</span></code> is useful if you want to add more elements to the plot later.</p>
 </section>
 
 
