@@ -53,9 +53,8 @@ Finally, the ``add_multiple()`` method takes a list of ``DataSetPP`` elements an
 
 .. code-block:: python
 
-    data = loop.data_set
     pp = qc.live_plot(data)
-    pp.add_multiple(data.param1, data.param2, data.param3)
+    pp.add_multiple(param1, param2, param3)
     loop.run()
 
-The above behaviour is excatly the same as ``pp = qc.live_plot(data, [data.param1, data.param2, data.param3])``, but ``add_multiple()`` is useful if you want to add more elements to the plot later. Note that ``add_multiple()`` also accepts only ``DataSetPP`` elements, not ``Parameters``.
+The above behaviour is excatly the same as ``pp = qc.live_plot(data.param1, data.param2, data.param3)``, but ``add_multiple()`` is useful if you want to add more elements to the plot later.
