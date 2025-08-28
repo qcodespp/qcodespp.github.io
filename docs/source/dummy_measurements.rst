@@ -97,7 +97,7 @@ To run the measurement, we can invoke the ``run()`` method of the loop object, a
 
 .. code-block:: python
 
-    data=loop.run([instrument.input1, instrument.input2])
+    data=loop.run(instrument.input1, instrument.input2)
 
 A live plot window will be opened, showing measurements of the two parameters. The ``run()`` method returns the ``DataSetPP`` object, `which can also be reloaded later <data_analysis.html>`__.
 
@@ -125,7 +125,7 @@ Running the measurement is again just
 
 .. code-block:: python
 
-    loop.run([instrument.input1, instrument.input2])
+    loop.run(instrument.input1, instrument.input2)
 
 
 Note that in a ``loop2d``, the ``sweep_parameter`` jumps from the stop value back to the start value every time the ``step_parameter`` is incremented. This may **not** be desired behaviour if your ``sweep_parameter`` is a sensitive object, e.g. a gate on a nanoelectronic device. In this case, you have two options. Firstly, you can use the ``loop2dUD`` function, where for each increment of the ``step_parameter``, the sweep_parameter sweeps from start to stop, then from stop to start again. The code is otherwise identical.
