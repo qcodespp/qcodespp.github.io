@@ -34,9 +34,9 @@ or equivalently, add them afterwards using ``add_subplots()``
     pp=qc.live_plot()
     pp.add_subplots(currentX,voltageX,resistance)
 
-Wait what are we plotting?
---------------------------
-A quick word about the ``DataSetPP``: Each ``DataSetPP`` consists of a number of ``DataArray`` elements, which hold the stored data for each ``Parameter``. What you are *actually* plotting is data from these ``DataArray`` elements. When you declare your ``loop``, a summary of the ``DataSetPP`` is printed, showing the ``array_id`` for each ``DataArray`` and its ``shape``. You can access the ``DataSetPP`` for a particular loop via ``loop.data_set``, and the individual ``DataArray`` elements via e.g. ``loop.data_set.param1`` or ``loop.data_set.arrays['param1']``.
+What is being plotted?
+----------------------
+Each ``DataSetPP`` consists of a number of ``DataArray`` elements, which hold the stored data for each ``Parameter``. What you are *actually* plotting is data from these ``DataArray`` elements. When you declare your ``loop``, a summary of the ``DataSetPP`` is printed, showing the ``array_id`` for each ``DataArray`` and its ``shape``. You can access the ``DataSetPP`` for a particular loop via ``loop.data_set``, and the individual ``DataArray`` elements via e.g. ``loop.data_set.param1`` or ``loop.data_set.arrays['param1']``.
 
 This is important to understand for the next bit!
 
@@ -57,16 +57,16 @@ The first argument to ``add`` can be:
 2. An ``array_id`` string, e.g. ``'param1'``.
 3. A ``Parameter`` object, if the ``DataSetPP`` has only one ``DataArray`` per ``Parameter``.
 
-Method 1 always works. Methods 2 and 3 work by looking for the ``array_id`` or ``Parameter`` name *in the most recently created* ``DataSetPP``, and then adding the relevant ``DataArray``. This means these methods only work if the ``DataSetPP`` of interest was the last created ``DataSetPP``. Otherwise, you can supply the ``data_set`` argument to specify which ``DataSetPP`` to use.
+Method 1 always works. Method 2 will almost always work, and Method 3 can work in simple cases. Methods 2 and 3 work by looking for the ``array_id`` or ``Parameter`` name *in the most recently created* ``DataSetPP``, and then adding the relevant ``DataArray``. This means these methods only work if the ``DataSetPP`` of interest was indeed the last created ``DataSetPP``. Otherwise, you can supply the ``data_set`` argument to specify which ``DataSetPP`` to use.
 
 .. code-block:: python
 
-    pp.add('example_array_id', title='Parameter 1', name='Parameter 1', subplot=2, data_set=new_data)
+    pp.add('example_array_id', title='Parameter 1', name='Parameter 1', subplot=2, data_set=old_loop.data_set)
 
 After you have set up the plot as you prefer, you can run the loop without any arguments, i.e. ``data=loop.run()``.
 
 Some tricks
-^^^^^^^^^^^
+-----------
 
 To add multiple elements to the same subplot, simply use the same index for ``subplot=``.
 
@@ -97,7 +97,7 @@ You can of course add data from a *different* ``DataSetPP``. This is most common
 Back to add_subplots
 --------------------
 
-Similarly, ``add_subplots()`` will also accept any of ``DataArray``, ``array_id`` or ``Parameter``. So far we just provided ``Parameter`` because it's usually easiest, but in some situations you may want to use ``DataArray`` or ``array_id``. For example, in ``loop2dUD``, each ``Parameter`` has two corresponding ``DataArray`` elements. While ``add`` doesn't know which one to plot, and therefore won't let you supply a ``Parameter`` at all, ``add_subplots`` will do the opposite; it will plot both ``DataArray`` elements. If you only want to plot one, you can specify e.g. using the ``array_id``:
+Similarly to ``add``, ``add_subplots()`` will also accept any of ``DataArray``, ``array_id`` or ``Parameter``. So far we just provided ``Parameter`` because it's usually easiest, but in some situations you may want to use ``DataArray`` or ``array_id``. For example, in ``loop2dUD``, each ``Parameter`` has two corresponding ``DataArray`` elements. While ``add`` doesn't know which one to plot, and therefore won't let you supply a ``Parameter`` at all, ``add_subplots`` will do the opposite; it will plot both ``DataArray`` elements. If you only want to plot one, you can specify e.g. using the ``array_id``:
 
 .. code-block:: python
 
