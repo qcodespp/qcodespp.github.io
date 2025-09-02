@@ -49,14 +49,16 @@ The ``add`` method allows the most control over subplots in the live plotting wi
     pp.add(param1, title='Parameter 1', name='Parameter 1', subplot=0)
     pp.add(param2, title='Parameter 2', name='Parameter 2', subplot=1)
 
-The first argument to ``add`` can be many things. The most foolproof option is to supply a ``DataArray``, e.g. ``loop.data_set.param1``. However, assuming that the ``DataSetPP`` of interest was the last created ``DataSetPP``, you can supply the ``array_id`` as a string:
+The first argument to ``add`` can be many things. The most foolproof option is to supply a ``DataArray``, e.g. ``loop.data_set.param1``. However, assuming that the ``DataSetPP`` of interest was the last created ``DataSetPP``, you can also just supply the ``array_id`` as a string:
 
 .. code-block:: python
 
     pp.add('param1', title='Parameter 1', name='Parameter 1', subplot=0)
     pp.add('param2', title='Parameter 2', name='Parameter 2', subplot=1)
 
-or the ``Parameter`` object if the ``DataSetPP`` has only one ``DataArray`` per ``Parameter`` (this is not the case for e.g. ``loop2dUD`` and other advanced loop types!)
+or the ``Parameter`` object if the ``DataSetPP`` has only one ``DataArray`` per ``Parameter`` (this is not the case for e.g. ``loop2dUD`` and other advanced loop types!).
+
+In both cases of supplying ``array_id`` or ``Parameter``, the code will locate the relevant ``DataArray`` in the most recently defined ``DataSetPP`` and add it.
 
 To add multiple elements to the same subplot, simply use the same index for ``subplot=``.
 
@@ -69,14 +71,19 @@ By default, the provided dataset element is plotted as the y-axis for 1D plots a
     pp.add(data.paramx, data.paramy, data.paramz, title='Parameter 1', name='Parameter 1', subplot=0)
     pp.add('paramx2','paramy2','paramz2', title='Parameter 2', name='Parameter 2', subplot=1)
 
-You can of course add data from a *different* ``DataSetPP``. If the ``DataSetPP`` was not the most recently defined, you will have to pass the ``DataArray``.
+You can of course add data from a *different* ``DataSetPP``. If the ``DataSetPP`` was not the most recently defined, you will either have to pass the ``DataArray`` e.g.
 
 .. code-block:: python
 
     pp.add(new_data.param1, title='Parameter 1', name='Parameter 1', subplot=2)
-    new_loop.run()
 
-Otherwise, if you have defined a new ``Loop`` and new ``DataSetPP`` and want to add data to the previously defined ``live_plot`` window, just add it using any identifier (``DataArray``, ``array_id`` or ``Parameter``).
+or pass the relevant ``DataSetPP`` as an argument:
+
+.. code-block:: python
+
+    pp.add('example_array_id', title='Parameter 1', name='Parameter 1', subplot=2, data_set=new_data)
+
+Otherwise, if you have defined a new ``Loop`` and new ``DataSetPP`` and want to add data to the previously defined ``live_plot`` window, just add it using whichever identifier you prefer (``DataArray``, ``array_id`` or ``Parameter``).
 
 .. code-block:: python
 
@@ -91,4 +98,10 @@ Otherwise, if you have defined a new ``Loop`` and new ``DataSetPP`` and want to 
 Back to add_subplots
 --------------------
 
-Similarly, ``add_subplots()`` will also accept as arguments any of ``DataArray``, ``array_id`` or ``Parameter``. So far we just provided ``Parameter`` because it's easiest, but in many situations you will want to use ``DataArray`` or ``array_id`` to avoid ambiguity.
+Similarly, ``add_subplots()`` will also accept any of ``DataArray``, ``array_id`` or ``Parameter``. So far we just provided ``Parameter`` because it's usually easiest, but in some situations you may want to use ``DataArray`` or ``array_id``. For example, in ``loop2dUD``, each ``Parameter`` has two corresponding ``DataArray`` elements. While ``add`` doesn't know which one to plot, and therefore won't let you supply a ``Parameter`` at all, ``add_subplots`` will do the opposite; it will plot both ``DataArray`` elements. If you only want to plot one, you can specify e.g. using the ``array_id``:
+
+.. code-block:: python
+
+    pp.add_subplots('currentX_1','voltageX_2')
+
+In some cases it is *necessary* to supply either the ``DataArray`` or the ``array_id``; one example is for ``MultiParameters`` where each component of the ``MultiParameter`` generates a corresponding ``DataArray``. But since a component of a ``MultiParameter`` is not itself a ``Parameter``, you must of course use either ``DataArray`` or ``array_id``.
