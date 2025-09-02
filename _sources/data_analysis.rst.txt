@@ -48,9 +48,11 @@ To load a filepath directly,
 
     data=qc.load_data('path/to/datafile')
 
-When imported into the notebook, you can use ``data.param_name`` to access the data from a specific parameter. Other information about the ``Parameter``, e.g. name, unit, etc is available using e.g. ``data.Voltage.unit``. The data are also stored in a dictionary under ``data.arrays``, which means you can address arrays via strings, e.g. ``data.arrays['Voltage']``, which is useful for programattically addressing them (e.g. in a loop).
+When imported into the notebook, you can use ``data.param_name`` to access the data from a specific parameter. Other information, e.g. name, unit, etc is available using e.g. ``data.Voltage.unit``. The data are also stored in a dictionary under ``data.arrays``, which means you can address arrays via strings, e.g. ``data.arrays['Voltage']``, which is useful for programattically addressing them (e.g. in a loop).
 
-``data.metadata`` is a `python dictionary <https://docs.python.org/3/tutorial/datastructures.html#dictionaries>`__ containing the metadata saved by the ``Station``. It contains, among other things, *the value of every single parameter of every single instrument declared in ``station`` when the measurement started*. Did you forget which lock-in frequency you were using? Did you make a mistake in the filename and write the wrong sweep range? Don't worry! ``data.metadata`` contains ALL this information and more. This is the entire point of creating the ``Station`` and ensuring that you keep it updated. The `offline_plotting <https://qcodespp.github.io/offline_plotting.html>`__ also offers an easy-to-use tool for metadata exploration.
+Each of these ``DataArray`` elements inside the ``DataSetPP`` at heart are just ``numpy.ndarray`` objects with some extra details ontop. They will mostly behave like numpy arrays, but if you want to access the underlying ``ndarray`` directly, use ``data.param_name.ndarray``.
+
+``data.metadata`` is a `python dictionary <https://docs.python.org/3/tutorial/datastructures.html#dictionaries>`__ containing the metadata saved by the ``Station``. It contains, among other things, *the value of every single parameter of every single instrument declared in ``station`` when the measurement started*. This is extremely useful two years into your project and you forgot which lock-in time constant you used. This is the entire point of creating the ``Station`` and ensuring that you keep it updated. The `offline_plotting <https://qcodespp.github.io/offline_plotting.html>`__ also offers an easy-to-use tool for metadata exploration.
 
 Incomplete DataSets
 ^^^^^^^^^^^^^^^^^^^
