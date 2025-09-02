@@ -375,7 +375,7 @@ Plot type is applied <em>before</em> the filters. If you want to plot the histog
 <p>You can open data from an entire folder in two ways.</p>
 <ul class="simple">
 <li><p>You can select ‘Open Folder’ and choose the relevant folder. This will load the list of all the datasets found in that folder <em>and all sub-folders</em>. The data itself will not be loaded until you click the checkbox to plot it. This is because the data gets loaded into memory, which <em>might</em> start to affect your computer’s performance. However, unchecking a file does <em>not</em> free up memory. ‘Remove file’ and ‘Clear list’ <em>should</em> do it, but this is hard to troubleshoot. Certainly refreshing the kernel works.</p></li>
-<li><p>You can also ‘link’ to a folder with ongoing measurements by clicking ‘Link Folder’. Initially this will perform the same action as ‘Open Folder’, but now when you click ‘Refresh’, any new data will be added automatically to the list of Opened Files. (If you enable ‘Track data’ for the linked folder, on-going measurements will be tracked, with an update period of 30s. However, it’s really not recommended because the data has to be read from disk, which can be disruptive, and will inevitably eat up all your memory. It is much better to rely on <code class="docutils literal notranslate"><span class="pre">qcodespp.live_plot()</span></code> for live plotting, which goes to great pains to avoid these pitfalls.)</p></li>
+<li><p>You can also ‘link’ to a folder with ongoing measurements by clicking ‘Link Folder’. Initially this will perform the same action as ‘Open Folder’, but now when you click ‘Refresh’, any new data will be added automatically to the list of Opened Files.</p></li>
 </ul>
 </section>
 <section id="combining-datasets-plots">

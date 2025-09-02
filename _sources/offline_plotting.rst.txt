@@ -236,7 +236,7 @@ You can open data from an entire folder in two ways.
 
 - You can select 'Open Folder' and choose the relevant folder. This will load the list of all the datasets found in that folder *and all sub-folders*. The data itself will not be loaded until you click the checkbox to plot it. This is because the data gets loaded into memory, which *might* start to affect your computer's performance. However, unchecking a file does *not* free up memory. 'Remove file' and 'Clear list' *should* do it, but this is hard to troubleshoot. Certainly refreshing the kernel works.
 
-- You can also 'link' to a folder with ongoing measurements by clicking 'Link Folder'. Initially this will perform the same action as 'Open Folder', but now when you click 'Refresh', any new data will be added automatically to the list of Opened Files. (If you enable 'Track data' for the linked folder, on-going measurements will be tracked, with an update period of 30s. However, it's really not recommended because the data has to be read from disk, which can be disruptive, and will inevitably eat up all your memory. It is much better to rely on ``qcodespp.live_plot()`` for live plotting, which goes to great pains to avoid these pitfalls.)
+- You can also 'link' to a folder with ongoing measurements by clicking 'Link Folder'. Initially this will perform the same action as 'Open Folder', but now when you click 'Refresh', any new data will be added automatically to the list of Opened Files.
 
 Combining datasets/plots
 ^^^^^^^^^^^^^^^^^^^^^^^^
