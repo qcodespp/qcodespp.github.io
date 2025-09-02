@@ -38,10 +38,12 @@ Wait what are we plotting?
 --------------------------
 A quick word about the ``DataSetPP``: Each ``DataSetPP`` consists of a number of ``DataArray`` elements, which hold the stored data for each ``Parameter``. What you are *actually* plotting is data from these ``DataArray`` elements. When you declare your ``loop``, a summary of the ``DataSetPP`` is printed, showing the ``array_id`` for each ``DataArray`` and its ``shape``. You can access the ``DataSetPP`` for a particular loop via ``loop.data_set``, and the individual ``DataArray`` elements via e.g. ``loop.data_set.param1`` or ``loop.data_set.arrays['param1']``.
 
+This is important to understand for the next bit!
+
 add
 ---
 
-The ``add`` method allows the most control over subplots in the live plotting window.
+The ``add`` method allows the most control over subplots.
 
 .. code-block:: python
 
@@ -49,20 +51,29 @@ The ``add`` method allows the most control over subplots in the live plotting wi
     pp.add(param1, title='Parameter 1', name='Parameter 1', subplot=0)
     pp.add(param2, title='Parameter 2', name='Parameter 2', subplot=1)
 
-The first argument to ``add`` can be many things. The most foolproof option is to supply a ``DataArray``, e.g. ``loop.data_set.param1``. However, assuming that the ``DataSetPP`` of interest was the last created ``DataSetPP``, you can also just supply the ``array_id`` as a string:
+The first argument to ``add`` can be:
+
+1. A ``DataArray`` object, such as ``loop.data_set.param1``.
+2. An ``array_id`` string, e.g. ``'param1'``.
+3. A ``Parameter`` object, if the ``DataSetPP`` has only one ``DataArray`` per ``Parameter``.
+
+Method 1 always works. Methods 2 and 3 work by looking for the ``array_id`` or ``Parameter`` name *in the most recently created* ``DataSetPP``, and then adding the relevant ``DataArray``. This means these methods only work if the ``DataSetPP`` of interest was the last created ``DataSetPP``. Otherwise, you can supply the ``data_set`` argument to specify which ``DataSetPP`` to use.
 
 .. code-block:: python
 
-    pp.add('param1', title='Parameter 1', name='Parameter 1', subplot=0)
-    pp.add('param2', title='Parameter 2', name='Parameter 2', subplot=1)
+    pp.add('example_array_id', title='Parameter 1', name='Parameter 1', subplot=2, data_set=new_data)
 
-or the ``Parameter`` object if the ``DataSetPP`` has only one ``DataArray`` per ``Parameter`` (this is not the case for e.g. ``loop2dUD`` and other advanced loop types!).
+After you have set up the plot as you prefer, you can run the loop without any arguments, i.e. ``data=loop.run()``.
 
-In both cases of supplying ``array_id`` or ``Parameter``, the code will locate the relevant ``DataArray`` in the most recently defined ``DataSetPP`` and add it.
+Some tricks
+^^^^^^^^^^^
 
 To add multiple elements to the same subplot, simply use the same index for ``subplot=``.
 
-After you have set up the plot as you prefer, you can run the loop without any arguments, i.e. ``data=loop.run()``.
+.. code-block:: python
+
+    pp.add(param1, title='Parameter 1', name='Parameter 1', subplot=0)
+    pp.add(param2, title='Parameter 2', name='Parameter 2', subplot=0)
 
 By default, the provided dataset element is plotted as the y-axis for 1D plots and the z-axis for 2D plots, with the independent variables plotted on their respective axes. You can also specify the x-axis (and y-axis for 2D plots) explicitly by providing the appropriate number of dataset elements as arguments, e.g.:
 
@@ -71,19 +82,7 @@ By default, the provided dataset element is plotted as the y-axis for 1D plots a
     pp.add(data.paramx, data.paramy, data.paramz, title='Parameter 1', name='Parameter 1', subplot=0)
     pp.add('paramx2','paramy2','paramz2', title='Parameter 2', name='Parameter 2', subplot=1)
 
-You can of course add data from a *different* ``DataSetPP``. If the ``DataSetPP`` was not the most recently defined, you will either have to pass the ``DataArray`` e.g.
-
-.. code-block:: python
-
-    pp.add(new_data.param1, title='Parameter 1', name='Parameter 1', subplot=2)
-
-or pass the relevant ``DataSetPP`` as an argument:
-
-.. code-block:: python
-
-    pp.add('example_array_id', title='Parameter 1', name='Parameter 1', subplot=2, data_set=new_data)
-
-Otherwise, if you have defined a new ``Loop`` and new ``DataSetPP`` and want to add data to the previously defined ``live_plot`` window, just add it using whichever identifier you prefer (``DataArray``, ``array_id`` or ``Parameter``).
+You can of course add data from a *different* ``DataSetPP``. This is most commonly desired if you want to run a new experiment and plot it alongside a previous experiment's data. Simply define a new loop, but *not* a new plot window.
 
 .. code-block:: python
 
@@ -105,3 +104,9 @@ Similarly, ``add_subplots()`` will also accept any of ``DataArray``, ``array_id`
     pp.add_subplots('currentX_1','voltageX_2')
 
 In some cases it is *necessary* to supply either the ``DataArray`` or the ``array_id``; one example is for ``MultiParameters`` where each component of the ``MultiParameter`` generates a corresponding ``DataArray``. But since a component of a ``MultiParameter`` is not itself a ``Parameter``, you must of course use either ``DataArray`` or ``array_id``.
+
+Finally, you can mix and match as you please. The following will work just fine:
+
+.. code-block:: python
+
+    pp.add_subplots('currentX_1',voltageX,loop.data_set.resistance)
