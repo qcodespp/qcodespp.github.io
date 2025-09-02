@@ -386,6 +386,8 @@ Cheat sheet
       - Alt+C
     * - Paste linecuts
       - Alt+V
+    * - Show/hide linecut markers
+      - Ctrl+M
 
 Background
 ----------
