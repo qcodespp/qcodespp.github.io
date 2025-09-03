@@ -36,7 +36,7 @@ And of course if the parameters return 1D or 2D rectangular arrays, you can plot
 
 .. code-block:: python
 
-    pp=qc.live_plot(data,[data.array_param1, data.array_param2])
+    pp=qc.live_plot(data.array_param1, data.array_param2)
 
 Note that the above can also be done within a ``Loop``. The ``Loop`` class is smart enough to work out what the dimensions of the data will be, and create an array in the ``DataSetPP`` of the correct shape. The downside is that these higher dimensional data sets then don't play nice with default plotting, meaning you will always have to plot them manually.
 
@@ -77,7 +77,7 @@ The setpoints can also be a ``Parameter`` which returns an array of the correct 
     setpoints=oscilloscope.x_axis
     measure = qc.Measure(setpoints=[setpoints],name='dummy_name')
     data = measure.run()
-    pp=qc.live_plot(data,[data.oscilloscope_y_axis])
+    pp=qc.live_plot(data.oscilloscope_y_axis)
 
 and the two axes will be plotted against each other correctly.
 
