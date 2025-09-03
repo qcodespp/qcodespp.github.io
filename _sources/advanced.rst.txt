@@ -21,7 +21,7 @@ The most basic examples, which are equivalent to the ``loop1d`` and ``loop2d`` f
 
     loop=qc.Loop(sweep_parameter.sweep(0,1,num=101), delay=0.1).each(measure_param1, measure_param2)
     data=loop.get_data_set(name='My 1D loop')
-    loop.run(measure_param1, measure_param2)
+    loop.run([measure_param1, measure_param2])
 
 2D loop, using station.set_measurement to set the default measurement
 
@@ -30,7 +30,7 @@ The most basic examples, which are equivalent to the ``loop1d`` and ``loop2d`` f
     station.set_measurement(measure_param1, measure_param2)
     loop=qc.Loop(sweep_parameter1.sweep(0,1,num=11), delay=0.1).loop(sweep_parameter2.sweep(-1,0,num=101),delay=0.1).each(*station.measure())
     data=loop.get_data_set(name='My 2D loop')
-    loop.run(measure_param1, measure_param2)
+    loop.run([measure_param1, measure_param2])
 
 2D (and higher dimension) loops can (also) be constructed by nesting loops in .each, e.g.
 
@@ -39,7 +39,7 @@ The most basic examples, which are equivalent to the ``loop1d`` and ``loop2d`` f
     loop1d=qc.Loop(sweep_parameter2.sweep(-1,0,num=101), delay=0.1).each(*station.measure())
     loop=qc.Loop(sweep_parameter1.sweep(0,1,num=11), delay=0.1).each(loop1d)
     data=loop.get_data_set(name='My nested 2D loop')
-    loop.run(measure_param1, measure_param2)
+    loop.run([measure_param1, measure_param2])
 
 Some examples: Sweeping the inner loop up and down many times at each point of the outer loop:
 
