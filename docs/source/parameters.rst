@@ -151,7 +151,7 @@ Non-numerical Parameters
 ------------------------
 If your parameter returns floats, integers or booleans, or arrays of any of these, everything is going to work just fine. Strings are slightly different: ``get`` and ``set`` work just fine, and the values will be stored to ``DataSetPP`` metadata. However, the data itself in ``DataSetPP`` is stored in numpy ndarrays, which are expecting float as the data type. Therefore, you need to set the ``data_type`` attribute of the parameter to ``str``. e.g. ``my_parameter.data_type = str`` if you want to measure strings as part of a ``Loop``. 
 
-Further, although you can measure string-typed ``Parameter``s by doing the above, you cannot use them as a ``sweep_parameter``. You can only sweep over floats. The simplest way to get around this is to create a ``Parameter`` that returns the index of the string in a list of strings, e.g.
+Further, although you can measure any string-typed ``Parameter`` by doing the above, you cannot use one as a ``sweep_parameter``. You can only sweep over floats. The simplest way to get around this is to create a ``Parameter`` that returns the index of the string in a list of strings, e.g.
 
 .. code-block:: python
 
@@ -169,4 +169,4 @@ Further, although you can measure string-typed ``Parameter``s by doing the above
 
 Remember to include ``some_instrument.some_parameter`` in ``measure``, so the actual value of the string is stored in the data!
 
-Storing of more complex objects such as dictionaries in the ``DataSetPP`` is not supported. If your instrument driver is returning such objects, make a custom ``Parameter`` (or ``MultiParameter``) to return arrays or tuples of floats and/or strings. 
+Storing of more complex objects such as dictionaries in the ``DataSetPP`` is not supported. If your instrument driver is returning such objects, make a custom ``Parameter`` (or ``MultiParameter``) to return arrays or tuples of floats and/or strings. `See an example here. <https://github.com/qcodespp/qcodespp/blob/main/qcodespp/instrument_drivers/ZI/ZI_helpers.py>`__
