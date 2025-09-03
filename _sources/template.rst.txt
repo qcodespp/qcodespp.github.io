@@ -62,12 +62,11 @@ The code
                start=0,stop=1,num=101,delay=0.03,
                device_info='Device1',
                instrument_info=f'ACdiv=1e5 DCdiv=1e3 freq={li.osc0_freq():.6g} Hz',
-               measure=[currentX, currentY, voltageX, voltageY, resistance],
-               plot=[currentX,voltageX,resistance])
+               measure=[currentX, currentY, voltageX, voltageY, resistance])
 
 .. code-block:: python
 
-    data = loop.run()
+    data = loop.run([currentX,voltageX,resistance])
 
 .. code-block:: python
 
@@ -77,12 +76,11 @@ The code
                 device_info='Device1',
                 instrument_info=f'ACdiv=1e5 DCdiv=1e3 freq={li.osc0_freq():.6g} Hz',
                 measure=[qc.BreakIf(lambda: np.abs(k2450.curr())>1e-9), 
-                            currentX, currentY, voltageX, voltageY, resistance],
-                plot=[currentX,voltageX,resistance])
+                            currentX, currentY, voltageX, voltageY, resistance])
 
 .. code-block:: python
 
-    data = loop.run()
+    data=loop.run([currentX,voltageX,resistance])
 
 .. code-block:: python
 
@@ -93,12 +91,11 @@ The code
                     step_start=0,step_stop=1,step_num=11,step_delay=0.1,
                     device_info='Device1',
                     instrument_info=f'ACdiv=1e5 DCdiv=1e3 freq={li.osc0_freq():.6g} Hz',
-                    measure=[currentX, currentY, voltageX, voltageY, resistance],
-                    plot=[currentX,voltageX,resistance])
+                    measure=[currentX, currentY, voltageX, voltageY, resistance])
 
 .. code-block:: python
 
-    data = loop.run()
+    data=loop.run([currentX,voltageX,resistance])
 
 .. code-block:: python
 
@@ -109,9 +106,8 @@ The code
                     step_start=0,step_stop=1,step_num=11,step_delay=0.1,
                     device_info='Device1',
                     instrument_info=f'ACdiv=1e5 DCdiv=1e3 freq={li.osc0_freq():.6g} Hz',
-                    measure=[currentX, currentY, voltageX, voltageY, resistance],
-                    plot=[currentX,voltageX,resistance])
+                    measure=[currentX, currentY, voltageX, voltageY, resistance])
 
 .. code-block:: python
 
-    data = loop.run()
+    data=loop.run([currentX,voltageX,resistance])
