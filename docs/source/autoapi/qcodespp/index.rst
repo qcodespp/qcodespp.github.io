@@ -31,6 +31,7 @@ Attributes
 
    qcodespp.config
    qcodespp.__version__
+   qcodespp.stepper
 
 
 Classes
@@ -39,12 +40,10 @@ Classes
 .. autosummary::
 
    qcodespp.Station
-   qcodespp.Loop
    qcodespp.Measure
    qcodespp.Task
    qcodespp.Wait
    qcodespp.BreakIf
-   qcodespp.Plot
    qcodespp.MultiParameterWrapper
    qcodespp.ArrayParameterWrapper
 
@@ -54,10 +53,6 @@ Functions
 
 .. autosummary::
 
-   qcodespp.loop1d
-   qcodespp.loop2d
-   qcodespp.loop2dUD
-   qcodespp.live_plot
    qcodespp.offline_plotting
    qcodespp.colorplot
    qcodespp.colored_traces
@@ -171,7 +166,7 @@ Package Contents
 
 
 
-   .. py:method:: communication_time(measurement_num=5, return_average=True)
+   .. py:method:: communication_time(measurement_num=5, return_average=True, include_callables=False)
 
       Estimate how long it takes to communicate with the instruments in the station.
 
@@ -179,17 +174,21 @@ Package Contents
           measurement_num: Number of measurements to take to estimate the communication time.
               Default is 1, but can be set to a higher number for more accurate estimates.
           return_average: Whether to return the average of the measurements or the entire list.
+          include_callables: Whether to estimate the time non-gettable callables takes. 
+              These can be other allowable actions, e.g. qc.Task, qc.BreakIf. Usually they behave 
+              unpredictably and it's best to exclude them.
       Returns:
           Either the average communication time or the list of communication times for each measurement.
 
 
 
-   .. py:method:: measurement(*actions)
+   .. py:method:: measurement(*actions, include_callables=True)
 
       Measure the default measurement, or parameters in actions.
 
       Args:
           *actions: parameters to mesure
+          include_callables (bool): Perform non-gettable actions, i.e. Task, BreakIf, etc.
 
 
 
@@ -221,369 +220,6 @@ Package Contents
 
 .. py:data:: __version__
    :value: '0.1.10'
-
-
-.. py:class:: Loop(sweep_values, delay=0, snake=False, station=None, progress_interval=None, progress_bar=True)
-
-   Bases: :py:obj:`qcodes.metadatable.Metadatable`
-
-
-   Create a measurement loop to sweep over a parameter and store measured data from other
-   parameters. The results are stored in a qcodespp.data.data_set.DataSetPP container.
-
-   Args:
-       sweep_values: a SweepValues or compatible object describing what
-           parameter to set in the loop and over what values
-       delay: a number of seconds to wait after setting a value before
-           continuing. 0 (default) means no waiting and no warnings. > 0
-           means to wait, potentially filling the delay time with monitoring,
-           and give an error if you wait longer than expected.
-       progress_interval: show progress of the loop every x seconds. Default
-           is None (no output)
-
-   After creating a Loop, you attach one or more ``actions`` to it, making an
-   ``ActiveLoop``
-
-   ``actions`` is a sequence of things to do at each ``Loop`` step: that can be
-   a ``Parameter`` to measure, a ``Task`` to do (any callable that does not
-   yield data), ``Wait`` times, or another ``ActiveLoop`` or ``Loop`` to nest
-   inside this one.
-
-
-   .. py:attribute:: sweep_values
-
-
-   .. py:attribute:: delay
-      :value: 0
-
-
-
-   .. py:attribute:: station
-      :value: None
-
-
-
-   .. py:attribute:: nested_loop
-      :value: None
-
-
-
-   .. py:attribute:: actions
-      :value: None
-
-
-
-   .. py:attribute:: then_actions
-      :value: ()
-
-
-
-   .. py:attribute:: bg_task
-      :value: None
-
-
-
-   .. py:attribute:: bg_final_task
-      :value: None
-
-
-
-   .. py:attribute:: bg_min_delay
-      :value: None
-
-
-
-   .. py:attribute:: progress_interval
-      :value: None
-
-
-
-   .. py:attribute:: progress_bar
-      :value: True
-
-
-
-   .. py:attribute:: snake
-      :value: False
-
-
-
-   .. py:method:: __getitem__(item)
-
-      Retrieves action with index `item`
-
-      Args:
-          item: actions index
-
-      Returns:
-          loop.actions[item]
-
-
-
-   .. py:method:: loop(sweep_values, delay=0)
-
-      Nest another loop inside this one.
-
-      Args:
-          sweep_values ():
-          delay (int):
-
-      Examples:
-          >>> Loop(sv1, d1).loop(sv2, d2).each(*a)
-
-          is equivalent to:
-
-          >>> Loop(sv1, d1).each(Loop(sv2, d2).each(*a))
-
-      Returns: a new Loop object - the original is untouched
-
-
-
-   .. py:method:: each(*actions)
-
-      Perform a set of actions at each setpoint of this loop.
-
-      Args:
-          *actions (Any): actions to perform at each setpoint of the loop
-
-      Each action can be:
-
-      - a Parameter to measure
-      - a Task to execute
-      - a Wait
-      - another Loop or ActiveLoop
-
-
-
-
-   .. py:method:: with_bg_task(task, bg_final_task=None, min_delay=0.01)
-
-      Attaches a background task to this loop.
-
-      Args:
-          task: A callable object with no parameters. This object will be
-              invoked periodically during the measurement loop.
-
-          bg_final_task: A callable object with no parameters. This object will be
-              invoked to clean up after or otherwise finish the background
-              task work.
-
-          min_delay (default 0.01): The minimum number of seconds to wait
-              between task invocations.
-              Note that if a task is doing a lot of processing it is recommended
-              to increase min_delay.
-              Note that the actual time between task invocations may be much
-              longer than this, as the task is only run between passes
-              through the loop.
-
-
-
-   .. py:method:: validate_actions(*actions)
-      :staticmethod:
-
-
-      Whitelist acceptable actions, so we can give nice error messages
-      if an action is not recognized
-
-
-
-   .. py:method:: run(*args, **kwargs)
-
-      shortcut to run a loop with the default measurement set
-      stored by Station.set_measurement
-
-
-
-   .. py:method:: run_temp(*args, **kwargs)
-
-      shortcut to run a loop in the foreground as a temporary dataset
-      using the default measurement set
-
-
-
-   .. py:method:: then(*actions, overwrite=False)
-
-      Attach actions to be performed after the loop completes.
-
-      These can only be ``Task`` and ``Wait`` actions, as they may not generate
-      any data.
-
-      returns a new Loop object - the original is untouched
-
-      This is more naturally done to an ActiveLoop (ie after .each())
-      and can also be done there, but it's allowed at this stage too so that
-      you can define final actions and share them among several ``Loops`` that
-      have different loop actions, or attach final actions to a Loop run
-
-      TODO:
-          examples of this ? with default actions.
-
-      Args:
-          *actions: ``Task`` and ``Wait`` objects to execute in order
-
-          overwrite: (default False) whether subsequent .then() calls (including
-              calls in an ActiveLoop after .then() has already been called on
-              the Loop) will add to each other or overwrite the earlier ones.
-      Returns:
-          a new Loop object - the original is untouched
-
-
-
-   .. py:method:: snapshot_base(update=False)
-
-      State of the loop as a JSON-compatible dict.
-
-      Args:
-          update (bool): If True, update the state by querying the underlying
-           sweep_values and actions. If False, just use the latest values in
-           memory.
-
-      Returns:
-          dict: base snapshot
-
-
-
-.. py:function:: loop1d(sweep_parameter, start, stop, num, delay, sweep_type='linear', device_info='', instrument_info='', measure=None, plot=None, run=False)
-
-   Create a 1D loop, the associated data set, and optionally, live plotting.
-
-   A 1D loop has a single independent parameter, swept over a range of values.
-   At each point in the loop, a set of parameters is measured, either those
-   given as the argument measure, or the default measurement set by
-   station.set_measurement
-
-   In addition to creating the loop, this function also
-   initiates the data set and live plotting window.
-
-   Args:
-       sweep_parameter (Parameter): The qcodes parameter to sweep over.
-
-       start (float): the start value of the sweep.
-
-       stop (float): the stop value of the sweep.
-
-       num (int): the number of points in the sweep.
-
-       delay (float): the number of seconds to wait after setting a value before measuring.
-
-       device_info (str): a string with information about the device
-
-       instrument_info (str): a string with information about the setup that will not
-           be captured by the metadata (e.g. voltage dividers, preamp settings)
-
-       measure (list): a list of parameters to measure at each point in the
-           loop. If None, will use the default measurement set by the default station
-
-       plot (list): a list of parameters to plot at each point in the loop.
-
-       run (bool, default False): run the loop immediately after creation.
-
-   Returns:
-       The ActiveLoop. The data is accessible as loop.data_set. This can then be used
-           for plotting, if necessary, e.g. pp=qc.live_plot(loop.data_set,params_to_plot)
-
-
-.. py:function:: loop2d(sweep_parameter, start, stop, num, delay, step_parameter, step_start, step_stop, step_num, step_delay, sweep_type='linear', step_type='linear', snake=False, step_action=None, device_info='', instrument_info='', measure=None, plot=None, run=False)
-
-   Create a 2D loop, the associated data set, and optionally, live plotting.
-
-   A 2D loop has two independent parameters, a 'sweep' parameter and a 'step' parameter.
-   At each point in the step parameter, the sweep parameter performs a loop.
-
-   Args:
-       sweep_parameter (Parameter): The qcodes parameter to sweep over.
-
-       start (float): the start value of the sweep.
-
-       stop (float): the stop value of the sweep.
-
-       num (int): the number of points in the sweep.
-
-       delay (float): the number of seconds to wait after setting a value before
-           measuring.
-
-       step_parameter (Parameter): The parameter to step over.
-
-       step_start (float): the start value of the step.
-
-       step_stop (float): the stop value of the step.
-
-       step_num (int): the number of points in the step.
-
-       step_delay (float): the number of seconds to wait after setting a value before
-           starting the inner loop.
-
-       snake (bool, default False): Whether to run a normal raster scan (False) or a snake scan (True). If True, the inner loop will
-           be run in reverse order on every other step of the outer loop.
-
-       step_action: an action (e.g. qcodes Task) to run at each point in the step loop AFTER the step parameter
-           has been set, but BEFORE the inner loop starts
-
-       device_info (str): a string with information about the device
-
-       instrument_info (str): a string with information about the setup that will not
-           be captured by the metadata (e.g. voltage dividers, preamp settings)
-
-       measure (list): a list of parameters to measure at each point in the
-           loop. If None, will use the default measurement set by the default station
-
-       plot (list): a list of parameters to plot at each point in the loop.
-
-       run (bool, default False): run the loop immediately after creation.
-
-   Returns:
-       The ActiveLoop. The data is accessible as loop.data_set. This can then be used
-           for plotting, if necessary, e.g. pp=qc.live_plot(loop.data_set,params_to_plot)
-
-
-.. py:function:: loop2dUD(sweep_parameter, start, stop, num, delay, step_parameter, step_start, step_stop, step_num, step_delay, sweep_type='linear', step_type='linear', step_action=None, fast_down=False, device_info='', instrument_info='', measure=None, plot=None, run=False)
-
-   Create a 2D loop where at each point in the step parameter, the sweep parameter performs a loop
-   in two directions: up and down. Create also a data set, and optionally, live plotting.
-
-   Args:
-       sweep_parameter (Parameter): The qcodes parameter to sweep over.
-
-       start (float): the start value of the sweep.
-
-       stop (float): the stop value of the sweep.
-
-       num (int): the number of points in the sweep.
-
-       delay (float): the number of seconds to wait after setting a value before
-           measuring.
-
-       step_parameter (Parameter): The parameter to step over.
-
-       step_start (float): the start value of the step.
-
-       step_stop (float): the stop value of the step.
-
-       step_num (int): the number of points in the step.
-
-       step_delay (float): the number of seconds to wait after setting a value before
-           starting the inner loop.
-
-       step_action: an action (e.g. qcodes Task) to run at each point in the step loop AFTER 
-           the step parameter has been set, but BEFORE the inner loop starts
-
-       fast_down (int): If provided, the down loop will be shortened by this factor.
-
-       device_info (str): a string with information about the device
-
-       instrument_info (str): a string with information about the setup that will not
-           be captured by the metadata (e.g. voltage dividers, preamp settings)
-
-       measure (list): a list of parameters to measure at each point in the
-           loop. If None, will use the default measurement set by the default station
-
-       plot (list): a list of parameters to plot at each point in the loop.
-
-       run (bool, default False): run the loop immediately after creation.
-
-   Returns:
-       The ActiveLoop. The data is accessible as loop.data_set. This can then be used
-           for plotting, if necessary, e.g. pp=qc.live_plot(loop.data_set,params_to_plot)
 
 
 .. py:class:: Measure(setpoints=None, parameters=None, use_threads=False, station=None, name=None, timer=False)
@@ -865,194 +501,6 @@ Package Contents
 
 
 
-.. py:class:: Plot(title=None, name=None)
-
-   Class to create live plot instances.
-
-   Most methods of this class should not be called directly; only add(), add_multiple(), clear() and close()
-   should be used by the user.
-
-   Args:
-       title (str, optional): Title of the plot window.
-       name (str, optional): Name of the plot instance. If not provided, a random UUID will be used.
-
-
-   .. py:attribute:: context
-
-
-   .. py:attribute:: socket
-
-
-   .. py:attribute:: port
-      :value: 8876
-
-
-
-   .. py:attribute:: encoding
-      :value: 'utf-8'
-
-
-
-   .. py:attribute:: topic
-      :value: 'qcodes.plot.00000000000000000000000000000000'
-
-
-
-   .. py:attribute:: metadata
-
-
-   .. py:attribute:: data_uuid
-      :value: '00000000000000000000000000000000'
-
-
-
-   .. py:attribute:: client_ready_event
-
-
-   .. py:attribute:: control_task
-
-
-   .. py:attribute:: control_port
-
-
-   .. py:method:: publish(data, uuid=None)
-
-
-   .. py:method:: publish_data(data, uuid, meta, arrays)
-
-
-   .. py:method:: add_metadata(new_metadata, uuid=None)
-
-
-   .. py:method:: store(loop_indices, ids_values, uuid)
-
-
-   .. py:method:: save_metadata(metadata, uuid=None)
-
-
-   .. py:method:: finalize(uuid=None)
-
-
-   .. py:method:: new_client(name=None)
-
-
-   .. py:method:: clear()
-
-
-   .. py:method:: add_multiple(*z_params)
-
-      Add multiple ``DataArray`` s to the ``Plot``.
-
-      Args:
-          *z_params (Sequence [DataArray]): DataArrays to be added to the Plot.
-              Each DataArray is added to a separate subplot.
-
-
-
-   .. py:method:: add(*args, x=None, y=None, z=None, subplot=0, name=None, title=None, position=None, relativeto=None, xlabel=None, ylabel=None, zlabel=None, xunit=None, yunit=None, zunit=None, silent=True, symbol=None, size=None, **kwargs)
-
-      Add a trace to the plot.
-
-      Args:
-          *args (DataArray): positional arguments, can be:
-              - ``y`` or ``z``: specify just the 1D or 2D data independent parameter, with the setpoint
-                  axis or axes implied from the DataSetPP setpoints.
-              - ``x, y`` or ``x, y, z``: specify all axes of the data.
-          x (DataArray, optional): x-axis data.
-          y (DataArray, optional): y-axis data.
-          z (DataArray, optional): z-axis data.
-          subplot (int, optional): Subplot index to add the trace to. Defaults to 0.
-          name (str, optional): Name of the trace. If not provided, the name of the DataArray will be used.
-          title (str, optional): Title of the trace. If not provided, the name of the DataArray will be used.
-          position (str): Position of the subplot in the plot window. Options are 'bottom', 'top', 'left', 'right', 'above', or 'below'.
-          relativeto (str, optional): Position relative to which the subplot should be placed.
-          xlabel (str, optional): Label for the x-axis. If not provided, the label of the DataArray will be used.
-          ylabel (str, optional): Label for the y-axis. If not provided, the label of the DataArray will be used.
-          zlabel (str, optional): Label for the z-axis. If not provided, the label of the DataArray will be used.
-          xunit (str, optional): Unit for the x-axis. If not provided, the unit of the DataArray will be used.
-          yunit (str, optional): Unit for the y-axis. If not provided, the unit of the DataArray will be used.
-          zunit (str, optional): Unit for the z-axis. If not provided, the unit of the DataArray will be used.
-          silent (bool, optional): If True, do not wait for the client to be ready. Defaults to True.
-          symbol (str, optional): Symbol to use for the trace. Defaults to None.
-          size (int, optional): Size of the symbol. Defaults to None.
-
-
-
-   .. py:method:: expand_trace(args, kwargs)
-
-      Complete the x, y (and possibly z) data definition for a trace.
-
-      Also modifies kwargs in place so that all the data needed to fully specify the
-      trace is present (ie either x and y or x and y and z)
-
-      Both ``__init__`` (for the first trace) and the ``add`` method support multiple
-      ways to specify the data in the trace:
-
-      As args:
-          - ``add(y)`` or ``add(z)`` specify just the main 1D or 2D data, with the setpoint
-            axis or axes implied.
-          - ``add(x, y)`` or ``add(x, y, z)`` specify all axes of the data.
-      And as kwargs:
-          - ``add(x=x, y=y, z=z)`` you specify exactly the data you want on each axis.
-            Any but the last (y or z) can be omitted, which allows for all of the same
-            forms as with args, plus x and z or y and z, with just one axis implied from
-            the setpoints of the z data.
-
-      This method takes any of those forms and converts them into a complete set of
-      kwargs, containing all of the explicit or implied data to be used in plotting this trace.
-
-      Args:
-          args (Tuple[DataArray]): positional args, as passed to either ``__init__`` or ``add``
-          kwargs (Dict(DataArray]): keyword args, as passed to either ``__init__`` or ``add``.
-              kwargs may contain non-data items in keys other than x, y, and z.
-
-      Raises:
-         ValueError: if the shape of the data does not match that of args
-         ValueError: if the data is provided twice
-
-
-
-   .. py:method:: set_title(title)
-
-
-   .. py:method:: set_cmap(cmap)
-
-
-   .. py:method:: save(filename=None, subplot=None)
-
-
-   .. py:method:: set_xlabel(label, subplot=0)
-
-
-   .. py:method:: set_ylabel(label, subplot=0)
-
-
-   .. py:method:: set_geometry(height, width, x0, y0)
-
-
-   .. py:method:: close()
-
-
-.. py:function:: live_plot(*args, data_set=None, data_items=None)
-
-   Entry point for live plotting of qcodespp data.
-
-   Args:
-       *args (DataSetPP, DataArray, Parameter, list, tuple): Positional arguments can be:
-           - ``DataSetPP``: The dataset to link to the live plot.
-           - ``DataArray`` or ``Parameter``: The data items to plot.
-           - A list or tuple of ``DataArray`` or ``Parameter`` objects to plot.
-       data_set (``DataSetPP``, optional): The ``DataSetPP`` to link to the live plot.
-           If not provided, it will try to use the default dataset.
-           If no data_set, one can add items to the plot, but the data will not be tracked.
-       data_items (Sequence[``DataArray``, ``Parameter``], optional): List of ``DataArray``
-           or ``Parameter`` objects to plot. If not provided, nothing will be plotted initially,
-           the user can use ``Plot.add()`` later.
-
-   Returns:
-       The ``Plot`` instance.
-
-
 .. py:function:: offline_plotting(folder=None, link_to_default=True, use_thread=True)
 
    Entry point for qcodespp offline plotting. From CLI: qcodespp offline_plotting. From notebooks: qcodespp.offline_plotting().
@@ -1108,7 +556,7 @@ Package Contents
 
 
 
-.. py:function:: colored_traces(x, y, offset=0, figsize=0, cmap=0, labels=0, xlim=0, ylim=0, xmajor=0, xminor=0, ymajor=0, yminor=0, font_size=0, label_size=0)
+.. py:function:: colored_traces(x, y, offset=0, figsize=0, cmap=0, labels=0, xlim=0, ylim=0, style='-', xmajor=0, xminor=0, ymajor=0, yminor=0, font_size=0, label_size=0)
 
    Plot a series of 1D traces where the lines are colored according to a matplotlib colormap.
 
@@ -1447,4 +895,6 @@ Package Contents
                                            unit='V',
                                            get_cmd=VoltageInstrument.get_buffer)
 
+
+.. py:data:: stepper
 

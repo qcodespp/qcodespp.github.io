@@ -216,11 +216,6 @@ Module Contents
    Bases: :py:obj:`PyQt5.QtWidgets.QWidget`
 
 
-   .. py:attribute:: auto_updating
-      :value: False
-
-
-
    .. py:attribute:: theme
       :value: ((60, 60, 60), 'w')
 

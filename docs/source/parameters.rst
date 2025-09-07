@@ -66,7 +66,7 @@ To loop over time, i.e. measure parameters at a regular interval without another
 
 .. code-block:: python
 
-    from qcodespp.parameters import stepper
+    from qcodespp import stepper
 
 In a loop, simply use ``stepper`` as the ``sweep_parameter`` and increment from e.g. 0 to 100 in 101 steps, and choose a suitable ``delay`` to define the measurement interval. If you want to measure as fast as possible, set the ``delay`` to e.g. 0.001; setting it to 0 can sometimes cause problems.
 
@@ -90,7 +90,7 @@ For the special case of a scaling a parameter, there is ``qc.ScaledParameter``, 
 
 'Moving' Parameters
 -------------------
-Sometimes you want to sweep a parameter without taking data. This is useful if you want to set a sensitive parameter, e.g. a gate voltage, where using ``.set()`` could damage the sample. For this you can use
+Sometimes you want to sweep a parameter without taking data. This is useful if you want to set a sensitive parameter, e.g. a gate voltage, where large jumps could damage the sample. For this you can use
 
 .. code-block:: python
 
@@ -110,16 +110,15 @@ or if you are happy with the default step number (101) and time (0.03 s), simply
 
 MultiParameter and MultiParameterWrapper
 ----------------------------------------
-``MultiParameterWrapper`` enables easily setting, getting and sweeping multiple parameters. It is an extension of the ``MultiParameter`` `from QCoDeS <https://microsoft.github.io/Qcodes/examples/Parameters/MultiParameter.html>`__. To define it, simply provide a list of pre-existing parameters.
+``MultiParameterWrapper`` wraps multiple pre-existing ``Parameter`` s into a single object, to enable easily setting, getting and sweeping. It is an extension of ``MultiParameter`` `from QCoDeS <https://microsoft.github.io/Qcodes/examples/Parameters/MultiParameter.html>`__. To define, simply provide a list or tuple of parameters.
 
 .. code-block:: python
 
     multi=qc.MultiParameterWrapper((parameter1,parameter2,parameter3),name='multi') 
 
-You can get as usual with ``multi()``, which will return the values for all of the parameters. To set, you can either provide the same number of values as the number of parameters, e.g. ``multi((0.1,490,5.6))``, or a single value to set all contained parameters to the same value, e.g. multi(0)
+You can get as usual with ``multi()``, which will return the values for all of the parameters. To set, you can either provide the same number of values as the number of parameters, e.g. ``multi((0.1,490,5.6))``, or a single value to set all contained parameters to the same value, e.g. multi(0). To measure all contained parameters in a ``Loop``, simply provide ``multi`` to the loop's ``measure`` argument, or in ``station.set_measurement``
 
-To use it in a ``Loop``, provide multiple ``start`` and ``stop`` values, corresponding to each 
-``Parameter``:
+To use the ``MultiParameterWrapper`` as the independent parameter in a ``Loop``, provide multiple ``start`` and ``stop`` values, corresponding to each ``Parameter``:
 
 .. code-block:: python
 
@@ -145,7 +144,7 @@ One can also move the parameters
     multi.move((0,0.1,4.5))
     multi.move(0)
 
-If you provide a single value, all parameters will be moved to that single value. The parameters move sequentially, not simultaneously (in contrast to sweep where they move 'simultaneously')
+If you provide a single value, all parameters will be moved to that single value.
 
 Non-numerical Parameters
 ------------------------

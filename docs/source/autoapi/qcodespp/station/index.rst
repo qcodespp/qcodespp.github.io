@@ -131,7 +131,7 @@ Module Contents
 
 
 
-   .. py:method:: communication_time(measurement_num=5, return_average=True)
+   .. py:method:: communication_time(measurement_num=5, return_average=True, include_callables=False)
 
       Estimate how long it takes to communicate with the instruments in the station.
 
@@ -139,17 +139,21 @@ Module Contents
           measurement_num: Number of measurements to take to estimate the communication time.
               Default is 1, but can be set to a higher number for more accurate estimates.
           return_average: Whether to return the average of the measurements or the entire list.
+          include_callables: Whether to estimate the time non-gettable callables takes. 
+              These can be other allowable actions, e.g. qc.Task, qc.BreakIf. Usually they behave 
+              unpredictably and it's best to exclude them.
       Returns:
           Either the average communication time or the list of communication times for each measurement.
 
 
 
-   .. py:method:: measurement(*actions)
+   .. py:method:: measurement(*actions, include_callables=True)
 
       Measure the default measurement, or parameters in actions.
 
       Args:
           *actions: parameters to mesure
+          include_callables (bool): Perform non-gettable actions, i.e. Task, BreakIf, etc.
 
 
 

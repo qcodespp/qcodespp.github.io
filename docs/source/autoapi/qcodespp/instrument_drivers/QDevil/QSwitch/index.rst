@@ -10,6 +10,7 @@ Attributes
 .. autosummary::
 
    qcodespp.instrument_drivers.QDevil.QSwitch.State
+   qcodespp.instrument_drivers.QDevil.QSwitch.OneOrMore
    qcodespp.instrument_drivers.QDevil.QSwitch.relay_lines
    qcodespp.instrument_drivers.QDevil.QSwitch.relays_per_line
 
@@ -20,6 +21,7 @@ Classes
 .. autosummary::
 
    qcodespp.instrument_drivers.QDevil.QSwitch.QSwitch
+   qcodespp.instrument_drivers.QDevil.QSwitch.QSwitches
 
 
 Functions
@@ -39,6 +41,8 @@ Module Contents
 
 .. py:data:: State
 
+.. py:data:: OneOrMore
+
 .. py:function:: channel_list_to_state(channel_list: str) -> State
 
 .. py:function:: state_to_expanded_list(state: State) -> str
@@ -54,7 +58,7 @@ Module Contents
 
 
 .. py:data:: relays_per_line
-   :value: 9
+   :value: 10
 
 
 .. py:class:: QSwitch(name: str, address: str, **kwargs: Unpack[InstrumentBaseKWArgs])
@@ -112,7 +116,7 @@ Module Contents
    .. py:method:: state_force_update() -> None
 
 
-   .. py:method:: save_state(name: str, unique=False) -> None
+   .. py:method:: save_state(name: str, unique=False, overwrite=False) -> None
 
       Save the current state of the relays
 
@@ -156,19 +160,19 @@ Module Contents
    .. py:method:: open_relay(line: int, tap: int) -> None
 
 
-   .. py:attribute:: OneOrMore
-
-
    .. py:method:: ground(lines: OneOrMore) -> None
 
 
    .. py:method:: connect(lines: OneOrMore) -> None
 
 
-   .. py:method:: breakout(line: str, tap: str) -> None
+   .. py:method:: connect_all() -> None
 
 
-   .. py:method:: lineFloat(lines: OneOrMore) -> None
+   .. py:method:: breakout(line: Union[str, int], tap: Union[str, int]) -> None
+
+
+   .. py:method:: line_float(lines: OneOrMore) -> None
 
 
    .. py:method:: arrange(breakouts: Optional[Dict[str, int]] = None, lines: Optional[Dict[str, int]] = None) -> None
@@ -226,6 +230,179 @@ Module Contents
 
       Returns:
           str: SCPI answer
+
+
+
+.. py:class:: QSwitches(qsws, linked_BNCs=None, name='qsws', **kwargs)
+
+   Bases: :py:obj:`qcodes.instrument.visa.Instrument`
+
+
+   Treat multiple QSwitches as a single instrument.
+
+   Lines are numbered 1 to N*24 where N is the number of QSwitches
+   BNC taps are numbered 1-8, 11-18, 21-28, etc.
+   Special taps 'ground'  and 'connect' remain marked as 0 and 9.
+
+   linked_BNCs supports the case of externally linking the front BNCs such that e.g. a single
+   instrument input/output can be connected to any of the N*24 lines. The user can then use the
+   lowest value defined by the link. e.g. if linked_BNCs=[[1,11],[2,12]] then
+   qsws.close_relay(28,1) is equivalent to
+   qsws.close_relay(28,11), and so on.
+   It is assumed maximum one link per QSwitch, since otherwise links can be made internally.
+
+   Args:
+       qsws (sequence[QSwitches]): list of already initialized/connected qswitches
+       linked_BNCs (list[list]): list of linked BNCs, e.g. [1,11,21,31].
+       name (str): QCodes name. Default = 'qsws'
+
+   Usage:
+       qsw1 = QSwitch(...)
+       qsw2 = QSwitch(...)
+       qsws = QSwitches([qsw1, qsw2])
+
+
+   .. py:attribute:: qsws
+      :value: []
+
+
+
+   .. py:attribute:: linked_BNCs
+      :value: None
+
+
+
+   .. py:attribute:: state
+
+
+   .. py:attribute:: closed_relays
+
+
+   .. py:attribute:: overview
+
+
+   .. py:attribute:: auto_save
+
+
+   .. py:attribute:: locked_relays
+      :value: []
+
+
+
+   .. py:method:: reset()
+
+      Reset all QSwitches to their default state, i.e. connected to ground through 1MOhm.
+
+
+
+   .. py:method:: soft_reset(force=False) -> None
+
+      Soft reset all QSwitches, i.e. connect all lines through 1MOhm to ground unless locked via self.locked_relays.
+
+
+
+   .. py:method:: errors() -> str
+
+
+   .. py:method:: error() -> str
+
+
+   .. py:method:: state_force_update() -> None
+
+
+   .. py:method:: abort() -> None
+
+
+   .. py:method:: save_state(name: str, overwrite=False) -> None
+
+
+   .. py:method:: load_state(name: str) -> None
+
+
+   .. py:method:: saved_states() -> Dict[str, str]
+
+
+   .. py:method:: open_relay(line: int, tap: int) -> None
+
+      Open a relay at the specified line and tap.
+
+
+
+   .. py:method:: close_relay(line: int, tap: int) -> None
+
+      Close a relay at the specified line and tap.
+
+
+
+   .. py:method:: close_relays(relays: State) -> None
+
+      Close multiple relays at once.
+
+      Args:
+          relays: A list of tuples specifying the (line, tap) of each relay to close.
+              e.g. [(1, 0), (2, 1)]
+
+
+
+   .. py:method:: open_relays(relays: State) -> None
+
+      Open multiple relays at once.
+
+      Args:
+          relays: A list of tuples specifying the (line, tap) of each relay to open.
+              e.g. [(1, 0), (2, 1)]
+
+
+
+   .. py:method:: ground(lines: OneOrMore) -> None
+
+      Connect the specified lines to ground through 1MOhm resistors.
+
+      Args:
+          lines: The line(s) to connect to ground. Specify a single line through its integer value
+              or its name, or multiple lines through a list of integers or names.
+
+
+
+   .. py:method:: connect(lines: OneOrMore) -> None
+
+      Connect the specified lines directly through to the output (i.e. connect tap 9)
+
+      Args:
+          lines: The line(s) to connect to the output. Specify a single line through its integer value
+              or its name, or multiple lines through a list of integers or names.
+
+
+
+   .. py:method:: connect_all() -> None
+
+      Connect all lines on all QSwitches through to their outputs, i.e. close tap 9 for all lines.
+
+
+
+   .. py:method:: breakout(line: Union[str, int], tap: Union[str, int]) -> None
+
+      Connect the specified line to the specified tap AND disconnect ground.
+
+
+
+   .. py:method:: line_float(lines: OneOrMore) -> None
+
+      Open _all_ relays on one or more lines such that the line is floating.
+
+      Args:
+          lines: The line(s) to float. Specify a single line through its integer value
+              or its name, or multiple lines through a list of integers or names.
+
+
+
+   .. py:method:: arrange(breakouts: Optional[Dict[str, int]] = None, lines: Optional[Dict[str, int]] = None) -> None
+
+      An arrangement of names for lines and breakouts
+
+      Args:
+          breakouts (Dict[str, int]): Name/breakout pairs
+          lines (Dict[str, int]): Name/line pairs
 
 
 

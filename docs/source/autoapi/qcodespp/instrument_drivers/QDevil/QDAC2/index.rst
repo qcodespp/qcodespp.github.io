@@ -1496,7 +1496,7 @@ Module Contents
 
 
 
-   .. py:method:: multi_currents(channel_list=[i + 1 for i in range(24)])
+   .. py:method:: multi_currents(channel_list=[i + 1 for i in range(24)], name='qdac_currents')
 
 
    .. py:method:: start_recording_scpi() -> None

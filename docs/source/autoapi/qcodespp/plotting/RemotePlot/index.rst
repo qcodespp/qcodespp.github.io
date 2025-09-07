@@ -115,7 +115,7 @@ Module Contents
 
 
    .. py:attribute:: topic
-      :value: 'qcodes.plot.00000000000000000000000000000000'
+      :value: 'qcodes++.Plot.00000000000000000000000000000000'
 
 
 
@@ -160,28 +160,34 @@ Module Contents
    .. py:method:: clear()
 
 
-   .. py:method:: add_multiple(*z_params)
+   .. py:method:: add_multiple(*z_params, data_set=None)
 
-      Add multiple ``DataArray`` s to the ``Plot``.
+
+   .. py:method:: add_subplots(*z_params, data_set=None)
+
+      Add multiple subplots to the ``Plot``, each with a single dependent DataArray.
 
       Args:
-          *z_params (Sequence [DataArray]): DataArrays to be added to the Plot.
-              Each DataArray is added to a separate subplot.
+          *z_params (Sequence [DataArray/Parameter/str]): DataArrays to be added to the Plot.
+              Supply the DataArray object itself, a Parameter corresponding to a DataArray in the DataSetPP,
+              or the DataArray's array_id as a string.
+          data_set (DataSetPP, optional): The DataSetPP to link to the live plot. If none provided, the default dataset
+              will be used. Usually this is the most recent DataSetPP to be instantiated.
 
 
 
-   .. py:method:: add(*args, x=None, y=None, z=None, subplot=0, name=None, title=None, position=None, relativeto=None, xlabel=None, ylabel=None, zlabel=None, xunit=None, yunit=None, zunit=None, silent=True, symbol=None, size=None, **kwargs)
+   .. py:method:: add(*args, x=None, y=None, z=None, subplot=0, name=None, title=None, position=None, relativeto=None, xlabel=None, ylabel=None, zlabel=None, xunit=None, yunit=None, zunit=None, silent=True, symbol=None, size=None, data_set=None, **kwargs)
 
       Add a trace to the plot.
 
       Args:
-          *args (DataArray): positional arguments, can be:
+          *args (DataArray, str, Parameter, np.ndarray): positional arguments, can be:
               - ``y`` or ``z``: specify just the 1D or 2D data independent parameter, with the setpoint
                   axis or axes implied from the DataSetPP setpoints.
               - ``x, y`` or ``x, y, z``: specify all axes of the data.
-          x (DataArray, optional): x-axis data.
-          y (DataArray, optional): y-axis data.
-          z (DataArray, optional): z-axis data.
+          x (DataArray, str, Parameter, np.ndarray, optional): x-axis data.
+          y (DataArray, str, Parameter, np.ndarray, optional): y-axis data.
+          z (DataArray, str, Parameter, np.ndarray, optional): z-axis data.
           subplot (int, optional): Subplot index to add the trace to. Defaults to 0.
           name (str, optional): Name of the trace. If not provided, the name of the DataArray will be used.
           title (str, optional): Title of the trace. If not provided, the name of the DataArray will be used.

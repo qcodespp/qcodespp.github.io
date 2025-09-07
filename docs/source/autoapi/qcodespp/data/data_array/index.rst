@@ -20,7 +20,7 @@ Module Contents
    Bases: :py:obj:`qcodes.utils.DelegateAttributes`
 
 
-   A container for one parameter in a qcodespp DataSetPP
+   A container for one parameter's data in a qcodespp DataSetPP
 
    A DataArray can either be a setpoint array or a measured parameter.
    If this is a measured parameter, this object doesn't contain
@@ -100,7 +100,7 @@ Module Contents
 
 
    .. py:attribute:: SNAP_ATTRS
-      :value: ('array_id', 'name', 'shape', 'unit', 'label', 'action_indices', 'is_setpoint', 'data_type')
+      :value: ('array_id', 'name', 'shape', 'unit', 'label', 'action_indices', 'is_setpoint', 'set_array_ids',...
 
 
 
@@ -110,7 +110,7 @@ Module Contents
 
 
    .. py:attribute:: SNAP_OMIT_KEYS
-      :value: ('ts', 'value', '__class__', 'set_arrays', 'shape', 'array_id', 'action_indices')
+      :value: ('ts', 'value', '__class__', 'shape', 'array_id', 'set_arraysaction_indices')
 
 
 
@@ -188,6 +188,9 @@ Module Contents
 
 
 
+   .. py:property:: set_array_ids
+
+
    .. py:method:: nest(size, action_index=None, set_array=None)
 
       Nest this array inside a new outer loop.
@@ -243,6 +246,11 @@ Module Contents
    .. py:method:: clear()
 
       Fill the (already existing) data array with nan.
+
+      Numpy ndarrays have to be filled with something. Zero (or any number) is a bad choice, 
+      so we use NaN for floats and 'nan' for strings. These are the only 
+      data types supported, but Boolean, Int, etc can be cast to float, and 
+      complex numbers can either be broken into two floats, or stored as string.
 
 
 
@@ -390,7 +398,7 @@ Module Contents
 
 
 
-   .. py:method:: return_subset(indices)
+   .. py:method:: subset(indices)
 
       Return a subset of this DataArray.
 
@@ -404,5 +412,68 @@ Module Contents
       Returns:
           DataArray or scalar: The selected data.
 
+
+
+   .. py:method:: __add__(val)
+
+
+   .. py:method:: __radd__(val)
+
+
+   .. py:method:: __sub__(val)
+
+
+   .. py:method:: __rsub__(val)
+
+
+   .. py:method:: __mul__(val)
+
+
+   .. py:method:: __rmul__(val)
+
+
+   .. py:method:: __truediv__(val)
+
+
+   .. py:method:: __rtruediv__(val)
+
+
+   .. py:method:: __floordiv__(val)
+
+
+   .. py:method:: __rfloordiv__(val)
+
+
+   .. py:method:: __mod__(val)
+
+
+   .. py:method:: __rmod__(val)
+
+
+   .. py:method:: __pow__(val)
+
+
+   .. py:method:: __rpow__(val)
+
+
+   .. py:method:: __neg__()
+
+
+   .. py:method:: __pos__()
+
+
+   .. py:method:: __abs__()
+
+
+   .. py:method:: __lt__(val)
+
+
+   .. py:method:: __le__(val)
+
+
+   .. py:method:: __gt__(val)
+
+
+   .. py:method:: __ge__(val)
 
 
