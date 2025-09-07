@@ -219,7 +219,7 @@ Package Contents
 
 
 .. py:data:: __version__
-   :value: '0.1.10'
+   :value: '0.1.11'
 
 
 .. py:class:: Measure(setpoints=None, parameters=None, use_threads=False, station=None, name=None, timer=False)
