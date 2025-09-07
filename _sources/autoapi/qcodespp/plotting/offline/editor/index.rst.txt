@@ -97,6 +97,16 @@ Module Contents
 
 
 
+   .. py:attribute:: live_tracking
+      :value: False
+
+
+
+   .. py:attribute:: show_linecut_markers
+      :value: True
+
+
+
    .. py:attribute:: global_text_size
       :value: '12'
 
@@ -228,7 +238,7 @@ Module Contents
    .. py:method:: set_refresh_intervals(from_dropdown=False)
 
 
-   .. py:method:: track_button_clicked()
+   .. py:method:: start_stop_tracking()
 
 
    .. py:method:: start_auto_refresh(time_interval, wait_for_file=False)
@@ -397,6 +407,9 @@ Module Contents
 
 
    .. py:method:: paste_linecuts(item=None)
+
+
+   .. py:method:: show_hide_linecuts_changed()
 
 
    .. py:method:: reinstate_markers(item, orientation)

@@ -71,14 +71,12 @@ Module Contents
 
 
 
-   .. py:attribute:: labels_changed
-      :value: False
-
-
-
    .. py:attribute:: legend
       :value: False
 
+
+
+   .. py:attribute:: label_locks
 
 
    .. py:method:: prepare_dataset()
@@ -141,7 +139,7 @@ Module Contents
    .. py:method:: add_plot(editor_window)
 
 
-   .. py:method:: apply_default_lables()
+   .. py:method:: apply_default_labels()
 
 
    .. py:method:: reset_view_settings(overrule=False)
@@ -184,9 +182,6 @@ Module Contents
 
 
    .. py:method:: file_finished()
-
-
-   .. py:method:: hide_linecuts()
 
 
 .. py:class:: NumpyData(filepath, canvas, dataset)

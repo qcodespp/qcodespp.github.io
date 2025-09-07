@@ -1,0 +1,263 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qcodespp.instrument_drivers.ZI.ZI_helpers &mdash; qcodes++ 0.1.10 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+    <link rel="shortcut icon" href="../../../../../_static/qcppfavicon.svg"/>
+      <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=c2df6d44"></script>
+      <script src="../../../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="qcodespp.instrument_drivers.cryogenic" href="../../cryogenic/index.html" />
+    <link rel="prev" title="qcodespp.instrument_drivers.ZI.ZIMFLI_sync" href="../ZIMFLI_sync/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            qcodes++
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../parameters.html">Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../visa.html">Instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../live_plot.html">Live plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../template.html">Example template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">qcodespp</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../actions/index.html">qcodespp.actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cli/index.html">qcodespp.cli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../data/index.html">qcodespp.data</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html">qcodespp.instrument_drivers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../loops/index.html">qcodespp.loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../measure/index.html">qcodespp.measure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../parameters/index.html">qcodespp.parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotting/index.html">qcodespp.plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../scripts/index.html">qcodespp.scripts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../station/index.html">qcodespp.station</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../utils/index.html">qcodespp.utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../version/index.html">qcodespp.version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">qcodes++</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">qcodespp</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">qcodespp.instrument_drivers</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">qcodespp.instrument_drivers.ZI</a></li>
+      <li class="breadcrumb-item active">qcodespp.instrument_drivers.ZI.ZI_helpers</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/autoapi/qcodespp/instrument_drivers/ZI/ZI_helpers/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-qcodespp.instrument_drivers.ZI.ZI_helpers">
+<span id="qcodespp-instrument-drivers-zi-zi-helpers"></span><h1>qcodespp.instrument_drivers.ZI.ZI_helpers<a class="headerlink" href="#module-qcodespp.instrument_drivers.ZI.ZI_helpers" title="Permalink to this heading"></a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.ZI.ZI_helpers.ZISampleParam">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.ZI.ZI_helpers.</span></span><span class="sig-name descname"><span class="pre">ZISampleParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'V'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ai1unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'V'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ai2unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'V'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['x',</span> <span class="pre">'y',</span> <span class="pre">'r',</span> <span class="pre">'phase']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ai0gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ai1gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.ZI.ZI_helpers.ZISampleParam" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodespp.MultiParameter</span></code></p>
+<p>MultiParameter containing various parts of a ZI lockin sample reading.</p>
+<p>ZI lockins enable making a single reading for X, Y, R, phase, etc.
+Leverage that to make a single reading and return as many pieces as the user wishes.
+The advantage is that the communication time scales linearly with the number of times
+the lockin is called; i.e. individually reading X, Y, R, and phase would take four times
+longer than using this approach.</p>
+<p>Should work for any ZI lockin, using either the zhinst-qcodes or qcodespp drivers.</p>
+<dl>
+<dt>Args:</dt><dd><p>name (str): The name of the parameter.
+sample (callable): The .sample method of the ZI lock-in amplifier.
+unit (Opt, str): The unit for the demodulator input. Default is ‘V’.
+ai1unit (Opt, str): The unit for auxin0 readings (default is ‘V’).
+ai2unit (Opt, str): The unit for auxin1 readings (default is ‘V’).
+components (Opt, list of strings): The components to include in the reading.</p>
+<blockquote>
+<div><p>Accepts any of the values returned by the sample (default is ‘x’, ‘y’, ‘r’, ‘phase’).</p>
+</div></blockquote>
+<p>gain (Opt, float): Scaling factor to apply to X, Y, R (default is 1).
+ai0gain (Opt, float): Scaling factor to apply to auxin0 (default is 1).
+ai1gain (Opt, float): Scaling factor to apply to auxin1 (default is 1).</p>
+</dd>
+<dt>Usage:</dt><dd><dl class="simple">
+<dt>Current = ZISampleParam(‘Current’,</dt><dd><p>li_a.demod0_sample,
+unit=’A’,
+components=[‘r’, ‘phase’],
+gain=1e-6
+)</p>
+</dd>
+</dl>
+<p>station.set_measurement(Current)</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.ZI.ZI_helpers.ZISampleParam.gain">
+<span class="sig-name descname"><span class="pre">gain</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1.0</span></em><a class="headerlink" href="#qcodespp.instrument_drivers.ZI.ZI_helpers.ZISampleParam.gain" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.ZI.ZI_helpers.ZISampleParam.ai0gain">
+<span class="sig-name descname"><span class="pre">ai0gain</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1.0</span></em><a class="headerlink" href="#qcodespp.instrument_drivers.ZI.ZI_helpers.ZISampleParam.ai0gain" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.ZI.ZI_helpers.ZISampleParam.ai1gain">
+<span class="sig-name descname"><span class="pre">ai1gain</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1.0</span></em><a class="headerlink" href="#qcodespp.instrument_drivers.ZI.ZI_helpers.ZISampleParam.ai1gain" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.ZI.ZI_helpers.ZISampleParam.get_raw">
+<span class="sig-name descname"><span class="pre">get_raw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.ZI.ZI_helpers.ZISampleParam.get_raw" title="Permalink to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">get_raw</span></code> is called to perform the actual data acquisition from the
+instrument. This method should either be overwritten to perform the
+desired operation or alternatively for <code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code> a
+suitable method is automatically generated if <code class="docutils literal notranslate"><span class="pre">get_cmd</span></code> is supplied
+to the parameter constructor. The method is automatically wrapped to
+provide a <code class="docutils literal notranslate"><span class="pre">get</span></code> method on the parameter instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.ZI.ZI_helpers.R4ptParam">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.ZI.ZI_helpers.</span></span><span class="sig-name descname"><span class="pre">R4ptParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">li_a_sample</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">li_b_sample</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voltage_gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_R</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'R4pt'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.ZI.ZI_helpers.R4ptParam" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodespp.MultiParameter</span></code></p>
+<p>MultiParameter to return current, voltage and resistance based on two ZI lockin readings.</p>
+<p>ZI lockins enable making a single reading for X, Y, R, phase.
+Leverage that to make a single reading for each of two lockins to return all relevant parameters:
+Currents X Y R P, Voltages X Y R P, and computed resistances X Y R.
+Basically requires only two communication instances instead of 14.
+Phase not returned for resistance since it’s not obvious what that means.
+If currents are exactly zero, resistance returns NaN.</p>
+<p>Should work for any ZI lockin, using either the zhinst-qcodes or qcodespp drivers.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>li_a_sample (callable): The .sample method of the current-reading lock-in amplifier.
+li_b_sample (callable): The .sample method of the voltage-reading lock-in amplifier.
+current_gain (float): Gain on the current preamplifier (default is 1e-6).
+voltage_gain (float): Gain on the voltage preamplifier (default is 1e-3).
+include_R (bool): Whether to include amplitude values in the output (default is True).
+include_phase (bool): Whether to include phase values in the output (default is True).
+name (str): The name of the parameter (default is ‘R4pt’).</p>
+</dd>
+<dt>Usage:</dt><dd><p>R4pt = R4ptParam(li_a.demod0_sample, li_b.demod0_sample,1e-6,1e-3)
+station.set_measurement(R4pt)</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.ZI.ZI_helpers.R4ptParam.get_raw">
+<span class="sig-name descname"><span class="pre">get_raw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.ZI.ZI_helpers.R4ptParam.get_raw" title="Permalink to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">get_raw</span></code> is called to perform the actual data acquisition from the
+instrument. This method should either be overwritten to perform the
+desired operation or alternatively for <code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code> a
+suitable method is automatically generated if <code class="docutils literal notranslate"><span class="pre">get_cmd</span></code> is supplied
+to the parameter constructor. The method is automatically wrapped to
+provide a <code class="docutils literal notranslate"><span class="pre">get</span></code> method on the parameter instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../ZIMFLI_sync/index.html" class="btn btn-neutral float-left" title="qcodespp.instrument_drivers.ZI.ZIMFLI_sync" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../cryogenic/index.html" class="btn btn-neutral float-right" title="qcodespp.instrument_drivers.cryogenic" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, qcodes++.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

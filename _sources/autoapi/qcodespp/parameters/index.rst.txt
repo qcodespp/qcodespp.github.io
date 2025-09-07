@@ -12,6 +12,14 @@ qcodespp.parameters
 
 
 
+Attributes
+----------
+
+.. autosummary::
+
+   qcodespp.parameters.stepper
+
+
 Classes
 -------
 
@@ -140,6 +148,8 @@ Module Contents
    Args:
        data_type : The data type of the parameter. Can be 'float' or 'str'.
 
+
+.. py:data:: stepper
 
 .. py:class:: ArrayParameterWrapper(name=None, label=None, unit=None, instrument=None, shape=None, get_cmd=None)
 

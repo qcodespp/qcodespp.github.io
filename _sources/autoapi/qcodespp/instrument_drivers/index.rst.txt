@@ -10,6 +10,7 @@ Submodules
 .. toctree::
    :maxdepth: 1
 
+   /autoapi/qcodespp/instrument_drivers/Hioki/index
    /autoapi/qcodespp/instrument_drivers/Keysight/index
    /autoapi/qcodespp/instrument_drivers/Lakeshore/index
    /autoapi/qcodespp/instrument_drivers/QDevil/index

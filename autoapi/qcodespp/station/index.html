@@ -223,14 +223,19 @@ by .measure</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.station.Station.communication_time">
-<span class="sig-name descname"><span class="pre">communication_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">measurement_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_average</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.station.Station.communication_time" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">communication_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">measurement_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_average</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_callables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.station.Station.communication_time" title="Permalink to this definition"></a></dt>
 <dd><p>Estimate how long it takes to communicate with the instruments in the station.</p>
 <dl>
 <dt>Args:</dt><dd><dl class="simple">
 <dt>measurement_num: Number of measurements to take to estimate the communication time.</dt><dd><p>Default is 1, but can be set to a higher number for more accurate estimates.</p>
 </dd>
 </dl>
-<p>return_average: Whether to return the average of the measurements or the entire list.</p>
+<p>return_average: Whether to return the average of the measurements or the entire list.
+include_callables: Whether to estimate the time non-gettable callables takes.</p>
+<blockquote>
+<div><p>These can be other allowable actions, e.g. qc.Task, qc.BreakIf. Usually they behave
+unpredictably and it’s best to exclude them.</p>
+</div></blockquote>
 </dd>
 <dt>Returns:</dt><dd><p>Either the average communication time or the list of communication times for each measurement.</p>
 </dd>
@@ -239,10 +244,11 @@ by .measure</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.station.Station.measurement">
-<span class="sig-name descname"><span class="pre">measurement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.station.Station.measurement" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">measurement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">actions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_callables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.station.Station.measurement" title="Permalink to this definition"></a></dt>
 <dd><p>Measure the default measurement, or parameters in actions.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p><a href="#id3"><span class="problematic" id="id4">*</span></a>actions: parameters to mesure</p>
+<dt>Args:</dt><dd><p><a href="#id3"><span class="problematic" id="id4">*</span></a>actions: parameters to mesure
+include_callables (bool): Perform non-gettable actions, i.e. Task, BreakIf, etc.</p>
 </dd>
 </dl>
 </dd></dl>

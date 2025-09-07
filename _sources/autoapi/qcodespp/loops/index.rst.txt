@@ -235,7 +235,7 @@ Module Contents
            for plotting, if necessary, e.g. pp=qc.live_plot(loop.data_set,params_to_plot)
 
 
-.. py:class:: Loop(sweep_values, delay=0, snake=False, station=None, progress_interval=None, progress_bar=True)
+.. py:class:: Loop(sweep_values, delay=0, station=None, progress_interval=None, progress_bar=True, snake=False)
 
    Bases: :py:obj:`qcodes.metadatable.Metadatable`
 
@@ -250,8 +250,14 @@ Module Contents
            continuing. 0 (default) means no waiting and no warnings. > 0
            means to wait, potentially filling the delay time with monitoring,
            and give an error if you wait longer than expected.
+       progress_bar: Show a tqdm-based progress bar. Default true. The progress
+           bar should only show if this is the outer-most loop.
        progress_interval: show progress of the loop every x seconds. Default
-           is None (no output)
+           is None (no output). Superceded by progress_bar
+       station: qcodes Station to use for this loop. The default station is used
+           if none is provided.
+       snake: If this is an 'outer' Loop, i.e. actions contains a Loop, the sweep
+           order of that inner loop is reversed every alternate step of the outer Loop.
 
    After creating a Loop, you attach one or more ``actions`` to it, making an
    ``ActiveLoop``
@@ -548,6 +554,11 @@ Module Contents
 
 
 
+   .. py:attribute:: timer_reset
+      :value: None
+
+
+
    .. py:method:: __getitem__(item)
 
       Retrieves action with index `item`
@@ -686,13 +697,14 @@ Module Contents
 
 
 
-   .. py:method:: run(plot=None, use_threads=False, quiet=False, station=None, progress_interval=False, set_active=True, publisher=None, progress_bar=True, check_written_data=True, *args, **kwargs)
+   .. py:method:: run(plot=None, use_threads=False, quiet=False, station=None, progress_interval=None, set_active=True, publisher=None, progress_bar=None, check_written_data=True, timer_reset='outer', *args, **kwargs)
 
       Execute this loop.
 
       Args:
           plot: a list of parameters to plot at each point in the loop.
-              Can either be the DataArray objects, or the parameters themselves.
+              Can either be the DataArray objects, a string of the array_id or
+              the parameters themselves.
 
           use_threads: (default False): whenever there are multiple `get` calls
               back-to-back, execute them in separate threads so they run in

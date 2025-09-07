@@ -127,7 +127,7 @@
 <dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.data.data_array.</span></span><span class="sig-name descname"><span class="pre">DataArray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snapshot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">array_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_arrays</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action_indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_setpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preset_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.utils.DelegateAttributes</span></code></p>
-<p>A container for one parameter in a qcodespp DataSetPP</p>
+<p>A container for one parameter’s data in a qcodespp DataSetPP</p>
 <p>A DataArray can either be a setpoint array or a measured parameter.
 If this is a measured parameter, this object doesn’t contain
 the data of the setpoints it was measured at, but it references
@@ -196,7 +196,7 @@ string is best.</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.SNAP_ATTRS">
-<span class="sig-name descname"><span class="pre">SNAP_ATTRS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('array_id',</span> <span class="pre">'name',</span> <span class="pre">'shape',</span> <span class="pre">'unit',</span> <span class="pre">'label',</span> <span class="pre">'action_indices',</span> <span class="pre">'is_setpoint',</span> <span class="pre">'data_type')</span></em><a class="headerlink" href="#qcodespp.data.data_array.DataArray.SNAP_ATTRS" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">SNAP_ATTRS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('array_id',</span> <span class="pre">'name',</span> <span class="pre">'shape',</span> <span class="pre">'unit',</span> <span class="pre">'label',</span> <span class="pre">'action_indices',</span> <span class="pre">'is_setpoint',</span> <span class="pre">'set_array_ids',...</span></em><a class="headerlink" href="#qcodespp.data.data_array.DataArray.SNAP_ATTRS" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -206,7 +206,7 @@ string is best.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.SNAP_OMIT_KEYS">
-<span class="sig-name descname"><span class="pre">SNAP_OMIT_KEYS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('ts',</span> <span class="pre">'value',</span> <span class="pre">'__class__',</span> <span class="pre">'set_arrays',</span> <span class="pre">'shape',</span> <span class="pre">'array_id',</span> <span class="pre">'action_indices')</span></em><a class="headerlink" href="#qcodespp.data.data_array.DataArray.SNAP_OMIT_KEYS" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">SNAP_OMIT_KEYS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('ts',</span> <span class="pre">'value',</span> <span class="pre">'__class__',</span> <span class="pre">'shape',</span> <span class="pre">'array_id',</span> <span class="pre">'set_arraysaction_indices')</span></em><a class="headerlink" href="#qcodespp.data.data_array.DataArray.SNAP_OMIT_KEYS" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -282,6 +282,11 @@ string is best.</p>
 TODO: make this a weakref</p>
 </dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.set_array_ids">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_array_ids</span></span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.set_array_ids" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.nest">
 <span class="sig-name descname"><span class="pre">nest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_array</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.nest" title="Permalink to this definition"></a></dt>
@@ -340,6 +345,10 @@ ValueError: if the array was already initialized with a</p>
 <dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.clear">
 <span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.clear" title="Permalink to this definition"></a></dt>
 <dd><p>Fill the (already existing) data array with nan.</p>
+<p>Numpy ndarrays have to be filled with something. Zero (or any number) is a bad choice,
+so we use NaN for floats and ‘nan’ for strings. These are the only
+data types supported, but Boolean, Int, etc can be cast to float, and
+complex numbers can either be broken into two floats, or stored as string.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -495,8 +504,8 @@ where we have touched it.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.return_subset">
-<span class="sig-name descname"><span class="pre">return_subset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.return_subset" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.subset">
+<span class="sig-name descname"><span class="pre">subset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.subset" title="Permalink to this definition"></a></dt>
 <dd><p>Return a subset of this DataArray.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><dl class="simple">
@@ -511,6 +520,111 @@ selected data.</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.__add__">
+<span class="sig-name descname"><span class="pre">__add__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.__add__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.__radd__">
+<span class="sig-name descname"><span class="pre">__radd__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.__radd__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.__sub__">
+<span class="sig-name descname"><span class="pre">__sub__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.__sub__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.__rsub__">
+<span class="sig-name descname"><span class="pre">__rsub__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.__rsub__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.__mul__">
+<span class="sig-name descname"><span class="pre">__mul__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.__mul__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.__rmul__">
+<span class="sig-name descname"><span class="pre">__rmul__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.__rmul__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.__truediv__">
+<span class="sig-name descname"><span class="pre">__truediv__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.__truediv__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.__rtruediv__">
+<span class="sig-name descname"><span class="pre">__rtruediv__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.__rtruediv__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.__floordiv__">
+<span class="sig-name descname"><span class="pre">__floordiv__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.__floordiv__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.__rfloordiv__">
+<span class="sig-name descname"><span class="pre">__rfloordiv__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.__rfloordiv__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.__mod__">
+<span class="sig-name descname"><span class="pre">__mod__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.__mod__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.__rmod__">
+<span class="sig-name descname"><span class="pre">__rmod__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.__rmod__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.__pow__">
+<span class="sig-name descname"><span class="pre">__pow__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.__pow__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.__rpow__">
+<span class="sig-name descname"><span class="pre">__rpow__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.__rpow__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.__neg__">
+<span class="sig-name descname"><span class="pre">__neg__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.__neg__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.__pos__">
+<span class="sig-name descname"><span class="pre">__pos__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.__pos__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.__abs__">
+<span class="sig-name descname"><span class="pre">__abs__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.__abs__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.__lt__">
+<span class="sig-name descname"><span class="pre">__lt__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.__lt__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.__le__">
+<span class="sig-name descname"><span class="pre">__le__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.__le__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.__gt__">
+<span class="sig-name descname"><span class="pre">__gt__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.__gt__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.data.data_array.DataArray.__ge__">
+<span class="sig-name descname"><span class="pre">__ge__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.data.data_array.DataArray.__ge__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
