@@ -120,6 +120,9 @@ Package Contents
 
 
 
+   .. py:method:: add_components(components)
+
+
    .. py:method:: auto_add(variables, add_instruments: bool = True, add_parameters: bool = True, update_snapshot: bool = True)
 
       Automatically add previously defined instruments and parameters to the station. Usually, auto_add=globals().
@@ -219,7 +222,7 @@ Package Contents
 
 
 .. py:data:: __version__
-   :value: '0.1.11'
+   :value: '0.1.12'
 
 
 .. py:class:: Measure(setpoints=None, parameters=None, use_threads=False, station=None, name=None, timer=False)

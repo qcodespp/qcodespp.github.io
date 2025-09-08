@@ -85,6 +85,8 @@ Functions
    qcodespp.loops.loop1d
    qcodespp.loops.loop2d
    qcodespp.loops.loop2dUD
+   qcodespp.loops.active_loop
+   qcodespp.loops.active_data_set
 
 
 Module Contents
@@ -549,11 +551,6 @@ Module Contents
 
 
 
-   .. py:attribute:: flip
-      :value: False
-
-
-
    .. py:attribute:: timer_reset
       :value: None
 
@@ -753,4 +750,8 @@ Module Contents
           a DataSetPP object that we can use to plot
 
 
+
+.. py:function:: active_loop()
+
+.. py:function:: active_data_set()
 
