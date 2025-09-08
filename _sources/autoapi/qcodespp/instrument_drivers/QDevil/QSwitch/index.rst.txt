@@ -88,8 +88,9 @@ Module Contents
 
    .. py:method:: soft_reset(force=False) -> None
 
-      Resets the relays to the default state excluding the relays in self.lokced_relays
-          The check for locked relays prevents accidentally reseting e.g. a gate in the case that the kernel is restarted but the locked_relays parameter is not updated.
+      Resets the relays to the default state excluding the relays in self.locked_relays
+          The check for locked relays prevents accidentally reseting e.g. a gate in the case that
+          the kernel is restarted but the locked_relays parameter is not updated.
       Args:
           force (bool): If True, all relays are reset to the default state. Bypasses the check for locked relays.
 
@@ -150,29 +151,87 @@ Module Contents
 
    .. py:method:: close_relays(relays: State) -> None
 
+      Close multiple relays at once.
+
+      Args:
+          relays: A list of tuples (line, tap) specifying the each relay to close.
+              e.g. [(1, 0), (2, 1)]
+
+
 
    .. py:method:: close_relay(line: int, tap: int) -> None
+
+      Close a relay at the specified line and tap.
+
+      Args:
+          line: The line number (1 to N*24)
+          tap: The tap number (0 for ground, 1-8 for breakouts, 9 for connect)
+
 
 
    .. py:method:: open_relays(relays: State) -> None
 
+      Open multiple relays at once.
+
+      Args:
+          relays: A list of tuples (line, tap) specifying the relays to open.
+              e.g. [(1, 0), (2, 1)]
+
+
 
    .. py:method:: open_relay(line: int, tap: int) -> None
+
+      Open a relay at the specified line and tap.
+
+      Args:
+          line: The line number (1 to N*24)
+          tap: The tap number (0 for ground, 1-8 for breakouts, 9 for connect)
+
 
 
    .. py:method:: ground(lines: OneOrMore) -> None
 
+      Connect one or more lines to ground (tap 0).
+
+      Args:
+          lines: A line name, number, or list of names/numbers.
+
+
 
    .. py:method:: connect(lines: OneOrMore) -> None
+
+      Connect the specified lines directly through to the output (i.e. connect tap 9)
+
+      Args:
+          lines: The line(s) to connect to the output. Specify a single line through its integer value
+              or its name, or multiple lines through a list of integers or names.
+
 
 
    .. py:method:: connect_all() -> None
 
+      Connect all lines on all QSwitches through to their outputs, i.e. close tap 9 for all lines.
+
+
 
    .. py:method:: breakout(line: Union[str, int], tap: Union[str, int]) -> None
 
+      Connect the specified line to the specified tap AND disconnect ground.
+
+      Args:
+          line: The line to connect to the breakout. Specify either its integer value or its name.
+          tap: The tap to connect the line to. Specify either its integer value or its name
+
+
 
    .. py:method:: line_float(lines: OneOrMore) -> None
+
+      Open _all_ relays on one or more lines such that the line is floating.
+
+      Args:
+          lines: The line(s) to float. Specify a single line through its integer value
+              or its name, or multiple lines through a list of integers or names.
+
 
 
    .. py:method:: arrange(breakouts: Optional[Dict[str, int]] = None, lines: Optional[Dict[str, int]] = None) -> None
@@ -253,7 +312,7 @@ Module Contents
 
    Args:
        qsws (sequence[QSwitches]): list of already initialized/connected qswitches
-       linked_BNCs (list[list]): list of linked BNCs, e.g. [1,11,21,31].
+       linked_BNCs (list[list]): list of linked BNCs, e.g. [[1,11],[2,12],[4,31]].
        name (str): QCodes name. Default = 'qsws'
 
    Usage:
@@ -286,6 +345,26 @@ Module Contents
 
    .. py:attribute:: locked_relays
       :value: []
+
+
+
+   .. py:method:: get_idn()
+
+      Parse a standard VISA ``*IDN?`` response into an ID dict.
+
+      Even though this is the VISA standard, it applies to various other
+      types as well, such as IPInstruments, so it is included here in the
+      Instrument base class.
+
+      Override this if your instrument does not support ``*IDN?`` or
+      returns a nonstandard IDN string. This string is supposed to be a
+      comma-separated list of vendor, model, serial, and firmware, but
+      semicolon and colon are also common separators so we accept them here
+      as well.
+
+      Returns:
+          A dict containing vendor, model, serial, and firmware.
+
 
 
 
@@ -326,11 +405,19 @@ Module Contents
 
       Open a relay at the specified line and tap.
 
+      Args:
+          line: The line number (1 to N*24)
+          tap: The tap number (0 for ground, 1-8 for breakouts, 9 for connect)
+
 
 
    .. py:method:: close_relay(line: int, tap: int) -> None
 
       Close a relay at the specified line and tap.
+
+      Args:
+          line: The line number (1 to N*24)
+          tap: The tap number (0 for ground, 1-8 for breakouts, 9 for connect)
 
 
 
@@ -383,6 +470,10 @@ Module Contents
    .. py:method:: breakout(line: Union[str, int], tap: Union[str, int]) -> None
 
       Connect the specified line to the specified tap AND disconnect ground.
+
+      Args:
+          line: The line to connect to the breakout. Specify either its integer value or its name.
+          tap: The tap to connect the line to. Specify either its integer value or its name
 
 
 

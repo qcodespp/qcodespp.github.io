@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>qcodespp.instrument_drivers.QDevil.QSwitch &mdash; qcodes++ 0.1.11 documentation</title>
+  <title>qcodespp.instrument_drivers.QDevil.QSwitch &mdash; qcodes++ 0.1.12 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
 
@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="../../../../../_static/qcppfavicon.svg"/>
       <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=66a7e95d"></script>
+      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=515f6337"></script>
       <script src="../../../../../_static/doctools.js?v=888ff710"></script>
       <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../../../_static/js/theme.js"></script>
@@ -213,7 +213,8 @@
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QSwitch.QSwitch.soft_reset">
 <span class="sig-name descname"><span class="pre">soft_reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QSwitch.QSwitch.soft_reset" title="Permalink to this definition"></a></dt>
 <dd><dl class="simple">
-<dt>Resets the relays to the default state excluding the relays in self.lokced_relays</dt><dd><p>The check for locked relays prevents accidentally reseting e.g. a gate in the case that the kernel is restarted but the locked_relays parameter is not updated.</p>
+<dt>Resets the relays to the default state excluding the relays in self.locked_relays</dt><dd><p>The check for locked relays prevents accidentally reseting e.g. a gate in the case that
+the kernel is restarted but the locked_relays parameter is not updated.</p>
 </dd>
 <dt>Args:</dt><dd><p>force (bool): If True, all relays are reset to the default state. Bypasses the check for locked relays.</p>
 </dd>
@@ -282,47 +283,103 @@ unique (bool): If True, load the state from a file with the serial number of the
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QSwitch.QSwitch.close_relays">
 <span class="sig-name descname"><span class="pre">close_relays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">relays</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">State</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QSwitch.QSwitch.close_relays" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Close multiple relays at once.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>relays: A list of tuples (line, tap) specifying the each relay to close.</dt><dd><p>e.g. [(1, 0), (2, 1)]</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QSwitch.QSwitch.close_relay">
 <span class="sig-name descname"><span class="pre">close_relay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QSwitch.QSwitch.close_relay" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Close a relay at the specified line and tap.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>line: The line number (1 to N*24)
+tap: The tap number (0 for ground, 1-8 for breakouts, 9 for connect)</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QSwitch.QSwitch.open_relays">
 <span class="sig-name descname"><span class="pre">open_relays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">relays</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">State</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QSwitch.QSwitch.open_relays" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Open multiple relays at once.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>relays: A list of tuples (line, tap) specifying the relays to open.</dt><dd><p>e.g. [(1, 0), (2, 1)]</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QSwitch.QSwitch.open_relay">
 <span class="sig-name descname"><span class="pre">open_relay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QSwitch.QSwitch.open_relay" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Open a relay at the specified line and tap.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>line: The line number (1 to N*24)
+tap: The tap number (0 for ground, 1-8 for breakouts, 9 for connect)</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QSwitch.QSwitch.ground">
 <span class="sig-name descname"><span class="pre">ground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">OneOrMore</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QSwitch.QSwitch.ground" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Connect one or more lines to ground (tap 0).</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>lines: A line name, number, or list of names/numbers.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QSwitch.QSwitch.connect">
 <span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">OneOrMore</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QSwitch.QSwitch.connect" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Connect the specified lines directly through to the output (i.e. connect tap 9)</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>lines: The line(s) to connect to the output. Specify a single line through its integer value</dt><dd><p>or its name, or multiple lines through a list of integers or names.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QSwitch.QSwitch.connect_all">
 <span class="sig-name descname"><span class="pre">connect_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QSwitch.QSwitch.connect_all" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Connect all lines on all QSwitches through to their outputs, i.e. close tap 9 for all lines.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QSwitch.QSwitch.breakout">
 <span class="sig-name descname"><span class="pre">breakout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QSwitch.QSwitch.breakout" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Connect the specified line to the specified tap AND disconnect ground.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>line: The line to connect to the breakout. Specify either its integer value or its name.
+tap: The tap to connect the line to. Specify either its integer value or its name</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QSwitch.QSwitch.line_float">
 <span class="sig-name descname"><span class="pre">line_float</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">OneOrMore</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QSwitch.QSwitch.line_float" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Open _all_ relays on one or more lines such that the line is floating.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>lines: The line(s) to float. Specify a single line through its integer value</dt><dd><p>or its name, or multiple lines through a list of integers or names.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QSwitch.QSwitch.arrange">
@@ -403,7 +460,7 @@ qsws.close_relay(28,11), and so on.
 It is assumed maximum one link per QSwitch, since otherwise links can be made internally.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>qsws (sequence[QSwitches]): list of already initialized/connected qswitches
-linked_BNCs (list[list]): list of linked BNCs, e.g. [1,11,21,31].
+linked_BNCs (list[list]): list of linked BNCs, e.g. [[1,11],[2,12],[4,31]].
 name (str): QCodes name. Default = ‘qsws’</p>
 </dd>
 <dt>Usage:</dt><dd><p>qsw1 = QSwitch(…)
@@ -445,6 +502,24 @@ qsws = QSwitches([qsw1, qsw2])</p>
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QSwitch.QSwitches.locked_relays">
 <span class="sig-name descname"><span class="pre">locked_relays</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QSwitch.QSwitches.locked_relays" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QSwitch.QSwitches.get_idn">
+<span class="sig-name descname"><span class="pre">get_idn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QSwitch.QSwitches.get_idn" title="Permalink to this definition"></a></dt>
+<dd><p>Parse a standard VISA <code class="docutils literal notranslate"><span class="pre">*IDN?</span></code> response into an ID dict.</p>
+<p>Even though this is the VISA standard, it applies to various other
+types as well, such as IPInstruments, so it is included here in the
+Instrument base class.</p>
+<p>Override this if your instrument does not support <code class="docutils literal notranslate"><span class="pre">*IDN?</span></code> or
+returns a nonstandard IDN string. This string is supposed to be a
+comma-separated list of vendor, model, serial, and firmware, but
+semicolon and colon are also common separators so we accept them here
+as well.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>A dict containing vendor, model, serial, and firmware.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QSwitch.QSwitches.reset">
@@ -497,12 +572,22 @@ qsws = QSwitches([qsw1, qsw2])</p>
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QSwitch.QSwitches.open_relay">
 <span class="sig-name descname"><span class="pre">open_relay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QSwitch.QSwitches.open_relay" title="Permalink to this definition"></a></dt>
 <dd><p>Open a relay at the specified line and tap.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>line: The line number (1 to N*24)
+tap: The tap number (0 for ground, 1-8 for breakouts, 9 for connect)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QSwitch.QSwitches.close_relay">
 <span class="sig-name descname"><span class="pre">close_relay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QSwitch.QSwitches.close_relay" title="Permalink to this definition"></a></dt>
 <dd><p>Close a relay at the specified line and tap.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>line: The line number (1 to N*24)
+tap: The tap number (0 for ground, 1-8 for breakouts, 9 for connect)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -567,6 +652,11 @@ qsws = QSwitches([qsw1, qsw2])</p>
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QSwitch.QSwitches.breakout">
 <span class="sig-name descname"><span class="pre">breakout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QSwitch.QSwitches.breakout" title="Permalink to this definition"></a></dt>
 <dd><p>Connect the specified line to the specified tap AND disconnect ground.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>line: The line to connect to the breakout. Specify either its integer value or its name.
+tap: The tap to connect the line to. Specify either its integer value or its name</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">

@@ -85,6 +85,9 @@ Module Contents
 
 
 
+   .. py:method:: add_components(components)
+
+
    .. py:method:: auto_add(variables, add_instruments: bool = True, add_parameters: bool = True, update_snapshot: bool = True)
 
       Automatically add previously defined instruments and parameters to the station. Usually, auto_add=globals().

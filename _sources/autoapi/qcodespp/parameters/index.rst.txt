@@ -17,6 +17,7 @@ Attributes
 
 .. autosummary::
 
+   qcodespp.parameters.log
    qcodespp.parameters.stepper
 
 
@@ -45,6 +46,8 @@ Functions
 
 Module Contents
 ---------------
+
+.. py:data:: log
 
 .. py:function:: move(self, end_value, steps=101, step_time=0.03)
 
