@@ -110,3 +110,7 @@ Finally, you can mix and match as you please. The following will work just fine:
 .. code-block:: python
 
     pp.add_subplots('currentX_1',voltageX,loop.data_set.resistance)
+
+A little secret that hopefully you never have to know
+-----------------------------------------------------
+``live_plot`` works by setting the ``publisher`` attribute of the ``DataSetPP`` to the ``Plot`` object. This enables the ``DataSetPP`` to send the data *from memory* to the plot, and bypasses saving to disk; part of the reason the plotting is so fast. In almost every case I can think of, this works automatically. When you create a new ``DataSetPP``, that ``DataSetPP`` becomes the 'active' dataset, and any subsequent calls to ``add`` or ``add_subplots`` sets the active dataset's publisher to the plot being added to. Therefore, as long as you use ``add`` or ``add_subplots`` after creating the ``DataSetPP`` you want to add, and before creating a new ``DataSetPP``, you don't have to worry about it. But if there is some edge case, where you cannot do things in this order, use e.g. ``data.publisher=pp`` to set the publisher manually.

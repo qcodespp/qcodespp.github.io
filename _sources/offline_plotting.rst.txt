@@ -18,7 +18,7 @@ If you have declared ``qcodespp.set_data_folder('foldername')`` in the same note
 Basic plotting
 --------------
 - Load data by clicking 'Open File', or by `opening/linking a folder <https://qcodespp.github.io/offline_plotting.html#working-with-an-entire-folder>`__.
-- 1D data is plotted as lines, and 2D data as a `color plot <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pcolormesh.html>`__.
+- 1D data is plotted as lines, and 2D data as a `color plot <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pcolormesh.html>`__. 3D data collected by qcodes++ can be decomposed into multiple 2D datasets; you will be prompted for options.
 - To change the plotted parameters, right click on the parameter name under 'Settings for Selected File' (for 2D data) or '1D traces' (for 1D data).
 - Immediately above the plot windows are the usual matplotlib tools for panning and zooming. Reset the view with the 'home' button.
 - You can also zoom using the mousewheel. Zooming while holding ctrl(shift) zooms only on the x(y) axis.

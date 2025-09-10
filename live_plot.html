@@ -57,6 +57,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#add">add</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#some-tricks">Some tricks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#back-to-add-subplots">Back to add_subplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-little-secret-that-hopefully-you-never-have-to-know">A little secret that hopefully you never have to know</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="template.html">Example template</a></li>
@@ -178,6 +179,10 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pp</span><span class="o">.</span><span class="n">add_subplots</span><span class="p">(</span><span class="s1">&#39;currentX_1&#39;</span><span class="p">,</span><span class="n">voltageX</span><span class="p">,</span><span class="n">loop</span><span class="o">.</span><span class="n">data_set</span><span class="o">.</span><span class="n">resistance</span><span class="p">)</span>
 </pre></div>
 </div>
+</section>
+<section id="a-little-secret-that-hopefully-you-never-have-to-know">
+<h2>A little secret that hopefully you never have to know<a class="headerlink" href="#a-little-secret-that-hopefully-you-never-have-to-know" title="Permalink to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">live_plot</span></code> works by setting the <code class="docutils literal notranslate"><span class="pre">publisher</span></code> attribute of the <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> to the <code class="docutils literal notranslate"><span class="pre">Plot</span></code> object. This enables the <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> to send the data <em>from memory</em> to the plot, and bypasses saving to disk; part of the reason the plotting is so fast. In almost every case I can think of, this works automatically. When you create a new <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code>, that <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> becomes the ‘active’ dataset, and any subsequent calls to <code class="docutils literal notranslate"><span class="pre">add</span></code> or <code class="docutils literal notranslate"><span class="pre">add_subplots</span></code> sets the active dataset’s publisher to the plot being added to. Therefore, as long as you use <code class="docutils literal notranslate"><span class="pre">add</span></code> or <code class="docutils literal notranslate"><span class="pre">add_subplots</span></code> after creating the <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> you want to add, and before creating a new <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code>, you don’t have to worry about it. But if there is some edge case, where you cannot do things in this order, use e.g. <code class="docutils literal notranslate"><span class="pre">data.publisher=pp</span></code> to set the publisher manually.</p>
 </section>
 </section>
 

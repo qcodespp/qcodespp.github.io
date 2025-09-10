@@ -68,10 +68,10 @@ If you terminate a ``Loop`` before it finishes, the remaining data will be `NaNs
 Plotting and analysis
 ---------------------
 
-For cases not covered by the built-in live_plot and offline_plotting, you will likely prepare plots using a package like matplotlib inside a Jupyter notebook. There are a few useful functions in qcodes++ to help you with this.
+For cases not covered by the built-in ``live_plot`` or ``offline_plotting``, you will likely prepare plots using matplotlib. There are a few useful functions in qcodes++ to help you with this.
 
-- You can use the functions in ``qcodespp.plotting.analysis_tools`` to plot nice colorplots and line plots with nicely colored lines.
+- You can use the functions in ``qcodespp.colorplot`` and ``qcodespp.colored_traces`` to quickly plot decent-looking colorplots and line plots colored according to a matplotlib colormap.
 
 - You can use the fitting and filter functions from ``qcodespp.plotting.offline_plotting.fits`` and ``qcodespp.plotting.offline_plotting.filters`` either directly, or as inspiration for your own fitting and filtering functions.
 
-See API (`analysis_tools <https://qcodespp.github.io/autoapi/qcodespp/plotting/analysis_tools/index.html>`__, `fits <https://qcodespp.github.io/autoapi/qcodespp/plotting/offline/fits/index.html>`__, `filters <https://qcodespp.github.io/autoapi/qcodespp/plotting/offline/filters/index.html>`__) and/or `source code <https://github.com/qcodespp/qcodespp/tree/main/qcodespp/plotting>`__ to see how to use them.
+See API (`analysis_tools <https://qcodespp.github.io/autoapi/qcodespp/plotting/analysis_tools/index.html>`__, `fits <https://qcodespp.github.io/autoapi/qcodespp/plotting/offline/fits/index.html>`__, `filters <https://qcodespp.github.io/autoapi/qcodespp/plotting/offline/filters/index.html>`__) and/or `source code <https://github.com/qcodespp/qcodespp/tree/main/qcodespp/plotting>`__ to see how to use these functions.
