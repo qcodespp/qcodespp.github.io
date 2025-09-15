@@ -327,9 +327,9 @@ Cheat sheet
       -  
     * - Zoom
       - Scroll. Hold Ctrl(Shift) to zoom only x(y) axis.
-    * - Change whitespace surrounding plots
+    * - Adjust whitespace border
       - Scroll in the whitespace surrounding the plots.
-    * - Change whitespace between plots
+    * - Adjust plot spacing
       - Scroll in the whitespace between the plots; hold Ctrl for vertical spacing
     * - Horizontal linecut
       - Left click on 2D data or Ctrl+Shift+H
