@@ -326,11 +326,11 @@ Cheat sheet
     * - Mouse actions
       -  
     * - Zoom
-      - Scroll. Hold Ctrl(Shift) to zoom only x(y) axis.
-    * - Adjust border width
-      - Scroll in the whitespace surrounding the plots.
-    * - Adjust plot spacing
-      - Scroll in the whitespace between the plots; hold Ctrl for vertical spacing
+      - Scroll. Hover over axis or hold Ctrl(Shift) to zoom only x(y) axis.
+    * - Pan
+      - Select four-arrow icon and click-drag. Linecuts and fit limits disabled while panning.
+    * - Adjust whitespace
+      - Scroll in whitespace; scrolling inbetween plots adjusts spacing, scrolling around the plots changes the border size.
     * - Horizontal linecut
       - Left click on 2D data or Ctrl+Shift+H
     * - Vertical linecut
@@ -410,7 +410,6 @@ Finally, and very importantly!!: The ability to *constrain* fit parameters is (c
 .. - Work out good estimates for the fourth and fifth parameters in peak fitting.
 .. - Click to estimate peak height/position.
 .. - Include specialised fits. Could also allow other kind of backgrounds for peak fitting. Damped oscillator, i.e. Qubit relevant: Rabi, Ramsey, T_echo.
-.. - Enable .json imports; basically will be baseclassdata but just redefine the functions that work out the data dimension and make the data_dict.
 .. - Option to plot X data as average of each line, if need be. Useful for fitting series.
 .. - Single-axis scrolling as in pyqtplot
 .. - More advanced preset import/export; user can choose what they want to save/load
