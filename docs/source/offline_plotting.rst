@@ -328,7 +328,7 @@ Cheat sheet
     * - Zoom
       - Scroll. Hover over axis or hold Ctrl(Shift) to zoom only x(y) axis.
     * - Pan
-      - Select four-arrow icon and click-drag. Linecuts and fit limits disabled while panning.
+      - Click and drag on axes. Alternatively, select four-arrow icon and click-drag. Other mouse actions are disabled while this icon is active.
     * - Adjust whitespace
       - Scroll in whitespace; scrolling inbetween plots adjusts spacing, scrolling around the plots changes the border size.
     * - Horizontal linecut
