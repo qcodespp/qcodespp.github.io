@@ -13,7 +13,7 @@ or from Jupyter notebooks with
 
 If you have declared ``qcodespp.set_data_folder('foldername')`` in the same notebook, data from that folder will automatically be opened. Alternatively, you can write ``qcodespp.offline_plotting(folder=path_to_folder)`` to open a different folder. Otherwise, the initial state is blank.
 
-`Looking for a summary of mouse actions? <https://qcodespp.github.io/offline_plotting.html#cheat-sheet>`__
+`Looking for a summary of mouse actions and keyboard shortcuts? <https://qcodespp.github.io/offline_plotting.html#cheat-sheet>`__
 
 Basic plotting
 --------------
@@ -44,8 +44,8 @@ Fitting
 -------
 - The fitting is basically a GUI for `lmfit <https://lmfit.github.io/lmfit-py/>`__, with almost all built-in models implemented. See `here for a description of each model/function <https://lmfit.github.io/lmfit-py/builtin_models.html>`__.
 - To limit the fitting range, fill out the Xmin and Xmax fields, OR, click twice on the plot area. Lower limit first, upper limit second. Further clicks will move the closest limit to the click position.
-- You almost always need to provide some 'Input info'; might be the polynomial order, or the number of peaks to fit. The info is given in the box at the bottom of the window.
-- Optionally, you can provide an initial guess for the fit parameters; see the info box for how to format your inputs correctly. `The initial guess can be very important <https://qcodespp.github.io/offline_plotting.html#a-note-about-fitting>`__.
+- You almost always need to provide some 'Input info'; might be the polynomial order, or the number of peaks to fit. The description in the Information box will guide you.
+- Optionally, you can provide an initial guess for the fit parameters. `The initial guess can be very important <https://qcodespp.github.io/offline_plotting.html#a-note-about-fitting>`__.
 - If there is not a model suited to your needs, use 'User input'/'Expression'. `You can input anything you want and fit it! <https://lmfit.github.io/lmfit-py/builtin_models.html#lmfit.models.ExpressionModel>`__
 - The 'custom' models include some fits relevant for electron transport, using ``lmfit.Model`` `(docs) <https://lmfit.github.io/lmfit-py/model.html>`__. If you have a working ``Model`` for a function not included here, feel free to `contact me via github or email <https://github.com/qcodespp/qcodespp>`__ (or even better, make a pull request!) and I will include it.
 - 'Save fit result' saves the fit result using ``lmfit.model.save_modelresult`` `(docs) <https://lmfit.github.io/lmfit-py/model.html#lmfit.model.save_modelresult>`__. You can use ``lmfit.model.load_modelresult('file_location')`` `(docs) <https://lmfit.github.io/lmfit-py/model.html#lmfit.model.load_modelresult>`__ to load the fit result into a notebook for further analysis.
@@ -57,8 +57,8 @@ Filters
 Filters in InSpectra Gadget are simply mathematical operations that can be performed on the data. The filters thus handle everything from applying offsets to any of the axes, to doing numerical differentiation, smoothing and interpolation. 
 
 - You can add multiple instances of the same filter type, change the order they are applied in and turn them off and on. 
-- You can export the data if you need to work with the results in another program/notebook. 
-- You can also `export the filters/settings <https://qcodespp.github.io/offline_plotting.html#exporting-data-and-filters>`__, and load them later on other datasets. 
+- You can `export the data <https://qcodespp.github.io/offline_plotting.html#exporting-data-and-filters>`__ if you need to work with the results in another program/notebook. 
+- You can also export the filters/settings, and load them later on other datasets. 
 - Finally, and importantly, you can 'send' the filtered data to the current dataset, to plot it on another axis, or simply use it later.
 
 Each available filter has up to two options. Hover over the relevant box in the app to see a description of the filter and its options, or consult the table below.
