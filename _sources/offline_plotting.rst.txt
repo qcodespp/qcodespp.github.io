@@ -21,7 +21,8 @@ Basic plotting
 - 1D data is plotted as lines, and 2D data as a `color plot <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pcolormesh.html>`__. 3D data collected by qcodes++ can be decomposed into multiple 2D datasets; you will be prompted for options.
 - To change the plotted parameters, right click on the parameter name under 'Settings for Selected File' (for 2D data) or '1D traces' (for 1D data).
 - Immediately above the plot windows are the usual matplotlib tools for panning and zooming. Reset the view with the 'home' button.
-- You can also zoom using the mousewheel. Zooming while holding ctrl(shift) zooms only on the x(y) axis.
+- You can also zoom using mousewheel scrolling. To zoom only one axis, hover over it, or hold ctrl(shift) for x(y).
+- You can pan one axis at a time by clicking and dragging it.
 - 'Settings for Selected File' changes the plot appearance. Right click to choose from preset values.
 - Axes settings (inc. for the colorbar) are underneath the plots.
 - The colorbar is accompanied by a histogram. To adjust the range of the colorbar, change the limits of the blue shaded region by clicking and dragging.
@@ -275,9 +276,13 @@ You can save the current state of the appearance settings from the 'Presets' men
 
 Loading non-qcodes++ data.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-To load data that wasn't taken by qcodes++, you will need to make sure it has the right shape, and is saved in as a .dat file compatible with `numpy genfromtxt <https://numpy.org/doc/stable/reference/generated/numpy.genfromtxt.html>`__. For 1D data, this is a series of columns of equal length. If the data was loaded with rows and columns swapped, e.g. you get 300 columns and 4 rows when you should have 4 columns and 300 rows, set 'transpose' to True under 'Settings for Selected File'. The program will re-import the data and swap the meaning of rows and columns.
+If you have x, y and z data that is plottable by matplotlib's ``pcolormesh``, you can use ``qcodespp.export_2d_to_IG(x,y,z,filename)``. This will save a numpy .dat file importable by InSpectra Gadget. 
 
-For 2D data,data should again be numpy .dat, with the number of columns being the number of parameters. The independent parameters should be in the first and second columns. A basic example::
+Otherwise, manually shape the data and save it as a .dat file compatible with `numpy genfromtxt <https://numpy.org/doc/stable/reference/generated/numpy.genfromtxt.html>`__ using e.g. ``numpy.savetxt('filename.dat',data)`` `(docs) <https://numpy.org/doc/stable/reference/generated/numpy.savetxt.html>`__.
+
+For 1D data, supply a series of columns of equal length. If the data gets loaded by IG with rows and columns swapped, e.g. you get 300 columns and 4 rows when you should have 4 columns and 300 rows, set 'transpose' to True under 'Settings for Selected File'. The program will re-import the data and swap the meaning of rows and columns.
+
+For 2D data, the data again must be columns of equal length, with each column belonging to a single parameter. The independent parameters must be in the first and second columns to be interpreted correctly. A basic example::
 
     0   0.1     1.2
     0   0.2     1.3
@@ -310,6 +315,7 @@ By contrast, the below is interpreted as 1D data since the first two values in t
     0.15    0.3     1.6
     0.1     0.4     1.7
 
+You can supply any number of dependent parameter columns, but of course only two independent parameters.
 
 To automatically name the columns, you can use a header. Start the first line with '#' and list the parameters:
 
@@ -411,6 +417,5 @@ Finally, and very importantly!!: The ability to *constrain* fit parameters is (c
 .. - Click to estimate peak height/position.
 .. - Include specialised fits. Could also allow other kind of backgrounds for peak fitting. Damped oscillator, i.e. Qubit relevant: Rabi, Ramsey, T_echo.
 .. - Option to plot X data as average of each line, if need be. Useful for fitting series.
-.. - Single-axis scrolling as in pyqtplot
 .. - More advanced preset import/export; user can choose what they want to save/load
 .. - Fix circular linecuts
