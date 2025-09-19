@@ -52,6 +52,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#getting-and-setting-parameters">Getting and setting parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#running-a-measurement">Running a measurement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#two-dimensions">Two dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-sweep-types">Other sweep types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#higher-dimensions">Higher dimensions</a></li>
 </ul>
 </li>
@@ -223,6 +224,10 @@
                 <span class="n">measure</span><span class="o">=</span><span class="p">[</span><span class="n">instrument</span><span class="o">.</span><span class="n">input1</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">input2</span><span class="p">])</span>
 </pre></div>
 </div>
+</section>
+<section id="other-sweep-types">
+<h2>Other sweep types<a class="headerlink" href="#other-sweep-types" title="Permalink to this heading"></a></h2>
+<p>By default the above <code class="docutils literal notranslate"><span class="pre">loop</span></code> functions sweep and step linearly. You can use a logarithmic scaling by specifying <code class="docutils literal notranslate"><span class="pre">sweep_type='log'</span></code> or <code class="docutils literal notranslate"><span class="pre">step_type='log'</span></code>, which uses <a class="reference external" href="https://numpy.org/doc/2.1/reference/generated/numpy.geomspace.html">numpy’s geomspace</a>. You can also use <code class="docutils literal notranslate"><span class="pre">sweep_type='return'</span></code> or <code class="docutils literal notranslate"><span class="pre">step_type='return'</span></code>, which returns to the start value after reaching the stop value. See the <a class="reference external" href="advanced.html#sweep-types">Sweep types</a> section for more information.</p>
 </section>
 <section id="higher-dimensions">
 <h2>Higher dimensions<a class="headerlink" href="#higher-dimensions" title="Permalink to this heading"></a></h2>
