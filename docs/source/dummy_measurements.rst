@@ -174,6 +174,10 @@ The ``loop2dUD`` function has the option to sweep the ``sweep_parameter`` with a
                     fast_down=5,
                     measure=[instrument.input1, instrument.input2])
 
+Other sweep types
+-----------------
+By default the above ``loop`` functions sweep and step linearly. You can use a logarithmic scaling by specifying ``sweep_type='log'`` or ``step_type='log'``, which uses `numpy's geomspace <https://numpy.org/doc/2.1/reference/generated/numpy.geomspace.html>`__. You can also use ``sweep_type='return'`` or ``step_type='return'``, which returns to the start value after reaching the stop value. See the `Sweep types <advanced.html#sweep-types>`_ section for more information.
+
 Higher dimensions
 -----------------
 If you have three or more independent parameters, `you will need to manually construct your loop, by explicitly using the Loop class, and/or with the help of python loops <https://qcodespp.github.io/advanced.html>`__.
