@@ -94,4 +94,4 @@ The setpoints can also be a ``Parameter`` which returns an array of the correct 
 
 and the two axes will be plotted against each other correctly.
 
-However, **note that in the above example, the two oscilloscope parameters were not measured strictly simultaneously, which may or may not be a problem** You can just as easily simply measure both parameters as measured elements, let the automatic setpoints be created, and then plot the data manually. This is the recommended way to do it, as it is much less error-prone.
+However, **note that in the above example, the two oscilloscope parameters were not measured strictly simultaneously, which may or may not be a problem** You can just as easily simply measure both parameters as measured elements, let the setpoints be created automatically, and then plot the data manually. This is the recommended way to do it, as it is much less error-prone.
