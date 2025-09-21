@@ -1,7 +1,9 @@
 The Measure class
 =================
 
-``qcodespp.Measure`` is used to measure a set of ``Parameter`` s at a single point in time. The typical use case is where the ``Parameter`` (s)'s get function(s) return(s) an array, e.g. an oscilloscope trace, or a spectrum analyser trace. At init, you can provide the ``Parameter`` s to measure and (optionally) ``setpoints``. If no ``Parameter`` s are provided, the default ``station.measure()`` is used. If no ``setpoints`` are provided, dummy setpoints are created for each dimension found in the parameters (recommended, see below). ``Measure.run()`` will execute the measurement, and return and save a ``DataSetPP``
+``qcodespp.Measure`` is used to measure a set of ``Parameter`` s at a single point in time. The typical use case is where the ``Parameter`` (s)'s ``get`` function(s) return(s) an array, e.g. an oscilloscope trace, or a spectrum analyser trace, or an instrument buffer. Importantly, the array shape(s) do(es) *not* need to be known in advance.
+
+The ``Parameter`` s to be measured are provided at init or through ``station.set_measurement()``. Optionally, setpoints may be provided, but this is usually not required nor recommended. If no setpoints are provided, dummy setpoints are created for each dimension found in the measured parameters (recommended, see Setpoints section below).
 
 Examples:
 
@@ -38,13 +40,24 @@ And of course if the parameters return 1D or 2D rectangular arrays, you can plot
 
     pp=qc.live_plot(data.array_param1, data.array_param2)
 
-Note that the above can also be done within a ``Loop``. The ``Loop`` class is smart enough to work out what the dimensions of the data will be, and create an array in the ``DataSetPP`` of the correct shape. The downside is that these higher dimensional data sets then don't play nice with default plotting, meaning you will always have to plot them manually.
+Comparison with Loop
+--------------------
+The major difference is that ``Measure`` can be used in situations where the shape of the data is not known in advance, or where the shape of the data changes between measurements. This is because ``Measure`` constructs the ``DataSetPP`` *after* the data is collected. By contrast, the ``DataSetPP`` in a  ``Loop`` is constructed with a known shape, *before* measurement, based on the sweep parameters. Each ``get()`` call from each measured ``Parameter`` must therefore return the same shape, otherwise data will not fit in the pre-constructed array.
 
+Note however that ``Loop`` is perfectly capable of storing rectangular ND arrays as elements. In the case that ``array_param1`` and ``array_param2`` don't change their shape when varying ``instrument.some_parameter`` you can run the iterative measurement above using ``Loop``:
+
+.. code-block:: python
+
+    station.set_measurement(array_param1, array_param2)
+    loop = qc.loop1d(sweep_parameter=instrument.some_parameter,
+                    start=0,stop=9,num=10,delay=0.1,
+                    device_info='info', instrument_info='info')
+    data=loop.run()
 
 Setpoints
 ---------
 
-Elements in a ``DataSetPP`` can either be ``setpoints`` or ``measured``, and each ``measured`` element must have corresponding ``setpoints`` with the correct dimensions. In the case of ``Loop``, the setpoints are automatically generated based on the sweep parameters, and the measured data is automatically assigned to the correct setpoints. For ``Measure``, this has no obvious meaning. By default, each measured element gets associated with setpoints that are simply the indices of the measured data, i.e. for a measured element with shape (10,), the setpoints will be (0, 1, 2, ..., 9). Therefore, it's usually much more interesting to plot two measured elements against each other, rather than against the default setpoints.
+Elements in a ``DataSetPP`` can either be 'setpoints' (i.e. independent parameters) or 'measured' (i.e. dependent parameters). Each 'measured' element must have corresponding 'setpoints' with the correct dimensions. In the case of ``Loop``, the setpoints are automatically generated based on the sweep parameters, and the measured data is automatically assigned to the correct setpoints. For ``Measure``, this has no obvious meaning since it's not obvious what the independent parameters are. By default, each measured element gets associated with setpoints that are simply the indices of the measured data, i.e. for a measured element with shape (10,), the setpoints will be (0, 1, 2, ..., 9). Therefore, it's usually much more interesting to plot two measured elements against each other, rather than against the default setpoints.
 
 For example, if you measure the x-axis and y-axis of an oscilloscope trace, you can do:
 
@@ -81,4 +94,4 @@ The setpoints can also be a ``Parameter`` which returns an array of the correct 
 
 and the two axes will be plotted against each other correctly.
 
-However, **please note that you can just as easily simply measure both parameters as measured elements, let the automatic setpoints be created, and then plot the data manually**. This is the recommended way to do it, as it is much less error-prone.
+However, **note that in the above example, the two oscilloscope parameters were not measured strictly simultaneously, which may or may not be a problem** You can just as easily simply measure both parameters as measured elements, let the automatic setpoints be created, and then plot the data manually. This is the recommended way to do it, as it is much less error-prone.
