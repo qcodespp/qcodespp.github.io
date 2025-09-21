@@ -42,7 +42,7 @@ And of course if the parameters return 1D or 2D rectangular arrays, you can plot
 
 Comparison with Loop
 --------------------
-The major difference is that ``Measure`` can be used in situations where the shape of the data is not known in advance, or where the shape of the data changes between measurements. This is because ``Measure`` constructs the ``DataSetPP`` *after* the data is collected. By contrast, the ``DataSetPP`` in a  ``Loop`` is constructed with a known shape, *before* measurement, based on the sweep parameters. Each ``get()`` call from each measured ``Parameter`` must therefore return the same shape, otherwise data will not fit in the pre-constructed array.
+The major difference is that ``Measure`` can be used in situations where the shape of the data is not known in advance, or where the shape of the data changes between measurements. This is because ``Measure`` constructs the ``DataSetPP`` *after* the data is collected. By contrast, the ``DataSetPP`` in a  ``Loop`` is constructed with a known shape, *before* measurement, based on the sweep parameters. Each ``get()`` call from each measured ``Parameter`` in a ``Loop`` must therefore return the same shape, otherwise data will not fit in the pre-constructed array.
 
 Note however that ``Loop`` is perfectly capable of storing rectangular ND arrays as elements. In the case that ``array_param1`` and ``array_param2`` don't change their shape when varying ``instrument.some_parameter`` you can run the iterative measurement above using ``Loop``:
 
