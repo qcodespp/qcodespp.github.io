@@ -181,3 +181,7 @@ By default the above ``loop`` functions sweep and step linearly. You can use a l
 Higher dimensions
 -----------------
 If you have three or more independent parameters, `you will need to manually construct your loop, by explicitly using the Loop class, and/or with the help of python loops <https://qcodespp.github.io/advanced.html>`__.
+
+No dimensions: Measure class
+-----------------------------
+If you don't need a loop at all, e.g. you simply need to save data from an instrument's buffer to disk, you can use the ``Measure`` class. See the `Measure class <https://qcodespp.github.io/measure.html>`_ section for more information.
