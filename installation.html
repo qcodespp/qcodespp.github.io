@@ -50,7 +50,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#installing-python">Installing python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installing-qcodes">Installing qcodes++</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#windows-shortcuts">Windows shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#updating">Updating</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#additionally">Additionally…</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#github-install">GitHub install</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="dummy_measurements.html">Getting started</a></li>
@@ -114,6 +116,11 @@
 <p><code class="docutils literal notranslate"><span class="pre">qcodespp</span> <span class="pre">create_shortcuts</span></code></p>
 <p>Usually you just want to select option 1.</p>
 </section>
+<section id="updating">
+<h2>Updating<a class="headerlink" href="#updating" title="Permalink to this heading"></a></h2>
+<p>To update qcodes++ to the latest version, run:</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">qcodespp</span></code></p>
+</section>
 <section id="additionally">
 <h2>Additionally…<a class="headerlink" href="#additionally" title="Permalink to this heading"></a></h2>
 <ul class="simple">
@@ -122,6 +129,13 @@
 <li><p>If you will use VISA instruments (e.g. ones that communicate via GPIB, USB, RS232) you should install the NI VISA and GPIB(488.2) backends from the National Instruments website <a class="reference external" href="https://www.ni.com/en/support/downloads/drivers/download.ni-visa.html">here</a> and <a class="reference external" href="https://www.ni.com/en/support/downloads/drivers/download.ni-488-2.html">here</a>. Keysight also offers a VISA backend, available <a class="reference external" href="https://www.keysight.com/zz/en/lib/software-detail/computer-software/io-libraries-suite-downloads-2175637.html?jmpid=zzfindiosuite">here</a>.</p></li>
 <li><p>If the qcodes++ install fails, you may need to install <a class="reference external" href="https://visualstudio.microsoft.com/downloads/">Visual Studio C++ build tools.</a>. After following the link, go to <em>Tools for Visual Studio</em> and then <em>Build Tools for Visual Studio</em>.</p></li>
 </ul>
+</section>
+<section id="github-install">
+<h2>GitHub install<a class="headerlink" href="#github-install" title="Permalink to this heading"></a></h2>
+<p>If you prefer to be as up-to-date as possible, or wish to contribute, you can install qcodes++ directly from the GitHub repository. First, install the <a class="reference external" href="https://git-scm.com/">git client</a> and open a Git Bash instance. Then cd (‘change directory’) to the desired directory (usually C:/git on Windows) and clone the repository:</p>
+<p>Then, in an Anaconda prompt (or terminal if you are using miniconda), create and activate the environment as described above, and install qcodes++ in editable mode:</p>
+<p>To get updated with the latest pushes to the main branch, use Git Bash to cd to the install directory and pull:</p>
+<p>To contribute, please fork the repository on GitHub, clone your fork, create a new branch for your changes, and make a pull request when you are done. <a class="reference external" href="https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project">i.e. just the standard procedure for contributing to git projects</a>.</p>
 </section>
 </section>
 
