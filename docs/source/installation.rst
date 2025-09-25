@@ -50,20 +50,20 @@ GitHub install
 --------------
 If you prefer to be as up-to-date as possible, or wish to contribute, you can install qcodes++ directly from the GitHub repository. First, install the `git client <https://git-scm.com/>`__ and open a Git Bash instance. Then cd ('change directory') to the desired directory (usually C:/git on Windows) and clone the repository:
 
-.. code-block:: bash
+.. code-block::
     cd C:/git
     git clone https://github.com/qcodes/qcodespp.git
 
 Then, in an Anaconda prompt (or terminal if you are using miniconda), create and activate the environment as described above, and install qcodes++ in editable mode:
 
-.. code-block:: bash
+.. code-block::
     conda create -n qcodespp python
     conda activate qcodespp
     pip install -e C:/git/qcodespp
 
 To get updated with the latest pushes to the main branch, use Git Bash to cd to the install directory and pull:
 
-.. code-block:: bash
+.. code-block::
     cd C:/git/qcodespp
     git pull
 
