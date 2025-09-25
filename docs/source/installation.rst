@@ -44,11 +44,11 @@ Additionally...
 
 - If you will use VISA instruments (e.g. ones that communicate via GPIB, USB, RS232) you should install the NI VISA and GPIB(488.2) backends from the National Instruments website `here <https://www.ni.com/en/support/downloads/drivers/download.ni-visa.html>`__ and `here <https://www.ni.com/en/support/downloads/drivers/download.ni-488-2.html>`__. Keysight also offers a VISA backend, available `here <https://www.keysight.com/zz/en/lib/software-detail/computer-software/io-libraries-suite-downloads-2175637.html?jmpid=zzfindiosuite>`__.
 
-- If the qcodes++ install fails, you may need to install `Visual Studio C++ build tools. <https://visualstudio.microsoft.com/downloads/>`__. After following the link, go to *Tools for Visual Studio* and then *Build Tools for Visual Studio*.
+- If the qcodes++ install fails, you may need to install `Visual Studio C++ build tools <https://visualstudio.microsoft.com/downloads/>`__. After following the link, go to *Tools for Visual Studio* and then *Build Tools for Visual Studio*.
 
 GitHub install
 --------------
-If you prefer to be as up-to-date as possible, or wish to contribute, you can install qcodes++ directly from the GitHub repository. First, install the `git client <https://git-scm.com/>`__ and open a Git Bash instance. Then cd ('change directory') to the desired directory (usually C:/git on Windows) and clone the repository
+If you prefer to be as up-to-date as possible, or wish to contribute, you can install qcodes++ directly from the GitHub repository. First, install the `git client <https://git-scm.com/>`__ and open a Git Bash instance. Then cd to the desired directory (usually C:/git on Windows) and clone the repository
 
 .. code-block:: bash
 
