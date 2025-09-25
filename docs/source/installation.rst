@@ -53,7 +53,7 @@ If you prefer to be as up-to-date as possible, or wish to contribute, you can in
 .. code-block:: bash
 
     cd C:/git
-    git clone https://github.com/qcodes/qcodespp.git
+    git clone https://github.com/qcodespp/qcodespp
 
 Then, in an Anaconda prompt (or terminal if you are using miniconda), create and activate the environment as described above, and install qcodes++ in editable mode
 
