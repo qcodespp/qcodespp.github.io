@@ -70,4 +70,4 @@ To get updated with the latest pushes to the main branch, use Git Bash to cd to 
     cd C:/git/qcodespp
     git pull
 
-To contribute, please fork the repository on GitHub, clone your fork, create a new branch for your changes, and make a pull request when you are done. `i.e. just the standard procedure for contributing to git projects <https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project>`__.
+To contribute, please follow `the standard procedures for contributing to git projects <https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project>`__; i.e. fork the repository on GitHub, clone your fork, create a new branch for your changes, and make a pull request when you are done.
