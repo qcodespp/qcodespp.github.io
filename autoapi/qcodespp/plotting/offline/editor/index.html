@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>qcodespp.plotting.offline.editor &mdash; qcodes++ 0.1.12 documentation</title>
+  <title>qcodespp.plotting.offline.editor &mdash; qcodes++ 0.1.13 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
 
@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="../../../../../_static/qcppfavicon.svg"/>
       <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=515f6337"></script>
+      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=f527e72e"></script>
       <script src="../../../../../_static/doctools.js?v=888ff710"></script>
       <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../../../_static/js/theme.js"></script>
@@ -252,7 +252,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.editor.Editor.set_window_title">
-<span class="sig-name descname"><span class="pre">set_window_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.editor.Editor.set_window_title" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">set_window_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extra_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.editor.Editor.set_window_title" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -347,7 +347,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.editor.Editor.export_processed_data">
-<span class="sig-name descname"><span class="pre">export_processed_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">which</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'current'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.editor.Editor.export_processed_data" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">export_processed_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">which</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.editor.Editor.export_processed_data" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -401,8 +401,18 @@
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.editor.Editor.initial_data_load">
+<span class="sig-name descname"><span class="pre">initial_data_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.editor.Editor.initial_data_load" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.editor.Editor.update_plots">
 <span class="sig-name descname"><span class="pre">update_plots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_color_limits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.editor.Editor.update_plots" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.editor.Editor.update_pick_radii">
+<span class="sig-name descname"><span class="pre">update_pick_radii</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.editor.Editor.update_pick_radii" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -788,6 +798,16 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.plotting.offline.editor.Editor.show_stats">
 <span class="sig-name descname"><span class="pre">show_stats</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.editor.Editor.show_stats" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.editor.Editor.get_axis_in_focus">
+<span class="sig-name descname"><span class="pre">get_axis_in_focus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.editor.Editor.get_axis_in_focus" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.plotting.offline.editor.Editor.zoom_plot">
+<span class="sig-name descname"><span class="pre">zoom_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.plotting.offline.editor.Editor.zoom_plot" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">

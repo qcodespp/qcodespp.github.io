@@ -10,12 +10,13 @@ Classes
 .. autosummary::
 
    qcodespp.instrument_drivers.ZI.ZIMFLI.ZIMFLI
+   qcodespp.instrument_drivers.ZI.ZIMFLI.MFLIScope
 
 
 Module Contents
 ---------------
 
-.. py:class:: ZIMFLI(name, serial, server='local', digi=False, port=8004, **kwargs)
+.. py:class:: ZIMFLI(name, serial, server='local', port=8004, **kwargs)
 
    Bases: :py:obj:`qcodespp.Instrument`
 
@@ -24,8 +25,6 @@ Module Contents
    It has the most important functions for configuring outputs and reading off inputs to qcodes.
 
    Serial - the device serial number printed on the chassis used for connecting to the device
-
-   TODO: everything
 
 
 
@@ -52,11 +51,6 @@ Module Contents
    .. py:attribute:: serial
 
 
-   .. py:attribute:: digi
-      :value: False
-
-
-
    .. py:attribute:: options
 
 
@@ -80,6 +74,25 @@ Module Contents
       Returns:
           A dict containing vendor, model, serial, and firmware.
 
+
+
+
+.. py:class:: MFLIScope(name: str, instrument: ZIMFLI)
+
+   Bases: :py:obj:`qcodespp.MultiParameter`
+
+
+   Class to get scope data from MFLI as a single parameter
+
+
+   .. py:method:: get_raw()
+
+      ``get_raw`` is called to perform the actual data acquisition from the
+      instrument. This method should either be overwritten to perform the
+      desired operation or alternatively for :class:`.Parameter` a
+      suitable method is automatically generated if ``get_cmd`` is supplied
+      to the parameter constructor. The method is automatically wrapped to
+      provide a ``get`` method on the parameter instance.
 
 
 

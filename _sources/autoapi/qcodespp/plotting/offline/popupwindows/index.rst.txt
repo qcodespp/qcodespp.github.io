@@ -156,6 +156,9 @@ Module Contents
    .. py:method:: update()
 
 
+   .. py:method:: update_pick_radius()
+
+
    .. py:method:: fit_class_changed()
 
 
@@ -192,6 +195,9 @@ Module Contents
    .. py:method:: draw_fits(line)
 
 
+   .. py:method:: toggle_lock_scaling()
+
+
    .. py:method:: autoscale_axes()
 
 
@@ -225,10 +231,19 @@ Module Contents
    .. py:method:: copy_cuts_table_to_clipboard()
 
 
+   .. py:method:: zoom_plot(event, axis)
+
+
    .. py:method:: mouse_scroll_canvas(event)
 
 
    .. py:method:: mouse_click_canvas(event)
+
+
+   .. py:method:: on_motion(event)
+
+
+   .. py:method:: on_release(event)
 
 
    .. py:method:: save_fit_preset()

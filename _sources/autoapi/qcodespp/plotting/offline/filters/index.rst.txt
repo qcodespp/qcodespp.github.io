@@ -99,31 +99,31 @@ Module Contents
 
 .. py:function:: cut_y(data, method, bottom, width)
 
-.. py:function:: swap_xy(data, method, setting1, setting2)
+.. py:function:: swap_xy(data, method=None, setting1=None, setting2=None)
 
 .. py:function:: flip(data, method, setting1, setting2)
 
 .. py:function:: normalize(data, method, point_x, point_y)
 
-.. py:function:: subtract_average(data, method, setting1, setting2)
+.. py:function:: subtract_average(data, method, setting1=None, setting2=None)
 
-.. py:function:: offset_line_by_line(data, method, index, setting2)
+.. py:function:: offset_line_by_line(data, method, index, setting2=None)
 
-.. py:function:: subtract_ave_line_by_line(data, method, setting1, setting2)
+.. py:function:: subtract_ave_line_by_line(data, method, setting1=None, setting2=None)
 
 .. py:function:: offset(data, method, setting1, setting2, array=None)
 
 .. py:function:: absolute(data, method, setting1, setting2)
 
-.. py:function:: multiply(data, method, setting1, setting2, array=None)
+.. py:function:: multiply(data, method, setting1, setting2=None, array=None)
 
-.. py:function:: divide(data, method, setting1, setting2, array=None)
+.. py:function:: divide(data, method, setting1, setting2=None, array=None)
 
 .. py:function:: logarithm(data, method, setting1=10, setting2=None)
 
-.. py:function:: power(data, method, setting1, setting2)
+.. py:function:: power(data, method, setting1, setting2=None)
 
-.. py:function:: root(data, method, setting1, setting2)
+.. py:function:: root(data, method, setting1, setting2=None)
 
 .. py:function:: interp2d(x, y, z, kind='linear')
 
@@ -132,13 +132,13 @@ Module Contents
 
 .. py:function:: interpolate(data, method, n_x, n_y)
 
-.. py:function:: sort(data, method, setting1, setting2)
+.. py:function:: sort(data, method, setting1=None, setting2=None)
 
 .. py:function:: add_slope(data, method, a_x, a_y)
 
-.. py:function:: subtract_trace(data, method, index, setting2)
+.. py:function:: subtract_trace(data, method, index, setting2=None)
 
-.. py:function:: invert(data, method, setting1, setting2)
+.. py:function:: invert(data, method, setting1=None, setting2=None)
 
 .. py:class:: Filter(name, method=None, settings=None, checkstate=None, dimension=2)
 

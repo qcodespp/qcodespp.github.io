@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>qcodespp.instrument_drivers.ZI.ZIMFLI &mdash; qcodes++ 0.1.12 documentation</title>
+  <title>qcodespp.instrument_drivers.ZI.ZIMFLI &mdash; qcodes++ 0.1.13 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
 
@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="../../../../../_static/qcppfavicon.svg"/>
       <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=515f6337"></script>
+      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=f527e72e"></script>
       <script src="../../../../../_static/doctools.js?v=888ff710"></script>
       <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../../../_static/js/theme.js"></script>
@@ -126,12 +126,11 @@
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.ZI.ZIMFLI.ZIMFLI">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.ZI.ZIMFLI.</span></span><span class="sig-name descname"><span class="pre">ZIMFLI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'local'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">digi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8004</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.ZI.ZIMFLI.ZIMFLI" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.ZI.ZIMFLI.</span></span><span class="sig-name descname"><span class="pre">ZIMFLI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'local'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8004</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.ZI.ZIMFLI.ZIMFLI" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodespp.Instrument</span></code></p>
 <p>This is the driver for the Zurich Instruments MFLI compatible with the older qcodes v0.1.11.
 It has the most important functions for configuring outputs and reading off inputs to qcodes.</p>
 <p>Serial - the device serial number printed on the chassis used for connecting to the device</p>
-<p>TODO: everything</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.ZI.ZIMFLI.ZIMFLI.scoperates">
 <span class="sig-name descname"><span class="pre">scoperates</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.ZI.ZIMFLI.ZIMFLI.scoperates" title="Permalink to this definition"></a></dt>
@@ -168,11 +167,6 @@ It has the most important functions for configuring outputs and reading off inpu
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="qcodespp.instrument_drivers.ZI.ZIMFLI.ZIMFLI.digi">
-<span class="sig-name descname"><span class="pre">digi</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#qcodespp.instrument_drivers.ZI.ZIMFLI.ZIMFLI.digi" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.ZI.ZIMFLI.ZIMFLI.options">
 <span class="sig-name descname"><span class="pre">options</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.ZI.ZIMFLI.ZIMFLI.options" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
@@ -198,6 +192,24 @@ as well.</p>
 <dt>Returns:</dt><dd><p>A dict containing vendor, model, serial, and firmware.</p>
 </dd>
 </dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.ZI.ZIMFLI.MFLIScope">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.ZI.ZIMFLI.</span></span><span class="sig-name descname"><span class="pre">MFLIScope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instrument</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#qcodespp.instrument_drivers.ZI.ZIMFLI.ZIMFLI" title="qcodespp.instrument_drivers.ZI.ZIMFLI.ZIMFLI"><span class="pre">ZIMFLI</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.ZI.ZIMFLI.MFLIScope" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodespp.MultiParameter</span></code></p>
+<p>Class to get scope data from MFLI as a single parameter</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.ZI.ZIMFLI.MFLIScope.get_raw">
+<span class="sig-name descname"><span class="pre">get_raw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.ZI.ZIMFLI.MFLIScope.get_raw" title="Permalink to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">get_raw</span></code> is called to perform the actual data acquisition from the
+instrument. This method should either be overwritten to perform the
+desired operation or alternatively for <code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code> a
+suitable method is automatically generated if <code class="docutils literal notranslate"><span class="pre">get_cmd</span></code> is supplied
+to the parameter constructor. The method is automatically wrapped to
+provide a <code class="docutils literal notranslate"><span class="pre">get</span></code> method on the parameter instance.</p>
 </dd></dl>
 
 </dd></dl>

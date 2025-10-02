@@ -18,6 +18,7 @@ Functions
    qcodespp.plotting.analysis_tools.colored_traces
    qcodespp.plotting.analysis_tools.sort_lists
    qcodespp.plotting.analysis_tools.load_2d_json
+   qcodespp.plotting.analysis_tools.export_2d_to_IG
 
 
 Module Contents
@@ -121,5 +122,16 @@ Module Contents
 
    Returns:
        dict: A dictionary containing the reshaped data.
+
+
+.. py:function:: export_2d_to_IG(x, y, z, filename)
+
+   Export 2D data to a .dat file in a format that InSpectra Gadget can import.
+
+   Args:
+       x (array-like): x-axis values. Shape must match z's or z's first dimension
+       y (array-like): y-axis values. Shape must match z's or z's second dimension
+       z (2D array-like): z values
+       filename (str): name of the file to save the data to, without extension.
 
 

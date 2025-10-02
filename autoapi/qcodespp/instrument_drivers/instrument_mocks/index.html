@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>qcodespp.instrument_drivers.instrument_mocks &mdash; qcodes++ 0.1.12 documentation</title>
+  <title>qcodespp.instrument_drivers.instrument_mocks &mdash; qcodes++ 0.1.13 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
 
@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="../../../../_static/qcppfavicon.svg"/>
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=515f6337"></script>
+      <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=f527e72e"></script>
       <script src="../../../../_static/doctools.js?v=888ff710"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../../_static/js/theme.js"></script>
@@ -145,7 +145,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.instrument_mocks.MockParabola">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.instrument_mocks.</span></span><span class="sig-name descname"><span class="pre">MockParabola</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.instrument_mocks.MockParabola" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.instrument.base.Instrument</span></code></p>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.Instrument</span></code></p>
 <p>Holds dummy parameters which are get and set able as well as provides
 some basic functions that depends on these parameters for testing
 purposes.</p>
@@ -159,7 +159,7 @@ testing of numerical optimizations.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.instrument_mocks.MockMetaParabola">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.instrument_mocks.</span></span><span class="sig-name descname"><span class="pre">MockMetaParabola</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_parabola_inst</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.instrument_mocks.MockMetaParabola" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.instrument.base.Instrument</span></code></p>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.Instrument</span></code></p>
 <p>Test for a meta instrument, has a tunable gain knob</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.instrument_mocks.MockMetaParabola.mock_parabola_inst">
@@ -171,7 +171,7 @@ testing of numerical optimizations.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.instrument_mocks.DummyInstrument">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.instrument_mocks.</span></span><span class="sig-name descname"><span class="pre">DummyInstrument</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dummy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['dac1',</span> <span class="pre">'dac2']</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.instrument_mocks.DummyInstrument" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.instrument.base.Instrument</span></code></p>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.Instrument</span></code></p>
 <p>Base class for all QCodes instruments.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><dl class="simple">
@@ -189,7 +189,7 @@ testing of numerical optimizations.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.instrument_mocks.DummyMeasurementInstrument">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.instrument_mocks.</span></span><span class="sig-name descname"><span class="pre">DummyMeasurementInstrument</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.instrument_mocks.DummyMeasurementInstrument" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.instrument.base.Instrument</span></code></p>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.Instrument</span></code></p>
 <p>Base class for all QCodes instruments.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><dl class="simple">
@@ -244,7 +244,7 @@ hardware communication should instead override <code class="docutils literal not
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.instrument_mocks.DummyChannelInstrument">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.instrument_mocks.</span></span><span class="sig-name descname"><span class="pre">DummyChannelInstrument</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.instrument_mocks.DummyChannelInstrument" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.instrument.base.Instrument</span></code></p>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.Instrument</span></code></p>
 <p>Dummy instrument with channels</p>
 </dd></dl>
 

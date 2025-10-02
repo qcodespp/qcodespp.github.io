@@ -43,7 +43,18 @@ Module Contents
    .. py:attribute:: channels
 
 
+   .. py:attribute:: decomposed
+      :value: False
+
+
+
    .. py:method:: prepare_dataset()
+
+
+   .. py:method:: decompose_3D_data()
+
+
+   .. py:method:: make_decomposed_item(new_data_dict, label)
 
 
    .. py:method:: remove_string_arrays(data_dict)

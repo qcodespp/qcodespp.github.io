@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>qcodespp &mdash; qcodes++ 0.1.12 documentation</title>
+  <title>qcodespp &mdash; qcodes++ 0.1.13 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
 
@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="../../_static/qcppfavicon.svg"/>
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=515f6337"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=f527e72e"></script>
       <script src="../../_static/doctools.js?v=888ff710"></script>
       <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -90,6 +90,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.colorplot"><code class="docutils literal notranslate"><span class="pre">colorplot()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.colored_traces"><code class="docutils literal notranslate"><span class="pre">colored_traces()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.load_2d_json"><code class="docutils literal notranslate"><span class="pre">load_2d_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.export_2d_to_IG"><code class="docutils literal notranslate"><span class="pre">export_2d_to_IG()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.new_data"><code class="docutils literal notranslate"><span class="pre">new_data()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.load_data"><code class="docutils literal notranslate"><span class="pre">load_data()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.load_data_num"><code class="docutils literal notranslate"><span class="pre">load_data_num()</span></code></a></li>
@@ -335,22 +336,23 @@ whose keys should be treated as attributes of <code class="docutils literal notr
 
 <dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.__version__">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">__version__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'0.1.12'</span></em><a class="headerlink" href="#qcodespp.__version__" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">__version__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'0.1.13'</span></em><a class="headerlink" href="#qcodespp.__version__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.Measure">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">Measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setpoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Measure" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">Measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">measure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setpoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_timer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Measure" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.metadatable.Metadatable</span></code></p>
-<p>Class to create a <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> from a single (non-looped) set of measured parameters.</p>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code> from a single (non-looped) set of measured parameters.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Measure</span></code> is used to measure a set of parameters at a single point in time.
 The typical use case is where the parameter(s)’s get function(s) return(s) an array, e.g.
 an oscilloscope trace, or a spectrum analyser trace.
-At init, you can provide the parameters to measure and (optionally) setpoints. If no parameters are
-provided, the default station.measure() is used.
-If no setpoints are provided, dummy setpoints are created for each dimension
-found in the parametersn (recommended, see below).</p>
-<p><code class="docutils literal notranslate"><span class="pre">Measure.run()</span></code> will execute the measurement, and return and save a <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code></p>
+The array shape(s) do not need to be known and can change between measurements.
+The parameters to be measured are provided at init or through station.set_measurement().
+Optionally, setpoints may be provided, but this is usually not required nor recommended.
+If no setpoints are provided, dummy setpoints are created for each dimension found in the
+measured parameters (recommended, see Args documentation below).</p>
+<p><code class="docutils literal notranslate"><span class="pre">Measure.run()</span></code> executes the measurement, and returns and saves a <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code></p>
 <dl>
 <dt>Examples:</dt><dd><p>Measure two parameters:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">station</span><span class="o">.</span><span class="n">set_measurement</span><span class="p">(</span><span class="n">array_param1</span><span class="p">,</span> <span class="n">array_param2</span><span class="p">)</span>
@@ -375,12 +377,10 @@ found in the parametersn (recommended, see below).</p>
 </div>
 </dd>
 <dt>Args:</dt><dd><dl class="simple">
-<dt>parameters (Optional, Sequence[Parameter]): Sequence of gettable Parameters.</dt><dd><p>If no actions are provided, the default station.measure() is used.</p>
+<dt><a href="#id7"><span class="problematic" id="id8">*</span></a>measure (Optional, Sequence[Parameter]): Sequence of gettable Parameters.</dt><dd><p>If no actions are provided, the default station.measure() is used.</p>
 </dd>
 </dl>
 <p>name (Optional, str): String to send to the filename of the DataSet.</p>
-<p>station (Optional, Station): The <code class="docutils literal notranslate"><span class="pre">Station</span></code> to use if not the default.</p>
-<p>use_threads (Optional, bool): Use threading to parallelize getting parameters from instruments.</p>
 <dl class="simple">
 <dt>setpoints (Optional, Sequence[Parameter or Array]): sequence of setpoint arrays</dt><dd><p>use for the DataSetPP. Can be array(s) of values, or gettable Parameter(s).
 If not provided, dummy setpoints are created for each dimension found in the parameters.
@@ -391,7 +391,11 @@ it can be tricky to get all the dimensions right, so in most instances it’s be
 all measured parameters to the parameters argument, and then plot whatever parameter against
 whatever other parameter manually.</p>
 </dd>
-<dt>timer (Optional, bool, default False): The default station.measure() includes a timer parameter, which is</dt><dd><p>useful for Loops but essentially useless here. If you really want it, set timer=True.</p>
+</dl>
+<p>station (Optional, Station): The <code class="docutils literal notranslate"><span class="pre">Station</span></code> to use if not the default.</p>
+<p>use_threads (Optional, bool): Use threading to parallelize getting parameters from instruments.</p>
+<dl class="simple">
+<dt>use_timer (Optional, bool, default False): The default station.measure() includes a timer parameter,</dt><dd><p>which is useful for Loops but essentially useless here. If you really want it, set use_timer=True.</p>
 </dd>
 </dl>
 </dd>
@@ -417,13 +421,13 @@ whatever other parameter manually.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="qcodespp.Measure.timer">
-<span class="sig-name descname"><span class="pre">timer</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#qcodespp.Measure.timer" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="qcodespp.Measure.use_timer">
+<span class="sig-name descname"><span class="pre">use_timer</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#qcodespp.Measure.use_timer" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.Measure.actions">
-<span class="sig-name descname"><span class="pre">actions</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.Measure.actions" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">actions</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#qcodespp.Measure.actions" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -451,11 +455,13 @@ If no actions are provided, the default station.measure() is used.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.Measure.run">
-<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_to_plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">publisher</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Measure.run" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Measure.run" title="Permalink to this definition"></a></dt>
 <dd><p>Run the actions in this measurement and return their data as a DataSetPP</p>
 <dl>
 <dt>Args:</dt><dd><dl class="simple">
-<dt>params_to_plot: a list of parameters to plot once the measurement is done.</dt><dd><p>Can either be the DataArray objects, or the parameters themselves.</p>
+<dt>plot (Optional[Sequence[Parameter,str]]): a list of parameters to plot.</dt><dd><p>Provide the parameter, or parameter full_name as a string.</p>
+</dd>
+<dt>name (Optional[str]): Filename, minus counter, date and time.</dt><dd><p>Overwrites any name provided at init.</p>
 </dd>
 <dt>quiet (Optional[bool]): Set True to not print anything except</dt><dd><p>errors. Default False.</p>
 </dd>
@@ -465,22 +471,17 @@ Only used to supply metadata.</p>
 <dt>use_threads (Optional[bool]): whether to parallelize <code class="docutils literal notranslate"><span class="pre">get</span></code></dt><dd><p>operations using threads. Default False.</p>
 </dd>
 </dl>
-<p>Other kwargs are passed along to data_set.new_data. The key ones
-are:</p>
+<p>kwargs are passed to data_set.new_data. The key ones are:</p>
 <dl class="simple">
 <dt>location (Optional[Union[str, False]]): the location of the</dt><dd><p>DataSetPP, a string whose meaning depends on formatter and io,
 or False to only keep in memory. May be a callable to provide
 automatic locations. If omitted, will use the default
 DataSetPP.location_provider</p>
 </dd>
-<dt>name (Optional[str]): if location is default or another provider</dt><dd><p>function, name is a string to add to location to make it more
-readable/meaningful to users</p>
-</dd>
-<dt>formatter (Optional[Formatter]): knows how to read and write the</dt><dd><p>file format. Default can be set in DataSetPP.default_formatter</p>
-</dd>
-<dt>io (Optional[io_manager]): knows how to connect to the storage</dt><dd><p>(disk vs cloud etc)</p>
+<dt>formatter (Optional[Formatter]): For writing to file. Default</dt><dd><p>is GnuplotFormat, can be set in DataSetPP.default_formatter</p>
 </dd>
 </dl>
+<p>io (Optional[io_manager]): io manager for DataSetPP object.</p>
 </dd>
 <dt>returns:</dt><dd><p>a DataSetPP object containing the results of the measurement</p>
 </dd>
@@ -498,7 +499,7 @@ readable/meaningful to users</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.Task">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">Task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.Task" title="Permalink to this definition"></a></dt>
-<dd><p>Execute a function within a measurement Loop, e.g. .each(Task(func, <a href="#id7"><span class="problematic" id="id8">*</span></a>args, <a href="#id9"><span class="problematic" id="id10">**</span></a>kwargs)).</p>
+<dd><p>Execute a function within a measurement Loop, e.g. .each(Task(func, <a href="#id9"><span class="problematic" id="id10">*</span></a>args, <a href="#id11"><span class="problematic" id="id12">**</span></a>kwargs)).</p>
 <p>The first argument should be a callable function, to which any subsequent
 args and kwargs (which are evaluated before the loop starts) are passed.</p>
 <p>e.g.:
@@ -518,8 +519,8 @@ Define a function to wait for a temperature setpoint to be reached:</p>
 before being passed to the func.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>func (callable): Function to executed
-<a href="#id11"><span class="problematic" id="id12">*</span></a>args: pass to func, after evaluation if callable
-<a href="#id13"><span class="problematic" id="id14">**</span></a>kwargs: pass to func, after evaluation if callable</p>
+<a href="#id13"><span class="problematic" id="id14">*</span></a>args: pass to func, after evaluation if callable
+<a href="#id15"><span class="problematic" id="id16">**</span></a>kwargs: pass to func, after evaluation if callable</p>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -719,6 +720,19 @@ link_to_default (bool): Link to the qcodespp default folder specified by qc.set_
 <dt>Args:</dt><dd><p>filename (str): Path to the JSON file.</p>
 </dd>
 <dt>Returns:</dt><dd><p>dict: A dictionary containing the reshaped data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="qcodespp.export_2d_to_IG">
+<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">export_2d_to_IG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.export_2d_to_IG" title="Permalink to this definition"></a></dt>
+<dd><p>Export 2D data to a .dat file in a format that InSpectra Gadget can import.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>x (array-like): x-axis values. Shape must match z’s or z’s first dimension
+y (array-like): y-axis values. Shape must match z’s or z’s second dimension
+z (2D array-like): z values
+filename (str): name of the file to save the data to, without extension.</p>
 </dd>
 </dl>
 </dd></dl>
