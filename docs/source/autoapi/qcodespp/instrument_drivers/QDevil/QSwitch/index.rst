@@ -216,7 +216,7 @@ Module Contents
 
    .. py:method:: breakout(line: Union[str, int], tap: Union[str, int]) -> None
 
-      Connect the specified line to the specified tap AND disconnect ground.
+      Connect the specified line to the specified tap and disconnect ground.
 
       Args:
           line: The line to connect to the breakout. Specify either its integer value or its name.
@@ -226,7 +226,7 @@ Module Contents
 
    .. py:method:: line_float(lines: OneOrMore) -> None
 
-      Open _all_ relays on one or more lines such that the line is floating.
+      Open all relays on one or more lines such that the line is floating.
 
       Args:
           lines: The line(s) to float. Specify a single line through its integer value
@@ -311,7 +311,8 @@ Module Contents
    It is assumed maximum one link per QSwitch, since otherwise links can be made internally.
 
    Args:
-       qsws (sequence[QSwitches]): list of already initialized/connected qswitches
+       qsws (sequence[QSwitches]): list of already initialized/connected qswitches OR
+           list of addresses (str) of qswitches to be initialized/connected.
        linked_BNCs (list[list]): list of linked BNCs, e.g. [[1,11],[2,12],[4,31]].
        name (str): QCodes name. Default = 'qsws'
 

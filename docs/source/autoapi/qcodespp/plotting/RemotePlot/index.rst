@@ -115,7 +115,7 @@ Module Contents
 
 
    .. py:attribute:: topic
-      :value: 'qcodes++.Plot.00000000000000000000000000000000'
+      :value: 'qcodespp.Plot.00000000000000000000000000000000'
 
 
 

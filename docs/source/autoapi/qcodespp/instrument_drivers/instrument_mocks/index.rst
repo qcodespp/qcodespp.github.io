@@ -45,7 +45,7 @@ Module Contents
 
 .. py:class:: MockParabola(name, **kw)
 
-   Bases: :py:obj:`qcodes.instrument.base.Instrument`
+   Bases: :py:obj:`qcodes.Instrument`
 
 
    Holds dummy parameters which are get and set able as well as provides
@@ -62,7 +62,7 @@ Module Contents
 
 .. py:class:: MockMetaParabola(name, mock_parabola_inst, **kw)
 
-   Bases: :py:obj:`qcodes.instrument.base.Instrument`
+   Bases: :py:obj:`qcodes.Instrument`
 
 
    Test for a meta instrument, has a tunable gain knob
@@ -73,7 +73,7 @@ Module Contents
 
 .. py:class:: DummyInstrument(name='dummy', gates=['dac1', 'dac2'], **kwargs)
 
-   Bases: :py:obj:`qcodes.instrument.base.Instrument`
+   Bases: :py:obj:`qcodes.Instrument`
 
 
    Base class for all QCodes instruments.
@@ -90,7 +90,7 @@ Module Contents
 
 .. py:class:: DummyMeasurementInstrument(name: str, **kwargs)
 
-   Bases: :py:obj:`qcodes.instrument.base.Instrument`
+   Bases: :py:obj:`qcodes.Instrument`
 
 
    Base class for all QCodes instruments.
@@ -142,7 +142,7 @@ Module Contents
 
 .. py:class:: DummyChannelInstrument(name, **kwargs)
 
-   Bases: :py:obj:`qcodes.instrument.base.Instrument`
+   Bases: :py:obj:`qcodes.Instrument`
 
 
    Dummy instrument with channels

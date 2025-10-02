@@ -79,6 +79,12 @@ Module Contents
    .. py:attribute:: label_locks
 
 
+   .. py:method:: load_dat()
+
+
+   .. py:method:: load_json()
+
+
    .. py:method:: prepare_dataset()
 
 
@@ -163,13 +169,16 @@ Module Contents
    .. py:method:: reset_axlim_settings()
 
 
+   .. py:method:: populate_axlim_settings()
+
+
    .. py:method:: apply_colormap()
 
 
    .. py:method:: apply_single_filter(processed_data, filt)
 
 
-   .. py:method:: apply_all_filters(update_color_limits=True, filter_box_index=None)
+   .. py:method:: apply_all_filters(update_color_limits=True)
 
 
    .. py:method:: extension_setting_edited(editor, setting_name)

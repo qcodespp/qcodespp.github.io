@@ -15,22 +15,23 @@ Classes
 Module Contents
 ---------------
 
-.. py:class:: Measure(setpoints=None, parameters=None, use_threads=False, station=None, name=None, timer=False)
+.. py:class:: Measure(*measure, setpoints=None, use_threads=False, station=None, name=None, use_timer=False)
 
    Bases: :py:obj:`qcodes.metadatable.Metadatable`
 
 
-   Class to create a ``DataSetPP`` from a single (non-looped) set of measured parameters.
+   Create a ``DataSetPP`` from a single (non-looped) set of measured parameters.
 
    ``Measure`` is used to measure a set of parameters at a single point in time.
    The typical use case is where the parameter(s)'s get function(s) return(s) an array, e.g. 
-   an oscilloscope trace, or a spectrum analyser trace.
-   At init, you can provide the parameters to measure and (optionally) setpoints. If no parameters are 
-   provided, the default station.measure() is used.
-   If no setpoints are provided, dummy setpoints are created for each dimension
-   found in the parametersn (recommended, see below).
+   an oscilloscope trace, or a spectrum analyser trace. 
+   The array shape(s) do not need to be known and can change between measurements.
+   The parameters to be measured are provided at init or through station.set_measurement().
+   Optionally, setpoints may be provided, but this is usually not required nor recommended.
+   If no setpoints are provided, dummy setpoints are created for each dimension found in the 
+   measured parameters (recommended, see Args documentation below).
 
-   ``Measure.run()`` will execute the measurement, and return and save a ``DataSetPP``
+   ``Measure.run()`` executes the measurement, and returns and saves a ``DataSetPP``
 
    Examples:
        Measure two parameters:
@@ -55,14 +56,10 @@ Module Contents
        >>>     data=measure.run(name=f'iteration {i}')
 
    Args:
-       parameters (Optional, Sequence[Parameter]): Sequence of gettable Parameters.
+       *measure (Optional, Sequence[Parameter]): Sequence of gettable Parameters.
            If no actions are provided, the default station.measure() is used.
 
        name (Optional, str): String to send to the filename of the DataSet.
-
-       station (Optional, Station): The ``Station`` to use if not the default.
-
-       use_threads (Optional, bool): Use threading to parallelize getting parameters from instruments.
 
        setpoints (Optional, Sequence[Parameter or Array]): sequence of setpoint arrays
            use for the DataSetPP. Can be array(s) of values, or gettable Parameter(s). 
@@ -72,10 +69,14 @@ Module Contents
            and offline_plotting will then be able to plot the correct dependencies automatically. However; 
            it can be tricky to get all the dimensions right, so in most instances it's better to just pass 
            all measured parameters to the parameters argument, and then plot whatever parameter against 
-           whatever other parameter manually. 
+           whatever other parameter manually.
 
-       timer (Optional, bool, default False): The default station.measure() includes a timer parameter, which is
-           useful for Loops but essentially useless here. If you really want it, set timer=True.
+       station (Optional, Station): The ``Station`` to use if not the default.
+
+       use_threads (Optional, bool): Use threading to parallelize getting parameters from instruments.
+
+       use_timer (Optional, bool, default False): The default station.measure() includes a timer parameter, 
+           which is useful for Loops but essentially useless here. If you really want it, set use_timer=True.
 
 
    .. py:attribute:: station
@@ -96,13 +97,13 @@ Module Contents
 
 
 
-   .. py:attribute:: timer
+   .. py:attribute:: use_timer
       :value: False
 
 
 
    .. py:attribute:: actions
-      :value: None
+      :value: ()
 
 
 
@@ -127,13 +128,17 @@ Module Contents
 
 
 
-   .. py:method:: run(name=None, params_to_plot=None, use_threads=None, quiet=False, station=None, publisher=None, **kwargs)
+   .. py:method:: run(plot=None, name=None, use_threads=None, quiet=False, station=None, **kwargs)
 
       Run the actions in this measurement and return their data as a DataSetPP
 
       Args:
-          params_to_plot: a list of parameters to plot once the measurement is done.
-              Can either be the DataArray objects, or the parameters themselves.
+          plot (Optional[Sequence[Parameter,str]]): a list of parameters to plot. 
+              Provide the parameter, or parameter full_name as a string.
+
+          name (Optional[str]): Filename, minus counter, date and time.
+              Overwrites any name provided at init.
+
           quiet (Optional[bool]): Set True to not print anything except
               errors. Default False.
 
@@ -144,8 +149,7 @@ Module Contents
           use_threads (Optional[bool]): whether to parallelize ``get``
               operations using threads. Default False.
 
-          Other kwargs are passed along to data_set.new_data. The key ones
-          are:
+          kwargs are passed to data_set.new_data. The key ones are:
 
           location (Optional[Union[str, False]]): the location of the
               DataSetPP, a string whose meaning depends on formatter and io,
@@ -153,15 +157,10 @@ Module Contents
               automatic locations. If omitted, will use the default
               DataSetPP.location_provider
 
-          name (Optional[str]): if location is default or another provider
-              function, name is a string to add to location to make it more
-              readable/meaningful to users
+          formatter (Optional[Formatter]): For writing to file. Default 
+              is GnuplotFormat, can be set in DataSetPP.default_formatter
 
-          formatter (Optional[Formatter]): knows how to read and write the
-              file format. Default can be set in DataSetPP.default_formatter
-
-          io (Optional[io_manager]): knows how to connect to the storage
-              (disk vs cloud etc)
+          io (Optional[io_manager]): io manager for DataSetPP object.
 
       returns:
           a DataSetPP object containing the results of the measurement

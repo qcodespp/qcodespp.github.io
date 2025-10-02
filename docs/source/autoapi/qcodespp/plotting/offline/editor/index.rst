@@ -133,7 +133,7 @@ Module Contents
    .. py:method:: init_canvas()
 
 
-   .. py:method:: set_window_title()
+   .. py:method:: set_window_title(extra_info='')
 
 
    .. py:method:: load_data_item(filepath)
@@ -190,7 +190,7 @@ Module Contents
    .. py:method:: resolve_missing_files(filenames)
 
 
-   .. py:method:: export_processed_data(which='current')
+   .. py:method:: export_processed_data(which='all')
 
 
    .. py:method:: file_checked(item)
@@ -223,7 +223,13 @@ Module Contents
    .. py:method:: clear_sidebar1D()
 
 
+   .. py:method:: initial_data_load(item)
+
+
    .. py:method:: update_plots(item=None, update_data=True, update_color_limits=False)
+
+
+   .. py:method:: update_pick_radii()
 
 
    .. py:method:: get_checked_items(return_indices=False)
@@ -455,6 +461,12 @@ Module Contents
 
 
    .. py:method:: show_stats()
+
+
+   .. py:method:: get_axis_in_focus(event)
+
+
+   .. py:method:: zoom_plot(event, axis, item)
 
 
    .. py:method:: mouse_scroll_canvas(event)
