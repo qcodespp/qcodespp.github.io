@@ -3,7 +3,7 @@ qcodes++ documentation
 
 qcodes++ (aka qcodespp, qcpp, qc++) is a python package to run scientific experiments. qcodes++ is built on top of `QCoDeS <https://qcodes.github.io/Qcodes/>`__, both extending capabilities and preserving older features. QCoDeS contains a huge range of drivers for communicating with instruments,
 and a flexible - but complex - database-based method for collecting data
-and running measurement loops.
+and running experiments.
 
 The qcodes++ package provides a user-friendly frontend to the solid backend of QCoDeS. 
 If you have always wanted to run your measurements using python but found QCoDeS too 
@@ -16,6 +16,8 @@ daunting, qcodes++ is the package for you. qcodes++ features:
 * Improvements to core QCoDeS functionalities (e.g. Station, Parameters) to streamline data acquisition, protect (meta)data integrity and minimise user error
 * Improved drivers for certain instruments
 * and other user-friendliness improvements
+
+`qcodes++ is installed alongside/around QCoDeS <https://qcodespp.github.io/differences_from_qcodes.html>`__, meaning all features of both packages can be used seamlessly within the same notebook/environment.
 
 The source code is available `on GitHub <https://github.com/qcodespp/qcodespp>`__, and the following documentation will guide you on how to quickly and easily start running measurements. Issue reporting, feedback and contributions are more than welcome through the GitHub repository.
 
