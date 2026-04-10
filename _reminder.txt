@@ -1,5 +1,11 @@
 Reminder to myself on how to update the docs if the API is changed.
 
+Automatically: 
+make sure the autoconf.py file has the right version number
+Run the automake.bat file
+Commit and push
+
+Manually:
 In the /docs/source/conf file, uncomment the autoapi-related pieces.
 
 In anaconda prompt:
@@ -10,5 +16,3 @@ sphinx-build -M html source build
 Comment out again all the autoapi-related lines in the conf file.
 
 Commit and push.
-
-Everything except the commit and push is now done automatically by running automake.bat

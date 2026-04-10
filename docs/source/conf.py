@@ -7,10 +7,10 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'qcodes++'
-copyright = '2025, qcodes++'
+copyright = '2026, qcodes++'
 author = 'qcodes++'
-release = '0.1.13'
-version = '0.1.13'
+release = '0.1.16'
+version = '0.1.16'
 
 html_favicon = 'qcppfavicon.svg'
 
