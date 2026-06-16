@@ -9,6 +9,7 @@ Attributes
 
 .. autosummary::
 
+   qcodespp.instrument_drivers.QDevil.QDAC2.log
    qcodespp.instrument_drivers.QDevil.QDAC2.error_ambiguous_wave
    qcodespp.instrument_drivers.QDevil.QDAC2.ExternalInput
 
@@ -52,6 +53,8 @@ Functions
 
 Module Contents
 ---------------
+
+.. py:data:: log
 
 .. py:data:: error_ambiguous_wave
    :value: 'Only one of frequency_Hz or period_s can be specified for a wave form'
@@ -611,7 +614,7 @@ Module Contents
 
    .. py:method:: available_A() -> Sequence[float]
 
-      Retrieve current measurements
+      Retrieve current measurements, without software calibration.
 
       The available measurements will be removed from measurement queue.
 
@@ -622,7 +625,7 @@ Module Contents
 
    .. py:method:: peek_A() -> float
 
-      Peek at the first available current measurement
+      Peek at the first available current measurement, without software calibration.
 
       Returns:
           float: current in Amperes
@@ -648,9 +651,6 @@ Module Contents
 
 
 
-   .. py:attribute:: loc_folder
-
-
    .. py:property:: number
       :type: int
 
@@ -661,7 +661,7 @@ Module Contents
 
    .. py:method:: clear_measurements() -> Sequence[float]
 
-      Retrieve current measurements
+      Retrieve current measurements, without software calibration.
 
       The available measurements will be removed from measurement queue.
 
@@ -672,7 +672,7 @@ Module Contents
 
    .. py:method:: measurement(delay_s: float = 0.0, repetitions: int = 1, current_range: str = 'high', aperture_s: Optional[float] = None, nplc: Optional[int] = None) -> Measurement_Context
 
-      Set up a sequence of current measurements
+      Set up a sequence of current measurements, without software calibration.
 
       Args:
           delay_s (float, optional): Seconds to delay the actual measurement after trigger (default 0)
@@ -927,12 +927,6 @@ Module Contents
    .. py:attribute:: loc_folder
 
 
-   .. py:attribute:: curr_fit_params_high
-
-
-   .. py:attribute:: curr_fit_params_low
-
-
    .. py:attribute:: init_voltages
 
 
@@ -1060,17 +1054,44 @@ Module Contents
 
 
 
-   .. py:method:: currents_A() -> Sequence[float]
+   .. py:method:: currents_A_fast() -> Sequence[float]
 
-      Measure currents on all contacts using calibration. Note: Assumes nplc and curr_range set properly previously.
+      Measure currents on all contacts using calibration, if loaded. Otherwise non-calibrated values returned.
+       
+      Note: Assumes nplc and curr_range set properly previously.
 
-              
+
+
+
+   .. py:method:: currents_A(nplc: int = 1, current_range: str = 'low') -> Sequence[float]
+
+      Measure currents on all contacts ensuring after waiting for aperture time.
+
+      Note: Sets range and nplc manually. Communication takes quite a long time.
+
+      Args:
+          nplc (int, optional): Number of powerline cycles to average over
+          current_range (str, optional): Current range (default low)
+
+
+
+   .. py:method:: currents_A_ucal_fast() -> Sequence[float]
+
+      Measure currents on all contacts. Note: uncalibrated current! Large error if high resistive load
+
+      Note: Assumes nplc and curr_range set properly previously.
+
+      Args:
+          nplc (int, optional): Number of powerline cycles to average over
+          current_range (str, optional): Current range (default low)
 
 
 
    .. py:method:: currents_A_ucal(nplc: int = 1, current_range: str = 'low') -> Sequence[float]
 
       Measure currents on all contacts. Note: uncalibrated current! Large error if high resistive load
+
+      Note: Sets range and nplc manually. Communication takes quite a long time.
 
       Args:
           nplc (int, optional): Number of powerline cycles to average over
@@ -1148,7 +1169,7 @@ Module Contents
 
 
 
-.. py:class:: MultiCurrents_Context(qdac: QDac2, chans, name='qdac_currents')
+.. py:class:: MultiCurrents_Context(qdac: QDac2, chans, name='qdac_currents', cal=True)
 
    Bases: :py:obj:`qcodes.MultiParameter`
 
@@ -1237,6 +1258,11 @@ Module Contents
 
 
 
+   .. py:attribute:: cal
+      :value: True
+
+
+
    .. py:attribute:: arrangement
 
 
@@ -1273,6 +1299,12 @@ Module Contents
    Args:
        name: What this instrument is called locally.
        address: The visa resource name to use to connect.
+           Mutually exclusive with ``resource``.
+       resource: An already-opened :class:`pyvisa.resources.MessageBasedResource`.
+           When provided, the instrument wraps this resource instead of opening
+           a new connection. The instrument takes ownership and will close the
+           resource when the instrument is closed or garbage collected.
+           Mutually exclusive with ``address``, ``visalib`` and ``pyvisa_sim_file``.
        timeout: seconds to allow for responses.  If "unset" will read the value from
           `self.default_timeout`. None means wait forever. Default 5.
        terminator: Read and write termination character(s).
@@ -1287,7 +1319,7 @@ Module Contents
            By default the IVI backend is used if found, but '@py' will use the
            ``pyvisa-py`` backend. Note that QCoDeS does not install (or even require)
            ANY backends, it is up to the user to do that. see eg:
-           http://pyvisa.readthedocs.org/en/stable/names.html
+           https://pyvisa.readthedocs.io/en/stable/introduction/names.html
        metadata: additional static metadata to add to this
            instrument's JSON snapshot.
        pyvisa_sim_file: Name of a pyvisa-sim yaml file used to simulate the instrument.
@@ -1580,6 +1612,16 @@ Module Contents
 
 
    .. py:method:: calibrate_currents(channel_list=0, lowcurrent=True, highcurrent=True, nplc=2, numdatapoints=1001, fitindex=10, update_latest=True, datafolder=0)
+
+      Calibrate the open circuit current of a QDevil QDac-II. 
+
+      Due to common mode error, each channel measures a unique, voltage dependent current in open circuit. 
+      The calibration procedure measures the uncalibrated I vs V for each channel and corrects for it when using curr(). 
+      Before running the calibration, remove all loads from the outputs.
+
+
+
+   .. py:method:: gui()
 
 
    .. py:method:: openControlPanel()

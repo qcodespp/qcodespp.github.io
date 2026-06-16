@@ -44,6 +44,7 @@ Classes
    qcodespp.Task
    qcodespp.Wait
    qcodespp.BreakIf
+   qcodespp.DataSetPP
    qcodespp.MultiParameterWrapper
    qcodespp.ArrayParameterWrapper
 
@@ -54,6 +55,7 @@ Functions
 .. autosummary::
 
    qcodespp.offline_plotting
+   qcodespp.param_monitor
    qcodespp.colorplot
    qcodespp.colored_traces
    qcodespp.load_2d_json
@@ -223,7 +225,7 @@ Package Contents
 
 
 .. py:data:: __version__
-   :value: '0.1.13'
+   :value: '0.1.19'
 
 
 .. py:class:: Measure(*measure, setpoints=None, use_threads=False, station=None, name=None, use_timer=False)
@@ -512,8 +514,21 @@ Package Contents
        folder (str): Path (inc relative) to a folder containing the data files to be plotted.
        link_to_default (bool): Link to the qcodespp default folder specified by qc.set_data_folder().
            Ignored if another folder is specified by folder.
-       use_thread (bool): Runs the application in a separate thread or not. Default is True.
+       use_thread (bool): Runs the application in a separate thread or not. Default is False.
            Threading may cause problems on some systems, e.g. macOS.
+
+
+.. py:function:: param_monitor(*params, interval=0.2, maxlen=500, use_thread=True, ylabel=None, yunit=None)
+
+   Entry point for qcodespp parameter monitoring. 
+   Args:
+       params (list): List of QCoDeS parameters to monitor.
+       interval (int): Update interval in seconds.
+       maxlen (int): Number of points to keep in the rolling window.
+       use_thread (bool): Runs the application in a separate thread or not. Default is False.
+           Threading may cause problems on some systems, e.g. macOS.
+       ylabel (str): Label for the y-axis. Default is None, which will use 'Param value(s) (arb units)'.
+       yunit (str): Unit for the y-axis. Default is None
 
 
 .. py:function:: colorplot(x, y, z, figsize=0, cmap=0, labels=0, xlim=0, ylim=0, zlim=0, xmajor=0, xminor=0, ymajor=0, yminor=0, font_size=0, label_size=0, check_shapes=False)
@@ -740,6 +755,404 @@ Package Contents
    Args:
        folder (str): Folder name relative to the current working directory, e.g. location of the current
            Jupyter notebook. The folder will be created if it does not exist.
+
+
+.. py:class:: DataSetPP(location=None, arrays=None, formatter=None, io=None, write_period=5, backup_location=None, force_write=False, name=None)
+
+   Bases: :py:obj:`qcodes.utils.DelegateAttributes`
+
+
+   A container for one complete measurement from qcodespp.Measure or qcodespp.Loop.
+
+   A DataSetPP consists of multiple DataArrays with potentially different 
+   sizes and dimensionalities. It is accompanied by metadata containing snapshots 
+   of different qcodespp classes, e.g. Instruments and Parameters in the Station.
+
+   A DataSetPP should not be instantiated directly, but constructed by qcodespp.Measure 
+   or qcodespp.Loop. A pre-existing DataSetPP can be loaded with qcodespp.load_data, 
+   load_data_num, or load_data_nums.
+
+   The default format for storage is (a) text file(s) with GNUPlotFormat, where the 
+   DataArrays are converted to numpy arrays. This means that each DataArray must be 
+   rectangular, and all elements must be of the same type. Currently, types are limited 
+   to float or str; however, almost any type other than str can be converted to a float, 
+   and this is done automatically; e.g. boolean --> (0,1). 
+   DataArrays which are also Setpoints can only be of type float.
+
+   Args:
+       location (str or False): A location in the io manager, or ``False`` for
+           an only-in-memory temporary DataSetPP.
+           Note that the full path to or physical location of the data is a
+           combination of io + location. the default ``DiskIO`` sets the base
+           directory, which this location is a relative path inside.
+
+       io (io_manager, optional): base physical location of the ``DataSetPP``.
+           Default ``DataSetPP.default_io`` is initially ``DiskIO('.')`` which
+           says the root data directory is the current working directory, ie
+           where you started the python session.
+
+       arrays (Optional[List[qcodes.DataArray]): arrays to add to the DataSetPP.
+               Can be added later with ``self.add_array(array)``.
+
+       formatter (Formatter, optional): sets the file format/structure to
+           write (and read) with. Default ``DataSetPP.default_formatter`` which
+           is initially ``GNUPlotFormat()``.
+
+       write_period (float or None, optional): Only if ``mode=LOCAL``, seconds
+           between saves to disk. If not ``LOCAL``, the ``DataServer`` handles
+           this and generally writes more often. Use None to disable writing
+           from calls to ``self.store``. Default 5.
+
+   Attributes:
+       background_functions (OrderedDict[callable]): Class attribute,
+           ``{key: fn}``: ``fn`` is a callable accepting no arguments, and
+           ``key`` is a name to identify the function and help you attach and
+           remove it.
+
+           In ``DataSetPP.complete`` we call each of these periodically, in the
+           order that they were attached.
+
+           Note that because this is a class attribute, the functions will
+           apply to every DataSetPP. If you want specific functions for one
+           DataSetPP you can override this with an instance attribute.
+
+
+   .. py:attribute:: delegate_attr_dicts
+      :value: ['arrays']
+
+
+      A list of names (strings) of dictionaries
+      which are (or will be) attributes of ``self``, whose keys should
+      be treated as attributes of ``self``.
+
+
+
+   .. py:attribute:: default_io
+
+
+   .. py:attribute:: default_formatter
+
+
+   .. py:attribute:: location_provider
+
+
+   .. py:attribute:: default_folder
+      :value: None
+
+
+
+   .. py:attribute:: background_functions
+      :type:  Dict[str, Callable]
+
+
+   .. py:attribute:: backup_used
+      :value: False
+
+
+
+   .. py:attribute:: writing_skipped
+      :value: False
+
+
+
+   .. py:attribute:: finalized
+      :value: False
+
+
+
+   .. py:attribute:: publisher
+      :value: None
+
+
+
+   .. py:attribute:: name
+      :value: None
+
+
+
+   .. py:attribute:: formatter
+
+
+   .. py:attribute:: io
+
+
+   .. py:attribute:: write_period
+      :value: 5
+
+
+
+   .. py:attribute:: last_write
+      :value: 0
+
+
+
+   .. py:attribute:: last_store
+      :value: -1
+
+
+
+   .. py:attribute:: force_write
+      :value: False
+
+
+
+   .. py:attribute:: metadata
+
+
+   .. py:attribute:: uuid
+      :value: '00000000000000000000000000000000'
+
+
+
+   .. py:attribute:: arrays
+
+
+   .. py:method:: sync()
+
+      Synchronize this DataSetPP with the DataServer or storage.
+
+      If this DataSetPP is on the server, asks the server for changes.
+      If not, reads the entire DataSetPP from disk.
+
+      Returns:
+          bool: True if this DataSetPP is live on the server
+
+
+
+   .. py:method:: fraction_complete()
+
+      Get the fraction of this DataSetPP which has data in it.
+
+      Returns:
+          float: the average of all measured (not setpoint) arrays'
+              ``fraction_complete()`` values, independent of the individual
+              array sizes. If there are no measured arrays, returns zero.
+
+
+
+   .. py:method:: remove_incomplete()
+
+      "
+      Returns a DataSetPP minus any incomplete columns.
+
+      DataArrays are initialized with a set shape and filled with NaNs. 
+      The NaNs get replaced during the measurements, but if the measurement is
+      stopped prematurely, the existence of NaNs can cause problems when plotting.
+
+      Returns:
+          DataSetPP: a new DataSetPP with all incomplete columns removed.
+
+
+
+   .. py:method:: complete(delay=1.5)
+
+      Periodically sync the DataSetPP and display percent complete status.
+
+      Also, each period, execute functions stored in (class attribute)
+      ``self.background_functions``. If a function fails, we log its
+      traceback and continue on. If any one function fails twice in
+      a row, it gets removed.
+
+      Args:
+          delay (float): seconds between iterations. Default 1.5
+
+
+
+   .. py:method:: get_changes(synced_indices)
+
+      Find changes since the last sync of this DataSetPP.
+
+      Args:
+          synced_indices (dict): ``{array_id: synced_index}`` where
+              synced_index is the last flat index which has already
+              been synced, for any (usually all) arrays in the DataSetPP.
+
+      Returns:
+          Dict[dict]: keys are ``array_id`` for each array with changes,
+              values are dicts as returned by ``DataArray.get_changes``
+              and required as kwargs to ``DataArray.apply_changes``.
+              Note that not all arrays in ``synced_indices`` need be
+              present in the return, only those with changes.
+
+
+
+   .. py:method:: add_array(data_array)
+
+      Add one DataArray to this DataSetPP, and mark it as part of this DataSetPP.
+
+      Note: DO NOT just set ``data_set.arrays[id] = data_array``, because
+      this will not check if we are overwriting another array, nor set the
+      reference back to this DataSetPP, nor that the ``array_id`` in the array
+      matches how you're storing it here.
+
+      Args:
+          data_array (DataArray): the new array to add
+
+      Raises:
+          ValueError: if there is already an array with this id here.
+
+
+
+   .. py:method:: remove_array(array_id)
+
+      Remove an array from a dataset
+
+      Throws an exception when the array specified is refereced by other
+      arrays in the dataset.
+
+      Args:
+          array_id (str): array_id of array to be removed
+
+
+
+   .. py:method:: store(loop_indices, ids_values)
+
+      Insert data into one or more of our DataArrays.
+
+      Args:
+          loop_indices (tuple): the indices within whatever loops we are
+              inside. May have fewer dimensions than some of the arrays
+              we are inserting into, if the corresponding value makes up
+              the remaining dimensionality.
+          values (Dict[Union[float, sequence]]): a dict whose keys are
+              array_ids, and values are single numbers or entire slices
+              to insert into that array.
+       
+
+
+
+   .. py:method:: default_parameter_name(paramname='amplitude')
+
+      Return name of default parameter for plotting
+
+      The default parameter is determined by looking into
+      metdata['default_parameter_name'].  If this variable is not present,
+      then the closest match to the argument paramname is tried.
+
+      Args:
+          paramname (str): Name to match to parameter name
+
+      Returns:
+          name ( Union[str, None] ): name of the default parameter
+
+
+
+   .. py:method:: default_parameter_array(paramname='amplitude')
+
+      Return default parameter array
+
+      Args:
+          paramname (str): Name to match to parameter name.
+               Defaults to 'amplitude'
+
+      Returns:
+          array (DataArray): array corresponding to the default parameter
+
+      See also:
+          default_parameter_name
+
+
+
+
+   .. py:method:: read(include_metadata=True)
+
+      Read the whole DataSetPP from storage, overwriting the local data.
+
+
+
+   .. py:method:: read_metadata()
+
+      Read the metadata from storage, overwriting the local data.
+
+
+
+   .. py:method:: write(write_metadata=False, only_complete=True, filename=None, force_rewrite=False)
+
+      Writes updates to the DataSetPP to storage.
+
+      N.B. it is recommended to call data_set.finalize() when a DataSetPP is
+      no longer expected to change to ensure files get closed
+
+      Args:
+          write_metadata (bool): write the metadata to disk
+          only_complete (bool): passed on to the match_save_range inside
+              self.formatter.write. Used to ensure that all new data gets
+              saved even when some columns are strange.
+          filename (Optional[str]): The filename (minus extension) to use.
+              The file gets saved in the usual location.
+
+
+
+   .. py:method:: write_copy(path=None, io_manager=None, location=None)
+
+      Write a new complete copy of this DataSetPP to storage.
+
+      Args:
+          path (str, optional): An absolute path on this system to write to.
+              If you specify this, you may not include either ``io_manager``
+              or ``location``.
+
+          io_manager (io_manager, optional): A new ``io_manager`` to use with
+              either the ``DataSetPP``'s same or a new ``location``.
+
+          location (str, optional): A new ``location`` to write to, using
+              either this ``DataSetPP``'s same or a new ``io_manager``.
+
+
+
+   .. py:method:: add_metadata(new_metadata)
+
+      Update DataSetPP.metadata with additional data.
+
+      Args:
+          new_metadata (dict): new data to be deep updated into
+              the existing metadata
+
+
+
+   .. py:method:: save_metadata()
+
+      Evaluate and save the DataSetPP's metadata.
+
+
+
+   .. py:method:: finalize(filename=None, write_metadata=True, force_rewrite=False)
+
+      Mark the DataSetPP complete and write any remaining modifications.
+
+      Also closes the data file(s), if the ``Formatter`` we're using
+      supports that.
+
+      Args:
+          filename (Optional[str]): The file name (minus extension) to
+              write to. The location of the file is the usual one.
+          write_metadata (bool): Whether to save a snapshot. For e.g. dumping
+              raw data inside a loop, a snapshot is not wanted.
+
+
+
+   .. py:method:: snapshot(update=False)
+
+      JSON state of the DataSetPP.
+
+
+
+   .. py:method:: get_array_metadata(array_id)
+
+      Get the metadata for a single contained DataArray.
+
+      Args:
+          array_id (str): the array to get metadata for.
+
+      Returns:
+          dict: metadata for this array.
+
+
+
+   .. py:method:: __repr__()
+
+      Rich information about the DataSetPP and contained arrays.
+
 
 
 .. py:function:: listVISAinstruments(baudrates='qdac')

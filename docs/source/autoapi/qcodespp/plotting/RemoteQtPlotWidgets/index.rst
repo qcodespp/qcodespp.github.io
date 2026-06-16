@@ -53,7 +53,7 @@ Module Contents
 
 .. py:data:: qtapp
 
-.. py:class:: PlotTrace(*args, **kargs)
+.. py:class:: PlotTrace(*args, **kwargs)
 
    Bases: :py:obj:`pyqtgraph.PlotDataItem`
 
@@ -72,7 +72,26 @@ Module Contents
    .. py:method:: setData(*args, **kwargs)
 
       Clear any data displayed by this item and display new data.
-      See :func:`__init__() <pyqtgraph.PlotDataItem.__init__>` for details; it accepts the same arguments.
+
+      Parameters
+      ----------
+      *args : tuple
+          See :class:`PlotDataItem` description for supported arguments.
+      **kwargs : dict
+          See :class:`PlotDataItem` description for supported arguments.
+
+      Raises
+      ------
+      TypeError
+          Raised when an invalid type was passed in for `x` or `y` data.
+
+      See Also
+      --------
+      :class:`PlotDataItem`
+          The arguments accepted by :meth:`setData` are the same used during 
+          initialization, and are listed in the opening section.
+      :func:`~pyqtgraph.arrayToQPath`
+          Explains the constructions of the draw paths.
 
 
 
@@ -109,42 +128,53 @@ Module Contents
 
    .. py:method:: setImage(*args, **kwargs)
 
-      Updates the image displayed by this ImageItem. For more information on how the image
-      is processed before displaying, see :func:`~pyqtgraph.makeARGB`.
+      Update the image displayed by this ImageItem.
 
-      For backward compatibility, image data is assumed to be in column-major order (column, row) by default.
-      However, most data is stored in row-major order (row, column). It can either be transposed before assignment::
-
-          imageitem.setImage(imagedata.T)
-
-      or the interpretation of the data can be changed locally through the ``axisOrder`` keyword or by changing the 
-      `imageAxisOrder` :ref:`global configuration option <apiref_config>`
-
-      All keywords supported by :func:`~pyqtgraph.ImageItem.setOpts` are also allowed here.
+      All keywords supported by :meth:`setOpts` are also allowed here.
 
       Parameters
       ----------
-      image: np.ndarray, optional
-          Image data given as NumPy array with an integer or floating
-          point dtype of any bit depth. A 2-dimensional array describes single-valued (monochromatic) data.
-          A 3-dimensional array is used to give individual color components. The third dimension must
-          be of length 3 (RGB) or 4 (RGBA).
-      rect: QRectF or QRect or array_like, optional
-          If given, sets translation and scaling to display the image within the
-          specified rectangle. If ``array_like`` should be the form of floats
-          ``[x, y, w, h]`` See :func:`~pyqtgraph.ImageItem.setRect`
-      autoLevels: bool, optional
-          If `True`, ImageItem will automatically select levels based on the maximum and minimum values encountered 
-          in the data. For performance reasons, this search subsamples the images and may miss individual bright or
-          or dark points in the data set.
-          
-          If `False`, the search will be omitted.
+      image : np.ndarray or None, default None
+          Image data given as NumPy array with an integer or floating point dtype of
+          any bit depth. A 2-dimensional array describes single-valued
+          (monochromatic) data. A 3-dimensional array is used to give individual
+          color components. The third dimension must be of length 3 (RGB) or 4
+          (RGBA). ``np.nan`` values are treated as transparent pixels.
+      autoLevels : bool or None, default None
+          If ``True``, ImageItem will automatically select levels based on the maximum
+          and minimum values encountered in the data. For performance reasons, this
+          search sub-samples the images and may miss individual bright or dark points
+          in the data set. If ``False``, the search will be omitted. If ``None``, the
+          value set by :func:`~pyqtgraph.ImageItem.setOpts` is used, unless a ``levels``
+          keyword argument is given, which implies `False`.
+      levelSamples : int, default 65536
+          Only used when ``autoLevels is None``.  When determining minimum and
+          maximum values, ImageItem only inspects a subset of pixels no larger than
+          this number. Setting this larger than the total number of pixels considers
+          all values. See `quickMinMax`.
+      **kwargs : dict, optional
+          Extra arguments that are passed to `setOpts`.
 
-          The default is `False` if a ``levels`` keyword argument is given, and `True` otherwise.
-      levelSamples: int, default 65536
-          When determining minimum and maximum values, ImageItem
-          only inspects a subset of pixels no larger than this number.
-          Setting this larger than the total number of pixels considers all values.
+      See Also
+      --------
+      quickMinMax
+          See this method for how levelSamples value is utilized.
+      :func:`pyqtgraph.functions.makeARGB`
+          See this function for how image data is modified prior to rendering.
+
+      Notes
+      -----
+      For backward compatibility, image data is assumed to be in column-major order
+      (column, row) by default. However, most data is stored in row-major order
+      (row, column). It can either be transposed before assignment
+
+      .. code-block:: python
+
+          imageitem.setImage(imagedata.T)
+
+      or the interpretation of the data can be changed locally through the
+      `axisOrder` keyword or by changing the `imageAxisOrder`
+      :ref:`global configuration option <apiref_config>`.
 
 
 

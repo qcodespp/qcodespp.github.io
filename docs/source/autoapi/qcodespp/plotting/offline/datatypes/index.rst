@@ -178,7 +178,7 @@ Module Contents
    .. py:method:: apply_single_filter(processed_data, filt)
 
 
-   .. py:method:: apply_all_filters(update_color_limits=True)
+   .. py:method:: apply_all_filters(update_color_limits=True, filter_box_index=None)
 
 
    .. py:method:: extension_setting_edited(editor, setting_name)
