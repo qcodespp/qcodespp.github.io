@@ -12,9 +12,25 @@ Instead of repeatedly supplying the ``measure`` argument to the loops, especiall
 
 Now you do not need to specify ``measure`` in ``loop1d``, ``loop2d``, ``loop2dUD``.
 
-Looping over time
------------------
-Often, you will want to monitor your parameters' evolution over time. To do this, make a custom 'stepper' ``Parameter`` to loop over, `as outlined here <https://qcodespp.github.io/parameters.html#stepper-parameter>`__.
+Looping over time/parameter monitoring
+--------------------------------------
+There are two options to monitor parameters' evolution over time: To take data as part of a Loop, use the 'stepper' ``Parameter``, `as outlined here <https://qcodespp.github.io/parameters.html#stepper-parameter>`__.
+
+If you do not necessarily want to take data, use ``qc.param_monitor(*params)``, e.g.
+
+.. code-block:: python
+
+    qc.param_monitor(instrument.input1, instrument.input2, instrument2.input1)
+
+The refresh interval and maximum number of points to show can be set both in the GUI and during call:
+
+.. code-block:: python
+
+    qc.param_monitor(instrument.input1, instrument.input2, refresh_interval=0.5, max_points=100)
+
+By default the yaxis label and units are generic, but they can be set using the ``ylabel`` and ``yunit`` arguments or in the matplotlib settings in the GUI.
+
+The 'Save Data' button saves *all* the data collected since the 'Clear' button was last pressed, even the data not shown in the plot. Data is saved as a normal qcodes++ data file.
 
 Other kinds of actions
 ----------------------
