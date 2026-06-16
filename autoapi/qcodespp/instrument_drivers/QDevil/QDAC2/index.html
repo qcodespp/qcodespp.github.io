@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>qcodespp.instrument_drivers.QDevil.QDAC2 &mdash; qcodes++ 0.1.16 documentation</title>
+  <title>qcodespp.instrument_drivers.QDevil.QDAC2 &mdash; qcodes++ 0.1.19 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
 
@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="../../../../../_static/qcppfavicon.svg"/>
       <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=ad2e7990"></script>
+      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=4534da52"></script>
       <script src="../../../../../_static/doctools.js?v=888ff710"></script>
       <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../../../_static/js/theme.js"></script>
@@ -138,6 +138,11 @@
 </section>
 <section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2.log">
+<span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.QDevil.QDAC2.</span></span><span class="sig-name descname"><span class="pre">log</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2.log" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2.error_ambiguous_wave">
 <span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.QDevil.QDAC2.</span></span><span class="sig-name descname"><span class="pre">error_ambiguous_wave</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Only</span> <span class="pre">one</span> <span class="pre">of</span> <span class="pre">frequency_Hz</span> <span class="pre">or</span> <span class="pre">period_s</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">specified</span> <span class="pre">for</span> <span class="pre">a</span> <span class="pre">wave</span> <span class="pre">form'</span></em><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2.error_ambiguous_wave" title="Permalink to this definition"></a></dt>
@@ -753,7 +758,7 @@ non-isolated 3V3 on the back (4, 5).</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2.Measurement_Context.available_A">
 <span class="sig-name descname"><span class="pre">available_A</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2.Measurement_Context.available_A" title="Permalink to this definition"></a></dt>
-<dd><p>Retrieve current measurements</p>
+<dd><p>Retrieve current measurements, without software calibration.</p>
 <p>The available measurements will be removed from measurement queue.</p>
 <dl class="simple">
 <dt>Returns:</dt><dd><p>Sequence[float]: list of available current measurements</p>
@@ -764,7 +769,7 @@ non-isolated 3V3 on the back (4, 5).</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2.Measurement_Context.peek_A">
 <span class="sig-name descname"><span class="pre">peek_A</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2.Measurement_Context.peek_A" title="Permalink to this definition"></a></dt>
-<dd><p>Peek at the first available current measurement</p>
+<dd><p>Peek at the first available current measurement, without software calibration.</p>
 <dl class="simple">
 <dt>Returns:</dt><dd><p>float: current in Amperes</p>
 </dd>
@@ -791,11 +796,6 @@ instrument.</p>
 <a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs: Forwarded to the base class.</p>
 </dd>
 </dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Channel.loc_folder">
-<span class="sig-name descname"><span class="pre">loc_folder</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Channel.loc_folder" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
 <dl class="py property">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Channel.number">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">number</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Channel.number" title="Permalink to this definition"></a></dt>
@@ -805,7 +805,7 @@ instrument.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Channel.clear_measurements">
 <span class="sig-name descname"><span class="pre">clear_measurements</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Channel.clear_measurements" title="Permalink to this definition"></a></dt>
-<dd><p>Retrieve current measurements</p>
+<dd><p>Retrieve current measurements, without software calibration.</p>
 <p>The available measurements will be removed from measurement queue.</p>
 <dl class="simple">
 <dt>Returns:</dt><dd><p>Sequence[float]: list of available current measurements</p>
@@ -816,7 +816,7 @@ instrument.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Channel.measurement">
 <span class="sig-name descname"><span class="pre">measurement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repetitions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'high'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aperture_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nplc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2.Measurement_Context" title="qcodespp.instrument_drivers.QDevil.QDAC2.Measurement_Context"><span class="pre">Measurement_Context</span></a></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2.QDac2Channel.measurement" title="Permalink to this definition"></a></dt>
-<dd><p>Set up a sequence of current measurements</p>
+<dd><p>Set up a sequence of current measurements, without software calibration.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>delay_s (float, optional): Seconds to delay the actual measurement after trigger (default 0)
 repetitions (int, optional): Number of consecutive measurements (default 1)
@@ -1082,16 +1082,6 @@ values (Sequence[float]): Sequence of numbers</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2.Arrangement_Context.curr_fit_params_high">
-<span class="sig-name descname"><span class="pre">curr_fit_params_high</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2.Arrangement_Context.curr_fit_params_high" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2.Arrangement_Context.curr_fit_params_low">
-<span class="sig-name descname"><span class="pre">curr_fit_params_low</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2.Arrangement_Context.curr_fit_params_low" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2.Arrangement_Context.init_voltages">
 <span class="sig-name descname"><span class="pre">init_voltages</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2.Arrangement_Context.init_voltages" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
@@ -1229,15 +1219,41 @@ factors (Sequence[float]): factors usually between -1.0 and 1.0</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2.Arrangement_Context.currents_A_fast">
+<span class="sig-name descname"><span class="pre">currents_A_fast</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2.Arrangement_Context.currents_A_fast" title="Permalink to this definition"></a></dt>
+<dd><p>Measure currents on all contacts using calibration, if loaded. Otherwise non-calibrated values returned.</p>
+<p>Note: Assumes nplc and curr_range set properly previously.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2.Arrangement_Context.currents_A">
-<span class="sig-name descname"><span class="pre">currents_A</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2.Arrangement_Context.currents_A" title="Permalink to this definition"></a></dt>
-<dd><p>Measure currents on all contacts using calibration. Note: Assumes nplc and curr_range set properly previously.</p>
+<span class="sig-name descname"><span class="pre">currents_A</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nplc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'low'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2.Arrangement_Context.currents_A" title="Permalink to this definition"></a></dt>
+<dd><p>Measure currents on all contacts ensuring after waiting for aperture time.</p>
+<p>Note: Sets range and nplc manually. Communication takes quite a long time.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>nplc (int, optional): Number of powerline cycles to average over
+current_range (str, optional): Current range (default low)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2.Arrangement_Context.currents_A_ucal_fast">
+<span class="sig-name descname"><span class="pre">currents_A_ucal_fast</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2.Arrangement_Context.currents_A_ucal_fast" title="Permalink to this definition"></a></dt>
+<dd><p>Measure currents on all contacts. Note: uncalibrated current! Large error if high resistive load</p>
+<p>Note: Assumes nplc and curr_range set properly previously.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>nplc (int, optional): Number of powerline cycles to average over
+current_range (str, optional): Current range (default low)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2.Arrangement_Context.currents_A_ucal">
 <span class="sig-name descname"><span class="pre">currents_A_ucal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nplc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'low'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2.Arrangement_Context.currents_A_ucal" title="Permalink to this definition"></a></dt>
 <dd><p>Measure currents on all contacts. Note: uncalibrated current! Large error if high resistive load</p>
+<p>Note: Sets range and nplc manually. Communication takes quite a long time.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>nplc (int, optional): Number of powerline cycles to average over
 current_range (str, optional): Current range (default low)</p>
@@ -1319,7 +1335,7 @@ nplc (int, Optional): Powerline cycles to wait for each measurement</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2.MultiCurrents_Context">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.QDevil.QDAC2.</span></span><span class="sig-name descname"><span class="pre">MultiCurrents_Context</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qdac</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2.QDac2" title="qcodespp.instrument_drivers.QDevil.QDAC2.QDac2"><span class="pre">QDac2</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">chans</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'qdac_currents'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2.MultiCurrents_Context" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.QDevil.QDAC2.</span></span><span class="sig-name descname"><span class="pre">MultiCurrents_Context</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qdac</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#qcodespp.instrument_drivers.QDevil.QDAC2.QDac2" title="qcodespp.instrument_drivers.QDevil.QDAC2.QDac2"><span class="pre">QDac2</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">chans</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'qdac_currents'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2.MultiCurrents_Context" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.MultiParameter</span></code></p>
 <p>A gettable parameter that returns multiple values with separate names,
 each of arbitrary shape. Not necessarily part of an instrument.</p>
@@ -1390,6 +1406,11 @@ Default <code class="docutils literal notranslate"><span class="pre">False</span
 </dd>
 </dl>
 <dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2.MultiCurrents_Context.cal">
+<span class="sig-name descname"><span class="pre">cal</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2.MultiCurrents_Context.cal" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2.MultiCurrents_Context.arrangement">
 <span class="sig-name descname"><span class="pre">arrangement</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2.MultiCurrents_Context.arrangement" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
@@ -1429,12 +1450,18 @@ provide a <code class="docutils literal notranslate"><span class="pre">get</span
 <p>Base class for all instruments using visa connections.</p>
 <dl>
 <dt>Args:</dt><dd><p>name: What this instrument is called locally.
-address: The visa resource name to use to connect.
-timeout: seconds to allow for responses.  If “unset” will read the value from</p>
+address: The visa resource name to use to connect.</p>
 <blockquote>
-<div><p><cite>self.default_timeout</cite>. None means wait forever. Default 5.</p>
+<div><p>Mutually exclusive with <code class="docutils literal notranslate"><span class="pre">resource</span></code>.</p>
 </div></blockquote>
 <dl class="simple">
+<dt>resource: An already-opened <code class="xref py py-class docutils literal notranslate"><span class="pre">pyvisa.resources.MessageBasedResource</span></code>.</dt><dd><p>When provided, the instrument wraps this resource instead of opening
+a new connection. The instrument takes ownership and will close the
+resource when the instrument is closed or garbage collected.
+Mutually exclusive with <code class="docutils literal notranslate"><span class="pre">address</span></code>, <code class="docutils literal notranslate"><span class="pre">visalib</span></code> and <code class="docutils literal notranslate"><span class="pre">pyvisa_sim_file</span></code>.</p>
+</dd>
+<dt>timeout: seconds to allow for responses.  If “unset” will read the value from</dt><dd><p><cite>self.default_timeout</cite>. None means wait forever. Default 5.</p>
+</dd>
 <dt>terminator: Read and write termination character(s).</dt><dd><p>If unset will use <cite>self.default_terminator</cite>.
 If None the terminator will not be set and we
 rely on the defaults from PyVisa. Default None.</p>
@@ -1449,7 +1476,7 @@ path to the visa backend file.
 By default the IVI backend is used if found, but <a class="reference external" href="mailto:'&#37;&#52;&#48;py">‘<span>&#64;</span>py</a>’ will use the
 <code class="docutils literal notranslate"><span class="pre">pyvisa-py</span></code> backend. Note that QCoDeS does not install (or even require)
 ANY backends, it is up to the user to do that. see eg:
-<a class="reference external" href="http://pyvisa.readthedocs.org/en/stable/names.html">http://pyvisa.readthedocs.org/en/stable/names.html</a></p>
+<a class="reference external" href="https://pyvisa.readthedocs.io/en/stable/introduction/names.html">https://pyvisa.readthedocs.io/en/stable/introduction/names.html</a></p>
 </div></blockquote>
 <dl class="simple">
 <dt>metadata: additional static metadata to add to this</dt><dd><p>instrument’s JSON snapshot.</p>
@@ -1766,6 +1793,15 @@ to the instrument, call get_recorded_scpi_commands().</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2.QDac2.calibrate_currents">
 <span class="sig-name descname"><span class="pre">calibrate_currents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lowcurrent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">highcurrent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nplc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numdatapoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fitindex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_latest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datafolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2.QDac2.calibrate_currents" title="Permalink to this definition"></a></dt>
+<dd><p>Calibrate the open circuit current of a QDevil QDac-II.</p>
+<p>Due to common mode error, each channel measures a unique, voltage dependent current in open circuit.
+The calibration procedure measures the uncalibrated I vs V for each channel and corrects for it when using curr().
+Before running the calibration, remove all loads from the outputs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.QDevil.QDAC2.QDac2.gui">
+<span class="sig-name descname"><span class="pre">gui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.QDevil.QDAC2.QDac2.gui" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">

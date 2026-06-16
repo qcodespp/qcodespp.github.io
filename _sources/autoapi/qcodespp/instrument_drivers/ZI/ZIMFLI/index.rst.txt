@@ -28,19 +28,13 @@ Module Contents
 
 
 
+   .. py:attribute:: LI
+
+
    .. py:attribute:: scoperates
 
 
    .. py:attribute:: scopechaninputs
-
-
-   .. py:method:: print_scope_rates()
-
-
-   .. py:method:: print_scope_chaninputs()
-
-
-   .. py:attribute:: LI
 
 
    .. py:attribute:: port
@@ -75,6 +69,9 @@ Module Contents
           A dict containing vendor, model, serial, and firmware.
 
 
+
+
+   .. py:method:: set_scope_scaling(ch1_scale=1, ch2_scale=1, ch1_unit=None, ch2_unit=None)
 
 
 .. py:class:: MFLIScope(name: str, instrument: ZIMFLI)

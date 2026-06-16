@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qcodespp.instrument_drivers.datron.Datron1271 &mdash; qcodes++ 0.1.19 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+    <link rel="shortcut icon" href="../../../../../_static/qcppfavicon.svg"/>
+      <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=4534da52"></script>
+      <script src="../../../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="qcodespp.instrument_drivers.instrument_mocks" href="../../instrument_mocks/index.html" />
+    <link rel="prev" title="qcodespp.instrument_drivers.datron" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            qcodes++
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../dummy_measurements.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../more_features.html">Commonly used features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../parameters.html">Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../visa.html">Instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../live_plot.html">Live plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../template.html">Example template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_analysis.html">Data loading and analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../offline_plotting.html">Offline plotting, a.k.a. InSpectra Gadget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../measure.html">The Measure class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced.html">Advanced use of Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../differences_from_qcodes.html">Comparing qcodes++ and QCoDeS</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">qcodespp</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../actions/index.html">qcodespp.actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cli/index.html">qcodespp.cli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../data/index.html">qcodespp.data</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html">qcodespp.instrument_drivers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../loops/index.html">qcodespp.loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../measure/index.html">qcodespp.measure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../parameters/index.html">qcodespp.parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotting/index.html">qcodespp.plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../scripts/index.html">qcodespp.scripts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../station/index.html">qcodespp.station</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../utils/index.html">qcodespp.utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../version/index.html">qcodespp.version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">qcodes++</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">qcodespp</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">qcodespp.instrument_drivers</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">qcodespp.instrument_drivers.datron</a></li>
+      <li class="breadcrumb-item active">qcodespp.instrument_drivers.datron.Datron1271</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/autoapi/qcodespp/instrument_drivers/datron/Datron1271/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-qcodespp.instrument_drivers.datron.Datron1271">
+<span id="qcodespp-instrument-drivers-datron-datron1271"></span><h1>qcodespp.instrument_drivers.datron.Datron1271<a class="headerlink" href="#module-qcodespp.instrument_drivers.datron.Datron1271" title="Permalink to this heading"></a></h1>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.log">
+<span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.datron.Datron1271.</span></span><span class="sig-name descname"><span class="pre">log</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.log" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.instrument_drivers.datron.Datron1271.</span></span><span class="sig-name descname"><span class="pre">Datron1271</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">terminator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'\n'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.VisaInstrument</span></code></p>
+<p>QCoDeS driver for the Datron 1271 8.5 digit multimeter</p>
+<p>The Datron 1271 is an old instrument with a few quirks: namely that many of the parameters are not readable.
+Notable cases are the resolution, range, mode and delay. That means that if you don’t set them through software,
+QCoDeS will not know these values. This matters for the driver in that the parameters ‘volt’, ‘curr’ and ‘resistance’,
+are only available if the mode is set to read them. You may therefore need to tell the software which mode you are
+using with soft_mode(mode), where mode is one of ‘DCI, ACI, ACV, OHMS, TRUE_OHMS, HI_OHMS’</p>
+<p>Not all functions are implemented or tested. Some functions do not work for unknown reasons.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>name (str): qcodes name for this instrument instance
+address (str): VISA address</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.volt">
+<span class="sig-name descname"><span class="pre">volt</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.volt" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.read">
+<span class="sig-name descname"><span class="pre">read</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.read" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.trig_read">
+<span class="sig-name descname"><span class="pre">trig_read</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.trig_read" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.read_buffer">
+<span class="sig-name descname"><span class="pre">read_buffer</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.read_buffer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.buffer_size">
+<span class="sig-name descname"><span class="pre">buffer_size</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.buffer_size" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.max">
+<span class="sig-name descname"><span class="pre">max</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.max" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.min">
+<span class="sig-name descname"><span class="pre">min</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.min" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.resolution">
+<span class="sig-name descname"><span class="pre">resolution</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.resolution" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.mode">
+<span class="sig-name descname"><span class="pre">mode</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.mode" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.range">
+<span class="sig-name descname"><span class="pre">range</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.range" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.filter">
+<span class="sig-name descname"><span class="pre">filter</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.filter" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.coupling">
+<span class="sig-name descname"><span class="pre">coupling</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.coupling" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.offset">
+<span class="sig-name descname"><span class="pre">offset</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.offset" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.multiplier">
+<span class="sig-name descname"><span class="pre">multiplier</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.multiplier" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.divisor">
+<span class="sig-name descname"><span class="pre">divisor</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.divisor" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.delay">
+<span class="sig-name descname"><span class="pre">delay</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.delay" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.ave_rolling">
+<span class="sig-name descname"><span class="pre">ave_rolling</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.ave_rolling" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.averaging">
+<span class="sig-name descname"><span class="pre">averaging</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.averaging" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.line_freq">
+<span class="sig-name descname"><span class="pre">line_freq</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.line_freq" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.protected_store">
+<span class="sig-name descname"><span class="pre">protected_store</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.protected_store" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.option_config">
+<span class="sig-name descname"><span class="pre">option_config</span></span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.option_config" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.reset" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.clear" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.zero">
+<span class="sig-name descname"><span class="pre">zero</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.zero" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.self_test">
+<span class="sig-name descname"><span class="pre">self_test</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.self_test" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.fast_test">
+<span class="sig-name descname"><span class="pre">fast_test</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.fast_test" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.self_cal">
+<span class="sig-name descname"><span class="pre">self_cal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.self_cal" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.instrument_drivers.datron.Datron1271.Datron1271.soft_mode">
+<span class="sig-name descname"><span class="pre">soft_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.instrument_drivers.datron.Datron1271.Datron1271.soft_mode" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="qcodespp.instrument_drivers.datron" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../instrument_mocks/index.html" class="btn btn-neutral float-right" title="qcodespp.instrument_drivers.instrument_mocks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, qcodes++.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

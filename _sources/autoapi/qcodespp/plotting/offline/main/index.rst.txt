@@ -41,7 +41,7 @@ Module Contents
        folder (str): Path (inc relative) to a folder containing the data files to be plotted.
        link_to_default (bool): Link to the qcodespp default folder specified by qc.set_data_folder().
            Ignored if another folder is specified by folder.
-       use_thread (bool): Runs the application in a separate thread or not. Default is True.
+       use_thread (bool): Runs the application in a separate thread or not. Default is False.
            Threading may cause problems on some systems, e.g. macOS.
 
 

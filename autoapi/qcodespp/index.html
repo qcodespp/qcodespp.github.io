@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>qcodespp &mdash; qcodes++ 0.1.16 documentation</title>
+  <title>qcodespp &mdash; qcodes++ 0.1.19 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
 
@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="../../_static/qcppfavicon.svg"/>
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=ad2e7990"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=4534da52"></script>
       <script src="../../_static/doctools.js?v=888ff710"></script>
       <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -87,6 +87,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.Wait"><code class="docutils literal notranslate"><span class="pre">Wait</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.BreakIf"><code class="docutils literal notranslate"><span class="pre">BreakIf</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.offline_plotting"><code class="docutils literal notranslate"><span class="pre">offline_plotting()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.param_monitor"><code class="docutils literal notranslate"><span class="pre">param_monitor()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.colorplot"><code class="docutils literal notranslate"><span class="pre">colorplot()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.colored_traces"><code class="docutils literal notranslate"><span class="pre">colored_traces()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.load_2d_json"><code class="docutils literal notranslate"><span class="pre">load_2d_json()</span></code></a></li>
@@ -97,6 +98,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.load_data_nums"><code class="docutils literal notranslate"><span class="pre">load_data_nums()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.set_data_format"><code class="docutils literal notranslate"><span class="pre">set_data_format()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.set_data_folder"><code class="docutils literal notranslate"><span class="pre">set_data_folder()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcodespp.DataSetPP"><code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.listVISAinstruments"><code class="docutils literal notranslate"><span class="pre">listVISAinstruments()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.MultiParameterWrapper"><code class="docutils literal notranslate"><span class="pre">MultiParameterWrapper</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#qcodespp.ArrayParameterWrapper"><code class="docutils literal notranslate"><span class="pre">ArrayParameterWrapper</span></code></a></li>
@@ -336,7 +338,7 @@ whose keys should be treated as attributes of <code class="docutils literal notr
 
 <dl class="py data">
 <dt class="sig sig-object py" id="qcodespp.__version__">
-<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">__version__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'0.1.13'</span></em><a class="headerlink" href="#qcodespp.__version__" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">__version__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'0.1.19'</span></em><a class="headerlink" href="#qcodespp.__version__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
@@ -652,11 +654,29 @@ link_to_default (bool): Link to the qcodespp default folder specified by qc.set_
 <div><p>Ignored if another folder is specified by folder.</p>
 </div></blockquote>
 <dl class="simple">
-<dt>use_thread (bool): Runs the application in a separate thread or not. Default is True.</dt><dd><p>Threading may cause problems on some systems, e.g. macOS.</p>
+<dt>use_thread (bool): Runs the application in a separate thread or not. Default is False.</dt><dd><p>Threading may cause problems on some systems, e.g. macOS.</p>
 </dd>
 </dl>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="qcodespp.param_monitor">
+<span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">param_monitor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxlen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_thread</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yunit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.param_monitor" title="Permalink to this definition"></a></dt>
+<dd><p>Entry point for qcodespp parameter monitoring.
+Args:</p>
+<blockquote>
+<div><p>params (list): List of QCoDeS parameters to monitor.
+interval (int): Update interval in seconds.
+maxlen (int): Number of points to keep in the rolling window.
+use_thread (bool): Runs the application in a separate thread or not. Default is False.</p>
+<blockquote>
+<div><p>Threading may cause problems on some systems, e.g. macOS.</p>
+</div></blockquote>
+<p>ylabel (str): Label for the y-axis. Default is None, which will use ‘Param value(s) (arb units)’.
+yunit (str): Unit for the y-axis. Default is None</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py function">
@@ -879,6 +899,428 @@ directory, which this location is a relative path inside.</p>
 </dl>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qcodespp.</span></span><span class="sig-name descname"><span class="pre">DataSetPP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arrays</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">io</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backup_location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_write</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.DataSetPP" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">qcodes.utils.DelegateAttributes</span></code></p>
+<p>A container for one complete measurement from qcodespp.Measure or qcodespp.Loop.</p>
+<p>A DataSetPP consists of multiple DataArrays with potentially different
+sizes and dimensionalities. It is accompanied by metadata containing snapshots
+of different qcodespp classes, e.g. Instruments and Parameters in the Station.</p>
+<p>A DataSetPP should not be instantiated directly, but constructed by qcodespp.Measure
+or qcodespp.Loop. A pre-existing DataSetPP can be loaded with qcodespp.load_data,
+load_data_num, or load_data_nums.</p>
+<p>The default format for storage is (a) text file(s) with GNUPlotFormat, where the
+DataArrays are converted to numpy arrays. This means that each DataArray must be
+rectangular, and all elements must be of the same type. Currently, types are limited
+to float or str; however, almost any type other than str can be converted to a float,
+and this is done automatically; e.g. boolean –&gt; (0,1).
+DataArrays which are also Setpoints can only be of type float.</p>
+<dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>location (str or False): A location in the io manager, or <code class="docutils literal notranslate"><span class="pre">False</span></code> for</dt><dd><p>an only-in-memory temporary DataSetPP.
+Note that the full path to or physical location of the data is a
+combination of io + location. the default <code class="docutils literal notranslate"><span class="pre">DiskIO</span></code> sets the base
+directory, which this location is a relative path inside.</p>
+</dd>
+<dt>io (io_manager, optional): base physical location of the <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code>.</dt><dd><p>Default <code class="docutils literal notranslate"><span class="pre">DataSetPP.default_io</span></code> is initially <code class="docutils literal notranslate"><span class="pre">DiskIO('.')</span></code> which
+says the root data directory is the current working directory, ie
+where you started the python session.</p>
+</dd>
+<dt>arrays (Optional[List[qcodes.DataArray]): arrays to add to the DataSetPP.</dt><dd><p>Can be added later with <code class="docutils literal notranslate"><span class="pre">self.add_array(array)</span></code>.</p>
+</dd>
+<dt>formatter (Formatter, optional): sets the file format/structure to</dt><dd><p>write (and read) with. Default <code class="docutils literal notranslate"><span class="pre">DataSetPP.default_formatter</span></code> which
+is initially <code class="docutils literal notranslate"><span class="pre">GNUPlotFormat()</span></code>.</p>
+</dd>
+<dt>write_period (float or None, optional): Only if <code class="docutils literal notranslate"><span class="pre">mode=LOCAL</span></code>, seconds</dt><dd><p>between saves to disk. If not <code class="docutils literal notranslate"><span class="pre">LOCAL</span></code>, the <code class="docutils literal notranslate"><span class="pre">DataServer</span></code> handles
+this and generally writes more often. Use None to disable writing
+from calls to <code class="docutils literal notranslate"><span class="pre">self.store</span></code>. Default 5.</p>
+</dd>
+</dl>
+</dd>
+<dt>Attributes:</dt><dd><dl>
+<dt>background_functions (OrderedDict[callable]): Class attribute,</dt><dd><p><code class="docutils literal notranslate"><span class="pre">{key:</span> <span class="pre">fn}</span></code>: <code class="docutils literal notranslate"><span class="pre">fn</span></code> is a callable accepting no arguments, and
+<code class="docutils literal notranslate"><span class="pre">key</span></code> is a name to identify the function and help you attach and
+remove it.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">DataSetPP.complete</span></code> we call each of these periodically, in the
+order that they were attached.</p>
+<p>Note that because this is a class attribute, the functions will
+apply to every DataSetPP. If you want specific functions for one
+DataSetPP you can override this with an instance attribute.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.delegate_attr_dicts">
+<span class="sig-name descname"><span class="pre">delegate_attr_dicts</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['arrays']</span></em><a class="headerlink" href="#qcodespp.DataSetPP.delegate_attr_dicts" title="Permalink to this definition"></a></dt>
+<dd><p>A list of names (strings) of dictionaries
+which are (or will be) attributes of <code class="docutils literal notranslate"><span class="pre">self</span></code>, whose keys should
+be treated as attributes of <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.default_io">
+<span class="sig-name descname"><span class="pre">default_io</span></span><a class="headerlink" href="#qcodespp.DataSetPP.default_io" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.default_formatter">
+<span class="sig-name descname"><span class="pre">default_formatter</span></span><a class="headerlink" href="#qcodespp.DataSetPP.default_formatter" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.location_provider">
+<span class="sig-name descname"><span class="pre">location_provider</span></span><a class="headerlink" href="#qcodespp.DataSetPP.location_provider" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.default_folder">
+<span class="sig-name descname"><span class="pre">default_folder</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.DataSetPP.default_folder" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.background_functions">
+<span class="sig-name descname"><span class="pre">background_functions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qcodespp.DataSetPP.background_functions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.backup_used">
+<span class="sig-name descname"><span class="pre">backup_used</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#qcodespp.DataSetPP.backup_used" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.writing_skipped">
+<span class="sig-name descname"><span class="pre">writing_skipped</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#qcodespp.DataSetPP.writing_skipped" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.finalized">
+<span class="sig-name descname"><span class="pre">finalized</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#qcodespp.DataSetPP.finalized" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.publisher">
+<span class="sig-name descname"><span class="pre">publisher</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.DataSetPP.publisher" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qcodespp.DataSetPP.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.formatter">
+<span class="sig-name descname"><span class="pre">formatter</span></span><a class="headerlink" href="#qcodespp.DataSetPP.formatter" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.io">
+<span class="sig-name descname"><span class="pre">io</span></span><a class="headerlink" href="#qcodespp.DataSetPP.io" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.write_period">
+<span class="sig-name descname"><span class="pre">write_period</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#qcodespp.DataSetPP.write_period" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.last_write">
+<span class="sig-name descname"><span class="pre">last_write</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#qcodespp.DataSetPP.last_write" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.last_store">
+<span class="sig-name descname"><span class="pre">last_store</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">-1</span></em><a class="headerlink" href="#qcodespp.DataSetPP.last_store" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.force_write">
+<span class="sig-name descname"><span class="pre">force_write</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#qcodespp.DataSetPP.force_write" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.metadata">
+<span class="sig-name descname"><span class="pre">metadata</span></span><a class="headerlink" href="#qcodespp.DataSetPP.metadata" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.uuid">
+<span class="sig-name descname"><span class="pre">uuid</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'00000000000000000000000000000000'</span></em><a class="headerlink" href="#qcodespp.DataSetPP.uuid" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.arrays">
+<span class="sig-name descname"><span class="pre">arrays</span></span><a class="headerlink" href="#qcodespp.DataSetPP.arrays" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.sync">
+<span class="sig-name descname"><span class="pre">sync</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.DataSetPP.sync" title="Permalink to this definition"></a></dt>
+<dd><p>Synchronize this DataSetPP with the DataServer or storage.</p>
+<p>If this DataSetPP is on the server, asks the server for changes.
+If not, reads the entire DataSetPP from disk.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>bool: True if this DataSetPP is live on the server</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.fraction_complete">
+<span class="sig-name descname"><span class="pre">fraction_complete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.DataSetPP.fraction_complete" title="Permalink to this definition"></a></dt>
+<dd><p>Get the fraction of this DataSetPP which has data in it.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>float: the average of all measured (not setpoint) arrays’</dt><dd><p><code class="docutils literal notranslate"><span class="pre">fraction_complete()</span></code> values, independent of the individual
+array sizes. If there are no measured arrays, returns zero.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.remove_incomplete">
+<span class="sig-name descname"><span class="pre">remove_incomplete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.DataSetPP.remove_incomplete" title="Permalink to this definition"></a></dt>
+<dd><p>”
+Returns a DataSetPP minus any incomplete columns.</p>
+<p>DataArrays are initialized with a set shape and filled with NaNs.
+The NaNs get replaced during the measurements, but if the measurement is
+stopped prematurely, the existence of NaNs can cause problems when plotting.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>DataSetPP: a new DataSetPP with all incomplete columns removed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.complete">
+<span class="sig-name descname"><span class="pre">complete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.DataSetPP.complete" title="Permalink to this definition"></a></dt>
+<dd><p>Periodically sync the DataSetPP and display percent complete status.</p>
+<p>Also, each period, execute functions stored in (class attribute)
+<code class="docutils literal notranslate"><span class="pre">self.background_functions</span></code>. If a function fails, we log its
+traceback and continue on. If any one function fails twice in
+a row, it gets removed.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>delay (float): seconds between iterations. Default 1.5</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.get_changes">
+<span class="sig-name descname"><span class="pre">get_changes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">synced_indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.DataSetPP.get_changes" title="Permalink to this definition"></a></dt>
+<dd><p>Find changes since the last sync of this DataSetPP.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>synced_indices (dict): <code class="docutils literal notranslate"><span class="pre">{array_id:</span> <span class="pre">synced_index}</span></code> where</dt><dd><p>synced_index is the last flat index which has already
+been synced, for any (usually all) arrays in the DataSetPP.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>Dict[dict]: keys are <code class="docutils literal notranslate"><span class="pre">array_id</span></code> for each array with changes,</dt><dd><p>values are dicts as returned by <code class="docutils literal notranslate"><span class="pre">DataArray.get_changes</span></code>
+and required as kwargs to <code class="docutils literal notranslate"><span class="pre">DataArray.apply_changes</span></code>.
+Note that not all arrays in <code class="docutils literal notranslate"><span class="pre">synced_indices</span></code> need be
+present in the return, only those with changes.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.add_array">
+<span class="sig-name descname"><span class="pre">add_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_array</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.DataSetPP.add_array" title="Permalink to this definition"></a></dt>
+<dd><p>Add one DataArray to this DataSetPP, and mark it as part of this DataSetPP.</p>
+<p>Note: DO NOT just set <code class="docutils literal notranslate"><span class="pre">data_set.arrays[id]</span> <span class="pre">=</span> <span class="pre">data_array</span></code>, because
+this will not check if we are overwriting another array, nor set the
+reference back to this DataSetPP, nor that the <code class="docutils literal notranslate"><span class="pre">array_id</span></code> in the array
+matches how you’re storing it here.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>data_array (DataArray): the new array to add</p>
+</dd>
+<dt>Raises:</dt><dd><p>ValueError: if there is already an array with this id here.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.remove_array">
+<span class="sig-name descname"><span class="pre">remove_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.DataSetPP.remove_array" title="Permalink to this definition"></a></dt>
+<dd><p>Remove an array from a dataset</p>
+<p>Throws an exception when the array specified is refereced by other
+arrays in the dataset.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>array_id (str): array_id of array to be removed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.store">
+<span class="sig-name descname"><span class="pre">store</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop_indices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids_values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.DataSetPP.store" title="Permalink to this definition"></a></dt>
+<dd><p>Insert data into one or more of our DataArrays.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>loop_indices (tuple): the indices within whatever loops we are</dt><dd><p>inside. May have fewer dimensions than some of the arrays
+we are inserting into, if the corresponding value makes up
+the remaining dimensionality.</p>
+</dd>
+<dt>values (Dict[Union[float, sequence]]): a dict whose keys are</dt><dd><p>array_ids, and values are single numbers or entire slices
+to insert into that array.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.default_parameter_name">
+<span class="sig-name descname"><span class="pre">default_parameter_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paramname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'amplitude'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.DataSetPP.default_parameter_name" title="Permalink to this definition"></a></dt>
+<dd><p>Return name of default parameter for plotting</p>
+<p>The default parameter is determined by looking into
+metdata[‘default_parameter_name’].  If this variable is not present,
+then the closest match to the argument paramname is tried.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>paramname (str): Name to match to parameter name</p>
+</dd>
+<dt>Returns:</dt><dd><p>name ( Union[str, None] ): name of the default parameter</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.default_parameter_array">
+<span class="sig-name descname"><span class="pre">default_parameter_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paramname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'amplitude'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.DataSetPP.default_parameter_array" title="Permalink to this definition"></a></dt>
+<dd><p>Return default parameter array</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>paramname (str): Name to match to parameter name.</dt><dd><p>Defaults to ‘amplitude’</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>array (DataArray): array corresponding to the default parameter</p>
+</dd>
+<dt>See also:</dt><dd><p>default_parameter_name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.DataSetPP.read" title="Permalink to this definition"></a></dt>
+<dd><p>Read the whole DataSetPP from storage, overwriting the local data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.read_metadata">
+<span class="sig-name descname"><span class="pre">read_metadata</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.DataSetPP.read_metadata" title="Permalink to this definition"></a></dt>
+<dd><p>Read the metadata from storage, overwriting the local data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">write_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_complete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_rewrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.DataSetPP.write" title="Permalink to this definition"></a></dt>
+<dd><p>Writes updates to the DataSetPP to storage.</p>
+<p>N.B. it is recommended to call data_set.finalize() when a DataSetPP is
+no longer expected to change to ensure files get closed</p>
+<dl>
+<dt>Args:</dt><dd><p>write_metadata (bool): write the metadata to disk
+only_complete (bool): passed on to the match_save_range inside</p>
+<blockquote>
+<div><p>self.formatter.write. Used to ensure that all new data gets
+saved even when some columns are strange.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>filename (Optional[str]): The filename (minus extension) to use.</dt><dd><p>The file gets saved in the usual location.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.write_copy">
+<span class="sig-name descname"><span class="pre">write_copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">io_manager</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.DataSetPP.write_copy" title="Permalink to this definition"></a></dt>
+<dd><p>Write a new complete copy of this DataSetPP to storage.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>path (str, optional): An absolute path on this system to write to.</dt><dd><p>If you specify this, you may not include either <code class="docutils literal notranslate"><span class="pre">io_manager</span></code>
+or <code class="docutils literal notranslate"><span class="pre">location</span></code>.</p>
+</dd>
+<dt>io_manager (io_manager, optional): A new <code class="docutils literal notranslate"><span class="pre">io_manager</span></code> to use with</dt><dd><p>either the <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code>’s same or a new <code class="docutils literal notranslate"><span class="pre">location</span></code>.</p>
+</dd>
+<dt>location (str, optional): A new <code class="docutils literal notranslate"><span class="pre">location</span></code> to write to, using</dt><dd><p>either this <code class="docutils literal notranslate"><span class="pre">DataSetPP</span></code>’s same or a new <code class="docutils literal notranslate"><span class="pre">io_manager</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.add_metadata">
+<span class="sig-name descname"><span class="pre">add_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_metadata</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.DataSetPP.add_metadata" title="Permalink to this definition"></a></dt>
+<dd><p>Update DataSetPP.metadata with additional data.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>new_metadata (dict): new data to be deep updated into</dt><dd><p>the existing metadata</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.save_metadata">
+<span class="sig-name descname"><span class="pre">save_metadata</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.DataSetPP.save_metadata" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluate and save the DataSetPP’s metadata.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.finalize">
+<span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_rewrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.DataSetPP.finalize" title="Permalink to this definition"></a></dt>
+<dd><p>Mark the DataSetPP complete and write any remaining modifications.</p>
+<p>Also closes the data file(s), if the <code class="docutils literal notranslate"><span class="pre">Formatter</span></code> we’re using
+supports that.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>filename (Optional[str]): The file name (minus extension) to</dt><dd><p>write to. The location of the file is the usual one.</p>
+</dd>
+<dt>write_metadata (bool): Whether to save a snapshot. For e.g. dumping</dt><dd><p>raw data inside a loop, a snapshot is not wanted.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.snapshot">
+<span class="sig-name descname"><span class="pre">snapshot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.DataSetPP.snapshot" title="Permalink to this definition"></a></dt>
+<dd><p>JSON state of the DataSetPP.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.get_array_metadata">
+<span class="sig-name descname"><span class="pre">get_array_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.DataSetPP.get_array_metadata" title="Permalink to this definition"></a></dt>
+<dd><p>Get the metadata for a single contained DataArray.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>array_id (str): the array to get metadata for.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: metadata for this array.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qcodespp.DataSetPP.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qcodespp.DataSetPP.__repr__" title="Permalink to this definition"></a></dt>
+<dd><p>Rich information about the DataSetPP and contained arrays.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py function">

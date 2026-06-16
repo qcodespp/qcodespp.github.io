@@ -115,6 +115,11 @@ Module Contents
    .. py:attribute:: error_log
 
 
+   .. py:attribute:: banned_files
+      :value: []
+
+
+
    .. py:method:: init_plot_settings()
 
 

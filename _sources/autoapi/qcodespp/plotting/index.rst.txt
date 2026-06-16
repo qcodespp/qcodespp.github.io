@@ -16,5 +16,6 @@ Submodules
    /autoapi/qcodespp/plotting/analysis_tools/index
    /autoapi/qcodespp/plotting/colors/index
    /autoapi/qcodespp/plotting/offline/index
+   /autoapi/qcodespp/plotting/param_monitoring/index
 
 

@@ -45,6 +45,8 @@ Functions
    qcodespp.utils.helpers.add_to_spyder_UMR_excludelist
    qcodespp.utils.helpers.attribute_set_to
    qcodespp.utils.helpers.partial_with_docstring
+   qcodespp.utils.helpers.convertExpToSI
+   qcodespp.utils.helpers.pyplotconvertExpToSI
 
 
 Module Contents
@@ -367,4 +369,8 @@ Module Contents
        func (callable)
        docstring (str)
 
+
+.. py:function:: convertExpToSI(size)
+
+.. py:function:: pyplotconvertExpToSI(axlims)
 

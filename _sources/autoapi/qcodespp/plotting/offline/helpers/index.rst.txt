@@ -91,7 +91,7 @@ Module Contents
 
 
 
-.. py:class:: NavigationToolbarMod(canvas, parent=None, coordinates=True)
+.. py:class:: NavigationToolbarMod(canvas, parent)
 
    Bases: :py:obj:`matplotlib.backends.backend_qt5.NavigationToolbar2QT`
 
